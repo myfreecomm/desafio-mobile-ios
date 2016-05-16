@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="PullsCD" representedClassName="PullsCD" syncable="YES">
+        <attribute name="pullBody" attributeType="String" syncable="YES"/>
+        <attribute name="pullDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pullId" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="pullTitle" attributeType="String" syncable="YES"/>
+        <attribute name="pullUrl" attributeType="String" syncable="YES"/>
+        <relationship name="pullUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PullsUserCD" inverseName="pulls" inverseEntity="PullsUserCD" syncable="YES"/>
+    </entity>
+    <entity name="PullsUserCD" representedClassName="PullsUserCD" syncable="YES">
+        <attribute name="userAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pulls" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PullsCD" inverseName="pullUser" inverseEntity="PullsCD" syncable="YES"/>
+    </entity>
+    <entity name="RepoCD" representedClassName="RepoCD" syncable="YES">
+        <attribute name="repoDesc" attributeType="String" syncable="YES"/>
+        <attribute name="repoForks" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="repoFullName" attributeType="String" syncable="YES"/>
+        <attribute name="repoId" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="repoIssues" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="repoName" attributeType="String" syncable="YES"/>
+        <attribute name="repoStars" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="repoUrl" attributeType="String" syncable="YES"/>
+        <relationship name="repoOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RepoOwnerCD" inverseName="repo" inverseEntity="RepoOwnerCD" syncable="YES"/>
+    </entity>
+    <entity name="RepoOwnerCD" representedClassName="RepoOwnerCD" syncable="YES">
+        <attribute name="ownerAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownerId" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="ownerName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="repo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RepoCD" inverseName="repoOwner" inverseEntity="RepoCD" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PullsCD" positionX="-36" positionY="9" width="128" height="135"/>
+        <element name="PullsUserCD" positionX="-18" positionY="27" width="128" height="105"/>
+        <element name="RepoCD" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="RepoOwnerCD" positionX="-54" positionY="-9" width="128" height="105"/>
+    </elements>
+</model>
