@@ -7,16 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm.h>
 #import "Owner.h"
 
-@interface Repository : NSObject
+@interface Repository : RLMObject
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *repDescription;
-@property (nonatomic, copy) NSString *forks_count;
-@property (nonatomic, copy) NSString *stargazers_count;
-@property (strong, nonatomic) Owner* owner;
+@property NSString *name;
+@property NSString *repDescription;
+@property NSInteger forks_count;
+@property NSInteger stargazers_count;
+//@property (strong, nonatomic) Owner* owner;
 
 @end

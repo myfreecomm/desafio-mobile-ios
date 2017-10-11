@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Repository.h"
+#import <Realm.h>
 
 @interface LibraryAPI : NSObject
 
 +(LibraryAPI *) sharedInstance;
 
 -(void)getDados;
+
 
 @end

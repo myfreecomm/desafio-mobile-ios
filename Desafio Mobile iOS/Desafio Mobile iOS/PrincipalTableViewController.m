@@ -8,8 +8,11 @@
 
 #import "PrincipalTableViewController.h"
 #import "LibraryAPI.h"
+#import "RepositoriesTableViewCell.h"
 
-@interface PrincipalTableViewController ()
+@interface PrincipalTableViewController () {
+    NSArray *repositoriesArray;
+}
 
 @end
 
@@ -18,7 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+//    [self.tableView registerClass:[RepositoriesTableViewCell class] forCellReuseIdentifier:@"cell"];
     [[LibraryAPI sharedInstance] getDados];
+    [self AtualizarView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,27 +32,106 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)AtualizarView {
+    
+    NSMutableArray *mut = [NSMutableArray new];
+    
+    
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    RLMResults<Repository *> *repository = [Repository allObjects];
+     
+     [realm transactionWithBlock:^{
+         for (Repository *repo in repository) {
+             [mut addObject:repo];
+         }
+     }];
+    
+    
+    
+    
+    /*
+    
+    Repository *rep = [Repository new];
+    rep.name = @"RXJava";
+    rep.repDescription = @"This is a long description for the git repositoty and might have a line break and a truncate tail.";
+    rep.forks_count = 999.0;
+    rep.stargazers_count = 109.0;
+    [mut addObject:rep];
+    
+    rep = [Repository new];
+    rep.name = @"Java for android";
+    rep.repDescription = @"This is a long description for the git repositoty and might have a line break and a truncate tail.";
+    rep.forks_count = 999.0;
+    rep.stargazers_count = 109.0;
+    [mut addObject:rep];
+    
+    rep = [Repository new];
+    rep.name = @"Java for linux";
+    rep.repDescription = @"This is a long description for the git repositoty and might have a line break and a truncate tail.";
+    rep.forks_count = 999.0;
+    rep.stargazers_count = 109.0;
+    [mut addObject:rep];
+    
+    rep = [Repository new];
+    rep.name = @"Java for Windows";
+    rep.repDescription = @"This is a long description for the git repositoty and might have a line break and a truncate tail.";
+    rep.forks_count = 999.0;
+    rep.stargazers_count = 109.0;
+    [mut addObject:rep];
+    
+    rep = [Repository new];
+    rep.name = @"Java sux";
+    rep.repDescription = @"This is a long description for the git repositoty and might have a line break and a truncate tail.";
+    rep.forks_count = 999.0;
+    rep.stargazers_count = 109.0;
+    [mut addObject:rep];
+    
+    rep = [Repository new];
+    rep.name = @"Java and the linux";
+    rep.repDescription = @"This is a long description for the git repositoty and might have a line break and a truncate tail.";
+    rep.forks_count = 999.0;
+    rep.stargazers_count = 109.0;
+    [mut addObject:rep];
+    
+    
+    
+    */
+    
+    
+    
+    
+    repositoriesArray = [mut copy];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [repositoriesArray count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    RepositoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Repository *repository = repositoriesArray[indexPath.row];
+    [cell configureWith:repository];
     
     return cell;
 }
-*/
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 130;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

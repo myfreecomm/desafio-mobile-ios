@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RLMObject.h>
 
-@interface Owner : NSObject
+@interface Owner : RLMObject
 
-@property (nonatomic, copy) NSString *login;
-@property (nonatomic, copy) NSString *avatar_url;
+@property NSString *login;
+@property NSString *avatar_url;
 
 @end

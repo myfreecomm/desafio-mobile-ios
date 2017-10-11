@@ -45,10 +45,25 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
                 
                 NSArray *repositorios = json[@"items"];
                 
+                
+                RLMRealm *realm = [RLMRealm defaultRealm];
+                
+                /*RLMResults<Repository *> *repository = [Repository allObjects];
+                
+                 [realm transactionWithBlock:^{                     
+                     for (Repository *repo in repository) {
+                         [realm deleteObject:repo];
+                     }
+                 }];*/
+                
+                
                 for (int i = 0; i < [repositorios count] - 1; i++) {
                     Repository *repositorio = [[Repository alloc] initWithDictionary:repositorios[i]];
-                    //[dados addObject:repositorio];
-                    NSLog(@"Repositorio: %@", repositorio.name);
+             
+                    [realm beginWriteTransaction];
+                    [realm addObject:repositorio];
+                    [realm commitWriteTransaction];
+                    
                 }
             }
         }

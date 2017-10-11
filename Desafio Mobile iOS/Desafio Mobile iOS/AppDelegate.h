@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Realm.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
