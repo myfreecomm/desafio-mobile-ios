@@ -1,0 +1,5 @@
+platform :ios, '8.0'
+
+target 'Desafio Mobile iOS' do
+pod 'Realm'
+end
