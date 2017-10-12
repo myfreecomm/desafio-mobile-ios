@@ -7,6 +7,7 @@
 //
 
 #import "RepositoriesTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation RepositoriesTableViewCell
 
@@ -18,8 +19,13 @@
     self.descriptionLabel.text = repository.repDescription;
     self.starCountLabel.text = [NSString stringWithFormat:@"%i", repository.stargazers_count];
     self.forkCountLabel.text = [NSString stringWithFormat:@"%i", repository.forks_count];
-    self.usernameLabel.text = @"adriano.rezena";
-    self.nomeSobrenomeLabel.text = @"Adriano Rezena";
+                                
+    if (repository.owner) {
+        self.usernameLabel.text = repository.owner.login;
+        [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString: repository.owner.avatar_url]];
+        //self.avatarImageView.image = [UIImage repository.owner.avatar_url;]
+        self.nomeSobrenomeLabel.text = @"Adriano Rezena";
+    }
 }
 
 @end

@@ -12,6 +12,8 @@
 		B9172E091F8E9F9600B3D146 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E071F8E9F9200B3D146 /* star.png */; };
 		B9172E0A1F8E9F9A00B3D146 /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E081F8E9F9200B3D146 /* fork.png */; };
 		B9172E0C1F8EA2DF00B3D146 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E0B1F8EA2D900B3D146 /* avatar.png */; };
+		B9172E0E1F8EFD3100B3D146 /* Constantes.h in Sources */ = {isa = PBXBuildFile; fileRef = B9172E0D1F8EFD3100B3D146 /* Constantes.h */; };
+		B9172E111F8F195B00B3D146 /* LoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9172E101F8F195B00B3D146 /* LoadingTableViewCell.m */; };
 		B959FEBC1F8DBC7B001D8369 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = B959FEBB1F8DBC7B001D8369 /* Repository.m */; };
 		B959FEBF1F8DBD4C001D8369 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = B959FEBE1F8DBD4C001D8369 /* Owner.m */; };
 		B959FEC21F8DC17B001D8369 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B959FEC11F8DC17B001D8369 /* LibraryAPI.m */; };
@@ -53,6 +55,9 @@
 		B9172E071F8E9F9200B3D146 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		B9172E081F8E9F9200B3D146 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fork.png; sourceTree = "<group>"; };
 		B9172E0B1F8EA2D900B3D146 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		B9172E0D1F8EFD3100B3D146 /* Constantes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constantes.h; sourceTree = "<group>"; };
+		B9172E0F1F8F195B00B3D146 /* LoadingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingTableViewCell.h; sourceTree = "<group>"; };
+		B9172E101F8F195B00B3D146 /* LoadingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingTableViewCell.m; sourceTree = "<group>"; };
 		B959FEBA1F8DBC7B001D8369 /* Repository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		B959FEBB1F8DBC7B001D8369 /* Repository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		B959FEBD1F8DBD4C001D8369 /* Owner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
@@ -123,10 +128,21 @@
 		B9172DFD1F8E478D00B3D146 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B9172DFA1F8E476F00B3D146 /* RepositoriesTableViewCell.h */,
-				B9172DFB1F8E476F00B3D146 /* RepositoriesTableViewCell.m */,
+				B990BB1C1F8CEBDA00B32E43 /* PrincipalTableViewController.h */,
+				B990BB1D1F8CEBDA00B32E43 /* PrincipalTableViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9172E121F8F197000B3D146 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9172DFA1F8E476F00B3D146 /* RepositoriesTableViewCell.h */,
+				B9172DFB1F8E476F00B3D146 /* RepositoriesTableViewCell.m */,
+				B9172E0F1F8F195B00B3D146 /* LoadingTableViewCell.h */,
+				B9172E101F8F195B00B3D146 /* LoadingTableViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B990BADE1F8CE90F00B32E43 = {
@@ -158,9 +174,8 @@
 				B990BB1F1F8CFE1900B32E43 /* API */,
 				B990BAEA1F8CE90F00B32E43 /* AppDelegate.h */,
 				B990BAEB1F8CE90F00B32E43 /* AppDelegate.m */,
+				B9172E121F8F197000B3D146 /* View */,
 				B9172DFD1F8E478D00B3D146 /* Controller */,
-				B990BB1C1F8CEBDA00B32E43 /* PrincipalTableViewController.h */,
-				B990BB1D1F8CEBDA00B32E43 /* PrincipalTableViewController.m */,
 				B990BAF01F8CE90F00B32E43 /* Main.storyboard */,
 				B990BAF31F8CE90F00B32E43 /* Assets.xcassets */,
 				B990BAF51F8CE90F00B32E43 /* LaunchScreen.storyboard */,
@@ -170,6 +185,7 @@
 				B9172E081F8E9F9200B3D146 /* fork.png */,
 				B9172E071F8E9F9200B3D146 /* star.png */,
 				B9172E0B1F8EA2D900B3D146 /* avatar.png */,
+				B9172E0D1F8EFD3100B3D146 /* Constantes.h */,
 			);
 			path = "Desafio Mobile iOS";
 			sourceTree = "<group>";
@@ -403,7 +419,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9172E111F8F195B00B3D146 /* LoadingTableViewCell.m in Sources */,
 				B959FEC21F8DC17B001D8369 /* LibraryAPI.m in Sources */,
+				B9172E0E1F8EFD3100B3D146 /* Constantes.h in Sources */,
 				B959FEBF1F8DBD4C001D8369 /* Owner.m in Sources */,
 				B990BAFA1F8CE90F00B32E43 /* main.m in Sources */,
 				B990BB1E1F8CEBDA00B32E43 /* PrincipalTableViewController.m in Sources */,

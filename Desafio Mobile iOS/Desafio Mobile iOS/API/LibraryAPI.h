@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Repository.h"
 #import <Realm.h>
+#import "Repository.h"
+#import "Constantes.h"
+
 
 @interface LibraryAPI : NSObject
 
 +(LibraryAPI *) sharedInstance;
 
--(void)getDados;
+-(void)getDados:(int)page;
 
 
 @end

@@ -18,6 +18,8 @@
         self.repDescription = dictionary[@"description"];
         self.forks_count = [dictionary[@"forks_count"] integerValue];
         self.stargazers_count = [dictionary[@"stargazers_count"] integerValue];
+        
+        self.owner = [[Owner alloc] initWithDictionary:dictionary[@"owner"]];
     }
 
     return self;

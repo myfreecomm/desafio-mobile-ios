@@ -18,6 +18,6 @@
 @property NSString *repDescription;
 @property NSInteger forks_count;
 @property NSInteger stargazers_count;
-//@property (strong, nonatomic) Owner* owner;
+@property Owner* owner;
 
 @end

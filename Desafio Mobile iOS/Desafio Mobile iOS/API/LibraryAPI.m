@@ -7,9 +7,8 @@
 //
 
 #import "LibraryAPI.h"
-#import "Repository.h"
 
-static NSString *const kRepositoriesPath = @"https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1";
+static NSString *const kRepositoriesPath = @"https://api.github.com/search/repositories?q=language:Java&sort=stars&page=";
 
 @implementation LibraryAPI
 
@@ -24,12 +23,14 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
     return _sharedInstance;
 }
 
--(void)getDados {
+-(void)getDados:(int)page {
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
 
-    NSURL *url = [NSURL URLWithString:kRepositoriesPath];
+    //NSURL *url = [NSURL URLWithString:kRepositoriesPath];
+    NSURL *url = [NSURL URLWithString:[kRepositoriesPath stringByAppendingString:[NSString stringWithFormat:@"%i", page]]];
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
     //NSMutableArray *dados = [NSMutableArray new];
@@ -48,14 +49,15 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
                 
                 RLMRealm *realm = [RLMRealm defaultRealm];
                 
-                /*RLMResults<Repository *> *repository = [Repository allObjects];
-                
-                 [realm transactionWithBlock:^{                     
-                     for (Repository *repo in repository) {
-                         [realm deleteObject:repo];
-                     }
-                 }];*/
-                
+                if (page == 1) {
+                    RLMResults<Repository *> *repository = [Repository allObjects];
+                    
+                    [realm transactionWithBlock:^{
+                        for (Repository *repo in repository) {
+                            [realm deleteObject:repo];
+                        }
+                    }];
+                }
                 
                 for (int i = 0; i < [repositorios count] - 1; i++) {
                     Repository *repositorio = [[Repository alloc] initWithDictionary:repositorios[i]];
@@ -63,8 +65,11 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
                     [realm beginWriteTransaction];
                     [realm addObject:repositorio];
                     [realm commitWriteTransaction];
-                    
                 }
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesFinished object:self userInfo:nil];
+                });
             }
         }
         
