@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "Repository.h"
 
 @interface RepositoriesTableViewCell : UITableViewCell

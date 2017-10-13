@@ -14,10 +14,12 @@
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 
+@property NSInteger id;
 @property NSString *name;
 @property NSString *repDescription;
 @property NSInteger forks_count;
 @property NSInteger stargazers_count;
+@property NSString *pulls_url;
 @property Owner* owner;
 
 @end

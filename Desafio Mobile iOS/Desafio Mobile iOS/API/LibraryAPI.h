@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Realm.h>
 #import "Repository.h"
+#import "PullRequest.h"
 #import "Constantes.h"
 
 
 @interface LibraryAPI : NSObject
 
 +(LibraryAPI *) sharedInstance;
-
--(void)getDados:(int)page;
-
+-(void)getRepositories:(int)page;
+-(void)getPullRequestsfromRepository:(Repository *) repository;
 
 @end

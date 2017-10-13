@@ -15,5 +15,7 @@
 
 @property NSString *login;
 @property NSString *avatar_url;
+@property NSString *url;
+@property NSString *name;
 
 @end

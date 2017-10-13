@@ -10,5 +10,7 @@
 #define Constantes_h
 
 #define kStrNotificationRepositoriesFinished @"NotificationRepositoriesFinished"
+#define kStrNotificationPullRequestFinished @"NotificationPullRequestFinished"
+#define kSeguePullRequests @"SeguePullRequests"
 
 #endif /* Constantes_h */

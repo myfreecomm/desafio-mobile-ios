@@ -8,8 +8,10 @@
 
 #import "PrincipalTableViewController.h"
 #import "LibraryAPI.h"
+#import "Constantes.h"
 #import "RepositoriesTableViewCell.h"
 #import "LoadingTableViewCell.h"
+#import "PullRequestTableViewController.h"
 
 @interface PrincipalTableViewController () {
     NSArray *repositoriesArray;
@@ -23,10 +25,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.tableView registerClass:[LoadingTableViewCell class] forCellReuseIdentifier:@"loadingCell"];
+    
+    [self AtualizarView];
+    
     page = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AtualizarView) name:kStrNotificationRepositoriesFinished object:nil];
-    [[LibraryAPI sharedInstance] getDados:page];
+    [[LibraryAPI sharedInstance] getRepositories:page];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,13 +79,10 @@
     
     BOOL lastItemReached = indexPath.row >= [repositoriesArray count];
     
-    //NSLog(@"indexPath.row = %i ||||| [repositoriesArray count] = %i", indexPath.row, [repositoriesArray count]);
-    
     if ((lastItemReached) && [repositoriesArray count] > 0) {
-        NSLog(@"lastItemReached");
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"loadingCell" forIndexPath:indexPath];
         page++;
-        [[LibraryAPI sharedInstance] getDados:page];
+        [[LibraryAPI sharedInstance] getRepositories:page];
         return cell;
     } else {
         if ([repositoriesArray count] > 0) {
@@ -106,15 +109,20 @@
     return 130;
 }
 
-
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:kSeguePullRequests]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Repository *repository = repositoriesArray[indexPath.row];
+        
+        if (repository.pulls_url) {
+            PullRequestTableViewController *destinationViewController = [[PullRequestTableViewController alloc] init];
+            [destinationViewController setRepository:repository];
+        }
+    }
 }
-*/
+
 
 @end

@@ -25,6 +25,9 @@
 		B990BB041F8CE90F00B32E43 /* Desafio_Mobile_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B990BB031F8CE90F00B32E43 /* Desafio_Mobile_iOSTests.m */; };
 		B990BB0F1F8CE90F00B32E43 /* Desafio_Mobile_iOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B990BB0E1F8CE90F00B32E43 /* Desafio_Mobile_iOSUITests.m */; };
 		B990BB1E1F8CEBDA00B32E43 /* PrincipalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B990BB1D1F8CEBDA00B32E43 /* PrincipalTableViewController.m */; };
+		B9FF8A311F8F96DF00DB8BB2 /* PullRequestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FF8A301F8F96DF00DB8BB2 /* PullRequestTableViewController.m */; };
+		B9FF8A341F8F977300DB8BB2 /* PullRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FF8A331F8F977300DB8BB2 /* PullRequestTableViewCell.m */; };
+		B9FF8A371F8F9CBC00DB8BB2 /* PullRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FF8A361F8F9CBC00DB8BB2 /* PullRequest.m */; };
 		F1E7162AD3A1B069D40296ED /* libPods-Desafio Mobile iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6B56FFDC6BC12B37B5804B /* libPods-Desafio Mobile iOS.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +83,12 @@
 		B990BB101F8CE90F00B32E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B990BB1C1F8CEBDA00B32E43 /* PrincipalTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrincipalTableViewController.h; sourceTree = "<group>"; };
 		B990BB1D1F8CEBDA00B32E43 /* PrincipalTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrincipalTableViewController.m; sourceTree = "<group>"; };
+		B9FF8A2F1F8F96DF00DB8BB2 /* PullRequestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullRequestTableViewController.h; sourceTree = "<group>"; };
+		B9FF8A301F8F96DF00DB8BB2 /* PullRequestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullRequestTableViewController.m; sourceTree = "<group>"; };
+		B9FF8A321F8F977300DB8BB2 /* PullRequestTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullRequestTableViewCell.h; sourceTree = "<group>"; };
+		B9FF8A331F8F977300DB8BB2 /* PullRequestTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullRequestTableViewCell.m; sourceTree = "<group>"; };
+		B9FF8A351F8F9CBC00DB8BB2 /* PullRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullRequest.h; sourceTree = "<group>"; };
+		B9FF8A361F8F9CBC00DB8BB2 /* PullRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +139,8 @@
 			children = (
 				B990BB1C1F8CEBDA00B32E43 /* PrincipalTableViewController.h */,
 				B990BB1D1F8CEBDA00B32E43 /* PrincipalTableViewController.m */,
+				B9FF8A2F1F8F96DF00DB8BB2 /* PullRequestTableViewController.h */,
+				B9FF8A301F8F96DF00DB8BB2 /* PullRequestTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,6 +150,8 @@
 			children = (
 				B9172DFA1F8E476F00B3D146 /* RepositoriesTableViewCell.h */,
 				B9172DFB1F8E476F00B3D146 /* RepositoriesTableViewCell.m */,
+				B9FF8A321F8F977300DB8BB2 /* PullRequestTableViewCell.h */,
+				B9FF8A331F8F977300DB8BB2 /* PullRequestTableViewCell.m */,
 				B9172E0F1F8F195B00B3D146 /* LoadingTableViewCell.h */,
 				B9172E101F8F195B00B3D146 /* LoadingTableViewCell.m */,
 			);
@@ -224,6 +237,8 @@
 				B959FEBB1F8DBC7B001D8369 /* Repository.m */,
 				B959FEBD1F8DBD4C001D8369 /* Owner.h */,
 				B959FEBE1F8DBD4C001D8369 /* Owner.m */,
+				B9FF8A351F8F9CBC00DB8BB2 /* PullRequest.h */,
+				B9FF8A361F8F9CBC00DB8BB2 /* PullRequest.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,8 +440,11 @@
 				B959FEBF1F8DBD4C001D8369 /* Owner.m in Sources */,
 				B990BAFA1F8CE90F00B32E43 /* main.m in Sources */,
 				B990BB1E1F8CEBDA00B32E43 /* PrincipalTableViewController.m in Sources */,
+				B9FF8A311F8F96DF00DB8BB2 /* PullRequestTableViewController.m in Sources */,
+				B9FF8A341F8F977300DB8BB2 /* PullRequestTableViewCell.m in Sources */,
 				B9172DFC1F8E476F00B3D146 /* RepositoriesTableViewCell.m in Sources */,
 				B990BAEC1F8CE90F00B32E43 /* AppDelegate.m in Sources */,
+				B9FF8A371F8F9CBC00DB8BB2 /* PullRequest.m in Sources */,
 				B959FEBC1F8DBC7B001D8369 /* Repository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
