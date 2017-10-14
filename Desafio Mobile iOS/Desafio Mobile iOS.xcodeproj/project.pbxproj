@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B9172DFC1F8E476F00B3D146 /* RepositoriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9172DFB1F8E476F00B3D146 /* RepositoriesTableViewCell.m */; };
-		B9172E061F8E9D9C00B3D146 /* gitfork.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E051F8E9D9700B3D146 /* gitfork.png */; };
 		B9172E091F8E9F9600B3D146 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E071F8E9F9200B3D146 /* star.png */; };
 		B9172E0A1F8E9F9A00B3D146 /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E081F8E9F9200B3D146 /* fork.png */; };
 		B9172E0C1F8EA2DF00B3D146 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = B9172E0B1F8EA2D900B3D146 /* avatar.png */; };
@@ -54,7 +53,6 @@
 		7BDB555BA973E983E7B751FA /* Pods-Desafio Mobile iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio Mobile iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Desafio Mobile iOS/Pods-Desafio Mobile iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B9172DFA1F8E476F00B3D146 /* RepositoriesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepositoriesTableViewCell.h; sourceTree = "<group>"; };
 		B9172DFB1F8E476F00B3D146 /* RepositoriesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepositoriesTableViewCell.m; sourceTree = "<group>"; };
-		B9172E051F8E9D9700B3D146 /* gitfork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gitfork.png; sourceTree = "<group>"; };
 		B9172E071F8E9F9200B3D146 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		B9172E081F8E9F9200B3D146 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fork.png; sourceTree = "<group>"; };
 		B9172E0B1F8EA2D900B3D146 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
@@ -158,6 +156,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B94229361F924F0800A46760 /* Imagens */ = {
+			isa = PBXGroup;
+			children = (
+				B9172E081F8E9F9200B3D146 /* fork.png */,
+				B9172E071F8E9F9200B3D146 /* star.png */,
+				B9172E0B1F8EA2D900B3D146 /* avatar.png */,
+			);
+			path = Imagens;
+			sourceTree = "<group>";
+		};
 		B990BADE1F8CE90F00B32E43 = {
 			isa = PBXGroup;
 			children = (
@@ -194,11 +202,8 @@
 				B990BAF51F8CE90F00B32E43 /* LaunchScreen.storyboard */,
 				B990BAF81F8CE90F00B32E43 /* Info.plist */,
 				B990BAF91F8CE90F00B32E43 /* main.m */,
-				B9172E051F8E9D9700B3D146 /* gitfork.png */,
-				B9172E081F8E9F9200B3D146 /* fork.png */,
-				B9172E071F8E9F9200B3D146 /* star.png */,
-				B9172E0B1F8EA2D900B3D146 /* avatar.png */,
 				B9172E0D1F8EFD3100B3D146 /* Constantes.h */,
+				B94229361F924F0800A46760 /* Imagens */,
 			);
 			path = "Desafio Mobile iOS";
 			sourceTree = "<group>";
@@ -352,7 +357,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9172E061F8E9D9C00B3D146 /* gitfork.png in Resources */,
 				B9172E0C1F8EA2DF00B3D146 /* avatar.png in Resources */,
 				B9172E091F8E9F9600B3D146 /* star.png in Resources */,
 				B990BAF71F8CE90F00B32E43 /* LaunchScreen.storyboard in Resources */,
