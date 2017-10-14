@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Repository.h"
 
 @interface Desafio_Mobile_iOSTests : XCTestCase
 
@@ -25,15 +26,23 @@
 }
 
 - (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "put any name here"
+    
+    /*Repository *repository = [Repository initWithDictionary:@{
+                                                              @"id": @1,
+                                                              @"state": @"open"
+                                                              }];
+    
+    XCTAssertEqual(repository.id, 1, @"Falha ao carregar dado do ID");*/
 }
 
+/*
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
 }
+ */
 
 @end

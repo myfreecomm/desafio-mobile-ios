@@ -14,6 +14,7 @@
 #import "PullRequestTableViewController.h"
 
 @interface PrincipalTableViewController () {
+    UIActivityIndicatorView *activityIndicatorView;
     NSArray *repositoriesArray;
     int page;
 }
@@ -26,13 +27,32 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
     [self.tableView registerClass:[LoadingTableViewCell class] forCellReuseIdentifier:@"loadingCell"];
     
     [self AtualizarView];
     
+    activityIndicatorView = [UIActivityIndicatorView new];
+    activityIndicatorView.frame = CGRectMake(0, 0, 20, 20);
+    activityIndicatorView.center = self.tableView.center;
+    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [activityIndicatorView startAnimating];
+    [self.tableView addSubview:activityIndicatorView];
+    
     page = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AtualizarView) name:kStrNotificationRepositoriesFinished object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificarRepositoriesError:) name:kStrNotificationRepositoriesError object:nil];
     [[LibraryAPI sharedInstance] getRepositories:page];
+}
+
+-(void)notificarRepositoriesError:(NSNotification *)notification {
+    NSString *mensagem = notification.userInfo[@"mensagem"];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Falha ao atualizar" message:mensagem delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+    [activityIndicatorView stopAnimating];
+    [activityIndicatorView setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +61,9 @@
 }
 
 -(void)AtualizarView {
+    [activityIndicatorView stopAnimating];
+    [activityIndicatorView setHidden:YES];
+    
     NSMutableArray *repositoriesMutableArray = [NSMutableArray new];
     
     repositoriesArray = [NSArray new];

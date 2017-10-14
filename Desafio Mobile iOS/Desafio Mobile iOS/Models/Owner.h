@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RLMObject.h>
+#import <Realm/Realm.h>
 
 @interface Owner : RLMObject
 

@@ -62,6 +62,10 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesFinished object:self userInfo:nil];
                 });
+            } else {
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesError object:self userInfo:@{@"mensagem":httpResp.description}];
+                });
             }
         }
         
@@ -114,6 +118,10 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
             } else {
                 // Pode cair aqui se exceder o limite de consultas requeridas, sem autenticação
                 NSLog(@"Retorno não esperado ao carregar pull requests: %@", httpResp);
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationPullRequestError object:self userInfo:@{@"mensagem":httpResp.description}];
+                });
             }
         } else {
             NSLog(@"Erro ao carregar pull requests: %@", error);

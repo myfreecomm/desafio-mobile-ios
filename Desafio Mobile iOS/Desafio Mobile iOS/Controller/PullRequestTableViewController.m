@@ -12,6 +12,7 @@
 
 @interface PullRequestTableViewController () {
     NSArray *pullRequestsArray;
+    UIActivityIndicatorView *activityIndicatorView;
 }
 
 @end
@@ -24,7 +25,17 @@ static Repository *repository;
     [super viewDidLoad];
     
     self.navigationItem.title = repository.name;
+    [self AtualizarView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AtualizarView) name:kStrNotificationPullRequestFinished object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificarPullRequestError:) name:kStrNotificationPullRequestError object:nil];
+    
+    activityIndicatorView = [UIActivityIndicatorView new];
+    activityIndicatorView.frame = CGRectMake(0, 0, 20, 20);
+    activityIndicatorView.center = self.tableView.center;
+    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [activityIndicatorView startAnimating];
+    [self.tableView addSubview:activityIndicatorView];
+    
     [[LibraryAPI sharedInstance] getPullRequestsfromRepository:repository];
 }
 
@@ -34,12 +45,25 @@ static Repository *repository;
 }
 
 
+-(void)notificarPullRequestError:(NSNotification *)notification {
+    NSString *mensagem = notification.userInfo[@"mensagem"];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Falha ao atualizar" message:mensagem delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+    [activityIndicatorView stopAnimating];
+    [activityIndicatorView setHidden:YES];
+}
+
+
 -(void)AtualizarView {
+    [activityIndicatorView stopAnimating];
+    [activityIndicatorView setHidden:YES];
+    
     NSMutableArray *pullRequestsMutableArray = [NSMutableArray new];
     pullRequestsArray = [NSArray new];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    //RLMResults<PullRequest *> *pullRequests = [PullRequest allObjects];
     RLMResults<PullRequest *> *pullRequests = [PullRequest objectsWhere:@"repositoryId = %i", repository.id];
     
     [realm transactionWithBlock:^{
@@ -54,7 +78,6 @@ static Repository *repository;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -82,17 +105,47 @@ static Repository *repository;
 }
 
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    if ([pullRequestsArray count] > 0) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+        [view setBackgroundColor:[UIColor whiteColor]];
+        
+        int openedCount = 0;
+        int closedCount = 0;
+        
+        for (PullRequest *pullRequest in pullRequestsArray) {
+            if ([pullRequest.state isEqualToString:@"open"]) {
+                openedCount++;
+            } else if ([pullRequest.state isEqualToString:@"closed"]) {
+                closedCount++;
+            }
+        }
+        
+        UILabel *openedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width / 2, view.frame.size.height)];
+        openedLabel.textColor = [UIColor orangeColor];
+        openedLabel.font = [UIFont boldSystemFontOfSize:13];
+        openedLabel.textAlignment = NSTextAlignmentRight;
+        openedLabel.text = [NSString stringWithFormat:@"%i opened", openedCount];
+        [view addSubview:openedLabel];
+        
+        UILabel *closedLabel = [[UILabel alloc] initWithFrame:CGRectMake(view.frame.size.width / 2, 0, view.frame.size.width / 2, view.frame.size.height)];
+        closedLabel.textColor = [UIColor blackColor];
+        closedLabel.font = [UIFont boldSystemFontOfSize:13];
+        closedLabel.text = [NSString stringWithFormat:@"/ %i closed", closedCount];
+        [view addSubview:closedLabel];
+        
+        return view;
+    } else {
+        return nil;
+    }
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PullRequest *pullRequest = pullRequestsArray[indexPath.row];
     
     NSURL *url = [NSURL URLWithString:pullRequest.url];
-    
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:NULL];
-    }else{
-        // Fallback on earlier versions
-        [[UIApplication sharedApplication] openURL:url];
-    }
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

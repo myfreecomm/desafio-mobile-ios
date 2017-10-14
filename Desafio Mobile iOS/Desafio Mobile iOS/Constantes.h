@@ -11,6 +11,8 @@
 
 #define kStrNotificationRepositoriesFinished @"NotificationRepositoriesFinished"
 #define kStrNotificationPullRequestFinished @"NotificationPullRequestFinished"
+#define kStrNotificationPullRequestError @"NotificationPullRequestError"
+#define kStrNotificationRepositoriesError @"NotificationRepositoriesError"
 #define kSeguePullRequests @"SeguePullRequests"
 
 #endif /* Constantes_h */
