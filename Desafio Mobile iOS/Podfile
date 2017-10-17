@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+
+target 'Desafio Mobile iOS' do
+pod 'Realm'
+pod 'SDWebImage', '~> 4.0'
+end
+
+target "Desafio Mobile iOSTests" do
+pod "Realm"
+end
