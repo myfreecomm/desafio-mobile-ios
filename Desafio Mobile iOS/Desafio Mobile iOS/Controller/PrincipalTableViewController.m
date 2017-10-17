@@ -32,11 +32,8 @@
     
     [self AtualizarView];
     
-    activityIndicatorView = [UIActivityIndicatorView new];
-    activityIndicatorView.frame = CGRectMake(0, 0, 20, 20);
+    activityIndicatorView = [ActivityIndicatorViewBase new];
     activityIndicatorView.center = self.tableView.center;
-    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    activityIndicatorView.color = [UIColor grayColor];
     [activityIndicatorView startAnimating];
     [self.tableView addSubview:activityIndicatorView];
     
@@ -44,7 +41,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AtualizarView) name:kStrNotificationRepositoriesFinished object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificarRepositoriesError:) name:kStrNotificationRepositoriesError object:nil];
     [[LibraryAPI sharedInstance] getRepositories:page];
-    
 }
 
 -(void)notificarRepositoriesError:(NSNotification *)notification {
@@ -112,13 +108,10 @@
     } else {
         if ([repositoriesArray count] > 0) {
             RepositoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-            cell.textLabel.text = @"";
             Repository *repository = repositoriesArray[indexPath.row];
             
             if (repository) {
                 [cell configureWith:repository];
-            } else {
-                NSLog(@"Não achou o item no repositório???");
             }
             
             return cell;
