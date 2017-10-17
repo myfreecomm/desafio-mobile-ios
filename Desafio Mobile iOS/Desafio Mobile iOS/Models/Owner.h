@@ -11,8 +11,6 @@
 
 @interface Owner : RLMObject
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
-
 @property NSString *login;
 @property NSString *avatar_url;
 @property NSString *url;

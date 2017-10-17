@@ -12,7 +12,7 @@
 
 @interface PullRequestTableViewController () {
     NSArray *pullRequestsArray;
-    UIActivityIndicatorView *activityIndicatorView;
+    ActivityIndicatorViewBase *activityIndicatorView;
 }
 
 @end
@@ -29,13 +29,11 @@ static Repository *repository;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AtualizarView) name:kStrNotificationPullRequestFinished object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificarPullRequestError:) name:kStrNotificationPullRequestError object:nil];
     
-    activityIndicatorView = [UIActivityIndicatorView new];
-    activityIndicatorView.frame = CGRectMake(0, 0, 20, 20);
+    activityIndicatorView = [ActivityIndicatorViewBase new];
     activityIndicatorView.center = self.tableView.center;
-    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [activityIndicatorView startAnimating];
     [self.tableView addSubview:activityIndicatorView];
-    
+
     [[LibraryAPI sharedInstance] getPullRequestsfromRepository:repository];
 }
 

@@ -10,14 +10,4 @@
 
 @implementation Owner
 
--(id)initWithDictionary:(NSDictionary *)dictionary {
-    if (self = [super init]) {
-        self.login = dictionary[@"login"];
-        self.avatar_url = dictionary[@"avatar_url"];
-        self.url = dictionary[@"url"];
-    }
-    
-    return self;
-}
-
 @end

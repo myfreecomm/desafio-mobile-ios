@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Repository.h"
+#import "ActivityIndicatorViewBase.h"
 
 @interface PullRequestTableViewController : UITableViewController
 

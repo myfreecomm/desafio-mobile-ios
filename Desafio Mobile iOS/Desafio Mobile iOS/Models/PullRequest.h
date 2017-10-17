@@ -11,14 +11,13 @@
 
 @interface PullRequest : RLMObject
 
-- (id)initWithDictionary:(NSDictionary*)dictionary andRepositoryId:(NSInteger)repositoryId;
-
 @property NSInteger id;
 @property NSInteger repositoryId;
 @property NSString *url;
 @property NSString *state;
 @property NSString *title;
 @property NSString *body;
+@property NSString *updateString;
 @property NSDate *created_at;
 @property Owner* owner;
 

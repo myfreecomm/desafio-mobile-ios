@@ -12,8 +12,6 @@
 
 @interface Repository : RLMObject
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
-
 @property NSInteger id;
 @property NSString *name;
 @property NSString *repDescription;

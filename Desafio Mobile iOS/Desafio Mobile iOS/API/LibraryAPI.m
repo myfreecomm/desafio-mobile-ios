@@ -23,122 +23,44 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
     return _sharedInstance;
 }
 
+
 -(void)getRepositories:(int)page {
+    RequestBase *request = [[RequestBase alloc] initWithURL:[kRepositoriesPath stringByAppendingString:[NSString stringWithFormat:@"%i", page]] httpMethod:@"GET"];
+    ServiceRepository *service = [[ServiceRepository alloc] initWithRequest:request];
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-
-    NSURL *url = [NSURL URLWithString:[kRepositoriesPath stringByAppendingString:[NSString stringWithFormat:@"%i", page]]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"GET";
-    
-    NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (!error) {
-            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
-            if (httpResp.statusCode == 200) {
-                NSDictionary* json = [NSJSONSerialization
-                                      JSONObjectWithData:data
-                                      options:kNilOptions
-                                      error:&error];
-                
-                NSArray *repositorios = json[@"items"];
-                
-                RLMRealm *realm = [RLMRealm defaultRealm];
-
-                for (int i = 0; i < [repositorios count]; i++) {
-                    Repository *repositorio = [[Repository alloc] initWithDictionary:repositorios[i]];
-                    
-                    NSDictionary *retorno = [self requestSynchronousJSONWithURLString:repositorio.owner.url];
-                    
-                    if ([[retorno allKeys] containsObject:@"name"]) {
-                        repositorio.owner.name = retorno[@"name"];
-                    }
-                    
-                    [realm beginWriteTransaction];
-                    [realm addOrUpdateObject:repositorio];
-                    [realm commitWriteTransaction];
-                }
-                
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesFinished object:self userInfo:nil];
-                });
-            } else {
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesError object:self userInfo:@{@"mensagem":httpResp.description}];
-                });
-            }
-        }
+    [service retrieveDataWithSuccessHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesFinished object:self userInfo:nil];
+        });
         
+    } andDidFailHandler:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationRepositoriesError object:self userInfo:nil];
     }];
-    
-    [downloadTask resume];
 }
 
 
 -(void)getPullRequestsfromRepository:(Repository *) repository {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    RequestBase *request = [[RequestBase alloc] initWithURL:repository.pulls_url httpMethod:@"GET"];
+    ServicePullRequest *service = [[ServicePullRequest alloc] initWithRequest:request];
     
-    NSURL *url = [NSURL URLWithString:repository.pulls_url];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"GET";
-    
-    NSInteger repositoryId = repository.id;
-    
-    NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (!error) {
-            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
-            if (httpResp.statusCode == 200) {
-                NSDictionary* json = [NSJSONSerialization
-                                      JSONObjectWithData:data
-                                      options:kNilOptions
-                                      error:&error];
-                
-                NSArray *pullRequestsArray = [json copy];
-                
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                
-                for (int i = 0; i < [pullRequestsArray count]; i++) {
-                    PullRequest *pullRequest = [[PullRequest alloc] initWithDictionary:pullRequestsArray[i] andRepositoryId:repositoryId];
-
-                    NSDictionary *retorno = [self requestSynchronousJSONWithURLString:pullRequest.owner.url];
-                    
-                    if ([retorno count] > 0) {
-                        pullRequest.owner.name = retorno[@"name"];
-                    }
-                    
-                    [realm beginWriteTransaction];
-                    [realm addOrUpdateObject:pullRequest];
-                    [realm commitWriteTransaction];
-                }
-                
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationPullRequestFinished object:self userInfo:nil];
-                });
-            } else {
-                // Pode cair aqui se exceder o limite de consultas requeridas, sem autenticação
-                NSLog(@"Retorno não esperado ao carregar pull requests: %@", httpResp);
-                
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationPullRequestError object:self userInfo:@{@"mensagem":httpResp.description}];
-                });
-            }
-        } else {
-            NSLog(@"Erro ao carregar pull requests: %@", error);
-        }
+    [service retrieveDataWithSuccessHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationPullRequestFinished object:self userInfo:nil];
+        });
+        
+    } andDidFailHandler:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kStrNotificationPullRequestError object:self userInfo:nil];
     }];
-    
-    [downloadTask resume];
 }
 
--(NSDictionary *)requestSynchronousJSONWithURLString:(NSString *)requestString {
-    
+
+-(NSDictionary *)requestSynchronousJSONWithURLString:(NSString *)urlString {
     dispatch_semaphore_t semaphore;
 
-    NSURL *url = [NSURL URLWithString:requestString];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                          timeoutInterval:50];
+                                                          timeoutInterval:10];
     request.HTTPMethod = @"GET";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
@@ -146,12 +68,18 @@ static NSString *const kRepositoriesPath = @"https://api.github.com/search/repos
     
     semaphore = dispatch_semaphore_create(0);
     
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data,NSURLResponse *response,NSError *error)
-                                  {
-                                      resultMutableDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-                                      
-                                      dispatch_semaphore_signal(semaphore);
-                                  }];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
+        
+        if (error) {
+            NSLog(@"Erro no request: %@", error);
+        } else {
+            resultMutableDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        }
+        
+      dispatch_semaphore_signal(semaphore);
+    }];
     
     [task resume];
     
