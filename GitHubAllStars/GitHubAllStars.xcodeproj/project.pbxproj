@@ -13,6 +13,9 @@
 		BD08986C1F9BD109005EA7A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD08986A1F9BD109005EA7A8 /* Main.storyboard */; };
 		BD08986E1F9BD109005EA7A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD08986D1F9BD109005EA7A8 /* Assets.xcassets */; };
 		BD0898711F9BD109005EA7A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD08986F1F9BD109005EA7A8 /* LaunchScreen.storyboard */; };
+		BD0EC73A1F9C0DE3006819CD /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0EC7391F9C0DE3006819CD /* RepositoriesTableViewController.swift */; };
+		BD0EC7401F9C0F83006819CD /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0EC73E1F9C0F83006819CD /* RepositoryTableViewCell.swift */; };
+		BD0EC7411F9C0F83006819CD /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0EC73F1F9C0F83006819CD /* RepositoryTableViewCell.xib */; };
 		BD2FFE7F1F9BE47B00C88FCA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FFE7E1F9BE47B00C88FCA /* DataManager.swift */; };
 		BD2FFE811F9BE49000C88FCA /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FFE801F9BE49000C88FCA /* WebManager.swift */; };
 		BD8B5A2B1F9BDCE700FD89BF /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B5A2A1F9BDCE700FD89BF /* Owner.swift */; };
@@ -28,6 +31,9 @@
 		BD08986D1F9BD109005EA7A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD0898701F9BD109005EA7A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD0898721F9BD109005EA7A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD0EC7391F9C0DE3006819CD /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		BD0EC73E1F9C0F83006819CD /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		BD0EC73F1F9C0F83006819CD /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		BD2FFE7E1F9BE47B00C88FCA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BD2FFE801F9BE49000C88FCA /* WebManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebManager.swift; path = GitHubAllStars/Data/WebManager.swift; sourceTree = SOURCE_ROOT; };
 		BD8B5A2A1F9BDCE700FD89BF /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 		BD0898651F9BD109005EA7A8 /* GitHubAllStars */ = {
 			isa = PBXGroup;
 			children = (
+				BD0EC73B1F9C0E4E006819CD /* Views */,
+				BD0EC7381F9C0DD0006819CD /* ViewControllers */,
 				BDD61CA71F9BD9630037CE35 /* Data */,
 				BD0898661F9BD109005EA7A8 /* AppDelegate.swift */,
 				BD0898681F9BD109005EA7A8 /* ViewController.swift */,
@@ -87,6 +95,23 @@
 				BD0898721F9BD109005EA7A8 /* Info.plist */,
 			);
 			path = GitHubAllStars;
+			sourceTree = "<group>";
+		};
+		BD0EC7381F9C0DD0006819CD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD0EC7391F9C0DE3006819CD /* RepositoriesTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BD0EC73B1F9C0E4E006819CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD0EC73E1F9C0F83006819CD /* RepositoryTableViewCell.swift */,
+				BD0EC73F1F9C0F83006819CD /* RepositoryTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BDD61CA71F9BD9630037CE35 /* Data */ = {
@@ -181,6 +206,7 @@
 				BD0898711F9BD109005EA7A8 /* LaunchScreen.storyboard in Resources */,
 				BD08986E1F9BD109005EA7A8 /* Assets.xcassets in Resources */,
 				BD08986C1F9BD109005EA7A8 /* Main.storyboard in Resources */,
+				BD0EC7411F9C0F83006819CD /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +268,9 @@
 				BD0898691F9BD109005EA7A8 /* ViewController.swift in Sources */,
 				BD2FFE7F1F9BE47B00C88FCA /* DataManager.swift in Sources */,
 				BD2FFE811F9BE49000C88FCA /* WebManager.swift in Sources */,
+				BD0EC7401F9C0F83006819CD /* RepositoryTableViewCell.swift in Sources */,
 				BD8B5A2B1F9BDCE700FD89BF /* Owner.swift in Sources */,
+				BD0EC73A1F9C0DE3006819CD /* RepositoriesTableViewController.swift in Sources */,
 				BD0898671F9BD109005EA7A8 /* AppDelegate.swift in Sources */,
 				BD8B5A2D1F9BDE4A00FD89BF /* Repository.swift in Sources */,
 			);
