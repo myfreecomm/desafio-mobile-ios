@@ -13,7 +13,7 @@ class PullRequest: NSObject, Mappable {
     var title = ""
     var body = ""
     var user = Owner()
-    var created_at = Date()
+    var created_at = ""
     var html_url = ""
     required convenience init?(map: Map) {
         self.init()
@@ -24,6 +24,7 @@ class PullRequest: NSObject, Mappable {
         title <- map["title"]
         body <- map["body"]
         user <- map["user"]
+        print(">> PR CREATED AT: \(map[created_at])")
         created_at <- map["created_at"]
         html_url <- map["html_url"]
     }

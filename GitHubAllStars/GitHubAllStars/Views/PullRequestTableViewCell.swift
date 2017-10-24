@@ -41,8 +41,13 @@ class PullRequestTableViewCell: UITableViewCell {
             self.usernameLabel.text = pr.user.login
             self.profileImageView.sd_setImage(with: URL(string: pr.user.avatarURL), placeholderImage: UIImage(named: "github"))
             
-            let dateFormatter = DateFormatter(withFormat: "dd/MM/yyyy", locale: "pt-BR")
-            self.dateLabel.text = dateFormatter.string(from: pr.created_at)
+            let dateFormatter = DateFormatter(withFormat: "yyyy-MM-dd'T'HH:mm:ssZ", locale: "pt-BR")
+            if let date = dateFormatter.date(from: pr.created_at) {
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                self.dateLabel.text = dateFormatter.string(from: date)
+            } else {
+                self.dateLabel.text = ""
+            }
         }
     }
     

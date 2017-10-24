@@ -60,13 +60,21 @@
                                 <color key="textColor" red="0.1824623048" green="0.4515497088" blue="0.66419863700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeU-ij-emX">
+                                <rect key="frame" x="16" y="63.5" width="58" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MRf-PO-1yo" firstAttribute="top" secondItem="WBr-EX-rms" secondAttribute="bottom" constant="8" id="5u8-vf-7x1"/>
                             <constraint firstAttribute="height" constant="90" id="Eu8-0a-mZn"/>
                             <constraint firstItem="WBr-EX-rms" firstAttribute="top" secondItem="fqW-iX-gfI" secondAttribute="top" id="GUY-u2-HNa"/>
+                            <constraint firstItem="XeU-ij-emX" firstAttribute="centerX" secondItem="MRf-PO-1yo" secondAttribute="centerX" id="U4P-Bz-Onh"/>
                             <constraint firstItem="MRf-PO-1yo" firstAttribute="leading" secondItem="fqW-iX-gfI" secondAttribute="leading" id="cN4-3l-jwK"/>
+                            <constraint firstItem="XeU-ij-emX" firstAttribute="top" secondItem="MRf-PO-1yo" secondAttribute="bottom" id="f0H-72-E1D"/>
                             <constraint firstItem="MRf-PO-1yo" firstAttribute="centerX" secondItem="WBr-EX-rms" secondAttribute="centerX" id="gvD-j9-sZa"/>
                             <constraint firstAttribute="trailing" secondItem="MRf-PO-1yo" secondAttribute="trailing" id="hRV-qX-JE9"/>
                             <constraint firstAttribute="width" constant="90" id="jdN-JM-sde"/>

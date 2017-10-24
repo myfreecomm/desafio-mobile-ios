@@ -23,7 +23,7 @@ class PullRequestTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier:
             "PullRequestTableViewCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 150
+        self.tableView.estimatedRowHeight = 143
         
         self.loadData()
         
