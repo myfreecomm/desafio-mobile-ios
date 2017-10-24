@@ -9,9 +9,12 @@
 import UIKit
 
 class PullReqCell: UITableViewCell {
+    
+    @IBOutlet weak var testLbl : UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
