@@ -1,0 +1,755 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		048CC9B93DA5736FF23C9D6D08B366ED /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D2F199C23FFE378A82CB5D95E75B980 /* FontAwesome.ttf */; };
+		08722E501A67EBB0241D997FACFCA8E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */; };
+		2770EEC2D44DE4BA2E28CA1766D40821 /* Pods-JavaPop-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F2E36A48A151F51465636F6F738FE6E /* Pods-JavaPop-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F284D0F8424E4202893FD57E5F33C9B /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4574BF398AECB8D9A5A8FFEF0FB63D38 /* NSString+FontAwesome.m */; };
+		3E956B45F194547627970C55AB135610 /* NSString+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AECF33C8521F1C21BC5A0D2DE005C9 /* NSString+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		496DAB311543FDD7E60A4C03FF6F9E16 /* UIFont+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F1AA985722769EABE716D2708D1AD5D /* UIFont+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D3FD36ECDE3FFED81064ED53DB6BA97 /* Pods-JavaPopTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D3A7C33C1498C206553E23402680E69 /* Pods-JavaPopTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71E34B3C89532152ABFB07EF187C9877 /* FontAwesome-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6063D8765F8AFC0D3E65E7739A5DC78 /* FontAwesome-dummy.m */; };
+		7A983496903D02EDDD9834E69EBBC368 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5224A726D9EABB2D5F18E4597390EF3 /* UIKit.framework */; };
+		803F35276FD8B1C87B6F7D40D4355AFD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C06B1B209CA23EC16EBF65CF890313 /* CoreGraphics.framework */; };
+		8844BEE31C6E312E40EEA115DBC0D89E /* FontAwesome-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A629DAB0206CB6433F8C0EFAE0885A /* FontAwesome-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		989A9F81AC88094899B1F11B4A0D640C /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E8E40E0A9C9BC6B533FB97FC9ACEF6 /* FAImageView.m */; };
+		A1B0B32EB9D09C930D23FADC99BF5DD6 /* FAImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 72CBFC8C599A40392C50084E6856B8A2 /* FAImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A593C51E3F398CDC463478147DDA2002 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */; };
+		B09DB2265EC61539E0654B889626D16C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */; };
+		CEBDA8443960C4BB86D91F187C0C018E /* Pods-JavaPopTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 108A5FBDCF312B1AFFED24B4EAFB1779 /* Pods-JavaPopTests-dummy.m */; };
+		D7E676E07C885F657A2C72CF6348709E /* Pods-JavaPop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CF9E9BEEB950AACE5303BE83C13661 /* Pods-JavaPop-dummy.m */; };
+		ECD70F8EBC1C1711D58CCE4AEED1CB08 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB7A9905BEA514CC07547F1D4018AC2 /* UIFont+FontAwesome.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26A71C82BAB8AE7A6EE800898FA1E0C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C7D108C64EF0FC5CB01BC39965AC324;
+			remoteInfo = FontAwesome;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09AECF33C8521F1C21BC5A0D2DE005C9 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		104D4DDFBF1B7184188DED7488134E7A /* Pods-JavaPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JavaPop.debug.xcconfig"; sourceTree = "<group>"; };
+		108A5FBDCF312B1AFFED24B4EAFB1779 /* Pods-JavaPopTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JavaPopTests-dummy.m"; sourceTree = "<group>"; };
+		19A629DAB0206CB6433F8C0EFAE0885A /* FontAwesome-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome-umbrella.h"; sourceTree = "<group>"; };
+		2CFEE0C9BFFAAABFE1406BAEA0F0221D /* Pods-JavaPopTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JavaPopTests-resources.sh"; sourceTree = "<group>"; };
+		2E84255EE054EAACD4854720EA38EFEE /* FontAwesome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome.framework; path = FontAwesome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1AA985722769EABE716D2708D1AD5D /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		33CF9E9BEEB950AACE5303BE83C13661 /* Pods-JavaPop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JavaPop-dummy.m"; sourceTree = "<group>"; };
+		362A042155420129A288BDA94ACBBC10 /* Pods-JavaPop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JavaPop-frameworks.sh"; sourceTree = "<group>"; };
+		3979C1E032AD3F7AA6F49339B133B126 /* FontAwesome.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.xcconfig; sourceTree = "<group>"; };
+		3D3A7C33C1498C206553E23402680E69 /* Pods-JavaPopTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JavaPopTests-umbrella.h"; sourceTree = "<group>"; };
+		416D00444ADC767EF7673EDBA02260AA /* Pods-JavaPop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JavaPop.modulemap"; sourceTree = "<group>"; };
+		4574BF398AECB8D9A5A8FFEF0FB63D38 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		4991E03EDDD607CDD86A1482A4E56995 /* Pods-JavaPop-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JavaPop-acknowledgements.plist"; sourceTree = "<group>"; };
+		4DE22841C2B84AC7116CC0F75B967E75 /* Pods-JavaPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JavaPop.release.xcconfig"; sourceTree = "<group>"; };
+		5F2E36A48A151F51465636F6F738FE6E /* Pods-JavaPop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JavaPop-umbrella.h"; sourceTree = "<group>"; };
+		68DD5BC9AA117DCE83453017E392149D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C1A067EB198E01D86C43C80046722AA /* Pods-JavaPopTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JavaPopTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		72CBFC8C599A40392C50084E6856B8A2 /* FAImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
+		7A0687ABCB7A9620F6EB98283EE59A35 /* Pods-JavaPopTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JavaPopTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		8D2F199C23FFE378A82CB5D95E75B980 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = Resources/FontAwesome.ttf; sourceTree = "<group>"; };
+		8F2219A605BDED9BB2748B1191955ECF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98F6DEAB75C60714D3571DDA689DF8BF /* Pods-JavaPop-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JavaPop-resources.sh"; sourceTree = "<group>"; };
+		99817DE0ED72240363D64DA6D01C316D /* FontAwesome.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FontAwesome.modulemap; sourceTree = "<group>"; };
+		99C06B1B209CA23EC16EBF65CF890313 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		9A51BF8F77B7D92CD341B176FDD78DA1 /* FontAwesome-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome-prefix.pch"; sourceTree = "<group>"; };
+		9CF3B8AB8BA98F504DA78CE2C2A25C1F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5224A726D9EABB2D5F18E4597390EF3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A5E8E40E0A9C9BC6B533FB97FC9ACEF6 /* FAImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
+		AEA30E6B186E7C58A662EE3FD5626DA2 /* Pods-JavaPopTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JavaPopTests-frameworks.sh"; sourceTree = "<group>"; };
+		C40B66B05BB21822BB23D9DA958A91E5 /* Pods-JavaPopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JavaPopTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D42AF62AB3DB2E58D7CE4D59E051B075 /* Pods-JavaPopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JavaPopTests.release.xcconfig"; sourceTree = "<group>"; };
+		D8C02505E8E54C64C31F3D0A0583D005 /* Pods_JavaPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JavaPop.framework; path = "Pods-JavaPop.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCEBCCF4C1A00A8CE18CBCD5ACECC7CA /* Pods-JavaPopTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JavaPopTests.modulemap"; sourceTree = "<group>"; };
+		DEB7A9905BEA514CC07547F1D4018AC2 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		E6063D8765F8AFC0D3E65E7739A5DC78 /* FontAwesome-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome-dummy.m"; sourceTree = "<group>"; };
+		F28F5498BB24F9DA538F8620BE2890F1 /* Pods-JavaPop-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JavaPop-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FD87510452C998DBED1070BB4BC819D3 /* Pods_JavaPopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JavaPopTests.framework; path = "Pods-JavaPopTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F5C19AA6DDC4F99983FC8AE0BBF4241 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				803F35276FD8B1C87B6F7D40D4355AFD /* CoreGraphics.framework in Frameworks */,
+				B09DB2265EC61539E0654B889626D16C /* Foundation.framework in Frameworks */,
+				7A983496903D02EDDD9834E69EBBC368 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62549F9CBCD7F8C9DC7766FAD3E5779D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08722E501A67EBB0241D997FACFCA8E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC2DD5CC40E25BF8A84127E5AC6F9D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A593C51E3F398CDC463478147DDA2002 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93FD095B5FC2A2BCC81B8E3CFC167E67 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D4CF9D1D266FE7D35AC67125B75D599 /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				72CBFC8C599A40392C50084E6856B8A2 /* FAImageView.h */,
+				A5E8E40E0A9C9BC6B533FB97FC9ACEF6 /* FAImageView.m */,
+				09AECF33C8521F1C21BC5A0D2DE005C9 /* NSString+FontAwesome.h */,
+				4574BF398AECB8D9A5A8FFEF0FB63D38 /* NSString+FontAwesome.m */,
+				2F1AA985722769EABE716D2708D1AD5D /* UIFont+FontAwesome.h */,
+				DEB7A9905BEA514CC07547F1D4018AC2 /* UIFont+FontAwesome.m */,
+				D5BF9E6E1130754FC4606A3C7A0EA6A3 /* Resources */,
+				F072DDEF0C7EDE2392C6716B72D6EFAF /* Support Files */,
+			);
+			name = FontAwesome;
+			path = FontAwesome;
+			sourceTree = "<group>";
+		};
+		5058948DD458B1D0653231C16B6EAE52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E84255EE054EAACD4854720EA38EFEE /* FontAwesome.framework */,
+				D8C02505E8E54C64C31F3D0A0583D005 /* Pods_JavaPop.framework */,
+				FD87510452C998DBED1070BB4BC819D3 /* Pods_JavaPopTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56AF5C6C52C294C49539CD0D748F251E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D4CF9D1D266FE7D35AC67125B75D599 /* FontAwesome */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				56AF5C6C52C294C49539CD0D748F251E /* Pods */,
+				5058948DD458B1D0653231C16B6EAE52 /* Products */,
+				9C47EC967AD99DE25939DC82F475A6D4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		93FD095B5FC2A2BCC81B8E3CFC167E67 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				99C06B1B209CA23EC16EBF65CF890313 /* CoreGraphics.framework */,
+				CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */,
+				A5224A726D9EABB2D5F18E4597390EF3 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		96218F0FB0F36217113B007C1711510E /* Pods-JavaPop */ = {
+			isa = PBXGroup;
+			children = (
+				8F2219A605BDED9BB2748B1191955ECF /* Info.plist */,
+				416D00444ADC767EF7673EDBA02260AA /* Pods-JavaPop.modulemap */,
+				F28F5498BB24F9DA538F8620BE2890F1 /* Pods-JavaPop-acknowledgements.markdown */,
+				4991E03EDDD607CDD86A1482A4E56995 /* Pods-JavaPop-acknowledgements.plist */,
+				33CF9E9BEEB950AACE5303BE83C13661 /* Pods-JavaPop-dummy.m */,
+				362A042155420129A288BDA94ACBBC10 /* Pods-JavaPop-frameworks.sh */,
+				98F6DEAB75C60714D3571DDA689DF8BF /* Pods-JavaPop-resources.sh */,
+				5F2E36A48A151F51465636F6F738FE6E /* Pods-JavaPop-umbrella.h */,
+				104D4DDFBF1B7184188DED7488134E7A /* Pods-JavaPop.debug.xcconfig */,
+				4DE22841C2B84AC7116CC0F75B967E75 /* Pods-JavaPop.release.xcconfig */,
+			);
+			name = "Pods-JavaPop";
+			path = "Target Support Files/Pods-JavaPop";
+			sourceTree = "<group>";
+		};
+		9C47EC967AD99DE25939DC82F475A6D4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				96218F0FB0F36217113B007C1711510E /* Pods-JavaPop */,
+				CFE7017B3AC23EB5FAFED0885411AF76 /* Pods-JavaPopTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CFE7017B3AC23EB5FAFED0885411AF76 /* Pods-JavaPopTests */ = {
+			isa = PBXGroup;
+			children = (
+				9CF3B8AB8BA98F504DA78CE2C2A25C1F /* Info.plist */,
+				DCEBCCF4C1A00A8CE18CBCD5ACECC7CA /* Pods-JavaPopTests.modulemap */,
+				6C1A067EB198E01D86C43C80046722AA /* Pods-JavaPopTests-acknowledgements.markdown */,
+				7A0687ABCB7A9620F6EB98283EE59A35 /* Pods-JavaPopTests-acknowledgements.plist */,
+				108A5FBDCF312B1AFFED24B4EAFB1779 /* Pods-JavaPopTests-dummy.m */,
+				AEA30E6B186E7C58A662EE3FD5626DA2 /* Pods-JavaPopTests-frameworks.sh */,
+				2CFEE0C9BFFAAABFE1406BAEA0F0221D /* Pods-JavaPopTests-resources.sh */,
+				3D3A7C33C1498C206553E23402680E69 /* Pods-JavaPopTests-umbrella.h */,
+				C40B66B05BB21822BB23D9DA958A91E5 /* Pods-JavaPopTests.debug.xcconfig */,
+				D42AF62AB3DB2E58D7CE4D59E051B075 /* Pods-JavaPopTests.release.xcconfig */,
+			);
+			name = "Pods-JavaPopTests";
+			path = "Target Support Files/Pods-JavaPopTests";
+			sourceTree = "<group>";
+		};
+		D5BF9E6E1130754FC4606A3C7A0EA6A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D2F199C23FFE378A82CB5D95E75B980 /* FontAwesome.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F072DDEF0C7EDE2392C6716B72D6EFAF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				99817DE0ED72240363D64DA6D01C316D /* FontAwesome.modulemap */,
+				3979C1E032AD3F7AA6F49339B133B126 /* FontAwesome.xcconfig */,
+				E6063D8765F8AFC0D3E65E7739A5DC78 /* FontAwesome-dummy.m */,
+				9A51BF8F77B7D92CD341B176FDD78DA1 /* FontAwesome-prefix.pch */,
+				19A629DAB0206CB6433F8C0EFAE0885A /* FontAwesome-umbrella.h */,
+				68DD5BC9AA117DCE83453017E392149D /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesome";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		17AE178EEA385FF1A1A7AB558D65BFB8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B0B32EB9D09C930D23FADC99BF5DD6 /* FAImageView.h in Headers */,
+				8844BEE31C6E312E40EEA115DBC0D89E /* FontAwesome-umbrella.h in Headers */,
+				3E956B45F194547627970C55AB135610 /* NSString+FontAwesome.h in Headers */,
+				496DAB311543FDD7E60A4C03FF6F9E16 /* UIFont+FontAwesome.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6633575C02DF0E18EA787B0780B64B66 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2770EEC2D44DE4BA2E28CA1766D40821 /* Pods-JavaPop-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B23EA6AC157C80014AA50AE89D70BBD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D3FD36ECDE3FFED81064ED53DB6BA97 /* Pods-JavaPopTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		27BC989D9536963C0394A6412EB5D611 /* Pods-JavaPopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63596C96C8BE1B569D73967266961A01 /* Build configuration list for PBXNativeTarget "Pods-JavaPopTests" */;
+			buildPhases = (
+				A3364CBFE327FF8397D6B371171A3673 /* Sources */,
+				62549F9CBCD7F8C9DC7766FAD3E5779D /* Frameworks */,
+				7B23EA6AC157C80014AA50AE89D70BBD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-JavaPopTests";
+			productName = "Pods-JavaPopTests";
+			productReference = FD87510452C998DBED1070BB4BC819D3 /* Pods_JavaPopTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4BD492F6EA4073F28D918F36EA8E1427 /* Pods-JavaPop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B76F74482BD9B3B63176F870B310D961 /* Build configuration list for PBXNativeTarget "Pods-JavaPop" */;
+			buildPhases = (
+				53CD8A6DA5826AF3258E49733154E883 /* Sources */,
+				DC2DD5CC40E25BF8A84127E5AC6F9D2C /* Frameworks */,
+				6633575C02DF0E18EA787B0780B64B66 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23064B1385FD8B6ABCDB02FCC147DE43 /* PBXTargetDependency */,
+			);
+			name = "Pods-JavaPop";
+			productName = "Pods-JavaPop";
+			productReference = D8C02505E8E54C64C31F3D0A0583D005 /* Pods_JavaPop.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5C7D108C64EF0FC5CB01BC39965AC324 /* FontAwesome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23F29800F6AA5A733738C7E545974E41 /* Build configuration list for PBXNativeTarget "FontAwesome" */;
+			buildPhases = (
+				3E7D2F4DEA0051C95C33414F0C426E1F /* Sources */,
+				3F5C19AA6DDC4F99983FC8AE0BBF4241 /* Frameworks */,
+				17AE178EEA385FF1A1A7AB558D65BFB8 /* Headers */,
+				9836B4E7B5625E267123056FC51C1BA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FontAwesome;
+			productName = FontAwesome;
+			productReference = 2E84255EE054EAACD4854720EA38EFEE /* FontAwesome.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 5058948DD458B1D0653231C16B6EAE52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C7D108C64EF0FC5CB01BC39965AC324 /* FontAwesome */,
+				4BD492F6EA4073F28D918F36EA8E1427 /* Pods-JavaPop */,
+				27BC989D9536963C0394A6412EB5D611 /* Pods-JavaPopTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9836B4E7B5625E267123056FC51C1BA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048CC9B93DA5736FF23C9D6D08B366ED /* FontAwesome.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E7D2F4DEA0051C95C33414F0C426E1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989A9F81AC88094899B1F11B4A0D640C /* FAImageView.m in Sources */,
+				71E34B3C89532152ABFB07EF187C9877 /* FontAwesome-dummy.m in Sources */,
+				2F284D0F8424E4202893FD57E5F33C9B /* NSString+FontAwesome.m in Sources */,
+				ECD70F8EBC1C1711D58CCE4AEED1CB08 /* UIFont+FontAwesome.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53CD8A6DA5826AF3258E49733154E883 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7E676E07C885F657A2C72CF6348709E /* Pods-JavaPop-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3364CBFE327FF8397D6B371171A3673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBDA8443960C4BB86D91F187C0C018E /* Pods-JavaPopTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23064B1385FD8B6ABCDB02FCC147DE43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FontAwesome;
+			target = 5C7D108C64EF0FC5CB01BC39965AC324 /* FontAwesome */;
+			targetProxy = 26A71C82BAB8AE7A6EE800898FA1E0C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		161EEBB8FEB04EF436D19D6A203FA159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D42AF62AB3DB2E58D7CE4D59E051B075 /* Pods-JavaPopTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-JavaPopTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JavaPopTests/Pods-JavaPopTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JavaPopTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1C7D17A37D091C98D2F0DD886C3A9320 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49EB0E0293F8864FF5BC5A3943DE65E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DE22841C2B84AC7116CC0F75B967E75 /* Pods-JavaPop.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-JavaPop/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JavaPop/Pods-JavaPop.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JavaPop;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5C63980771BB1A1DD00BE9AB44DD0209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3979C1E032AD3F7AA6F49339B133B126 /* FontAwesome.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FontAwesome/FontAwesome-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FontAwesome/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FontAwesome/FontAwesome.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FontAwesome;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		67138F857CA8DF007F6D21187F06E4BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 104D4DDFBF1B7184188DED7488134E7A /* Pods-JavaPop.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-JavaPop/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JavaPop/Pods-JavaPop.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JavaPop;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6D666C2F7D6DE8910A957229500B1936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3979C1E032AD3F7AA6F49339B133B126 /* FontAwesome.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FontAwesome/FontAwesome-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FontAwesome/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FontAwesome/FontAwesome.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FontAwesome;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C205C6F6EB8B917C79D36BCF5D3A7DC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C40B66B05BB21822BB23D9DA958A91E5 /* Pods-JavaPopTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-JavaPopTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JavaPopTests/Pods-JavaPopTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_JavaPopTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23F29800F6AA5A733738C7E545974E41 /* Build configuration list for PBXNativeTarget "FontAwesome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C63980771BB1A1DD00BE9AB44DD0209 /* Debug */,
+				6D666C2F7D6DE8910A957229500B1936 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C7D17A37D091C98D2F0DD886C3A9320 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63596C96C8BE1B569D73967266961A01 /* Build configuration list for PBXNativeTarget "Pods-JavaPopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C205C6F6EB8B917C79D36BCF5D3A7DC1 /* Debug */,
+				161EEBB8FEB04EF436D19D6A203FA159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B76F74482BD9B3B63176F870B310D961 /* Build configuration list for PBXNativeTarget "Pods-JavaPop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67138F857CA8DF007F6D21187F06E4BE /* Debug */,
+				49EB0E0293F8864FF5BC5A3943DE65E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
