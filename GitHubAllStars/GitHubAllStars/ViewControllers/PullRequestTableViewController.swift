@@ -18,7 +18,7 @@ class PullRequestTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.title = self.repository?.name
         let nib = UINib(nibName: "PullRequestTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier:
             "PullRequestTableViewCell")
@@ -26,7 +26,6 @@ class PullRequestTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 143
         
         self.loadData()
-        
     }
 
     override func didReceiveMemoryWarning() {

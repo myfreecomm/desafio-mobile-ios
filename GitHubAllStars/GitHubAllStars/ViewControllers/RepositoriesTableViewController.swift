@@ -24,12 +24,20 @@ class RepositoriesTableViewController: UITableViewController {
             "RepositoryTableViewCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
-        
+        self.tableView.tableFooterView = UIView()
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.tintColor = .gray
+        self.tableView.addSubview(self.refreshControl!)
         self.loadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @objc func handleRefresh(_: UIRefreshControl) {
+        self.page = 1
+        loadData()
     }
     
     func loadData() {
@@ -52,11 +60,7 @@ class RepositoriesTableViewController: UITableViewController {
                         }
                     }
                     self.isLoadingData = false
-//                    if self.page > 1 && repositories.count > 0 {
-//                        self.repositories.removeAll()
-//                    }
-//                    self.repositories.append(contentsOf: repositories)
-//                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
                 }
             }
         }
