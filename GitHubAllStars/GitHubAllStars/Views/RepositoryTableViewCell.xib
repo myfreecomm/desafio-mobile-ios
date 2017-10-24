@@ -44,7 +44,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqW-iX-gfI">
                         <rect key="frame" x="222" y="13" width="90" height="90"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="WBr-EX-rms">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WBr-EX-rms">
                                 <rect key="frame" x="25" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Apl-0d-4gT"/>
@@ -148,7 +148,6 @@
     </objects>
     <resources>
         <image name="fork" width="33" height="33"/>
-        <image name="github" width="50" height="50"/>
         <image name="star" width="33" height="33"/>
     </resources>
 </document>

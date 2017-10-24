@@ -46,7 +46,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNA-Io-Ok0">
                         <rect key="frame" x="5" y="91" width="310" height="50"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="mGW-o6-g1O">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mGW-o6-g1O">
                                 <rect key="frame" x="5" y="0.0" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2gm-N9-qZp"/>
@@ -106,7 +106,4 @@
             <point key="canvasLocation" x="73" y="202"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="github" width="50" height="50"/>
-    </resources>
 </document>

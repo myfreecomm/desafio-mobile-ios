@@ -11,6 +11,8 @@ import UIKit
 class RepositoriesTableViewController: UITableViewController {
     var repositories = [Repository]()
     var page = 1
+    var isLoadingData = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,14 +33,30 @@ class RepositoriesTableViewController: UITableViewController {
     }
     
     func loadData() {
-        DataManager.sharedInstance.getStarsRepositories(language: "Java", page: 1) { (error, message, repositoriesResponse) in
+        DataManager.sharedInstance.getStarsRepositories(language: "Java", page: self.page) { (error, message, repositoriesResponse) in
             if !error {
                 if let repositories = repositoriesResponse {
-                    if self.page > 1 && repositories.count > 0 {
-                        self.repositories.removeAll()
+                    if(repositories.count > 0) {
+                        if(self.page > 1) {
+                            self.repositories.append(contentsOf: repositories)
+                        } else {
+                            self.repositories = repositories
+                        }
+                        self.tableView.reloadData()
+                        self.page += 1
+                    } else {
+                        if(self.repositories.count == 0) {
+                            print("Nenhum respositório encontrado")
+                        } else {
+                            self.page = -1
+                        }
                     }
-                    self.repositories.append(contentsOf: repositories)
-                    self.tableView.reloadData()
+                    self.isLoadingData = false
+//                    if self.page > 1 && repositories.count > 0 {
+//                        self.repositories.removeAll()
+//                    }
+//                    self.repositories.append(contentsOf: repositories)
+//                    self.tableView.reloadData()
                 }
             }
         }
@@ -57,6 +75,10 @@ class RepositoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
         cell.repository = self.repositories[indexPath.row]
+        
+        if(indexPath.row == self.repositories.count - 1 && self.page != 0 && !self.isLoadingData) {
+            self.loadData()
+        }
         return cell
     }
     
