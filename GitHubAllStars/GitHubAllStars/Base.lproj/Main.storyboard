@@ -9,12 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Github All Stars - Java-->
+        <!--Github All Stars - Jav-->
         <scene sceneID="ex4-lb-wrJ">
             <objects>
                 <tableViewController id="Wp2-bj-Iio" customClass="RepositoriesTableViewController" customModule="GitHubAllStars" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DNZ-Y1-yjX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -32,19 +32,58 @@
                             <outlet property="delegate" destination="Wp2-bj-Iio" id="tKK-EJ-MmS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Github All Stars - Java" id="NZ3-8f-UA9"/>
+                    <navigationItem key="navigationItem" title="Github All Stars - Jav" id="NZ3-8f-UA9"/>
+                    <connections>
+                        <segue destination="AIl-54-Gdi" kind="show" identifier="prSegue" id="s6B-nI-cOO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcj-tl-PDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="847" y="107"/>
         </scene>
+        <!--Pull Request Table View Controller-->
+        <scene sceneID="HmR-nE-esC">
+            <objects>
+                <tableViewController id="AIl-54-Gdi" customClass="PullRequestTableViewController" customModule="GitHubAllStars" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="reH-To-dgB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wUy-cT-85s">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wUy-cT-85s" id="S5u-l4-Nfp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AIl-54-Gdi" id="x4g-NP-G4B"/>
+                            <outlet property="delegate" destination="AIl-54-Gdi" id="2ei-1F-PcF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yBP-E5-Pzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="104"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dvh-XW-cAz">
             <objects>
                 <navigationController id="0Yo-xv-ULs" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TfI-Uu-8zn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="TfI-Uu-8zn">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.18806362152099609" green="0.18917077779769897" blue="0.20253586769104004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Wp2-bj-Iio" kind="relationship" relationship="rootViewController" id="8D7-8X-DJ9"/>
@@ -55,4 +94,5 @@
             <point key="canvasLocation" x="-104" y="107"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

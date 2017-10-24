@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8A79653C1EAC20817622C91D /* Pods_GitHubAllStars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278D40476A9F35B500CA21BD /* Pods_GitHubAllStars.framework */; };
+		BD0315761F9E85FA00936968 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0315751F9E85FA00936968 /* PullRequest.swift */; };
+		BD088E4F1F9E07EF003FE281 /* PullRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD088E4E1F9E07EF003FE281 /* PullRequestTableViewController.swift */; };
+		BD088E561F9E0B58003FE281 /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD088E541F9E0B58003FE281 /* PullRequestTableViewCell.swift */; };
+		BD088E571F9E0B58003FE281 /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD088E551F9E0B58003FE281 /* PullRequestTableViewCell.xib */; };
 		BD0898671F9BD109005EA7A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0898661F9BD109005EA7A8 /* AppDelegate.swift */; };
-		BD0898691F9BD109005EA7A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0898681F9BD109005EA7A8 /* ViewController.swift */; };
 		BD08986C1F9BD109005EA7A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD08986A1F9BD109005EA7A8 /* Main.storyboard */; };
 		BD08986E1F9BD109005EA7A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD08986D1F9BD109005EA7A8 /* Assets.xcassets */; };
 		BD0898711F9BD109005EA7A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD08986F1F9BD109005EA7A8 /* LaunchScreen.storyboard */; };
@@ -24,9 +27,12 @@
 
 /* Begin PBXFileReference section */
 		278D40476A9F35B500CA21BD /* Pods_GitHubAllStars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubAllStars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD0315751F9E85FA00936968 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		BD088E4E1F9E07EF003FE281 /* PullRequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewController.swift; sourceTree = "<group>"; };
+		BD088E541F9E0B58003FE281 /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
+		BD088E551F9E0B58003FE281 /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
 		BD0898631F9BD109005EA7A8 /* GitHubAllStars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAllStars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0898661F9BD109005EA7A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD0898681F9BD109005EA7A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD08986B1F9BD109005EA7A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD08986D1F9BD109005EA7A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD0898701F9BD109005EA7A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,7 +94,6 @@
 				BD0EC7381F9C0DD0006819CD /* ViewControllers */,
 				BDD61CA71F9BD9630037CE35 /* Data */,
 				BD0898661F9BD109005EA7A8 /* AppDelegate.swift */,
-				BD0898681F9BD109005EA7A8 /* ViewController.swift */,
 				BD08986A1F9BD109005EA7A8 /* Main.storyboard */,
 				BD08986D1F9BD109005EA7A8 /* Assets.xcassets */,
 				BD08986F1F9BD109005EA7A8 /* LaunchScreen.storyboard */,
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				BD0EC7391F9C0DE3006819CD /* RepositoriesTableViewController.swift */,
+				BD088E4E1F9E07EF003FE281 /* PullRequestTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -110,6 +116,8 @@
 			children = (
 				BD0EC73E1F9C0F83006819CD /* RepositoryTableViewCell.swift */,
 				BD0EC73F1F9C0F83006819CD /* RepositoryTableViewCell.xib */,
+				BD088E541F9E0B58003FE281 /* PullRequestTableViewCell.swift */,
+				BD088E551F9E0B58003FE281 /* PullRequestTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 			children = (
 				BD8B5A2A1F9BDCE700FD89BF /* Owner.swift */,
 				BD8B5A2C1F9BDE4A00FD89BF /* Repository.swift */,
+				BD0315751F9E85FA00936968 /* PullRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +215,7 @@
 				BD0898711F9BD109005EA7A8 /* LaunchScreen.storyboard in Resources */,
 				BD08986E1F9BD109005EA7A8 /* Assets.xcassets in Resources */,
 				BD08986C1F9BD109005EA7A8 /* Main.storyboard in Resources */,
+				BD088E571F9E0B58003FE281 /* PullRequestTableViewCell.xib in Resources */,
 				BD0EC7411F9C0F83006819CD /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,13 +275,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0898691F9BD109005EA7A8 /* ViewController.swift in Sources */,
 				BD2FFE7F1F9BE47B00C88FCA /* DataManager.swift in Sources */,
 				BD2FFE811F9BE49000C88FCA /* WebManager.swift in Sources */,
 				BD0EC7401F9C0F83006819CD /* RepositoryTableViewCell.swift in Sources */,
 				BD8B5A2B1F9BDCE700FD89BF /* Owner.swift in Sources */,
+				BD088E4F1F9E07EF003FE281 /* PullRequestTableViewController.swift in Sources */,
 				BD0EC73A1F9C0DE3006819CD /* RepositoriesTableViewController.swift in Sources */,
+				BD088E561F9E0B58003FE281 /* PullRequestTableViewCell.swift in Sources */,
 				BD0898671F9BD109005EA7A8 /* AppDelegate.swift in Sources */,
+				BD0315761F9E85FA00936968 /* PullRequest.swift in Sources */,
 				BD8B5A2D1F9BDE4A00FD89BF /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

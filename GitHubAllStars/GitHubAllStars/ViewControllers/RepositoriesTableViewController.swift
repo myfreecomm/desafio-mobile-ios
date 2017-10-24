@@ -32,9 +32,9 @@ class RepositoriesTableViewController: UITableViewController {
     
     func loadData() {
         DataManager.sharedInstance.getStarsRepositories(language: "Java", page: 1) { (error, message, repositoriesResponse) in
-            if(!error) {
+            if !error {
                 if let repositories = repositoriesResponse {
-                    if(self.page > 1 && repositories.count > 0) {
+                    if self.page > 1 && repositories.count > 0 {
                         self.repositories.removeAll()
                     }
                     self.repositories.append(contentsOf: repositories)
@@ -67,5 +67,10 @@ class RepositoriesTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "prSegue" {
+            if let prVC = segue.destination as? PullRequestTableViewController {
+                prVC.repository = sender as? Repository
+            }
+        }
     }
 }

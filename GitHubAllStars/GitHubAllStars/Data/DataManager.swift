@@ -24,4 +24,18 @@ class DataManager: NSObject {
             }
         }
     }
+    func getPullRequest(repository: String, callback:@escaping (_ error: Bool, _ message: String, _ stadimus: [PullRequest]?) -> Void) {
+        WebManager.sharedInstance.pullRequests(repository: repository) { (error, message, pullRequests) in
+            if !error {
+                if let prs = pullRequests {
+                    callback(false, "DataManager Get Pull Requests - Successful", prs)
+                } else {
+                    callback(true, "DataManager Get Pull Requests - Error", pullRequests)
+                }
+                
+            } else {
+                callback(true, message, pullRequests)
+            }
+        }
+    }
 }
