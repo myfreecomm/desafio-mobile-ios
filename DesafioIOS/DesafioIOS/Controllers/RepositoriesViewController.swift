@@ -72,7 +72,7 @@ class RepositoriesViewController : UITableViewController {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
-    public func notificationIsReachable(n: Notification) {
+    @objc func notificationIsReachable(n: Notification) {
         if  self.source.count == 0 {
             if !self.isProcessing {
                 self.triggerRefreshControl()
@@ -80,12 +80,12 @@ class RepositoriesViewController : UITableViewController {
         }
     }
     
-    public func notificationNotReachable(n: Notification) {
+    @objc func notificationNotReachable(n: Notification) {
         SVProgressHUD.showError(withStatus: "Você está desconectado")
     }
     
     // MARK: - Data Methods
-    func refresh() {
+    @objc func refresh() {
         if !self.isProcessing {
             self.isProcessing = true
             
