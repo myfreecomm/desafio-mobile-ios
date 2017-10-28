@@ -31,6 +31,9 @@
 		4A993A8A1FA4BA3F00A23610 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A891FA4BA3F00A23610 /* WebViewController.swift */; };
 		4A993A8F1FA4BAC100A23610 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A8E1FA4BAC100A23610 /* RepositoryTableViewCell.swift */; };
 		4A993A911FA4BACD00A23610 /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A901FA4BACD00A23610 /* PullRequestTableViewCell.swift */; };
+		4A993A961FA4BB6300A23610 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A951FA4BB6300A23610 /* RepositoriesViewModel.swift */; };
+		4A993A981FA4BB7000A23610 /* PullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A971FA4BB7000A23610 /* PullRequestsViewModel.swift */; };
+		4A993A9A1FA4BB7B00A23610 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A991FA4BB7B00A23610 /* WebViewModel.swift */; };
 		4DB7243BB4F6778FA4C27123 /* Pods_DesafioIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C9DB27EC4D977B219219A4 /* Pods_DesafioIOS.framework */; };
 		D443C24FAA1DB184CE1DC556 /* Pods_DesafioIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C83602D0FE778852F685A5 /* Pods_DesafioIOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +79,9 @@
 		4A993A891FA4BA3F00A23610 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4A993A8E1FA4BAC100A23610 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		4A993A901FA4BACD00A23610 /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
+		4A993A951FA4BB6300A23610 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		4A993A971FA4BB7000A23610 /* PullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModel.swift; sourceTree = "<group>"; };
+		4A993A991FA4BB7B00A23610 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		4BA7F1716C11BA8B1E0EB9CD /* Pods-DesafioIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioIOS/Pods-DesafioIOS.release.xcconfig"; sourceTree = "<group>"; };
 		6B19B80C6E3CBF350F139E84 /* Pods-DesafioIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioIOS/Pods-DesafioIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D7C9DB27EC4D977B219219A4 /* Pods_DesafioIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesafioIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				4A993A871FA4BA1D00A23610 /* PullRequestsViewController.swift */,
+				4A993A971FA4BB7000A23610 /* PullRequestsViewModel.swift */,
 				4A993A901FA4BACD00A23610 /* PullRequestTableViewCell.swift */,
 			);
 			name = PullRequests;
@@ -237,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				4A993A851FA4BA0E00A23610 /* RepositoriesViewController.swift */,
+				4A993A951FA4BB6300A23610 /* RepositoriesViewModel.swift */,
 				4A993A8E1FA4BAC100A23610 /* RepositoryTableViewCell.swift */,
 			);
 			name = Repositories;
@@ -246,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				4A993A891FA4BA3F00A23610 /* WebViewController.swift */,
+				4A993A991FA4BB7B00A23610 /* WebViewModel.swift */,
 			);
 			name = Web;
 			sourceTree = "<group>";
@@ -510,7 +519,9 @@
 				4A427B7B1FA4AF6700B0E95D /* AppDelegate.swift in Sources */,
 				4A993A751FA4B4CF00A23610 /* DropShadowNavigationBar.swift in Sources */,
 				4A993A911FA4BACD00A23610 /* PullRequestTableViewCell.swift in Sources */,
+				4A993A981FA4BB7000A23610 /* PullRequestsViewModel.swift in Sources */,
 				4A993A801FA4B8B600A23610 /* RepositoryService.swift in Sources */,
+				4A993A9A1FA4BB7B00A23610 /* WebViewModel.swift in Sources */,
 				4A993A6C1FA4B3F500A23610 /* Swift+Extensions.swift in Sources */,
 				4A993A881FA4BA1D00A23610 /* PullRequestsViewController.swift in Sources */,
 				4A993A701FA4B41900A23610 /* Foundation+Extensions.swift in Sources */,
@@ -523,6 +534,7 @@
 				4A993A6E1FA4B40C00A23610 /* UIKit+Extensions.swift in Sources */,
 				4A993A841FA4B9DA00A23610 /* MainStoryboard.swift in Sources */,
 				4A993A821FA4B8C200A23610 /* PullRequestService.swift in Sources */,
+				4A993A961FA4BB6300A23610 /* RepositoriesViewModel.swift in Sources */,
 				4A427B831FA4AF6700B0E95D /* DesafioIOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
