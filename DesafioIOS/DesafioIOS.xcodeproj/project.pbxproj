@@ -13,6 +13,10 @@
 		4A427B851FA4AF6700B0E95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B841FA4AF6700B0E95D /* Assets.xcassets */; };
 		4A427B881FA4AF6700B0E95D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B861FA4AF6700B0E95D /* LaunchScreen.storyboard */; };
 		4A54D6561FA507AD00569EB9 /* SharedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */; };
+		4A54D6591FA51C8700569EB9 /* RepositoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D6581FA51C8700569EB9 /* RepositoryServiceTests.swift */; };
+		4A54D65B1FA51CA100569EB9 /* PullRequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */; };
+		4A54D6601FA51F2000569EB9 /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D65F1FA51F2000569EB9 /* RepositoriesViewModelTests.swift */; };
+		4A54D6621FA51F3200569EB9 /* PullRequestsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D6611FA51F3200569EB9 /* PullRequestsViewModelTests.swift */; };
 		4A993A691FA4B32200A23610 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A681FA4B32200A23610 /* ReachabilityManager.swift */; };
 		4A993A6C1FA4B3F500A23610 /* Swift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A6B1FA4B3F500A23610 /* Swift+Extensions.swift */; };
 		4A993A6E1FA4B40C00A23610 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A6D1FA4B40C00A23610 /* UIKit+Extensions.swift */; };
@@ -67,6 +71,10 @@
 		4A427B8E1FA4AF6700B0E95D /* DesafioIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesafioIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A427B941FA4AF6700B0E95D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProtocols.swift; sourceTree = "<group>"; };
+		4A54D6581FA51C8700569EB9 /* RepositoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceTests.swift; sourceTree = "<group>"; };
+		4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceTests.swift; sourceTree = "<group>"; };
+		4A54D65F1FA51F2000569EB9 /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
+		4A54D6611FA51F3200569EB9 /* PullRequestsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModelTests.swift; sourceTree = "<group>"; };
 		4A993A611FA4B12E00A23610 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4A993A621FA4B12E00A23610 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A993A681FA4B32200A23610 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -165,6 +173,42 @@
 				4A993A9D1FA4BC6800A23610 /* Controllers */,
 			);
 			path = DesafioIOSTests;
+			sourceTree = "<group>";
+		};
+		4A54D6571FA51C6500569EB9 /* External Data */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AA01FA4BCB200A23610 /* RestClientTests.swift */,
+				4A54D6581FA51C8700569EB9 /* RepositoryServiceTests.swift */,
+				4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */,
+			);
+			name = "External Data";
+			sourceTree = "<group>";
+		};
+		4A54D65C1FA51EE500569EB9 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AA91FA4BD4000A23610 /* RepositoriesViewControllerTests.swift */,
+				4A54D65F1FA51F2000569EB9 /* RepositoriesViewModelTests.swift */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		4A54D65D1FA51EF100569EB9 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AAB1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift */,
+				4A54D6611FA51F3200569EB9 /* PullRequestsViewModelTests.swift */,
+			);
+			name = PullRequests;
+			sourceTree = "<group>";
+		};
+		4A54D65E1FA51EFF00569EB9 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AAD1FA4BD7800A23610 /* WebViewControllerTests.swift */,
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 		4A993A5E1FA4B12E00A23610 /* Controllers */ = {
@@ -279,9 +323,9 @@
 		4A993A9B1FA4BC5D00A23610 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4A54D6571FA51C6500569EB9 /* External Data */,
 				4A993AA21FA4BCDB00A23610 /* Supporting Files */,
 				4A993A9E1FA4BC9300A23610 /* ReachabilityManagerTests.swift */,
-				4A993AA01FA4BCB200A23610 /* RestClientTests.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -299,9 +343,9 @@
 		4A993A9D1FA4BC6800A23610 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4A993AA91FA4BD4000A23610 /* RepositoriesViewControllerTests.swift */,
-				4A993AAB1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift */,
-				4A993AAD1FA4BD7800A23610 /* WebViewControllerTests.swift */,
+				4A54D65C1FA51EE500569EB9 /* Repositories */,
+				4A54D65D1FA51EF100569EB9 /* PullRequests */,
+				4A54D65E1FA51EFF00569EB9 /* Web */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -604,10 +648,14 @@
 			files = (
 				4A993AAA1FA4BD4000A23610 /* RepositoriesViewControllerTests.swift in Sources */,
 				4A993AA81FA4BD1B00A23610 /* OwnerTests.swift in Sources */,
+				4A54D6621FA51F3200569EB9 /* PullRequestsViewModelTests.swift in Sources */,
 				4A993A9F1FA4BC9300A23610 /* ReachabilityManagerTests.swift in Sources */,
 				4A993AA11FA4BCB200A23610 /* RestClientTests.swift in Sources */,
 				4A993AA61FA4BD0600A23610 /* PullRequestTests.swift in Sources */,
 				4A993AAC1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift in Sources */,
+				4A54D65B1FA51CA100569EB9 /* PullRequestServiceTests.swift in Sources */,
+				4A54D6601FA51F2000569EB9 /* RepositoriesViewModelTests.swift in Sources */,
+				4A54D6591FA51C8700569EB9 /* RepositoryServiceTests.swift in Sources */,
 				4A993AA41FA4BCF700A23610 /* RepositoryTests.swift in Sources */,
 				4A993AAE1FA4BD7800A23610 /* WebViewControllerTests.swift in Sources */,
 			);

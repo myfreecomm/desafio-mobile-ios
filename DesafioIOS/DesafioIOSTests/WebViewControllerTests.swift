@@ -40,7 +40,7 @@ class WebViewControllerTests: XCTestCase {
     func testSetup() {
         
         // Apply it
-        let fakeObject = PullRequest(data: fakeDict)
+        let fakeObject = PullRequest(jsonData: fakeDict)
         self.vc.pullRequest = fakeObject
         
         // Init view
@@ -59,7 +59,7 @@ class WebViewControllerTests: XCTestCase {
     func testLaunchUrl() {
         
         // Apply it
-        let fakeObject = PullRequest(data: fakeDict)
+        let fakeObject = PullRequest(jsonData: fakeDict)
         self.vc.pullRequest = fakeObject
         
         // Init view

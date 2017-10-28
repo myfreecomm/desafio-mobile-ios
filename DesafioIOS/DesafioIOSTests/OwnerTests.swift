@@ -14,14 +14,14 @@ class OwnerTests: XCTestCase {
     func testInit() {
         
         // Our Fake info
-        let fakeDict : [String:Any] = [
+        let fakeDict : [AnyHashable:Any] = [
             "id" : "fake_id",
             "login" : "fakelogin",
             "avatar_url" : "http://fakeavatar.com/avatar.png"
         ]
         
         // Apply it
-        let fakeObject = Owner(data: fakeDict)
+        let fakeObject = Owner(jsonData: fakeDict)
         
         // Assert
         XCTAssert(fakeObject.id != "", "O campo \"id\" não foi preenchido.")

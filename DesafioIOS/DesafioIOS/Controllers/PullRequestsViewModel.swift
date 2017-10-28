@@ -30,53 +30,54 @@ class PullRequestsViewModel {
     
     func fetchData(completion: (() -> Void)?=nil) {
         
-        if  let safeRepository = self.repository,
-            let safeOwner = safeRepository.owner {
-            
-            service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: { [weak self] results in
-                
-                guard let this = self else { return }
-                
-                // Check state
-                for pull in results {
-                    // Open pulls
-                    if  pull.state == "open" {
-                        this.openPullsCount += 1
-                    }
-                    // Closed pulls
-                    if  pull.state == "closed" {
-                        this.closedPullsCount += 1
-                    }
-                }
-                
-                // Fill label
-                let openText = "\(this.openPullsCount) opened"
-                let text = "\(openText) / \(this.closedPullsCount) closed"
-                let attrStr = NSMutableAttributedString(string: text)
-                attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
-                this.viewController?.pullRequestsCountLabel?.attributedText = attrStr
-                
-                // Fill source
-                this.source = results
-                this.viewController?.tableView.reloadData()
-                this.viewController?.refreshControl?.endRefreshing()
-                this.isProcessing = false
+        guard
+            let safeRepository = repository,
+            let safeOwner = safeRepository.owner
+            else {
+                viewController?.errorHud("Não foi possível carregar os dados desse repositório.")
+                viewController?.refreshControl?.endRefreshing()
                 completion?()
-                
-            }) { [weak self] errorDescription in
-                
-                guard let this = self else { return }
-                
-                // Show error
-                this.viewController?.errorHud(errorDescription)
-                this.viewController?.refreshControl?.endRefreshing()
-                this.isProcessing = false
-                completion?()
-            }
+                return
         }
-        else {
-            viewController?.errorHud("Não foi possível carregar os dados desse repositório.")
-            viewController?.refreshControl?.endRefreshing()
+        
+        service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: { [weak self] results in
+            
+            guard let this = self else { return }
+            
+            // Check state
+            for pull in results {
+                // Open pulls
+                if  pull.state == "open" {
+                    this.openPullsCount += 1
+                }
+                // Closed pulls
+                if  pull.state == "closed" {
+                    this.closedPullsCount += 1
+                }
+            }
+            
+            // Fill label
+            let openText = "\(this.openPullsCount) opened"
+            let text = "\(openText) / \(this.closedPullsCount) closed"
+            let attrStr = NSMutableAttributedString(string: text)
+            attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
+            this.viewController?.pullRequestsCountLabel?.attributedText = attrStr
+            
+            // Fill source
+            this.source = results
+            this.viewController?.tableView.reloadData()
+            this.viewController?.refreshControl?.endRefreshing()
+            this.isProcessing = false
+            completion?()
+            
+        }) { [weak self] errorDescription in
+            
+            guard let this = self else { return }
+            
+            // Show error
+            this.viewController?.errorHud(errorDescription)
+            this.viewController?.refreshControl?.endRefreshing()
+            this.isProcessing = false
             completion?()
         }
     }

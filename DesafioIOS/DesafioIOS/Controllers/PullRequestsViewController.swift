@@ -94,12 +94,9 @@ public class PullRequestsViewController : UITableViewController, Hud {
     @IBAction func actionBack() {
         _ = self.navigationController?.popViewController(animated: true)
     }
-}
-
-// MARK: - Observers & Notifications
-extension PullRequestsViewController {
     
-    public func addObservers() {
+    // MARK: - Reachability
+    open func addObservers() {
         
         NotificationCenter.default.addObserver(
             self,
@@ -116,7 +113,7 @@ extension PullRequestsViewController {
         )
     }
     
-    public func removeObservers() {
+    open func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }

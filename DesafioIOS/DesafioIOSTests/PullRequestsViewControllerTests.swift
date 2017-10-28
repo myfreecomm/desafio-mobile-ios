@@ -42,21 +42,21 @@ class PullRequestsViewControllerTests: XCTestCase {
     func testSetup() {
         
         // Apply it
-        let fakeObject = Repository(data: fakeDict)
-        self.vc.repository = fakeObject
+        let fakeObject = Repository(jsonData: fakeDict)
+        vc.viewModel.repository = fakeObject
         
         // Init view
         var view : UIView? = self.vc.view
         
         // Asserting proprieties
         XCTAssertNotNil(view, "Este View Controller não possui UIView.")
-        XCTAssertNotNil(self.vc.tableView, "UITableView não existe.")
-        XCTAssertNotNil(self.vc.repository, "Esta tela requere um objeto do tipo \"Repository\" para continuar.")
-        XCTAssert(self.vc.title == self.vc.repository?.name, "O título deve ser o nome do repositório.")
-        XCTAssert(self.vc.navigationItem.title == self.vc.repository?.name, "O título deve ser o nome do repositório.")
-        XCTAssert(self.vc.tableView.rowHeight == UITableViewAutomaticDimension, "A altura das células da UITableView não é dinâmica.")
-        XCTAssert(self.vc.tableView.estimatedRowHeight == 140, "A altura das células da UITableView não é 130px.")
-        XCTAssertNotNil(self.vc.tableView.refreshControl, "UITableView não possui UIRefreshControl.")
+        XCTAssertNotNil(vc.tableView, "UITableView não existe.")
+        XCTAssertNotNil(vc.viewModel.repository, "Esta tela requere um objeto do tipo \"Repository\" para continuar.")
+        XCTAssert(vc.title == vc.viewModel.repository?.name, "O título deve ser o nome do repositório.")
+        XCTAssert(vc.navigationItem.title == self.vc.viewModel.repository?.name, "O título deve ser o nome do repositório.")
+        XCTAssert(vc.tableView.rowHeight == UITableViewAutomaticDimension, "A altura das células da UITableView não é dinâmica.")
+        XCTAssert(vc.tableView.estimatedRowHeight == 140, "A altura das células da UITableView não é 130px.")
+        XCTAssertNotNil(vc.tableView.refreshControl, "UITableView não possui UIRefreshControl.")
         
         // Release View
         view = nil
@@ -119,15 +119,6 @@ class PullRequestsViewControllerTests: XCTestCase {
         self.vc.removeObservers()
     }
     
-    func testRefresh() {
-        
-        // Launch
-        self.vc.refresh()
-        
-        // Assert
-        XCTAssertNotNil(self.vc.didRefreshPage, "Os dados não foram recarregados.")
-    }
-    
     func testTriggerRefreshControl() {
         
         // Init view
@@ -144,29 +135,6 @@ class PullRequestsViewControllerTests: XCTestCase {
         // Release view
         view = nil
     }
-    
-    func testFetchData() {
-        
-        // Apply it
-        let fakeObject = Repository(data: fakeDict)
-        self.vc.repository = fakeObject
-        
-        // Expectation
-        let expectation = self.expectation(description: "Esperando dados de de Pull Requests")
-        
-        // Launch
-        let previousSourceCount = self.vc.source.count
-        self.vc.fetchData { [weak self] in
-            if  let this = self {
-                // Assert
-                XCTAssert(previousSourceCount < this.vc.source.count, "O conteúdo da coleção de dados é menor ou igual à conferência anterior.")
-            }
-            expectation.fulfill()
-        }
-        
-        // Assert
-        self.waitForExpectations(timeout: self.timeOutInterval, handler: nil)
-    }
 }
 
 // MARK: - Mock VC
@@ -174,7 +142,6 @@ class MockPullRequestsViewController : PullRequestsViewController {
     
     var notificationReceived : String? = nil
     var hasObservers : Bool? = nil
-    var didRefreshPage : Bool? = nil
     
     override func addObservers() {
         super.addObservers()
@@ -194,11 +161,6 @@ class MockPullRequestsViewController : PullRequestsViewController {
     override func notificationNotReachable(n: Notification) {
         super.notificationNotReachable(n: n)
         self.notificationReceived = n.name.rawValue
-    }
-    
-    override func refresh() {
-        super.refresh()
-        self.didRefreshPage = true
     }
 }
 

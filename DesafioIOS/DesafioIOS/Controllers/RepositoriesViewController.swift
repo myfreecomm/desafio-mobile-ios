@@ -74,12 +74,9 @@ public class RepositoriesViewController : UITableViewController, Hud {
         }
         refresh()
     }
-}
-
-// MARK: - Reachability
-extension RepositoriesViewController {
     
-    public func addObservers() {
+    // MARK: - Reachability
+    open func addObservers() {
         
         NotificationCenter.default.addObserver(
             self,
@@ -96,19 +93,19 @@ extension RepositoriesViewController {
         )
     }
     
-    public func removeObservers() {
+    open func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
-    @objc func notificationIsReachable(n: Notification) {
+    @objc open func notificationIsReachable(n: Notification) {
         guard viewModel.source.count == 0 else { return }
         if !viewModel.isProcessing {
             triggerRefreshControl()
         }
     }
     
-    @objc func notificationNotReachable(n: Notification) {
+    @objc open func notificationNotReachable(n: Notification) {
         errorHud("Você está desconectado ☹️")
     }
 }

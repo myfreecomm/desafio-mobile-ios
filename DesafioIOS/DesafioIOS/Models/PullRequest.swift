@@ -28,7 +28,7 @@ public struct PullRequest {
         state = json["state"].stringValue
         htmlUrl = json["html_url"].stringValue
         
-        if  let ownerData = try? json["owner"].rawData() {
+        if  let ownerData = json["owner"].dictionary {
             owner = Owner(jsonData: ownerData)
         }
     }

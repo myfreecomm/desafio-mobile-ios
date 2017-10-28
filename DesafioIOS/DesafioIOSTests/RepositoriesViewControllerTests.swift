@@ -26,22 +26,6 @@ class RepositoriesViewControllerTests: XCTestCase {
     }
     
     // MARK: - Tests
-    func testSetup() {
-        
-        // Init view
-        var view : UIView? = self.vc.view
-        
-        // Asserting proprieties
-        XCTAssertNotNil(view, "Este View Controller não possui UIView.")
-        XCTAssertNotNil(self.vc.tableView, "UITableView não existe.")
-        XCTAssert(self.vc.tableView.rowHeight == UITableViewAutomaticDimension, "A altura das células da UITableView não é dinâmica.")
-        XCTAssert(self.vc.tableView.estimatedRowHeight == 130, "A altura das células da UITableView não é 130px.")
-        XCTAssertNotNil(self.vc.tableView.refreshControl, "UITableView não possui UIRefreshControl.")
-        
-        // Release View
-        view = nil
-    }
-    
     func testAddObservers() {
         
         // Try to Add observers
@@ -99,33 +83,6 @@ class RepositoriesViewControllerTests: XCTestCase {
         self.vc.removeObservers()
     }
     
-    func testRefresh() {
-        
-        // Expectation
-        let expectation = self.expectation(description: "Carregar dados")
-        
-        // Fetch Data to fill source
-        self.vc.fetchData { [weak self] in
-            if  let this = self {
-                // Assert
-                XCTAssert(this.vc.source.count > 0, "A coleção de dados está vazia.")
-                // Fetch second page
-                this.vc.triggerInfiniteScrolling { [unowned this] in
-                    // Assert
-                    XCTAssert(this.vc.page > 1, "A página ainda é a primeira.")
-                    expectation.fulfill()
-                    // Try to refresh
-                    this.vc.refresh()
-                    // Assert
-                    XCTAssert(this.vc.page == 1, "A página ativa não é a primeira")
-                }
-            }
-        }
-        
-        // Wait
-        self.waitForExpectations(timeout: self.timeOutInterval, handler: nil)
-    }
-    
     func testTriggerRefreshControl() {
         
         // Init view
@@ -141,48 +98,6 @@ class RepositoriesViewControllerTests: XCTestCase {
         
         // Release view
         view = nil
-    }
-    
-    func testFetchData() {
-        
-        // Expectation
-        let expectation = self.expectation(description: "Esperando dados da primeira página de Repositories")
-        
-        // Launch
-        let previousSourceCount = self.vc.source.count
-        self.vc.fetchData { [weak self] in
-            if  let this = self {
-                // Assert
-                XCTAssert(previousSourceCount < this.vc.source.count, "O conteúdo da coleção de dados é menor ou igual à conferência anterior.")
-            }
-            expectation.fulfill()
-        }
-        
-        // Assert
-        self.waitForExpectations(timeout: self.timeOutInterval, handler: nil)
-    }
-    
-    func testTriggerInfiniteScrolling() {
-        
-        // Fetch first page
-        self.vc.fetchData { [weak self] in
-            if  let this = self {
-                // Expectation
-                let expectation = this.expectation(description: "Esperando dados da próxima página de Repositories")
-                
-                // Launch
-                let previousSourceCount = this.vc.source.count
-                this.vc.triggerInfiniteScrolling { [unowned this] in
-                    // Assert
-                    XCTAssert(previousSourceCount < this.vc.source.count, "O conteúdo da coleção de dados é menor ou igual à conferência anterior.")
-                    XCTAssert(this.vc.page > 1, "A página continua sendo a primeira.")
-                    expectation.fulfill()
-                }
-                
-                // Assert
-                this.waitForExpectations(timeout: this.timeOutInterval, handler: nil)
-            }
-        }
     }
 }
 

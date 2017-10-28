@@ -30,7 +30,7 @@ class PullRequestTests: XCTestCase {
         ]
         
         // Apply it
-        let fakeObject = PullRequest(data: fakeDict)
+        let fakeObject = PullRequest(jsonData: fakeDict)
         
         // Assert
         XCTAssert(fakeObject.id != 0, "O campo \"id\" não foi preenchido.")
@@ -40,26 +40,6 @@ class PullRequestTests: XCTestCase {
         XCTAssert(fakeObject.state != "", "O campo \"state\" não foi preenchido.")
         // Assert Owner
         XCTAssertNotNil(fakeObject.owner, "O campo \"owner\" não foi preenchido.")
-    }
-    
-    func testLoad() {
-        
-        // Expectation
-        let expectation = self.expectation(description: "Esperando resultado de Pull Requests")
-        
-        // Launch
-        let testOwner = "elastic"
-        let testRepository = "elasticsearch"
-        PullRequest.load(owner: testOwner, repository: testRepository, succeed: { (result) in
-            XCTAssert(result.count > 0, "Não houveram resultados.")
-            expectation.fulfill()
-        }) { (error) in
-            XCTAssert(error != "", "Descrição do erro falhou.")
-            expectation.fulfill()
-        }
-        
-        // Assert
-        self.waitForExpectations(timeout: self.timeOutInterval, handler: nil)
     }
 }
 

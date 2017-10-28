@@ -31,7 +31,7 @@ class RepositoryTests: XCTestCase {
         ]
         
         // Apply it
-        let fakeObject = Repository(data: fakeDict)
+        let fakeObject = Repository(jsonData: fakeDict)
         
         // Assert
         XCTAssert(fakeObject.id != 0, "O campo \"id\" não foi preenchido.")
@@ -41,24 +41,6 @@ class RepositoryTests: XCTestCase {
         XCTAssert(fakeObject.stars != 0, "O campo \"stars\" não foi preenchido.")
         // Assert Owner
         XCTAssertNotNil(fakeObject.owner, "O campo \"owner\" não foi preenchido.")
-    }
-    
-    func testLoad() {
-        
-        // Expectation
-        let expectation = self.expectation(description: "Esperando resultado de Repositories")
-        
-        // Launch
-        Repository.load(page: 1, succeed: { (result) in
-            XCTAssert(result.count > 0, "Não houveram resultados.")
-            expectation.fulfill()
-        }) { (error) in
-            XCTAssert(error != "", "Descrição do erro falhou.")
-            expectation.fulfill()
-        }
-        
-        // Assert
-        self.waitForExpectations(timeout: self.timeOutInterval, handler: nil)
     }
 }
 

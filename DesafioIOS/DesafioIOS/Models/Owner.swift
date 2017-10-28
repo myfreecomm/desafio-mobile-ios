@@ -16,9 +16,9 @@ public struct Owner {
     var username : String = ""
     var picture : String = ""
     
-    init(jsonData: Data) {
+    init(jsonData: [AnyHashable: Any]) {
         
-        let json = JSON(data: jsonData)
+        let json = JSON(jsonData)
         
         id = json["id"].stringValue
         name = json["login"].stringValue

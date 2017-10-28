@@ -30,7 +30,7 @@ public struct Repository {
         forks = json["forks_count"].intValue
         stars = json["stargazers_count"].intValue
         
-        if  let ownerData = try? json["owner"].rawData() {
+        if  let ownerData = json["owner"].dictionary {
             owner = Owner(jsonData: ownerData)
         }
     }
