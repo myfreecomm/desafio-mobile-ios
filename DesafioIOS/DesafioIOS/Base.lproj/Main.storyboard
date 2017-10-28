@@ -242,13 +242,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{user nickname}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk8-FU-Drv">
-                                            <rect key="frame" x="64" y="79" width="98" height="16"/>
+                                            <rect key="frame" x="64" y="79" width="291" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.023529411760000001" green="0.4039215686" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{user name}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dib-R7-CFt">
-                                            <rect key="frame" x="64" y="97" width="69" height="14.5"/>
+                                            <rect key="frame" x="64" y="97" width="291" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -260,6 +260,7 @@
                                         <constraint firstItem="FIt-ud-Tkf" firstAttribute="leading" secondItem="Tsn-0P-waU" secondAttribute="leading" constant="20" id="Kap-Yn-Wlf"/>
                                         <constraint firstItem="CYa-lW-V8h" firstAttribute="top" secondItem="FIt-ud-Tkf" secondAttribute="bottom" constant="4" id="LU4-OC-31S"/>
                                         <constraint firstItem="kk8-FU-Drv" firstAttribute="leading" secondItem="AGJ-ya-JCS" secondAttribute="trailing" constant="8" id="Nla-4r-U5r"/>
+                                        <constraint firstAttribute="trailing" secondItem="kk8-FU-Drv" secondAttribute="trailing" constant="20" id="TOE-Ze-Afp"/>
                                         <constraint firstItem="AGJ-ya-JCS" firstAttribute="top" secondItem="CYa-lW-V8h" secondAttribute="bottom" constant="16" id="USo-Gc-HZW"/>
                                         <constraint firstAttribute="trailing" secondItem="FIt-ud-Tkf" secondAttribute="trailing" constant="20" id="UtS-eh-4Pa"/>
                                         <constraint firstAttribute="trailing" secondItem="CYa-lW-V8h" secondAttribute="trailing" constant="20" id="VcC-yZ-41a"/>
@@ -267,6 +268,7 @@
                                         <constraint firstItem="CYa-lW-V8h" firstAttribute="leading" secondItem="FIt-ud-Tkf" secondAttribute="leading" id="Z85-RX-L5L"/>
                                         <constraint firstItem="dib-R7-CFt" firstAttribute="leading" secondItem="kk8-FU-Drv" secondAttribute="leading" id="aMo-et-NcC"/>
                                         <constraint firstItem="FIt-ud-Tkf" firstAttribute="top" secondItem="Tsn-0P-waU" secondAttribute="top" constant="20" id="jjB-U7-6LF"/>
+                                        <constraint firstAttribute="trailing" secondItem="dib-R7-CFt" secondAttribute="trailing" constant="20" id="pHP-XW-qHx"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AGJ-ya-JCS" secondAttribute="bottom" priority="750" constant="20" id="pPO-f8-AR7"/>
                                     </constraints>
                                 </tableViewCellContentView>

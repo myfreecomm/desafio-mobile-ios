@@ -78,13 +78,13 @@ class WebViewController : UIViewController {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
-    func notificationIsReachable(n: Notification) {
+    @objc func notificationIsReachable(n: Notification) {
         if  self.didFail && !self.isProcessing {
             self.loadWebView()
         }
     }
     
-    func notificationNotReachable(n: Notification) {
+    @objc func notificationNotReachable(n: Notification) {
         SVProgressHUD.showError(withStatus: "Você está desconectado")
     }
     

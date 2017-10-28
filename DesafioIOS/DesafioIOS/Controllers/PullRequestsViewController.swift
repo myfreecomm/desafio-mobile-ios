@@ -91,7 +91,7 @@ class PullRequestsViewController : UITableViewController {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
-    public func notificationIsReachable(n: Notification) {
+    @objc func notificationIsReachable(n: Notification) {
         if  self.source.count == 0 {
             if !self.isProcessing {
                 self.triggerRefreshControl()
@@ -99,12 +99,12 @@ class PullRequestsViewController : UITableViewController {
         }
     }
     
-    public func notificationNotReachable(n: Notification) {
+    @objc func notificationNotReachable(n: Notification) {
         SVProgressHUD.showError(withStatus: "Você está desconectado")
     }
     
     // MARK: - Data Methods
-    func refresh() {
+    @objc func refresh() {
         if !self.isProcessing {
             self.isProcessing = true
             // Re-fetch
@@ -124,7 +124,8 @@ class PullRequestsViewController : UITableViewController {
         
         if  let safeRepository = self.repository,
             let safeOwner = safeRepository.owner {
-            PullRequest.load(owner: safeOwner.username, repository: safeRepository.name, succeed: {
+            let service = PullRequestService()
+            service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: {
                 [weak self] results in
                 
                 if  let this = self {
@@ -143,7 +144,7 @@ class PullRequestsViewController : UITableViewController {
                     let openText = "\(this.openPullsCount) opened"
                     let text = "\(openText) / \(this.closedPullsCount) closed"
                     let attrStr = NSMutableAttributedString(string: text)
-                    attrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
+                    attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
                     this.pullRequestsCountLabel?.attributedText = attrStr
                     // Fill source
                     this.source = results

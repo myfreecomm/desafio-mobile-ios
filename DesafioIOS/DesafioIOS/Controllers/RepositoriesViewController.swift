@@ -112,7 +112,8 @@ class RepositoriesViewController : UITableViewController {
     
     func fetchData(completion: (() -> Void)?=nil) {
         
-        Repository.load(page: self.page, succeed: {
+        let service = RepositoryService()
+        service.load(page: self.page, succeed: {
             [weak self] results in
             
             if  let this = self {
