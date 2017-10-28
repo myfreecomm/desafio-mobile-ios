@@ -12,7 +12,6 @@
 		4A427B831FA4AF6700B0E95D /* DesafioIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A427B811FA4AF6700B0E95D /* DesafioIOS.xcdatamodeld */; };
 		4A427B851FA4AF6700B0E95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B841FA4AF6700B0E95D /* Assets.xcassets */; };
 		4A427B881FA4AF6700B0E95D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B861FA4AF6700B0E95D /* LaunchScreen.storyboard */; };
-		4A427B931FA4AF6700B0E95D /* DesafioIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A427B921FA4AF6700B0E95D /* DesafioIOSTests.swift */; };
 		4A993A641FA4B12E00A23610 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A993A621FA4B12E00A23610 /* Info.plist */; };
 		4A993A691FA4B32200A23610 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A681FA4B32200A23610 /* ReachabilityManager.swift */; };
 		4A993A6C1FA4B3F500A23610 /* Swift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A6B1FA4B3F500A23610 /* Swift+Extensions.swift */; };
@@ -34,6 +33,14 @@
 		4A993A961FA4BB6300A23610 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A951FA4BB6300A23610 /* RepositoriesViewModel.swift */; };
 		4A993A981FA4BB7000A23610 /* PullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A971FA4BB7000A23610 /* PullRequestsViewModel.swift */; };
 		4A993A9A1FA4BB7B00A23610 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A991FA4BB7B00A23610 /* WebViewModel.swift */; };
+		4A993A9F1FA4BC9300A23610 /* ReachabilityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A9E1FA4BC9300A23610 /* ReachabilityManagerTests.swift */; };
+		4A993AA11FA4BCB200A23610 /* RestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AA01FA4BCB200A23610 /* RestClientTests.swift */; };
+		4A993AA41FA4BCF700A23610 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AA31FA4BCF700A23610 /* RepositoryTests.swift */; };
+		4A993AA61FA4BD0600A23610 /* PullRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AA51FA4BD0600A23610 /* PullRequestTests.swift */; };
+		4A993AA81FA4BD1B00A23610 /* OwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AA71FA4BD1B00A23610 /* OwnerTests.swift */; };
+		4A993AAA1FA4BD4000A23610 /* RepositoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AA91FA4BD4000A23610 /* RepositoriesViewControllerTests.swift */; };
+		4A993AAC1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AAB1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift */; };
+		4A993AAE1FA4BD7800A23610 /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993AAD1FA4BD7800A23610 /* WebViewControllerTests.swift */; };
 		4DB7243BB4F6778FA4C27123 /* Pods_DesafioIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C9DB27EC4D977B219219A4 /* Pods_DesafioIOS.framework */; };
 		D443C24FAA1DB184CE1DC556 /* Pods_DesafioIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C83602D0FE778852F685A5 /* Pods_DesafioIOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,7 +65,6 @@
 		4A427B841FA4AF6700B0E95D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A427B871FA4AF6700B0E95D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A427B8E1FA4AF6700B0E95D /* DesafioIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesafioIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A427B921FA4AF6700B0E95D /* DesafioIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioIOSTests.swift; sourceTree = "<group>"; };
 		4A427B941FA4AF6700B0E95D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A993A611FA4B12E00A23610 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4A993A621FA4B12E00A23610 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +88,14 @@
 		4A993A951FA4BB6300A23610 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		4A993A971FA4BB7000A23610 /* PullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModel.swift; sourceTree = "<group>"; };
 		4A993A991FA4BB7B00A23610 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		4A993A9E1FA4BC9300A23610 /* ReachabilityManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManagerTests.swift; sourceTree = "<group>"; };
+		4A993AA01FA4BCB200A23610 /* RestClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClientTests.swift; sourceTree = "<group>"; };
+		4A993AA31FA4BCF700A23610 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		4A993AA51FA4BD0600A23610 /* PullRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTests.swift; sourceTree = "<group>"; };
+		4A993AA71FA4BD1B00A23610 /* OwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerTests.swift; sourceTree = "<group>"; };
+		4A993AA91FA4BD4000A23610 /* RepositoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewControllerTests.swift; sourceTree = "<group>"; };
+		4A993AAB1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewControllerTests.swift; sourceTree = "<group>"; };
+		4A993AAD1FA4BD7800A23610 /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		4BA7F1716C11BA8B1E0EB9CD /* Pods-DesafioIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioIOS/Pods-DesafioIOS.release.xcconfig"; sourceTree = "<group>"; };
 		6B19B80C6E3CBF350F139E84 /* Pods-DesafioIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioIOS/Pods-DesafioIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D7C9DB27EC4D977B219219A4 /* Pods_DesafioIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesafioIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,8 +159,9 @@
 		4A427B911FA4AF6700B0E95D /* DesafioIOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				4A427B921FA4AF6700B0E95D /* DesafioIOSTests.swift */,
-				4A427B941FA4AF6700B0E95D /* Info.plist */,
+				4A993A9B1FA4BC5D00A23610 /* Core */,
+				4A993A9C1FA4BC6300A23610 /* Models */,
+				4A993A9D1FA4BC6800A23610 /* Controllers */,
 			);
 			path = DesafioIOSTests;
 			sourceTree = "<group>";
@@ -257,6 +272,44 @@
 				4A993A991FA4BB7B00A23610 /* WebViewModel.swift */,
 			);
 			name = Web;
+			sourceTree = "<group>";
+		};
+		4A993A9B1FA4BC5D00A23610 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AA21FA4BCDB00A23610 /* Supporting Files */,
+				4A993A9E1FA4BC9300A23610 /* ReachabilityManagerTests.swift */,
+				4A993AA01FA4BCB200A23610 /* RestClientTests.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		4A993A9C1FA4BC6300A23610 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AA31FA4BCF700A23610 /* RepositoryTests.swift */,
+				4A993AA51FA4BD0600A23610 /* PullRequestTests.swift */,
+				4A993AA71FA4BD1B00A23610 /* OwnerTests.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4A993A9D1FA4BC6800A23610 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A993AA91FA4BD4000A23610 /* RepositoriesViewControllerTests.swift */,
+				4A993AAB1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift */,
+				4A993AAD1FA4BD7800A23610 /* WebViewControllerTests.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4A993AA21FA4BCDB00A23610 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A427B941FA4AF6700B0E95D /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7FB0D43E8B06B528EC37013F /* Pods */ = {
@@ -543,7 +596,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A427B931FA4AF6700B0E95D /* DesafioIOSTests.swift in Sources */,
+				4A993AAA1FA4BD4000A23610 /* RepositoriesViewControllerTests.swift in Sources */,
+				4A993AA81FA4BD1B00A23610 /* OwnerTests.swift in Sources */,
+				4A993A9F1FA4BC9300A23610 /* ReachabilityManagerTests.swift in Sources */,
+				4A993AA11FA4BCB200A23610 /* RestClientTests.swift in Sources */,
+				4A993AA61FA4BD0600A23610 /* PullRequestTests.swift in Sources */,
+				4A993AAC1FA4BD6A00A23610 /* PullRequestsViewControllerTests.swift in Sources */,
+				4A993AA41FA4BCF700A23610 /* RepositoryTests.swift in Sources */,
+				4A993AAE1FA4BD7800A23610 /* WebViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
