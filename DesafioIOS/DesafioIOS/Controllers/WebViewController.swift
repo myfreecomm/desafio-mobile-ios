@@ -7,70 +7,86 @@
 //
 
 import UIKit
-import SVProgressHUD
 
-class WebViewController : UIViewController {
+public class WebViewController : UIViewController, Hud {
     
-    public var pullRequest: PullRequest?
+    var viewModel = WebViewModel()
     
     @IBOutlet weak var webView: UIWebView?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     @IBOutlet weak var reloadButton: UIButton?
     
-    fileprivate(set) public var url : URL?
-    fileprivate(set) public var didFail = false
-    fileprivate(set) public var isProcessing = false
-    
     // Setup
-    fileprivate func setup() {
+    private func setup() {
+        
+        // ViewModel
+        viewModel.viewController = self
+        
         // Primary state
-        self.reloadButton?.disable()
-        self.activityIndicator?.enable()
-        self.activityIndicator?.startAnimating()
-        self.title = ""
-        self.navigationItem.title = ""
-    }
-    
-    func launchUrl() {
-        // Load
-        if  let safePull = self.pullRequest,
-            let url = URL(string: safePull.htmlUrl) {
-            
-            // Title
-            self.title = safePull.title
-            self.navigationItem.title = safePull.title
-            
-            // Loading WebView
-            self.url = url
-            self.loadWebView()
-        }
+        reloadButton?.disable()
+        activityIndicator?.enable()
+        activityIndicator?.startAnimating()
+        title = ""
+        navigationItem.title = ""
     }
     
     // MARK: - Lifecycle Methods
-    override func viewDidLoad() {
+    override public  func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.launchUrl()
+        viewModel.launchUrl()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addObservers()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.removeObservers()
     }
     
-    // MARK: - Observers & Notifications
+    // MARK: - Internal Methods
+    func loadWebView() {
+        if  let safeUrl = viewModel.url {
+            let urlRequest = URLRequest(url: safeUrl)
+            self.webView?.loadRequest(urlRequest)
+        }
+        else {
+            errorHud("Esta Pull Request não possui HTML URL.")
+        }
+    }
+    
+    // MARK: - IB Actions
+    @IBAction func actionReload() {
+        loadWebView()
+    }
+    
+    @IBAction func actionDismiss() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Reachability
     public func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(WebViewController.notificationIsReachable(n:)), name: NotificationCenter.Name.Reachable, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(WebViewController.notificationNotReachable(n:)), name: NotificationCenter.Name.NotReachable, object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(WebViewController.notificationIsReachable(n:)),
+            name: NotificationCenter.Name.Reachable,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(WebViewController.notificationNotReachable(n:)),
+            name: NotificationCenter.Name.NotReachable,
+            object: nil
+        )
     }
     
     public func removeObservers() {
@@ -79,57 +95,37 @@ class WebViewController : UIViewController {
     }
     
     @objc func notificationIsReachable(n: Notification) {
-        if  self.didFail && !self.isProcessing {
-            self.loadWebView()
+        if  viewModel.didFail && !viewModel.isProcessing {
+            loadWebView()
         }
     }
     
     @objc func notificationNotReachable(n: Notification) {
-        SVProgressHUD.showError(withStatus: "Você está desconectado")
-    }
-    
-    // MARK: - Internal Methods
-    func loadWebView() {
-        if  let safeUrl = self.url {
-            let urlRequest = URLRequest(url: safeUrl)
-            self.webView?.loadRequest(urlRequest)
-        }
-        else {
-            SVProgressHUD.showError(withStatus: "Esta Pull Request não possui HTML URL.")
-        }
-    }
-    
-    // MARK: - IB Actions
-    @IBAction func actionReload() {
-        self.loadWebView()
-    }
-    
-    @IBAction func actionDismiss() {
-        self.dismiss(animated: true, completion: nil)
+        errorHud("Você está desconectado ☹️")
     }
 }
 
 // MARK: - Webview delegate
 extension WebViewController : UIWebViewDelegate {
     
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        self.reloadButton?.disable()
-        self.activityIndicator?.enable()
-        self.didFail = false
-        self.isProcessing = true
+    public func webViewDidStartLoad(_ webView: UIWebView) {
+        reloadButton?.disable()
+        activityIndicator?.enable()
+        viewModel.didFail = false
+        viewModel.isProcessing = true
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.activityIndicator?.disable()
-        self.reloadButton?.enable()
-        self.isProcessing = false
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
+        activityIndicator?.disable()
+        reloadButton?.enable()
+        viewModel.isProcessing = false
     }
     
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        self.activityIndicator?.disable()
-        self.reloadButton?.enable()
-        self.didFail = true
-        self.isProcessing = false
+    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        activityIndicator?.disable()
+        reloadButton?.enable()
+        viewModel.didFail = true
+        viewModel.isProcessing = false
         
         // Show Error
         let alert = UIAlertController(title: "Ocorreu um erro", message: error.localizedDescription, preferredStyle: .alert)
@@ -148,12 +144,12 @@ extension WebViewController : UIWebViewDelegate {
 // MARK: - Custom methods for UIView
 fileprivate extension UIView {
     func enable() {
-        self.isHidden = false
-        self.isUserInteractionEnabled = true
+        isHidden = false
+        isUserInteractionEnabled = true
     }
     func disable() {
-        self.isHidden = true
-        self.isUserInteractionEnabled = false
+        isHidden = true
+        isUserInteractionEnabled = false
     }
 }
 

@@ -39,29 +39,6 @@ class PullRequestsViewControllerTests: XCTestCase {
     }
     
     // MARK: - Tests
-    func testSetup() {
-        
-        // Apply it
-        let fakeObject = Repository(jsonData: fakeDict)
-        vc.viewModel.repository = fakeObject
-        
-        // Init view
-        var view : UIView? = self.vc.view
-        
-        // Asserting proprieties
-        XCTAssertNotNil(view, "Este View Controller não possui UIView.")
-        XCTAssertNotNil(vc.tableView, "UITableView não existe.")
-        XCTAssertNotNil(vc.viewModel.repository, "Esta tela requere um objeto do tipo \"Repository\" para continuar.")
-        XCTAssert(vc.title == vc.viewModel.repository?.name, "O título deve ser o nome do repositório.")
-        XCTAssert(vc.navigationItem.title == self.vc.viewModel.repository?.name, "O título deve ser o nome do repositório.")
-        XCTAssert(vc.tableView.rowHeight == UITableViewAutomaticDimension, "A altura das células da UITableView não é dinâmica.")
-        XCTAssert(vc.tableView.estimatedRowHeight == 140, "A altura das células da UITableView não é 130px.")
-        XCTAssertNotNil(vc.tableView.refreshControl, "UITableView não possui UIRefreshControl.")
-        
-        // Release View
-        view = nil
-    }
-    
     func testAddObservers() {
         
         // Try to Add observers

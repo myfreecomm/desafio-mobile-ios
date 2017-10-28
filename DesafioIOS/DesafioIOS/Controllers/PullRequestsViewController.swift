@@ -73,7 +73,7 @@ public class PullRequestsViewController : UITableViewController, Hud {
         if  segue.identifier == MainStoryboard.Segue.toWebView {
             let nav = segue.destination as! UINavigationController
             let vc = nav.viewControllers.first as! WebViewController
-            vc.pullRequest = sender as? PullRequest
+            vc.viewModel.pullRequest = sender as? PullRequest
         }
     }
     
