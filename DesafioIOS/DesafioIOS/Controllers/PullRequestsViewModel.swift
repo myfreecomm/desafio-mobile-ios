@@ -10,4 +10,74 @@ import Foundation
 
 class PullRequestsViewModel {
     
+    weak var viewController : PullRequestsViewController?
+    
+    public var repository : Repository?
+    
+    fileprivate(set) public var source = [PullRequest]()
+    fileprivate(set) public var isProcessing = false
+    fileprivate(set) public var openPullsCount = 0
+    fileprivate(set) public var closedPullsCount = 0
+    
+    fileprivate var service = PullRequestService()
+    
+    func refresh() {
+        guard !isProcessing else { return }
+        isProcessing = true
+        // Re-fetch
+        fetchData()
+    }
+    
+    func fetchData(completion: (() -> Void)?=nil) {
+        
+        if  let safeRepository = self.repository,
+            let safeOwner = safeRepository.owner {
+            
+            service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: { [weak self] results in
+                
+                guard let this = self else { return }
+                
+                // Check state
+                for pull in results {
+                    // Open pulls
+                    if  pull.state == "open" {
+                        this.openPullsCount += 1
+                    }
+                    // Closed pulls
+                    if  pull.state == "closed" {
+                        this.closedPullsCount += 1
+                    }
+                }
+                
+                // Fill label
+                let openText = "\(this.openPullsCount) opened"
+                let text = "\(openText) / \(this.closedPullsCount) closed"
+                let attrStr = NSMutableAttributedString(string: text)
+                attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
+                this.viewController?.pullRequestsCountLabel?.attributedText = attrStr
+                
+                // Fill source
+                this.source = results
+                this.viewController?.tableView.reloadData()
+                this.viewController?.refreshControl?.endRefreshing()
+                this.isProcessing = false
+                completion?()
+                
+            }) { [weak self] errorDescription in
+                
+                guard let this = self else { return }
+                
+                // Show error
+                this.viewController?.errorHud(errorDescription)
+                this.viewController?.refreshControl?.endRefreshing()
+                this.isProcessing = false
+                completion?()
+            }
+        }
+        else {
+            viewController?.errorHud("Não foi possível carregar os dados desse repositório.")
+            viewController?.refreshControl?.endRefreshing()
+            completion?()
+        }
+    }
 }

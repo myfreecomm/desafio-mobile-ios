@@ -8,9 +8,9 @@
 
 import Foundation
 
-class PullRequestService : NSObject {
+public class PullRequestService : NSObject {
     
-    func load(owner: String, repository: String, succeed: @escaping ([PullRequest]) -> Void, failed: @escaping (String) -> Void) {
+    public func load(owner: String, repository: String, succeed: @escaping ([PullRequest]) -> Void, failed: @escaping (String) -> Void) {
         
         RestClient.pullRequests(owner: owner, repository: repository) { (didSucceed, data) in
             

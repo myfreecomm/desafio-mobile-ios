@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-public class RestClient : NSObject {
+class RestClient : NSObject {
     
     typealias Callback = (Bool, Any?) -> Void
     

@@ -9,7 +9,7 @@
 import Foundation
 import ReachabilitySwift
 
-public class ReachabilityManager {
+class ReachabilityManager {
     
     static var isSubscribed : Bool = false
     private static let reachability = Reachability()

@@ -58,7 +58,7 @@ public class RepositoriesViewController : UITableViewController, Hud {
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == MainStoryboard.Segue.toPullRequest {
             let vc = segue.destination as! PullRequestsViewController
-            vc.repository = sender as? Repository
+            vc.viewModel.repository = sender as? Repository
         }
     }
     

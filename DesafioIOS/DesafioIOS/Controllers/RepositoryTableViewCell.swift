@@ -39,14 +39,13 @@ class RepositoryCell : UITableViewCell, UniqueCell {
         starsCountLabel.text = formatter.string(from: starsNumber)
         
         // Owner Data
-        if  let owner = object.owner {
-            userNameLabel.text = owner.name
-            userNicknameLabel.text = owner.username
-            if  owner.picture != "",
-                let url = URL(string: owner.picture),
-                let placeholder = UIImage(named: "avatar_noimage") {
-                userPicture.sd_setImage(with: url, placeholderImage: placeholder)
-            }
+        guard let owner = object.owner else { return }
+        userNameLabel.text = owner.name
+        userNicknameLabel.text = owner.username
+        if  owner.picture != "",
+            let url = URL(string: owner.picture),
+            let placeholder = UIImage(named: "avatar_noimage") {
+            userPicture.sd_setImage(with: url, placeholderImage: placeholder)
         }
     }
 }
