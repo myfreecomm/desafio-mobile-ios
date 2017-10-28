@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,13 +55,18 @@
                                                     <color key="textColor" red="0.023529411760000001" green="0.4039215686" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_noimage" translatesAutoresizingMaskIntoConstraints="NO" id="WJQ-KJ-WIE">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_noimage" translatesAutoresizingMaskIntoConstraints="NO" id="WJQ-KJ-WIE" customClass="UIImageViewCorner" customModule="CoolDesignables">
                                                     <rect key="frame" x="35.5" y="0.0" width="40" height="40"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="CUY-z2-AhF"/>
-                                                        <constraint firstAttribute="height" constant="40" id="I9d-Vd-104"/>
+                                                        <constraint firstAttribute="width" secondItem="WJQ-KJ-WIE" secondAttribute="height" multiplier="1:1" id="Xfr-lW-xby"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{user name}" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lo-4s-IRP">
                                                     <rect key="frame" x="20.5" y="63" width="69" height="14.5"/>
@@ -223,12 +229,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_noimage" translatesAutoresizingMaskIntoConstraints="NO" id="AGJ-ya-JCS">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_noimage" translatesAutoresizingMaskIntoConstraints="NO" id="AGJ-ya-JCS" customClass="UIImageViewCorner" customModule="CoolDesignables">
                                             <rect key="frame" x="20" y="78" width="36" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="36" id="H9r-8T-RRP"/>
-                                                <constraint firstAttribute="height" constant="36" id="nvO-gD-4os"/>
+                                                <constraint firstAttribute="width" secondItem="AGJ-ya-JCS" secondAttribute="height" multiplier="1:1" id="zMi-XG-BBF"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="18"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{user nickname}" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk8-FU-Drv">
                                             <rect key="frame" x="64" y="79" width="98" height="16"/>
