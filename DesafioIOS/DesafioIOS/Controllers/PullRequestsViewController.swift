@@ -21,6 +21,8 @@ class PullRequestsViewController : UITableViewController {
     fileprivate(set) public var openPullsCount = 0
     fileprivate(set) public var closedPullsCount = 0
     
+    fileprivate var service = PullRequestService()
+    
     // Setup
     fileprivate func setup() {
         
@@ -124,7 +126,6 @@ class PullRequestsViewController : UITableViewController {
         
         if  let safeRepository = self.repository,
             let safeOwner = safeRepository.owner {
-            let service = PullRequestService()
             service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: {
                 [weak self] results in
                 

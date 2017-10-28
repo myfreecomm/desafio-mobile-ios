@@ -18,6 +18,8 @@ class RepositoriesViewController : UITableViewController {
     fileprivate(set) public var page = 1
     fileprivate(set) public var isProcessing = false
     
+    fileprivate var service = RepositoryService()
+    
     // Setup
     fileprivate func setup() {
         // Table cell height
@@ -112,7 +114,6 @@ class RepositoriesViewController : UITableViewController {
     
     func fetchData(completion: (() -> Void)?=nil) {
         
-        let service = RepositoryService()
         service.load(page: self.page, succeed: {
             [weak self] results in
             
