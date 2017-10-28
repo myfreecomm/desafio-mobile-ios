@@ -11,27 +11,29 @@ import Foundation
 class PullRequestService : NSObject {
     
     func load(owner: String, repository: String, succeed: @escaping ([PullRequest]) -> Void, failed: @escaping (String) -> Void) {
+        
         RestClient.pullRequests(owner: owner, repository: repository) { (didSucceed, data) in
-            if  didSucceed {
-                if  let json = data as? [[String:Any]] {
-                    var results = [PullRequest]()
-                    for item in json {
-                        let object = PullRequest(data: item)
-                        results.append(object)
-                    }
-                    succeed(results)
-                }
-                else {
-                    failed("Não foi possível carregar os dados desta requisição")
-                }
-            }
-            else {
+            
+            guard didSucceed else {
                 if  let error = data as? Error {
                     failed(error.localizedDescription)
                 }
                 else {
                     failed("Ocorreu um erro desconhecido.")
                 }
+                return
+            }
+            
+            if  let json = data as? [[String:Any]] {
+                var results = [PullRequest]()
+                for item in json {
+                    let object = PullRequest(jsonData: item)
+                    results.append(object)
+                }
+                succeed(results)
+            }
+            else {
+                failed("Não foi possível carregar os dados desta requisição")
             }
         }
     }

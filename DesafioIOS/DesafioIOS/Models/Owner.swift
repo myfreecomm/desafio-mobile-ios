@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Owner {
+public struct Owner {
     
     var id : String = ""
     var name : String = ""

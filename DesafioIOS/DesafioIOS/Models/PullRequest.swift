@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct PullRequest {
+public struct PullRequest {
     
     var id : Int = 0
     var title : String = ""
@@ -18,9 +18,9 @@ struct PullRequest {
     var htmlUrl : String = ""
     var owner : Owner? = nil
     
-    init(jsonData: Data) {
+    init(jsonData: [AnyHashable : Any]) {
         
-        let json = JSON(data: jsonData)
+        let json = JSON(jsonData)
         
         id = json["id"].intValue
         title = json["title"].stringValue

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Repository {
+public struct Repository {
     
     var id : Int = 0
     var name : String = ""
@@ -19,9 +19,9 @@ struct Repository {
     var stars : Int = 0
     var owner : Owner? = nil
     
-    init(jsonData: Data) {
+    init(jsonData: [AnyHashable: Any]) {
         
-        let json = JSON(data: jsonData)
+        let json = JSON(jsonData)
         
         id = json["id"].intValue
         name = json["name"].stringValue

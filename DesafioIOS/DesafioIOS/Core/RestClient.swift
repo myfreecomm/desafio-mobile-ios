@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class RestClient : NSObject {
+public class RestClient : NSObject {
     
     typealias Callback = (Bool, Any?) -> Void
     
@@ -22,7 +22,6 @@ class RestClient : NSObject {
                 switch response.result {
                 case .success:
                     print("RestClient -> call succeed")
-                    //print(response.result.value ?? "No result value")
                     completion(true, response.result.value)
                 case .failure(let error):
                     print("RestClient -> call failed")
