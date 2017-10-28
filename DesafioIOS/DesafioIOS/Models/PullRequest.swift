@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class PullRequest : NSObject {
+struct PullRequest {
     
     var id : Int = 0
     var title : String = ""
@@ -17,17 +18,18 @@ class PullRequest : NSObject {
     var htmlUrl : String = ""
     var owner : Owner? = nil
     
-    init(data: [String:Any]) {
+    init(jsonData: Data) {
         
-        self.id = (data["id"] as? Int).unwrapOrElse(0)
-        self.title = (data["title"] as? String).unwrapOrElse("")
-        self.objectDescription = (data["body"] as? String).unwrapOrElse("")
-        self.state = (data["state"] as? String).unwrapOrElse("")
-        self.htmlUrl = (data["html_url"] as? String).unwrapOrElse("")
+        let json = JSON(data: jsonData)
         
-        // Owner
-        if  let owner = data["user"] as? [String:Any] {
-            self.owner = Owner(data: owner)
+        id = json["id"].intValue
+        title = json["title"].stringValue
+        objectDescription = json["description"].stringValue
+        state = json["state"].stringValue
+        htmlUrl = json["html_url"].stringValue
+        
+        if  let ownerData = try? json["owner"].rawData() {
+            owner = Owner(jsonData: ownerData)
         }
     }
 }

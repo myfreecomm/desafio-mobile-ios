@@ -7,20 +7,23 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class Owner : NSObject {
+struct Owner {
     
     var id : String = ""
     var name : String = ""
     var username : String = ""
     var picture : String = ""
     
-    init(data: [String:Any]) {
+    init(jsonData: Data) {
         
-        self.id = (data["id"] as? String).unwrapOrElse("")
-        self.name = (data["login"] as? String).unwrapOrElse("")
-        self.username = (data["login"] as? String).unwrapOrElse("")
-        self.picture = (data["avatar_url"] as? String).unwrapOrElse("")
+        let json = JSON(data: jsonData)
+        
+        id = json["id"].stringValue
+        name = json["login"].stringValue
+        username = json["login"].stringValue
+        picture = json["avatar_url"].stringValue
     }
 }
 

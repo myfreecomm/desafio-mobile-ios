@@ -9,6 +9,7 @@ def shared_pods
 	pod 'SVProgressHUD'
 	pod 'Alamofire'
 	pod 'ReachabilitySwift', '~> 3'
+	pod 'SwiftyJSON'
 
 	# Felipe Ricieri's Pods
 	pod 'CoolDesignables'

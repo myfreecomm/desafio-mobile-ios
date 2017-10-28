@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class Repository : NSObject {
+struct Repository {
     
     var id : Int = 0
     var name : String = ""
@@ -18,18 +19,19 @@ class Repository : NSObject {
     var stars : Int = 0
     var owner : Owner? = nil
     
-    init(data: [String:Any]) {
+    init(jsonData: Data) {
         
-        self.id = (data["id"] as? Int).unwrapOrElse(0)
-        self.name = (data["name"] as? String).unwrapOrElse("")
-        self.fullName = (data["full_name"] as? String).unwrapOrElse("")
-        self.objectDescription = (data["description"] as? String).unwrapOrElse("")
-        self.forks = (data["forks_count"] as? Int).unwrapOrElse(0)
-        self.stars = (data["stargazers_count"] as? Int).unwrapOrElse(0)
+        let json = JSON(data: jsonData)
         
-        // Owner
-        if  let owner = data["owner"] as? [String:Any] {
-            self.owner = Owner(data: owner)
+        id = json["id"].intValue
+        name = json["name"].stringValue
+        fullName = json["full_name"].stringValue
+        objectDescription = json["description"].stringValue
+        forks = json["forks_count"].intValue
+        stars = json["stargazers_count"].intValue
+        
+        if  let ownerData = try? json["owner"].rawData() {
+            owner = Owner(jsonData: ownerData)
         }
     }
 }
