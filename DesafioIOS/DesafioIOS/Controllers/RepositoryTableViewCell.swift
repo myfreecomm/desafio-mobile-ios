@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RepositoryCell : UITableViewCell {
+class RepositoryCell : UITableViewCell, UniqueCell {
     
-    static let objectID = "repositoryCell"
+    static var cellIdentifier: String = "repositoryCell"
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -23,29 +23,29 @@ class RepositoryCell : UITableViewCell {
     func configure(object: Repository) {
         
         // Repository Data
-        self.nameLabel.text = object.fullName
-        self.descriptionLabel.text = object.objectDescription
+        nameLabel.text = object.fullName
+        descriptionLabel.text = object.objectDescription
         
         // Format value
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.groupingSeparator = "."
         formatter.usesGroupingSeparator = true
+        
         let forksNumber = NSNumber(value: object.forks)
         let starsNumber = NSNumber(value: object.stars)
-        self.forksCountLabel.text = formatter.string(from: forksNumber)
-        self.starsCountLabel.text = formatter.string(from: starsNumber)
+        
+        forksCountLabel.text = formatter.string(from: forksNumber)
+        starsCountLabel.text = formatter.string(from: starsNumber)
         
         // Owner Data
         if  let owner = object.owner {
-            self.userNameLabel.text = owner.name
-            self.userNicknameLabel.text = owner.username
+            userNameLabel.text = owner.name
+            userNicknameLabel.text = owner.username
             if  owner.picture != "",
                 let url = URL(string: owner.picture),
                 let placeholder = UIImage(named: "avatar_noimage") {
-                self.userPicture.sd_setImage(with: url, placeholderImage: placeholder)
-                // Image Configuration
-                self.userPicture.layer.cornerRadius = 20
+                userPicture.sd_setImage(with: url, placeholderImage: placeholder)
             }
         }
     }

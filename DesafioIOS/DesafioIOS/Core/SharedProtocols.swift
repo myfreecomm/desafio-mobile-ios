@@ -13,6 +13,10 @@ public protocol Parameterizable {
     func toDictionary() -> [AnyHashable : Any]
 }
 
+public protocol UniqueCell {
+    static var cellIdentifier : String { get set }
+}
+
 public protocol Hud { }
 public extension Hud {
     func showHud() {

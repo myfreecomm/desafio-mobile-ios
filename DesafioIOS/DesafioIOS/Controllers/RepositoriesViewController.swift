@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import SVProgressHUD
 
 public class RepositoriesViewController : UITableViewController, Hud {
     
@@ -18,6 +17,9 @@ public class RepositoriesViewController : UITableViewController, Hud {
     
     // Setup
     private func setup() {
+        
+        // ViewModel
+        viewModel.viewController = self
         
         // Table cell height
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -107,7 +109,7 @@ extension RepositoriesViewController {
     }
     
     @objc func notificationNotReachable(n: Notification) {
-        SVProgressHUD.showError(withStatus: "Você está desconectado")
+        errorHud("Você está desconectado ☹️")
     }
 }
 
@@ -118,7 +120,7 @@ extension RepositoriesViewController {
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let object = viewModel.source[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.objectID, for: indexPath) as! RepositoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.cellIdentifier, for: indexPath) as! RepositoryCell
         cell.prepareForReuse()
         cell.configure(object: object)
         
