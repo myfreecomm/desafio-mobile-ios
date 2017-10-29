@@ -13,7 +13,7 @@ import Alamofire
  *  RestClient
  *  @description   The RESTful interface
  */
-class RestClient : NSObject {
+class RestClient {
     
     /**
      * Internal typealias for completion

@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "{user name}"; ObjectID = "9Cb-4a-mW3"; */
+"9Cb-4a-mW3.text" = "{user name}";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "IQR-Vj-oCs"; */
+"IQR-Vj-oCs.text" = "999";
+
+/* Class = "UINavigationItem"; title = "{pull request title}"; ObjectID = "KNI-Df-odK"; */
+"KNI-Df-odK.title" = "{pull request title}";
+
+/* Class = "UINavigationItem"; title = "{repository name}"; ObjectID = "PWH-il-Cyk"; */
+"PWH-il-Cyk.title" = "{repository name}";
+
+/* Class = "UINavigationItem"; title = "Github JavaPop"; ObjectID = "S94-F4-Nid"; */
+"S94-F4-Nid.title" = "Github JavaPop";
+
+/* Class = "UILabel"; text = "{repository description}"; ObjectID = "Sob-Pg-5R1"; */
+"Sob-Pg-5R1.text" = "{repository description}";
+
+/* Class = "UILabel"; text = "{num} open / {num} closed"; ObjectID = "d0K-ba-erX"; */
+"d0K-ba-erX.text" = "{num} open / {num} closed";
+
+/* Class = "UILabel"; text = "{user nickname}"; ObjectID = "k7e-Cp-6cN"; */
+"k7e-Cp-6cN.text" = "{user nickname}";
+
+/* Class = "UILabel"; text = "999"; ObjectID = "khE-mF-f7I"; */
+"khE-mF-f7I.text" = "999";
+
+/* Class = "UILabel"; text = "{pull request name}"; ObjectID = "qlg-N6-3qF"; */
+"qlg-N6-3qF.text" = "{pull request name}";
+
+/* Class = "UILabel"; text = "{user name}"; ObjectID = "rrg-Qf-Ht3"; */
+"rrg-Qf-Ht3.text" = "{user name}";
+
+/* Class = "UILabel"; text = "{pull request description}"; ObjectID = "xxT-5x-UtT"; */
+"xxT-5x-UtT.text" = "{pull request description}";
+
+/* Class = "UILabel"; text = "{user nickname}"; ObjectID = "zGW-ho-Oq6"; */
+"zGW-ho-Oq6.text" = "{user nickname}";
+
+/* Class = "UILabel"; text = "{repository name}"; ObjectID = "zjC-4k-Cc0"; */
+"zjC-4k-Cc0.text" = "{repository name}";

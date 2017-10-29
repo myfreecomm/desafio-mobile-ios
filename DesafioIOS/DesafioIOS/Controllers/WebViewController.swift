@@ -77,7 +77,7 @@ class WebViewController : UIViewController, Hud {
     func loadWebView() {
         
         guard let safeUrl = viewModel.pullRequest?.htmlUrl else {
-            errorHud("Esta Pull Request não possui HTML URL.")
+            errorHud("Error.NoURL".localized)
             return
         }
         
@@ -144,7 +144,7 @@ class WebViewController : UIViewController, Hud {
      *  @param n        NotificationCenter's notification
      */
     @objc func notificationNotReachable(n: Notification) {
-        errorHud("Você está desconectado ☹️")
+        errorHud("Error.YouAreOffline".localized)
     }
 }
 
@@ -166,11 +166,11 @@ extension WebViewController : UIWebViewDelegate {
         viewModel.isProcessing = false
         
         // Show Error
-        let alert = UIAlertController(title: "Ocorreu um erro", message: error.localizedDescription, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Tentar novamente", style: .destructive) { [weak self](action) in
+        let alert = UIAlertController(title: "Error.Title".localized, message: error.localizedDescription, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "TryAgain".localized, style: .destructive) { [weak self](action) in
             self?.loadWebView()
         }
-        let noAction = UIAlertAction(title: "Fechar", style: .cancel, handler: { (action) in
+        let noAction = UIAlertAction(title: "Close".localized, style: .cancel, handler: { (action) in
             // Nothing
         })
         alert.addAction(yesAction)

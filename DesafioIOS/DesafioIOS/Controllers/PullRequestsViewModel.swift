@@ -76,7 +76,7 @@ class PullRequestsViewModel {
             let safeRepository = repository,
             let safeOwner = safeRepository.owner
             else {
-                viewController?.errorHud("Não foi possível carregar os dados desse repositório.")
+                viewController?.errorHud("Error.FailedRepositoryRequest".localized)
                 viewController?.refreshControl?.endRefreshing()
                 completion?()
                 return
@@ -100,8 +100,8 @@ class PullRequestsViewModel {
             }
             
             // Fill label
-            let openText = "\(this.openPullsCount) opened"
-            let text = "\(openText) / \(this.closedPullsCount) closed"
+            let openText = "\(this.openPullsCount) \("opened".localized)"
+            let text = "\(openText) / \(this.closedPullsCount) \("closed".localized)"
             let attrStr = NSMutableAttributedString(string: text)
             attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
             this.viewController?.pullRequestsCountLabel?.attributedText = attrStr

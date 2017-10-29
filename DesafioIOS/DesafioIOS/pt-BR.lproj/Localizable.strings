@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  DesafioIOS
+
+  Created by Felipe Ricieri on 29/10/17.
+  Copyright © 2017 Nexaas. All rights reserved.
+*/
+
+"closed" = "fechadas";
+"opened" = "abertas";
+
+"TryAgain" = "Tentar novamente";
+"Close" = "Fechar";
+
+"Error.Title" = "Ocorreu um erro";
+"Error.Unknown" = "Ocorreu um erro desconhecido.";
+"Error.FailedRequest" = "Não foi possível carregar os dados desta requisição";
+"Error.FailedRequestRepository" = "Não foi possível carregar os dados desse repositório.";
+"Error.NoURL" = "Esta Pull Request não possui URL (campo html_url).";
+"Error.YouAreOffline" = "Você está desconectado ☹️";
+

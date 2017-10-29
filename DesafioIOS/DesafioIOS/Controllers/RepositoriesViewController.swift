@@ -149,7 +149,7 @@ class RepositoriesViewController : UITableViewController, Hud {
      *  @param n        NotificationCenter's notification
      */
     @objc func notificationNotReachable(n: Notification) {
-        errorHud("Você está desconectado ☹️")
+        errorHud("Error.YouAreOffline".localized)
     }
 }
 

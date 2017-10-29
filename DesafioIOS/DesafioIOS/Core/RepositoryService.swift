@@ -32,7 +32,7 @@ public class RepositoryService {
                     failed(error.localizedDescription)
                 }
                 else {
-                    failed("Ocorreu um erro desconhecido.")
+                    failed("Error.Unknown".localized)
                 }
                 return
             }
@@ -48,7 +48,7 @@ public class RepositoryService {
                 succeed(results)
             }
             else {
-                failed("Não foi possível carregar os dados desta requisição")
+                failed("Error.FailedRequest".localized)
             }
         }
     }
