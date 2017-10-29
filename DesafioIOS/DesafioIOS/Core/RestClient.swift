@@ -51,7 +51,7 @@ class RestClient : NSObject {
     /**
      *  repositories(page:completion:)
      *  @description        Fetch Java most popular repositories in Github
-     *  @param page         Page to be fetched
+     *  @param page         Page to be fetched (default is 1)
      *  @param completion   Callback fired when request is completed
      */
     class func repositories(page: Int=1, completion: @escaping Callback) {
