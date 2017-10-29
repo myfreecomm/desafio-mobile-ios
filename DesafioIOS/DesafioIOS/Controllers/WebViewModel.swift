@@ -10,27 +10,21 @@ import Foundation
 
 class WebViewModel {
     
-    weak var viewController : WebViewController?
+    var pullRequest: PullRequest?
     
-    public var pullRequest: PullRequest?
+    var url : URL?
+    var didFail = false
+    var isProcessing = false
     
-    public var url : URL?
-    public var didFail = false
-    public var isProcessing = false
+    public var didLaunchUrl: ((String) -> Void)?
     
     func launchUrl() {
         
         // Load
         if  let safePull = self.pullRequest,
             let safeUrl = URL(string: safePull.htmlUrl) {
-            
-            // Title
-            viewController?.title = safePull.title
-            viewController?.navigationItem.title = safePull.title
-            
-            // Loading WebView
             url = safeUrl
-            viewController?.loadWebView()
+            didLaunchUrl?(safePull.title)
         }
     }
 }

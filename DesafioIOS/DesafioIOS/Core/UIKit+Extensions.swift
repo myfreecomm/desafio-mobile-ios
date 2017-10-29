@@ -41,3 +41,14 @@ extension UIColor {
     }
 }
 
+extension UIView {
+    func enable() {
+        isHidden = false
+        isUserInteractionEnabled = true
+    }
+    func disable() {
+        isHidden = true
+        isUserInteractionEnabled = false
+    }
+}
+

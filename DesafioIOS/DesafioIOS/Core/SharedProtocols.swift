@@ -9,10 +9,6 @@
 import Foundation
 import SVProgressHUD
 
-public protocol Parameterizable {
-    func toDictionary() -> [AnyHashable : Any]
-}
-
 public protocol UniqueCell {
     static var cellIdentifier : String { get set }
 }

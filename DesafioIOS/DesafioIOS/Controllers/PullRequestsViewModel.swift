@@ -12,12 +12,12 @@ class PullRequestsViewModel {
     
     weak var viewController : PullRequestsViewController?
     
-    public var repository : Repository?
+    var repository : Repository?
     
-    fileprivate(set) public var source = [PullRequest]()
-    fileprivate(set) public var isProcessing = false
-    fileprivate(set) public var openPullsCount = 0
-    fileprivate(set) public var closedPullsCount = 0
+    fileprivate(set) var source = [PullRequest]()
+    fileprivate(set) var isProcessing = false
+    fileprivate(set) var openPullsCount = 0
+    fileprivate(set) var closedPullsCount = 0
     
     fileprivate var service = PullRequestService()
     

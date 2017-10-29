@@ -72,15 +72,3 @@ class PullRequestsViewModelTests: XCTestCase {
     }
 }
 
-// MARK: - Mock Data
-class MockPullRequestsViewModel : PullRequestsViewModel {
-    
-    var didRefreshPage : Bool? = nil
-    
-    override func refresh() {
-        super.refresh()
-        self.didRefreshPage = true
-    }
-}
-
-

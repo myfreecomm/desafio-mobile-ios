@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-public class RepositoriesViewController : UITableViewController, Hud {
+class RepositoriesViewController : UITableViewController, Hud {
     
     var viewModel = RepositoriesViewModel()
     
@@ -40,22 +40,22 @@ public class RepositoriesViewController : UITableViewController, Hud {
     }
     
     // MARK: - Lifecycle Methods
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addObservers()
     }
     
-    override public func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.removeObservers()
     }
     
-    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == MainStoryboard.Segue.toPullRequest {
             let vc = segue.destination as! PullRequestsViewController
             vc.viewModel.repository = sender as? Repository
@@ -76,7 +76,7 @@ public class RepositoriesViewController : UITableViewController, Hud {
     }
     
     // MARK: - Reachability
-    open func addObservers() {
+    func addObservers() {
         
         NotificationCenter.default.addObserver(
             self,
@@ -93,19 +93,19 @@ public class RepositoriesViewController : UITableViewController, Hud {
         )
     }
     
-    open func removeObservers() {
+    func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
-    @objc open func notificationIsReachable(n: Notification) {
+    @objc func notificationIsReachable(n: Notification) {
         guard viewModel.source.count == 0 else { return }
         if !viewModel.isProcessing {
             triggerRefreshControl()
         }
     }
     
-    @objc open func notificationNotReachable(n: Notification) {
+    @objc func notificationNotReachable(n: Notification) {
         errorHud("Você está desconectado ☹️")
     }
 }
@@ -114,7 +114,7 @@ public class RepositoriesViewController : UITableViewController, Hud {
 extension RepositoriesViewController {
     
     // Rows
-    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let object = viewModel.source[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.cellIdentifier, for: indexPath) as! RepositoryCell
@@ -124,23 +124,23 @@ extension RepositoriesViewController {
         return cell
     }
     
-    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let object = viewModel.source[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: MainStoryboard.Segue.toPullRequest, sender: object)
     }
     
-    override public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == (viewModel.source.count - 1) else { return }
         viewModel.triggerInfiniteScrolling()
     }
     
-    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.source.count
     }
     
     // Sections
-    override public func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 }

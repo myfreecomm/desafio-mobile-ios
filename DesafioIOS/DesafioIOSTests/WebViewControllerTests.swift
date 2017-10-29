@@ -12,18 +12,6 @@ import XCTest
 class WebViewControllerTests: XCTestCase {
     
     fileprivate var vc : MockWebViewController! = nil
-    fileprivate let timeOutInterval : TimeInterval = 10.0
-    fileprivate let fakeDict : [String:Any] = [
-        "id" : 12345,
-        "title" : "Fake Title",
-        "body" : "Lorem Ipsum Dolor sit amen",
-        "html_url" : "http://google.com",
-        "user" : [
-            "id" : "fake_id",
-            "login" : "fakelogin",
-            "avatar_url" : "http://fakeavatar.com/avatar.png"
-        ]
-    ]
     
     // MARK: - Lifecycle Methods
     override func setUp() {
@@ -37,97 +25,69 @@ class WebViewControllerTests: XCTestCase {
     }
     
     // MARK: - Tests
-    func testSetup() {
+    func testLoadWebView() {
         
-        // Apply it
-        let fakeObject = PullRequest(jsonData: fakeDict)
-        self.vc.pullRequest = fakeObject
+        // Assert View Model Don't have a valid URL yet
+        XCTAssert(vc.viewModel.pullRequest == nil, "O View Controller não pode possuir uma Pull Request nesta fase.")
+        XCTAssert(vc.didLoadWebView == false, "O View Controller não deve ter carregado a WebView nesta fase.")
         
-        // Init view
-        var view : UIView? = self.vc.view
+        vc.viewModel.didLaunchUrl = { _ in
+            XCTAssertFalse(self.vc.viewModel.pullRequest == nil, "O View Controller deve possuir uma Pull Request nesta fase.")
+            self.vc.loadWebView()
+            XCTAssert(self.vc.didLoadWebView == true, "O View Controller deve ter carregado a WebView nesta fase.")
+        }
         
-        // Asserting proprieties
-        XCTAssertNotNil(view, "Este View Controller não possui UIView.")
-        XCTAssertNotNil(self.vc.pullRequest, "Esta tela requere um objeto do tipo \"Pull Request\" para continuar.")
-        XCTAssert(self.vc.title == "", "O título deve ser o nome do pull request.")
-        XCTAssert(self.vc.navigationItem.title == "", "O título deve ser o nome do repositório.")
-        
-        // Release View
-        view = nil
+        // Launch
+        vc.viewModel.launchUrl()
     }
     
-    func testLaunchUrl() {
+    func testActionReload() {
         
-        // Apply it
-        let fakeObject = PullRequest(jsonData: fakeDict)
-        self.vc.pullRequest = fakeObject
+        // Assert View Controller wasn't reloaded yet
+        XCTAssertFalse(vc.didReload == true, "O View Controller não pode ter sido recarregado nesta fase.")
         
-        // Init view
-        var view : UIView? = self.vc.view
+        // Launch
+        vc.actionReload()
         
-        // Fire
-        self.vc.launchUrl()
+        // Assert View Controller was reloaded
+        XCTAssert(vc.didReload == true, "O View Controller deve ter sido recarregado nesta fase.")
+    }
+    
+    func testActionDismissed() {
         
-        // Assert
-        XCTAssertNotNil(view, "Este View Controller não possui UIView.")
-        XCTAssertNotNil(self.vc.url, "A URL ainda não foi carregada.")
-        XCTAssert(self.vc.title == self.vc.pullRequest?.title, "O título deve ser o nome do pull request.")
-        XCTAssert(self.vc.navigationItem.title == self.vc.pullRequest?.title, "O título deve ser o nome do repositório.")
+        // Assert View Controller wasn't reloaded yet
+        XCTAssertFalse(vc.didDismissed == true, "O View Controller não pode ter sido recarregado nesta fase.")
         
-        // Release View
-        view = nil
+        // Launch
+        vc.actionDismiss()
+        
+        // Assert View Controller was reloaded
+        XCTAssert(vc.didDismissed == true, "O View Controller deve ter sido recarregado nesta fase.")
     }
     
     func testAddObservers() {
         
         // Try to Add observers
-        self.vc.addObservers()
+        vc.addObservers()
         
         // Test proprieties
-        XCTAssertNotNil(self.vc.hasObservers, "Este View Controller não possui Observers.")
-        XCTAssert(self.vc.hasObservers == true, "Não foram adicionados observers neste View Controller")
+        XCTAssertNotNil(vc.hasObservers, "Este View Controller não possui Observers.")
+        XCTAssert(vc.hasObservers == true, "Não foram adicionados observers neste View Controller")
         
         // Try to Add observers
-        self.vc.removeObservers()
+        vc.removeObservers()
     }
     
     func testRemoveObservers() {
         
         // Try to Add observers
-        self.vc.addObservers()
+        vc.addObservers()
         // Try to Add observers
-        self.vc.removeObservers()
+        vc.removeObservers()
         
         // Test proprieties
-        XCTAssertNotNil(self.vc.hasObservers, "Este View Controller possui Observers.")
-        XCTAssert(self.vc.hasObservers == false, "Este View Controller possui Observers")
-    }
-}
-
-// MARK: - Mock VC
-class MockWebViewController : WebViewController {
-    
-    var notificationReceived : String? = nil
-    var hasObservers : Bool? = nil
-    
-    override func addObservers() {
-        super.addObservers()
-        self.hasObservers = true
-    }
-    
-    override func removeObservers() {
-        super.removeObservers()
-        self.hasObservers = false
-    }
-    
-    override func notificationIsReachable(n: Notification) {
-        super.notificationIsReachable(n: n)
-        self.notificationReceived = n.name.rawValue
-    }
-    
-    override func notificationNotReachable(n: Notification) {
-        super.notificationNotReachable(n: n)
-        self.notificationReceived = n.name.rawValue
+        XCTAssertNotNil(vc.hasObservers, "Este View Controller possui Observers.")
+        XCTAssert(vc.hasObservers == false, "Este View Controller possui Observers")
     }
 }
 

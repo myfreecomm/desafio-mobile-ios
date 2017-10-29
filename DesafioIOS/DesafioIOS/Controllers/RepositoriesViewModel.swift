@@ -8,17 +8,17 @@
 
 import Foundation
 
-public class RepositoriesViewModel {
+class RepositoriesViewModel {
     
     weak var viewController: RepositoriesViewController?
     
-    fileprivate(set) public var source = [Repository]()
-    fileprivate(set) public var page = 1
-    fileprivate(set) public var isProcessing = false
+    fileprivate(set) var source = [Repository]()
+    fileprivate(set) var page = 1
+    fileprivate(set) var isProcessing = false
     
-    public var service = RepositoryService()
+    var service = RepositoryService()
     
-    public func refresh() {
+    func refresh() {
         
         guard !isProcessing else { return }
         isProcessing = true
@@ -32,7 +32,7 @@ public class RepositoriesViewModel {
         }
     }
     
-    public func fetchData(completion: (() -> Void)?=nil) {
+    func fetchData(completion: (() -> Void)?=nil) {
         
         service.load(page: self.page, succeed: { [weak self] results in
             
@@ -56,11 +56,8 @@ public class RepositoriesViewModel {
             this.isProcessing = false
         }
     }
-}
-
-// MARK: - Infinite Scrolling
-extension RepositoriesViewModel {
     
+    // MARK: - Infinite Scrolling
     func triggerInfiniteScrolling(completion: (()->Void)?=nil) {
         
         guard !isProcessing else {

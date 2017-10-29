@@ -95,3 +95,4 @@ class RepositoriesViewModelTests: XCTestCase {
         }
     }
 }
+

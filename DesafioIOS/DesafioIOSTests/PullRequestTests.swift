@@ -20,9 +20,10 @@ class PullRequestTests: XCTestCase {
             "id" : 12345,
             "title" : "Fake Title",
             "body" : "Lorem Ipsum Dolor sit amen",
+            "description" : "Fake Description",
             "html_url" : "http://google.com",
             "state" : "open",
-            "user" : [
+            "owner" : [
                 "id" : "fake_id",
                 "login" : "fakelogin",
                 "avatar_url" : "http://fakeavatar.com/avatar.png"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class WebViewController : UIViewController, Hud {
+class WebViewController : UIViewController, Hud {
     
     var viewModel = WebViewModel()
     
@@ -19,47 +19,52 @@ public class WebViewController : UIViewController, Hud {
     // Setup
     private func setup() {
         
-        // ViewModel
-        viewModel.viewController = self
-        
         // Primary state
+        title = ""
+        navigationItem.title = ""
         reloadButton?.disable()
         activityIndicator?.enable()
         activityIndicator?.startAnimating()
-        title = ""
-        navigationItem.title = ""
+        
+        // ViewModel
+        viewModel.didLaunchUrl = { [weak self] title in
+            self?.title = title
+            self?.navigationItem.title = title
+            self?.loadWebView()
+        }
     }
     
     // MARK: - Lifecycle Methods
-    override public  func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.launchUrl()
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addObservers()
     }
     
-    override public func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.removeObservers()
     }
     
     // MARK: - Internal Methods
     func loadWebView() {
-        if  let safeUrl = viewModel.url {
-            let urlRequest = URLRequest(url: safeUrl)
-            self.webView?.loadRequest(urlRequest)
-        }
-        else {
+        
+        guard let safeUrl = viewModel.url else {
             errorHud("Esta Pull Request não possui HTML URL.")
+            return
         }
+        
+        let urlRequest = URLRequest(url: safeUrl)
+        webView?.loadRequest(urlRequest)
     }
     
     // MARK: - IB Actions
@@ -108,20 +113,21 @@ public class WebViewController : UIViewController, Hud {
 // MARK: - Webview delegate
 extension WebViewController : UIWebViewDelegate {
     
-    public func webViewDidStartLoad(_ webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         reloadButton?.disable()
         activityIndicator?.enable()
         viewModel.didFail = false
         viewModel.isProcessing = true
     }
     
-    public func webViewDidFinishLoad(_ webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndicator?.disable()
         reloadButton?.enable()
         viewModel.isProcessing = false
     }
     
-    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        
         activityIndicator?.disable()
         reloadButton?.enable()
         viewModel.didFail = true
@@ -140,17 +146,4 @@ extension WebViewController : UIWebViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-// MARK: - Custom methods for UIView
-fileprivate extension UIView {
-    func enable() {
-        isHidden = false
-        isUserInteractionEnabled = true
-    }
-    func disable() {
-        isHidden = true
-        isUserInteractionEnabled = false
-    }
-}
-
 

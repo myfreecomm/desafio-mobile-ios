@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PullRequestsViewController : UITableViewController, Hud {
+class PullRequestsViewController : UITableViewController, Hud {
     
     var viewModel = PullRequestsViewModel()
     
@@ -54,22 +54,22 @@ public class PullRequestsViewController : UITableViewController, Hud {
     }
     
     // MARK: - Lifecycle Methods
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addObservers()
     }
     
-    override public func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.removeObservers()
     }
     
-    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == MainStoryboard.Segue.toWebView {
             let nav = segue.destination as! UINavigationController
             let vc = nav.viewControllers.first as! WebViewController
@@ -96,7 +96,7 @@ public class PullRequestsViewController : UITableViewController, Hud {
     }
     
     // MARK: - Reachability
-    open func addObservers() {
+    func addObservers() {
         
         NotificationCenter.default.addObserver(
             self,
@@ -113,7 +113,7 @@ public class PullRequestsViewController : UITableViewController, Hud {
         )
     }
     
-    open func removeObservers() {
+    func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
@@ -134,7 +134,7 @@ public class PullRequestsViewController : UITableViewController, Hud {
 extension PullRequestsViewController {
     
     // Rows
-    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let object = viewModel.source[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PullRequestCell.cellIdentifier, for: indexPath) as! PullRequestCell
@@ -144,18 +144,18 @@ extension PullRequestsViewController {
         return cell
     }
     
-    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let object = viewModel.source[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: MainStoryboard.Segue.toWebView, sender: object)
     }
     
-    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.source.count
     }
     
     // Sections
-    override public func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 }
