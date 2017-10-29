@@ -9,6 +9,10 @@
 import Foundation
 import SwiftyJSON
 
+/**
+ *  PullRequest
+ *  @description    Local representation of Github's PullRequest
+ */
 public struct PullRequest {
     
     var id : Int = 0
@@ -18,6 +22,7 @@ public struct PullRequest {
     var htmlUrl : String = ""
     var owner : Owner? = nil
     
+    // Deserializer
     init(jsonData: [AnyHashable : Any]) {
         
         let json = JSON(jsonData)

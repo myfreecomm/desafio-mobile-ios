@@ -9,19 +9,48 @@
 import Foundation
 import SVProgressHUD
 
+/**
+ *  UniqueCell Protocol
+ *  @description    Every cell representation must have its own unique identifier
+ */
 public protocol UniqueCell {
     static var cellIdentifier : String { get set }
 }
 
+/**
+ *  Hud Protocol
+ *  @description    Easy way to show/hide huds
+ */
 public protocol Hud { }
 public extension Hud {
+    
+    /**
+     *  showHud()
+     *  @description    Shows hud in screen
+     */
     func showHud() {
-        SVProgressHUD.show()
+        DispatchQueue.main.async {
+            SVProgressHUD.show()
+        }
     }
+    
+    /**
+     *  errorHud()
+     *  @description    Shows error hud in screen
+     */
     func errorHud(_ errorString: String) {
-        SVProgressHUD.showError(withStatus: errorString)
+        DispatchQueue.main.async {
+            SVProgressHUD.showError(withStatus: errorString)
+        }
     }
+    
+    /**
+     *  hideHud()
+     *  @description    Dismiss the presented hud
+     */
     func hideHud() {
-        SVProgressHUD.dismiss()
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+        }
     }
 }

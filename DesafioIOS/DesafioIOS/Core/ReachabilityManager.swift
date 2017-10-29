@@ -10,7 +10,7 @@ import Foundation
 import ReachabilitySwift
 
 /**
- *  Reachability Manager
+ *  Reachability Manager 🎃
  *  @description    Manager responsible for reporting the connection state to the app
  */
 class ReachabilityManager {

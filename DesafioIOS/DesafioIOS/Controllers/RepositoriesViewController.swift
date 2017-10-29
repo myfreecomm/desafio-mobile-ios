@@ -9,13 +9,28 @@
 import UIKit
 import SDWebImage
 
+/**
+ *  RepositoriesViewController
+ *  @description    Repositories list screen
+ */
 class RepositoriesViewController : UITableViewController, Hud {
     
+    /**
+     * Class View Model
+     */
     var viewModel = RepositoriesViewModel()
     
+    /**
+     * Outlets
+     */
     @IBOutlet weak var infiniteScrollingView: UIActivityIndicatorView?
     
     // Setup
+    
+    /**
+     *  setup()
+     *  @description    Initial State
+     */
     private func setup() {
         
         // ViewModel
@@ -39,7 +54,8 @@ class RepositoriesViewController : UITableViewController, Hud {
         triggerRefreshControl()
     }
     
-    // MARK: - Lifecycle Methods
+    // MARK: - 👽 Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -62,11 +78,20 @@ class RepositoriesViewController : UITableViewController, Hud {
         }
     }
     
-    // MARK: - Data Methods
+    // MARK: - 🌳 Data
+    
+    /**
+     *  refresh()
+     *  @description    Pull-to-Refresh action
+     */
     @objc func refresh() {
         viewModel.refresh()
     }
     
+    /**
+     *  triggerRefreshControl()
+     *  @description    Set the refresh control to its initial state & fires it
+     */
     func triggerRefreshControl() {
         if  let safeControl = self.refreshControl {
             safeControl.beginRefreshing()
@@ -75,7 +100,12 @@ class RepositoriesViewController : UITableViewController, Hud {
         refresh()
     }
     
-    // MARK: - Reachability
+    // MARK: - 🎃 Reachability
+    
+    /**
+     *  addObservers()
+     *  @description    Subscribes the Screen to receive Reachability events
+     */
     func addObservers() {
         
         NotificationCenter.default.addObserver(
@@ -93,11 +123,20 @@ class RepositoriesViewController : UITableViewController, Hud {
         )
     }
     
+    /**
+     *  removeObservers()
+     *  @description    Unsubscribes the Reachability events
+     */
     func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
+    /**
+     *  notificationIsReachable(n:)
+     *  @description    Selector action for when connection is on
+     *  @param n        NotificationCenter's notification
+     */
     @objc func notificationIsReachable(n: Notification) {
         guard viewModel.source.count == 0 else { return }
         if !viewModel.isProcessing {
@@ -105,12 +144,17 @@ class RepositoriesViewController : UITableViewController, Hud {
         }
     }
     
+    /**
+     *  notificationNotReachable(n:)
+     *  @description    Selector action for when connection is off
+     *  @param n        NotificationCenter's notification
+     */
     @objc func notificationNotReachable(n: Notification) {
         errorHud("Você está desconectado ☹️")
     }
 }
 
-// MARK: - Table Methods
+// MARK: - 📦 Table Delegate & DataSource
 extension RepositoriesViewController {
     
     // Rows

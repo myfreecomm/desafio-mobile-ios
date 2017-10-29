@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     // Setup
+    
+    /**
+     *  buildApplication()
+     *  @description    Customizes application
+     */
     func buildApplication() {
         
         // Status bar
@@ -30,13 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setForegroundColor(UIColor.white)
     }
     
-    // MARK: - Lifecycle Methods
+    // MARK: - 👽 Lifecycle Methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         buildApplication()
         return true
     }
     
-    // MARK: - Reachability Listeners
+    // MARK: - 🎃 Reachability Listeners
     func applicationDidBecomeActive(_ application: UIApplication) {
         ReachabilityManager.subscribe()
     }

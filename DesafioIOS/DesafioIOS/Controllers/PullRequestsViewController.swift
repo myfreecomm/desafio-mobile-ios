@@ -10,12 +10,23 @@ import UIKit
 
 class PullRequestsViewController : UITableViewController, Hud {
     
+    /**
+     * Class View Model
+     */
     var viewModel = PullRequestsViewModel()
     
+    /**
+     * Outlets
+     */
     @IBOutlet weak var tableHeader : UIView?
     @IBOutlet weak var pullRequestsCountLabel : UILabel?
     
     // Setup
+    
+    /**
+     *  setup()
+     *  @description    Initial State
+     */
     private func setup() {
         
         // ViewModel
@@ -53,7 +64,8 @@ class PullRequestsViewController : UITableViewController, Hud {
         triggerRefreshControl()
     }
     
-    // MARK: - Lifecycle Methods
+    // MARK: - 👽 Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -77,11 +89,20 @@ class PullRequestsViewController : UITableViewController, Hud {
         }
     }
     
-    // MARK: - Data Methods
+    // MARK: - 🌳 Data
+    
+    /**
+     *  refresh()
+     *  @description    Pull-to-Refresh action
+     */
     @objc func refresh() {
         viewModel.refresh()
     }
     
+    /**
+     *  triggerRefreshControl()
+     *  @description    Set the refresh control to its initial state & fires it
+     */
     func triggerRefreshControl() {
         if  let safeControl = self.refreshControl {
             safeControl.beginRefreshing()
@@ -90,12 +111,22 @@ class PullRequestsViewController : UITableViewController, Hud {
         refresh()
     }
     
-    // MARK: - IB Actions
+    // MARK: - 🤖 IB Actions
+    
+    /**
+     *  actionBack()
+     *  @description    Pops the current ViewController from NavigationController
+     */
     @IBAction func actionBack() {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Reachability
+    // MARK: - 🎃 Reachability
+    
+    /**
+     *  addObservers()
+     *  @description    Subscribes the Screen to receive Reachability events
+     */
     func addObservers() {
         
         NotificationCenter.default.addObserver(
@@ -113,11 +144,20 @@ class PullRequestsViewController : UITableViewController, Hud {
         )
     }
     
+    /**
+     *  removeObservers()
+     *  @description    Unsubscribes the Reachability events
+     */
     func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
+    /**
+     *  notificationIsReachable(n:)
+     *  @description    Selector action for when connection is on
+     *  @param n        NotificationCenter's notification
+     */
     @objc func notificationIsReachable(n: Notification) {
         guard viewModel.source.count == 0 else { return }
         if !viewModel.isProcessing {
@@ -125,12 +165,17 @@ class PullRequestsViewController : UITableViewController, Hud {
         }
     }
     
+    /**
+     *  notificationNotReachable(n:)
+     *  @description    Selector action for when connection is off
+     *  @param n        NotificationCenter's notification
+     */
     @objc func notificationNotReachable(n: Notification) {
         errorHud("Você está desconectado ☹️")
     }
 }
 
-// MARK: - Table Methods
+// MARK: - 📦 Table Delegate & DataSource
 extension PullRequestsViewController {
     
     // Rows

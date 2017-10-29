@@ -9,6 +9,10 @@
 import Foundation
 import SwiftyJSON
 
+/**
+ *  Repository
+ *  @description    Local representation of Github's Repository
+ */
 public struct Repository {
     
     var id : Int = 0
@@ -19,6 +23,7 @@ public struct Repository {
     var stars : Int = 0
     var owner : Owner? = nil
     
+    // Deserializer
     init(jsonData: [AnyHashable: Any]) {
         
         let json = JSON(jsonData)

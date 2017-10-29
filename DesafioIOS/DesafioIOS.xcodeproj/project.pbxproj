@@ -292,11 +292,11 @@
 		4A993A6A1FA4B3E200A23610 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */,
+				4A993A741FA4B4CF00A23610 /* DropShadowNavigationBar.swift */,
 				4A993A6B1FA4B3F500A23610 /* Swift+Extensions.swift */,
 				4A993A6D1FA4B40C00A23610 /* UIKit+Extensions.swift */,
 				4A993A6F1FA4B41900A23610 /* Foundation+Extensions.swift */,
-				4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */,
-				4A993A741FA4B4CF00A23610 /* DropShadowNavigationBar.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

@@ -9,6 +9,10 @@
 import Foundation
 import SwiftyJSON
 
+/**
+ *  Owner
+ *  @description    Local representation of Github users
+ */
 public struct Owner {
     
     var id : String = ""
@@ -16,6 +20,7 @@ public struct Owner {
     var username : String = ""
     var picture : String = ""
     
+    // Deserializer
     init(jsonData: [AnyHashable: Any]) {
         
         let json = JSON(jsonData)
