@@ -39,6 +39,47 @@ class PullRequestsViewControllerTests: XCTestCase {
     }
     
     // MARK: - Tests
+    func testRefresh() {
+        
+        // Assert View Controller wasn't refreshed yet
+        XCTAssertFalse(vc.didRefresh == true, "O View Controller não pode ter sido recarregado nesta fase.")
+        
+        // Launch
+        vc.refresh()
+        
+        // Assert View Controller was refreshed
+        XCTAssert(vc.didRefresh == true, "O View Controller deve ter sido recarregado nesta fase.")
+    }
+    
+    func testTriggerRefreshControl() {
+        
+        // Init view
+        var view : UIView? = self.vc.view
+        
+        // Trigger
+        self.vc.triggerRefreshControl()
+        
+        // Assert
+        XCTAssertNotNil(view, "Este View Controller não possui UIView.")
+        XCTAssert(self.vc.refreshControl!.isRefreshing, "UIRefreshControl não foi ativado.")
+        XCTAssert(self.vc.tableView.contentOffset.y != 0, "Content offset da UITableView não está diferente.")
+        
+        // Release view
+        view = nil
+    }
+    
+    func testActionBack() {
+        
+        // Assert View Controller wasn't popped yet
+        XCTAssertFalse(vc.didGoBack == true, "O View Controller não pode ter sido fechado nesta fase.")
+        
+        // Launch
+        vc.actionBack()
+        
+        // Assert View Controller was popped
+        XCTAssert(vc.didGoBack == true, "O View Controller deve ter sido fechado nesta fase.")
+    }
+    
     func testAddObservers() {
         
         // Try to Add observers
@@ -94,23 +135,6 @@ class PullRequestsViewControllerTests: XCTestCase {
         
         // Try to Add observers
         self.vc.removeObservers()
-    }
-    
-    func testTriggerRefreshControl() {
-        
-        // Init view
-        var view : UIView? = self.vc.view
-        
-        // Trigger
-        self.vc.triggerRefreshControl()
-        
-        // Assert
-        XCTAssertNotNil(view, "Este View Controller não possui UIView.")
-        XCTAssert(self.vc.refreshControl!.isRefreshing, "UIRefreshControl não foi ativado.")
-        XCTAssert(self.vc.tableView.contentOffset.y != 0, "Content offset da UITableView não está diferente.")
-        
-        // Release view
-        view = nil
     }
 }
 

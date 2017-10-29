@@ -11,7 +11,14 @@
 class MockRepositoriesViewController : RepositoriesViewController {
     
     var notificationReceived : String? = nil
+    
     var hasObservers : Bool? = nil
+    var didRefresh : Bool = false
+    
+    override func refresh() {
+        super.refresh()
+        self.didRefresh = true
+    }
     
     override func addObservers() {
         super.addObservers()

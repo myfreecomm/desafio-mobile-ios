@@ -11,7 +11,20 @@
 class MockPullRequestsViewController : PullRequestsViewController {
     
     var notificationReceived : String? = nil
+    
     var hasObservers : Bool? = nil
+    var didRefresh : Bool = false
+    var didGoBack : Bool = false
+    
+    override func actionBack() {
+        super.actionBack()
+        self.didGoBack = true
+    }
+    
+    override func refresh() {
+        super.refresh()
+        self.didRefresh = true
+    }
     
     override func addObservers() {
         super.addObservers()
