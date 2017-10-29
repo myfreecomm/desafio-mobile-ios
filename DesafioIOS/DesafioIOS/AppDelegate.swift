@@ -10,9 +10,15 @@ import UIKit
 import CoreData
 import SVProgressHUD
 
+/**
+ *  Application Delegate
+ */
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /**
+     * Main window
+     */
     var window: UIWindow?
     
     // Setup
