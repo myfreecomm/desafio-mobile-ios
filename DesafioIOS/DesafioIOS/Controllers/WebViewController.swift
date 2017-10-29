@@ -13,8 +13,6 @@ class WebViewController : UIViewController, Hud {
     var viewModel = WebViewModel()
     
     @IBOutlet weak var webView: UIWebView?
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
-    @IBOutlet weak var reloadButton: UIButton?
     
     // Setup
     private func setup() {
@@ -22,9 +20,6 @@ class WebViewController : UIViewController, Hud {
         // Primary state
         title = ""
         navigationItem.title = ""
-        reloadButton?.disable()
-        activityIndicator?.enable()
-        activityIndicator?.startAnimating()
         
         // ViewModel
         viewModel.didLaunchUrl = { [weak self] title in
@@ -68,10 +63,6 @@ class WebViewController : UIViewController, Hud {
     }
     
     // MARK: - IB Actions
-    @IBAction func actionReload() {
-        loadWebView()
-    }
-    
     @IBAction func actionDismiss() {
         dismiss(animated: true, completion: nil)
     }
@@ -114,22 +105,16 @@ class WebViewController : UIViewController, Hud {
 extension WebViewController : UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-        reloadButton?.disable()
-        activityIndicator?.enable()
         viewModel.didFail = false
         viewModel.isProcessing = true
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        activityIndicator?.disable()
-        reloadButton?.enable()
         viewModel.isProcessing = false
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         
-        activityIndicator?.disable()
-        reloadButton?.enable()
         viewModel.didFail = true
         viewModel.isProcessing = false
         

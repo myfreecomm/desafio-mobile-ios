@@ -41,19 +41,7 @@ class WebViewControllerTests: XCTestCase {
         vc.viewModel.launchUrl()
     }
     
-    func testActionReload() {
-        
-        // Assert View Controller wasn't reloaded yet
-        XCTAssertFalse(vc.didReload == true, "O View Controller não pode ter sido recarregado nesta fase.")
-        
-        // Launch
-        vc.actionReload()
-        
-        // Assert View Controller was reloaded
-        XCTAssert(vc.didReload == true, "O View Controller deve ter sido recarregado nesta fase.")
-    }
-    
-    func testActionDismissed() {
+    func testActionDismiss() {
         
         // Assert View Controller wasn't reloaded yet
         XCTAssertFalse(vc.didDismissed == true, "O View Controller não pode ter sido recarregado nesta fase.")

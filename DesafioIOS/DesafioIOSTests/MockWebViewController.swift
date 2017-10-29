@@ -22,11 +22,6 @@ class MockWebViewController : WebViewController {
         self.didLoadWebView = true
     }
     
-    override func actionReload() {
-        super.actionReload()
-        self.didReload = true
-    }
-    
     override func actionDismiss() {
         super.actionDismiss()
         self.didDismissed = true

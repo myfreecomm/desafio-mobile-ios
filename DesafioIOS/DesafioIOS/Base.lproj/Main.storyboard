@@ -383,35 +383,8 @@
                                 <action selector="actionDismiss" destination="AQO-xE-0Ke" id="kbL-ZB-aOu"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="r6s-kI-0P6">
-                            <view key="customView" contentMode="scaleToFill" id="zwE-Z9-fej">
-                                <rect key="frame" x="319" y="5.5" width="40" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="J1v-dq-iIX">
-                                        <rect key="frame" x="10" y="6" width="20" height="20"/>
-                                    </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8e-f1-U9s">
-                                        <rect key="frame" x="10" y="5" width="20" height="22"/>
-                                        <state key="normal" image="ic_reload"/>
-                                        <connections>
-                                            <action selector="actionReload" destination="AQO-xE-0Ke" eventType="touchUpInside" id="Ee2-am-BgL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="J1v-dq-iIX" firstAttribute="centerY" secondItem="zwE-Z9-fej" secondAttribute="centerY" id="Nrb-vJ-yMJ"/>
-                                    <constraint firstItem="V8e-f1-U9s" firstAttribute="centerY" secondItem="zwE-Z9-fej" secondAttribute="centerY" id="Ole-hW-CrB"/>
-                                    <constraint firstItem="J1v-dq-iIX" firstAttribute="centerX" secondItem="zwE-Z9-fej" secondAttribute="centerX" id="gPM-7z-vW8"/>
-                                    <constraint firstItem="V8e-f1-U9s" firstAttribute="centerX" secondItem="zwE-Z9-fej" secondAttribute="centerX" id="veM-8P-NxF"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="J1v-dq-iIX" id="Xtv-HW-b1h"/>
-                        <outlet property="reloadButton" destination="V8e-f1-U9s" id="vYB-l7-Td3"/>
                         <outlet property="webView" destination="3H6-xa-du1" id="zFV-SJ-1Am"/>
                     </connections>
                 </viewController>
@@ -426,7 +399,6 @@
         <image name="ic_close" width="25" height="15"/>
         <image name="ic_fork" width="15" height="15"/>
         <image name="ic_menu" width="25" height="15"/>
-        <image name="ic_reload" width="20" height="20"/>
         <image name="ic_star" width="15" height="15"/>
     </resources>
 </document>

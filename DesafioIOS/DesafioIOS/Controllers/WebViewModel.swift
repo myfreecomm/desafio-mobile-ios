@@ -16,7 +16,7 @@ class WebViewModel {
     var didFail = false
     var isProcessing = false
     
-    public var didLaunchUrl: ((String) -> Void)?
+    var didLaunchUrl: ((String) -> Void)?
     
     func launchUrl() {
         
