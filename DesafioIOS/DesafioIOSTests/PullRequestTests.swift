@@ -23,7 +23,7 @@ class PullRequestTests: XCTestCase {
             "description" : "Fake Description",
             "html_url" : "http://google.com",
             "state" : "open",
-            "owner" : [
+            "user" : [
                 "id" : "fake_id",
                 "login" : "fakelogin",
                 "avatar_url" : "http://fakeavatar.com/avatar.png"
