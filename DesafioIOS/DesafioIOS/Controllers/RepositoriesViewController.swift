@@ -160,7 +160,7 @@ extension RepositoriesViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let object = viewModel.source[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.cellIdentifier, for: indexPath) as! RepositoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.cellIdentifier, for: indexPath) as! RepositoryTableViewCell
         cell.prepareForReuse()
         cell.configure(object: object)
         

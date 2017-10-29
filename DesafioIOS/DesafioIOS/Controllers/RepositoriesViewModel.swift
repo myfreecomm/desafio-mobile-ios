@@ -8,16 +8,45 @@
 
 import Foundation
 
+/**
+ *  RepositoriesViewModel
+ *  @description    Repository's View Model
+ */
 class RepositoriesViewModel {
     
+    /**
+     * View Controller weak reference
+     */
     weak var viewController: RepositoriesViewController?
     
+    /**
+     * Repository Micro Service
+     */
+    fileprivate var service = RepositoryService()
+    
+    /**
+     * Repository source
+     */
     fileprivate(set) var source = [Repository]()
+    
+    /**
+     * Current page
+     */
     fileprivate(set) var page = 1
+    
+    /**
+     * Processing state
+     */
     fileprivate(set) var isProcessing = false
     
-    var service = RepositoryService()
     
+    // MARK: - 🔐 Common Methods
+    
+    
+    /**
+     *  refresh()
+     *  @description    Toggles processing state & reset the data
+     */
     func refresh() {
         
         guard !isProcessing else { return }
@@ -32,8 +61,14 @@ class RepositoriesViewModel {
         }
     }
     
+    /**
+     *  fetchData(completion:)
+     *  @description        Fires Repository micro service request
+     *  @param completion   Callback fired when request is completed
+     */
     func fetchData(completion: (() -> Void)?=nil) {
         
+        // Send request
         service.load(page: self.page, succeed: { [weak self] results in
             
             guard let this = self else { return }
@@ -57,7 +92,13 @@ class RepositoriesViewModel {
         }
     }
     
-    // MARK: - Infinite Scrolling
+    // MARK: - 🌀 Infinite Scrolling
+    
+    /**
+     *  triggerInfiniteScrolling(completion:)
+     *  @description        Toggles processing state & loads next page
+     *  @param completion   Callback fired when request is completed
+     */
     func triggerInfiniteScrolling(completion: (()->Void)?=nil) {
         
         guard !isProcessing else {

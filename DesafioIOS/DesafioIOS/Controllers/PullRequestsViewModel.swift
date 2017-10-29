@@ -8,19 +8,55 @@
 
 import Foundation
 
+/**
+ *  PullRequestsViewModel
+ *  @description    Pull Request's View Model
+ */
 class PullRequestsViewModel {
     
+    /**
+     * View Controller weak reference
+     */
     weak var viewController : PullRequestsViewController?
     
+    /**
+     * Repository to fetch Pull Requests
+     */
     var repository : Repository?
     
-    fileprivate(set) var source = [PullRequest]()
-    fileprivate(set) var isProcessing = false
-    fileprivate(set) var openPullsCount = 0
-    fileprivate(set) var closedPullsCount = 0
-    
+    /**
+     * Pull Request Micro Service
+     */
     fileprivate var service = PullRequestService()
     
+    /**
+     * Pull Request Micro Service
+     */
+    fileprivate(set) var source = [PullRequest]()
+    
+    /**
+     * Processing State
+     */
+    fileprivate(set) var isProcessing = false
+    
+    /**
+     * Open Pulls count
+     */
+    fileprivate(set) var openPullsCount = 0
+    
+    /**
+     * Closed Pulls count
+     */
+    fileprivate(set) var closedPullsCount = 0
+    
+    
+    // MARK: - 🔐 Common Methods
+    
+    
+    /**
+     *  refresh()
+     *  @description    Toggles processing state & reset the data
+     */
     func refresh() {
         guard !isProcessing else { return }
         isProcessing = true
@@ -28,8 +64,14 @@ class PullRequestsViewModel {
         fetchData()
     }
     
+    /**
+     *  fetchData(completion:)
+     *  @description        Fires Pull Request micro service request
+     *  @param completion   Callback fired when request is completed
+     */
     func fetchData(completion: (() -> Void)?=nil) {
         
+        // Required data
         guard
             let safeRepository = repository,
             let safeOwner = safeRepository.owner
@@ -40,6 +82,7 @@ class PullRequestsViewModel {
                 return
         }
         
+        // Send request
         service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: { [weak self] results in
             
             guard let this = self else { return }
@@ -82,3 +125,4 @@ class PullRequestsViewModel {
         }
     }
 }
+

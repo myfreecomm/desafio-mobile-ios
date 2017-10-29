@@ -186,7 +186,7 @@ extension PullRequestsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let object = viewModel.source[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: PullRequestCell.cellIdentifier, for: indexPath) as! PullRequestCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PullRequestTableViewCell.cellIdentifier, for: indexPath) as! PullRequestTableViewCell
         cell.prepareForReuse()
         cell.configure(object: object)
         
