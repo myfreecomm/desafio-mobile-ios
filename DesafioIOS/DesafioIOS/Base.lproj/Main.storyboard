@@ -39,7 +39,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="repositoryCell" rowHeight="130" id="UeI-EF-FU1" customClass="RepositoryCell" customModule="DesafioIOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="repositoryCell" rowHeight="130" id="UeI-EF-FU1" customClass="RepositoryTableViewCell" customModule="DesafioIOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UeI-EF-FU1" id="8GV-Fu-zEh">
@@ -208,7 +208,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="pullRequestCell" rowHeight="140" id="Bnk-M9-6YV" customClass="PullRequestCell" customModule="DesafioIOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="pullRequestCell" rowHeight="140" id="Bnk-M9-6YV" customClass="PullRequestTableViewCell" customModule="DesafioIOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bnk-M9-6YV" id="9f4-aX-UK5">

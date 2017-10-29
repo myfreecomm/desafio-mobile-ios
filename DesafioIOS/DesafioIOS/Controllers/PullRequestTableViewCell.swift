@@ -7,17 +7,33 @@
 //
 
 import UIKit
+import SDWebImage
 
-class PullRequestCell : UITableViewCell, UniqueCell {
+/**
+ *  PullRequestTableViewCell
+ *  @description    Pull Request's table cell
+ */
+class PullRequestTableViewCell : UITableViewCell, UniqueCell {
     
+    /**
+     * Cell identifier
+     */
     static var cellIdentifier: String = "pullRequestCell"
     
+    /**
+     * Outlets
+     */
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var userNicknameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userPicture: UIImageView!
     
+    /**
+     *  configure(object:)
+     *  @description    Configures cell with given data
+     *  @param object   Pull Request object
+     */
     func configure(object: PullRequest) {
         
         // Repository Data

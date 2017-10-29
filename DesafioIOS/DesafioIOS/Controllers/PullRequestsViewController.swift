@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ *  PullRequestsViewController
+ *  @description    PullRequests list screen
+ */
 class PullRequestsViewController : UITableViewController, Hud {
     
     /**

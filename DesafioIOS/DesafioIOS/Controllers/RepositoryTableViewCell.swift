@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import SDWebImage
 
-class RepositoryCell : UITableViewCell, UniqueCell {
+/**
+ *  RepositoryTableViewCell
+ *  @description    Repository's table cell
+ */
+class RepositoryTableViewCell : UITableViewCell, UniqueCell {
     
+    /**
+     * Cell identifier
+     */
     static var cellIdentifier: String = "repositoryCell"
     
+    /**
+     * Outlets
+     */
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var forksCountLabel: UILabel!
@@ -20,6 +31,11 @@ class RepositoryCell : UITableViewCell, UniqueCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userPicture: UIImageView!
     
+    /**
+     *  configure(object:)
+     *  @description    Configures cell with given data
+     *  @param object   Repository object
+     */
     func configure(object: Repository) {
         
         // Repository Data
