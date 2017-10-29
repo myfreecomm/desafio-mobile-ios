@@ -37,8 +37,9 @@ class PullRequestTests: XCTestCase {
         XCTAssert(fakeObject.id != 0, "O campo \"id\" não foi preenchido.")
         XCTAssert(fakeObject.title != "", "O campo \"title\" não foi preenchido.")
         XCTAssert(fakeObject.objectDescription != "", "O campo \"objectDescription\" não foi preenchido.")
-        XCTAssert(fakeObject.htmlUrl != "", "O campo \"htmlUrl\" não foi preenchido.")
         XCTAssert(fakeObject.state != "", "O campo \"state\" não foi preenchido.")
+        XCTAssert(fakeObject.htmlUrlString != "", "O campo \"htmlUrlString\" não foi preenchido.")
+        XCTAssertNotNil(fakeObject.htmlUrl, "O campo \"htmlUrlString\" não possui uma URL válida.")
         // Assert Owner
         XCTAssertNotNil(fakeObject.owner, "O campo \"owner\" não foi preenchido.")
     }

@@ -49,6 +49,6 @@ class WebViewModelTests: XCTestCase {
         vm.launchUrl()
         
         // Assert
-        XCTAssertNotNil(vm.url, "A URL ainda não foi carregada.")
+        XCTAssertNotNil(vm.pullRequest?.htmlUrl, "A URL não foi carregada.")
     }
 }

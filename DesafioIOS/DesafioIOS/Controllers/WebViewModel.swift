@@ -8,22 +8,40 @@
 
 import Foundation
 
+/**
+ *  WebViewModel
+ *  @description    WebViewController's View Model
+ */
 class WebViewModel {
     
+    /**
+     * Pull Request reference
+     */
     var pullRequest: PullRequest?
     
-    var url : URL?
+    /**
+     * Failing state
+     */
     var didFail = false
+    
+    /**
+     * Processing state
+     */
     var isProcessing = false
     
+    /**
+     * Launch URL Completion
+     */
     var didLaunchUrl: ((String) -> Void)?
     
+    /**
+     *  launchUrl()
+     *  @description    Launches URL
+     */
     func launchUrl() {
         
         // Load
-        if  let safePull = self.pullRequest,
-            let safeUrl = URL(string: safePull.htmlUrl) {
-            url = safeUrl
+        if  let safePull = self.pullRequest {
             didLaunchUrl?(safePull.title)
         }
     }

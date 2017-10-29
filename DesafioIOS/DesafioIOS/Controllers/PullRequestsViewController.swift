@@ -42,14 +42,6 @@ class PullRequestsViewController : UITableViewController, Hud {
             navigationItem.title = safeRepository.name
         }
         
-        // Table header line
-        if  let header = tableHeader {
-            let bottomBorder = CALayer()
-            bottomBorder.frame = CGRect(x: 0, y: header.frame.size.height - 1.0, width: header.frame.size.width, height: 1)
-            bottomBorder.backgroundColor = UIColor.lineColor.cgColor
-            header.layer.addSublayer(bottomBorder)
-        }
-        
         // Open/Close repos label
         pullRequestsCountLabel?.text = ""
         

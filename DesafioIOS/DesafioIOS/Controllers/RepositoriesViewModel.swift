@@ -10,7 +10,7 @@ import Foundation
 
 /**
  *  RepositoriesViewModel
- *  @description    Repository's View Model
+ *  @description    RepositoriesViewController's View Model
  */
 class RepositoriesViewModel {
     

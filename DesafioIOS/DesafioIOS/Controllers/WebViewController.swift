@@ -8,13 +8,30 @@
 
 import UIKit
 
+/**
+ *  WebViewController
+ *  @description    Opens internally the url requests
+ */
 class WebViewController : UIViewController, Hud {
     
+    /**
+     * Class View Model
+     */
     var viewModel = WebViewModel()
     
+    /**
+     * Outlets
+     */
     @IBOutlet weak var webView: UIWebView?
     
+    
     // Setup
+    
+    
+    /**
+     *  setup()
+     *  @description    Initial State
+     */
     private func setup() {
         
         // Primary state
@@ -29,7 +46,8 @@ class WebViewController : UIViewController, Hud {
         }
     }
     
-    // MARK: - Lifecycle Methods
+    // MARK: - 👽 Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -50,10 +68,15 @@ class WebViewController : UIViewController, Hud {
         self.removeObservers()
     }
     
-    // MARK: - Internal Methods
+    // MARK: - 🔐 Internal Methods
+    
+    /**
+     *  loadWebView()
+     *  @description    Loads WebView UI
+     */
     func loadWebView() {
         
-        guard let safeUrl = viewModel.url else {
+        guard let safeUrl = viewModel.pullRequest?.htmlUrl else {
             errorHud("Esta Pull Request não possui HTML URL.")
             return
         }
@@ -62,12 +85,22 @@ class WebViewController : UIViewController, Hud {
         webView?.loadRequest(urlRequest)
     }
     
-    // MARK: - IB Actions
+    // MARK: - 🤖 IB Actions
+    
+    /**
+     *  actionDismiss()
+     *  @description    Dismiss the current ViewController
+     */
     @IBAction func actionDismiss() {
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Reachability
+    // MARK: - 🎃 Reachability
+    
+    /**
+     *  addObservers()
+     *  @description    Subscribes the Screen to receive Reachability events
+     */
     public func addObservers() {
         
         NotificationCenter.default.addObserver(
@@ -85,23 +118,37 @@ class WebViewController : UIViewController, Hud {
         )
     }
     
+    /**
+     *  removeObservers()
+     *  @description    Unsubscribes the Reachability events
+     */
     public func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
         NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
     }
     
+    /**
+     *  notificationIsReachable(n:)
+     *  @description    Selector action for when connection is on
+     *  @param n        NotificationCenter's notification
+     */
     @objc func notificationIsReachable(n: Notification) {
         if  viewModel.didFail && !viewModel.isProcessing {
             loadWebView()
         }
     }
     
+    /**
+     *  notificationNotReachable(n:)
+     *  @description    Selector action for when connection is off
+     *  @param n        NotificationCenter's notification
+     */
     @objc func notificationNotReachable(n: Notification) {
         errorHud("Você está desconectado ☹️")
     }
 }
 
-// MARK: - Webview delegate
+// MARK: - 🍎 Webview Delegate
 extension WebViewController : UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {

@@ -14,8 +14,18 @@ import UIKit
  */
 class DropShadowNavigationBar : UINavigationBar {
     
-    override func willMove(toWindow newWindow: UIWindow?) {
-        super.willMove(toWindow: newWindow)
+    // MARK: - 👽 Lifecycle Methods
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.addDropShadow()
+    }
+    
+    /**
+     *  addDropShadow()
+     *  @description    Adds Slight drop shadow to Navigation Bar
+     */
+    private func addDropShadow() {
         
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.2

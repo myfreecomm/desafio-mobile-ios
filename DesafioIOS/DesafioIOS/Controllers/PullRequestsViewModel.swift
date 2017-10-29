@@ -10,7 +10,7 @@ import Foundation
 
 /**
  *  PullRequestsViewModel
- *  @description    Pull Request's View Model
+ *  @description    PullRequestsViewController's View Model
  */
 class PullRequestsViewModel {
     

@@ -19,7 +19,8 @@ public struct PullRequest {
     var title : String = ""
     var objectDescription : String = ""
     var state : String = ""
-    var htmlUrl : String = ""
+    var htmlUrlString : String = ""
+    var htmlUrl : URL? = nil
     var owner : Owner? = nil
     
     // Deserializer
@@ -31,7 +32,8 @@ public struct PullRequest {
         title = json["title"].stringValue
         objectDescription = json["description"].stringValue
         state = json["state"].stringValue
-        htmlUrl = json["html_url"].stringValue
+        htmlUrlString = json["html_url"].stringValue
+        htmlUrl = URL(string: htmlUrlString)
         
         if  let ownerData = json["user"].dictionary {
             owner = Owner(jsonData: ownerData)
