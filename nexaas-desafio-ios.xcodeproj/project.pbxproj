@@ -1,0 +1,869 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A04C79C1FA6CA380098CDED /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04C79B1FA6CA380098CDED /* WebViewController.swift */; };
+		1A21372B1FA37A1A00B90925 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21372A1FA37A1A00B90925 /* CoreDataStackManager.swift */; };
+		1A2137311FA386FF00B90925 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137301FA386FF00B90925 /* BaseService.swift */; };
+		1A2137331FA3874800B90925 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137321FA3874800B90925 /* Service.swift */; };
+		1A2137351FA387D800B90925 /* Pull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137341FA387D800B90925 /* Pull.swift */; };
+		1A2137371FA3881900B90925 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137361FA3881900B90925 /* Repositories.swift */; };
+		1A2137391FA3885500B90925 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137381FA3885500B90925 /* RoundedImage.swift */; };
+		1A21373C1FA388EA00B90925 /* PullTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21373B1FA388EA00B90925 /* PullTableViewCell.swift */; };
+		1A21373E1FA3890900B90925 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21373D1FA3890900B90925 /* RepositoryTableViewCell.swift */; };
+		1A51F0471FA6253100C05993 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0451FA6253100C05993 /* Item+CoreDataClass.swift */; };
+		1A51F0481FA6253100C05993 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0451FA6253100C05993 /* Item+CoreDataClass.swift */; };
+		1A51F0491FA6253100C05993 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0451FA6253100C05993 /* Item+CoreDataClass.swift */; };
+		1A51F04A1FA6253100C05993 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0461FA6253100C05993 /* Item+CoreDataProperties.swift */; };
+		1A51F04B1FA6253100C05993 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0461FA6253100C05993 /* Item+CoreDataProperties.swift */; };
+		1A51F04C1FA6253100C05993 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0461FA6253100C05993 /* Item+CoreDataProperties.swift */; };
+		1A51F04F1FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F04D1FA625B500C05993 /* Pull+CoreDataClass.swift */; };
+		1A51F0501FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F04D1FA625B500C05993 /* Pull+CoreDataClass.swift */; };
+		1A51F0511FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F04D1FA625B500C05993 /* Pull+CoreDataClass.swift */; };
+		1A51F0521FA625B500C05993 /* Pull+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F04E1FA625B500C05993 /* Pull+CoreDataProperties.swift */; };
+		1A51F0531FA625B500C05993 /* Pull+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F04E1FA625B500C05993 /* Pull+CoreDataProperties.swift */; };
+		1A51F0541FA625B500C05993 /* Pull+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F04E1FA625B500C05993 /* Pull+CoreDataProperties.swift */; };
+		1A51F0581FA6B2AB00C05993 /* ItemObjectMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51F0571FA6B2AB00C05993 /* ItemObjectMapperTests.swift */; };
+		1A51F05A1FA6B4E300C05993 /* item.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A51F0591FA6B4E300C05993 /* item.json */; };
+		1A993BF61FA3703600DAC897 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A993BF51FA3703600DAC897 /* AppDelegate.swift */; };
+		1A993BF91FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A993BF71FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodeld */; };
+		1A993BFB1FA3703600DAC897 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A993BFA1FA3703600DAC897 /* MasterViewController.swift */; };
+		1A993BFD1FA3703600DAC897 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A993BFC1FA3703600DAC897 /* DetailViewController.swift */; };
+		1A993C001FA3703600DAC897 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A993BFE1FA3703600DAC897 /* Main.storyboard */; };
+		1A993C021FA3703600DAC897 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A993C011FA3703600DAC897 /* Assets.xcassets */; };
+		1A993C051FA3703600DAC897 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A993C031FA3703600DAC897 /* LaunchScreen.storyboard */; };
+		1A993C101FA3703600DAC897 /* nexaas_desafio_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A993C0F1FA3703600DAC897 /* nexaas_desafio_iosTests.swift */; };
+		1A993C1B1FA3703600DAC897 /* nexaas_desafio_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A993C1A1FA3703600DAC897 /* nexaas_desafio_iosUITests.swift */; };
+		266FD363401487364401D104 /* Pods_nexaas_desafio_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4781E9B620B743A1E27904E6 /* Pods_nexaas_desafio_ios.framework */; };
+		3990A87B0B05ED73FA613EE0 /* Pods_nexaas_desafio_ios_nexaas_desafio_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDFF95FF6FEE499EED32C16 /* Pods_nexaas_desafio_ios_nexaas_desafio_iosTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A993C0C1FA3703600DAC897 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A993BEA1FA3703500DAC897 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A993BF11FA3703500DAC897;
+			remoteInfo = "nexaas-desafio-ios";
+		};
+		1A993C171FA3703600DAC897 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A993BEA1FA3703500DAC897 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A993BF11FA3703500DAC897;
+			remoteInfo = "nexaas-desafio-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A04C79B1FA6CA380098CDED /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1A21372A1FA37A1A00B90925 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		1A2137301FA386FF00B90925 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		1A2137321FA3874800B90925 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1A2137341FA387D800B90925 /* Pull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pull.swift; sourceTree = "<group>"; };
+		1A2137361FA3881900B90925 /* Repositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		1A2137381FA3885500B90925 /* RoundedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
+		1A21373B1FA388EA00B90925 /* PullTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullTableViewCell.swift; sourceTree = "<group>"; };
+		1A21373D1FA3890900B90925 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		1A51F0451FA6253100C05993 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A51F0461FA6253100C05993 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1A51F04D1FA625B500C05993 /* Pull+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pull+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A51F04E1FA625B500C05993 /* Pull+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pull+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1A51F0571FA6B2AB00C05993 /* ItemObjectMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemObjectMapperTests.swift; sourceTree = "<group>"; };
+		1A51F0591FA6B4E300C05993 /* item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item.json; sourceTree = "<group>"; };
+		1A993BF21FA3703500DAC897 /* nexaas-desafio-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nexaas-desafio-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A993BF51FA3703600DAC897 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A993BF81FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = nexaas_desafio_ios.xcdatamodel; sourceTree = "<group>"; };
+		1A993BFA1FA3703600DAC897 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		1A993BFC1FA3703600DAC897 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1A993BFF1FA3703600DAC897 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A993C011FA3703600DAC897 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A993C041FA3703600DAC897 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A993C061FA3703600DAC897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A993C0B1FA3703600DAC897 /* nexaas-desafio-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nexaas-desafio-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A993C0F1FA3703600DAC897 /* nexaas_desafio_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nexaas_desafio_iosTests.swift; sourceTree = "<group>"; };
+		1A993C111FA3703600DAC897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A993C161FA3703600DAC897 /* nexaas-desafio-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nexaas-desafio-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A993C1A1FA3703600DAC897 /* nexaas_desafio_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nexaas_desafio_iosUITests.swift; sourceTree = "<group>"; };
+		1A993C1C1FA3703600DAC897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B903DBC8BF7F9D4B2529801 /* Pods-nexaas-desafio-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexaas-desafio-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nexaas-desafio-ios/Pods-nexaas-desafio-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		4781E9B620B743A1E27904E6 /* Pods_nexaas_desafio_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nexaas_desafio_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FDFF95FF6FEE499EED32C16 /* Pods_nexaas_desafio_ios_nexaas_desafio_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nexaas_desafio_ios_nexaas_desafio_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7894647F18FAB585D10049 /* Pods-nexaas-desafio-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexaas-desafio-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-nexaas-desafio-ios/Pods-nexaas-desafio-ios.release.xcconfig"; sourceTree = "<group>"; };
+		DB03BB971FF22B63E1BB31A8 /* Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		DE43D282C7936D4EA9927CAE /* Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A993BEF1FA3703500DAC897 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266FD363401487364401D104 /* Pods_nexaas_desafio_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A993C081FA3703600DAC897 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3990A87B0B05ED73FA613EE0 /* Pods_nexaas_desafio_ios_nexaas_desafio_iosTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A993C131FA3703600DAC897 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A2137281FA379B100B90925 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A21373A1FA388B700B90925 /* Cells */,
+				1A993BFA1FA3703600DAC897 /* MasterViewController.swift */,
+				1A993BFC1FA3703600DAC897 /* DetailViewController.swift */,
+				1A04C79B1FA6CA380098CDED /* WebViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1A2137291FA379C900B90925 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1A51F04D1FA625B500C05993 /* Pull+CoreDataClass.swift */,
+				1A51F04E1FA625B500C05993 /* Pull+CoreDataProperties.swift */,
+				1A51F0451FA6253100C05993 /* Item+CoreDataClass.swift */,
+				1A51F0461FA6253100C05993 /* Item+CoreDataProperties.swift */,
+				1A993BF71FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodeld */,
+				1A21372A1FA37A1A00B90925 /* CoreDataStackManager.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		1A21372C1FA37B9B00B90925 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1A21372D1FA37BB300B90925 /* Service */,
+				1A21372E1FA37BC000B90925 /* Model */,
+				1A21372F1FA37BD100B90925 /* Components */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		1A21372D1FA37BB300B90925 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A2137301FA386FF00B90925 /* BaseService.swift */,
+				1A2137321FA3874800B90925 /* Service.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		1A21372E1FA37BC000B90925 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A2137341FA387D800B90925 /* Pull.swift */,
+				1A2137361FA3881900B90925 /* Repositories.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1A21372F1FA37BD100B90925 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1A2137381FA3885500B90925 /* RoundedImage.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		1A21373A1FA388B700B90925 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1A21373B1FA388EA00B90925 /* PullTableViewCell.swift */,
+				1A21373D1FA3890900B90925 /* RepositoryTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		1A51F0551FA6B20600C05993 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				1A51F0571FA6B2AB00C05993 /* ItemObjectMapperTests.swift */,
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		1A51F0561FA6B21600C05993 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1A51F0591FA6B4E300C05993 /* item.json */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		1A993BE91FA3703500DAC897 = {
+			isa = PBXGroup;
+			children = (
+				1A993BF41FA3703500DAC897 /* nexaas-desafio-ios */,
+				1A993C0E1FA3703600DAC897 /* nexaas-desafio-iosTests */,
+				1A993C191FA3703600DAC897 /* nexaas-desafio-iosUITests */,
+				1A993BF31FA3703500DAC897 /* Products */,
+				7CBA587EB98194179E38C486 /* Pods */,
+				4B1C003D9A9A138593FF10BA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1A993BF31FA3703500DAC897 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A993BF21FA3703500DAC897 /* nexaas-desafio-ios.app */,
+				1A993C0B1FA3703600DAC897 /* nexaas-desafio-iosTests.xctest */,
+				1A993C161FA3703600DAC897 /* nexaas-desafio-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A993BF41FA3703500DAC897 /* nexaas-desafio-ios */ = {
+			isa = PBXGroup;
+			children = (
+				1A993BF51FA3703600DAC897 /* AppDelegate.swift */,
+				1A993BFE1FA3703600DAC897 /* Main.storyboard */,
+				1A993C031FA3703600DAC897 /* LaunchScreen.storyboard */,
+				1A21372C1FA37B9B00B90925 /* Library */,
+				1A2137291FA379C900B90925 /* Data */,
+				1A2137281FA379B100B90925 /* Controllers */,
+				1A993C011FA3703600DAC897 /* Assets.xcassets */,
+				1A993C061FA3703600DAC897 /* Info.plist */,
+			);
+			path = "nexaas-desafio-ios";
+			sourceTree = "<group>";
+		};
+		1A993C0E1FA3703600DAC897 /* nexaas-desafio-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A51F0551FA6B20600C05993 /* Cases */,
+				1A51F0561FA6B21600C05993 /* Data */,
+				1A993C0F1FA3703600DAC897 /* nexaas_desafio_iosTests.swift */,
+				1A993C111FA3703600DAC897 /* Info.plist */,
+			);
+			path = "nexaas-desafio-iosTests";
+			sourceTree = "<group>";
+		};
+		1A993C191FA3703600DAC897 /* nexaas-desafio-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1A993C1A1FA3703600DAC897 /* nexaas_desafio_iosUITests.swift */,
+				1A993C1C1FA3703600DAC897 /* Info.plist */,
+			);
+			path = "nexaas-desafio-iosUITests";
+			sourceTree = "<group>";
+		};
+		4B1C003D9A9A138593FF10BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4781E9B620B743A1E27904E6 /* Pods_nexaas_desafio_ios.framework */,
+				5FDFF95FF6FEE499EED32C16 /* Pods_nexaas_desafio_ios_nexaas_desafio_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CBA587EB98194179E38C486 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B903DBC8BF7F9D4B2529801 /* Pods-nexaas-desafio-ios.debug.xcconfig */,
+				AF7894647F18FAB585D10049 /* Pods-nexaas-desafio-ios.release.xcconfig */,
+				DE43D282C7936D4EA9927CAE /* Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.debug.xcconfig */,
+				DB03BB971FF22B63E1BB31A8 /* Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A993BF11FA3703500DAC897 /* nexaas-desafio-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A993C1F1FA3703600DAC897 /* Build configuration list for PBXNativeTarget "nexaas-desafio-ios" */;
+			buildPhases = (
+				1B12FC86448974040D53800E /* [CP] Check Pods Manifest.lock */,
+				1A993BEE1FA3703500DAC897 /* Sources */,
+				1A993BEF1FA3703500DAC897 /* Frameworks */,
+				1A993BF01FA3703500DAC897 /* Resources */,
+				2CADF300B7927A6BE454CF22 /* [CP] Embed Pods Frameworks */,
+				F958557DCE6F217999450BCE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "nexaas-desafio-ios";
+			productName = "nexaas-desafio-ios";
+			productReference = 1A993BF21FA3703500DAC897 /* nexaas-desafio-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A993C0A1FA3703600DAC897 /* nexaas-desafio-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A993C221FA3703600DAC897 /* Build configuration list for PBXNativeTarget "nexaas-desafio-iosTests" */;
+			buildPhases = (
+				F4A8667FA6BECA4531A23830 /* [CP] Check Pods Manifest.lock */,
+				1A993C071FA3703600DAC897 /* Sources */,
+				1A993C081FA3703600DAC897 /* Frameworks */,
+				1A993C091FA3703600DAC897 /* Resources */,
+				3F219581EA9C7256171F47DA /* [CP] Embed Pods Frameworks */,
+				837B3AC2B97681B0B37D51FE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A993C0D1FA3703600DAC897 /* PBXTargetDependency */,
+			);
+			name = "nexaas-desafio-iosTests";
+			productName = "nexaas-desafio-iosTests";
+			productReference = 1A993C0B1FA3703600DAC897 /* nexaas-desafio-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1A993C151FA3703600DAC897 /* nexaas-desafio-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A993C251FA3703600DAC897 /* Build configuration list for PBXNativeTarget "nexaas-desafio-iosUITests" */;
+			buildPhases = (
+				1A993C121FA3703600DAC897 /* Sources */,
+				1A993C131FA3703600DAC897 /* Frameworks */,
+				1A993C141FA3703600DAC897 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A993C181FA3703600DAC897 /* PBXTargetDependency */,
+			);
+			name = "nexaas-desafio-iosUITests";
+			productName = "nexaas-desafio-iosUITests";
+			productReference = 1A993C161FA3703600DAC897 /* nexaas-desafio-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A993BEA1FA3703500DAC897 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = ACME;
+				TargetAttributes = {
+					1A993BF11FA3703500DAC897 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					1A993C0A1FA3703600DAC897 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1A993BF11FA3703500DAC897;
+					};
+					1A993C151FA3703600DAC897 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1A993BF11FA3703500DAC897;
+					};
+				};
+			};
+			buildConfigurationList = 1A993BED1FA3703500DAC897 /* Build configuration list for PBXProject "nexaas-desafio-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A993BE91FA3703500DAC897;
+			productRefGroup = 1A993BF31FA3703500DAC897 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A993BF11FA3703500DAC897 /* nexaas-desafio-ios */,
+				1A993C0A1FA3703600DAC897 /* nexaas-desafio-iosTests */,
+				1A993C151FA3703600DAC897 /* nexaas-desafio-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A993BF01FA3703500DAC897 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A993C051FA3703600DAC897 /* LaunchScreen.storyboard in Resources */,
+				1A993C021FA3703600DAC897 /* Assets.xcassets in Resources */,
+				1A993C001FA3703600DAC897 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A993C091FA3703600DAC897 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A51F05A1FA6B4E300C05993 /* item.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A993C141FA3703600DAC897 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B12FC86448974040D53800E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nexaas-desafio-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CADF300B7927A6BE454CF22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nexaas-desafio-ios/Pods-nexaas-desafio-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nexaas-desafio-ios/Pods-nexaas-desafio-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F219581EA9C7256171F47DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		837B3AC2B97681B0B37D51FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4A8667FA6BECA4531A23830 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nexaas-desafio-ios-nexaas-desafio-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F958557DCE6F217999450BCE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nexaas-desafio-ios/Pods-nexaas-desafio-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A993BEE1FA3703500DAC897 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A51F0521FA625B500C05993 /* Pull+CoreDataProperties.swift in Sources */,
+				1A51F04A1FA6253100C05993 /* Item+CoreDataProperties.swift in Sources */,
+				1A993BF61FA3703600DAC897 /* AppDelegate.swift in Sources */,
+				1A2137331FA3874800B90925 /* Service.swift in Sources */,
+				1A21373C1FA388EA00B90925 /* PullTableViewCell.swift in Sources */,
+				1A21373E1FA3890900B90925 /* RepositoryTableViewCell.swift in Sources */,
+				1A51F0471FA6253100C05993 /* Item+CoreDataClass.swift in Sources */,
+				1A2137351FA387D800B90925 /* Pull.swift in Sources */,
+				1A993BF91FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodeld in Sources */,
+				1A2137311FA386FF00B90925 /* BaseService.swift in Sources */,
+				1A2137371FA3881900B90925 /* Repositories.swift in Sources */,
+				1A993BFB1FA3703600DAC897 /* MasterViewController.swift in Sources */,
+				1A04C79C1FA6CA380098CDED /* WebViewController.swift in Sources */,
+				1A2137391FA3885500B90925 /* RoundedImage.swift in Sources */,
+				1A51F04F1FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */,
+				1A21372B1FA37A1A00B90925 /* CoreDataStackManager.swift in Sources */,
+				1A993BFD1FA3703600DAC897 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A993C071FA3703600DAC897 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A51F0581FA6B2AB00C05993 /* ItemObjectMapperTests.swift in Sources */,
+				1A51F0501FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */,
+				1A51F0531FA625B500C05993 /* Pull+CoreDataProperties.swift in Sources */,
+				1A51F04B1FA6253100C05993 /* Item+CoreDataProperties.swift in Sources */,
+				1A51F0481FA6253100C05993 /* Item+CoreDataClass.swift in Sources */,
+				1A993C101FA3703600DAC897 /* nexaas_desafio_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A993C121FA3703600DAC897 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A51F0511FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */,
+				1A51F0541FA625B500C05993 /* Pull+CoreDataProperties.swift in Sources */,
+				1A51F04C1FA6253100C05993 /* Item+CoreDataProperties.swift in Sources */,
+				1A51F0491FA6253100C05993 /* Item+CoreDataClass.swift in Sources */,
+				1A993C1B1FA3703600DAC897 /* nexaas_desafio_iosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A993C0D1FA3703600DAC897 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A993BF11FA3703500DAC897 /* nexaas-desafio-ios */;
+			targetProxy = 1A993C0C1FA3703600DAC897 /* PBXContainerItemProxy */;
+		};
+		1A993C181FA3703600DAC897 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A993BF11FA3703500DAC897 /* nexaas-desafio-ios */;
+			targetProxy = 1A993C171FA3703600DAC897 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A993BFE1FA3703600DAC897 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A993BFF1FA3703600DAC897 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1A993C031FA3703600DAC897 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A993C041FA3703600DAC897 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A993C1D1FA3703600DAC897 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A993C1E1FA3703600DAC897 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A993C201FA3703600DAC897 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B903DBC8BF7F9D4B2529801 /* Pods-nexaas-desafio-ios.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "nexaas-desafio-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.acme.nexaas-desafio-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A993C211FA3703600DAC897 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF7894647F18FAB585D10049 /* Pods-nexaas-desafio-ios.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "nexaas-desafio-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.acme.nexaas-desafio-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A993C231FA3703600DAC897 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE43D282C7936D4EA9927CAE /* Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "nexaas-desafio-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.acme.nexaas-desafio-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nexaas-desafio-ios.app/nexaas-desafio-ios";
+			};
+			name = Debug;
+		};
+		1A993C241FA3703600DAC897 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB03BB971FF22B63E1BB31A8 /* Pods-nexaas-desafio-ios-nexaas-desafio-iosTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "nexaas-desafio-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.acme.nexaas-desafio-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nexaas-desafio-ios.app/nexaas-desafio-ios";
+			};
+			name = Release;
+		};
+		1A993C261FA3703600DAC897 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "nexaas-desafio-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.acme.nexaas-desafio-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "nexaas-desafio-ios";
+			};
+			name = Debug;
+		};
+		1A993C271FA3703600DAC897 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "nexaas-desafio-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.acme.nexaas-desafio-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "nexaas-desafio-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A993BED1FA3703500DAC897 /* Build configuration list for PBXProject "nexaas-desafio-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A993C1D1FA3703600DAC897 /* Debug */,
+				1A993C1E1FA3703600DAC897 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A993C1F1FA3703600DAC897 /* Build configuration list for PBXNativeTarget "nexaas-desafio-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A993C201FA3703600DAC897 /* Debug */,
+				1A993C211FA3703600DAC897 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A993C221FA3703600DAC897 /* Build configuration list for PBXNativeTarget "nexaas-desafio-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A993C231FA3703600DAC897 /* Debug */,
+				1A993C241FA3703600DAC897 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A993C251FA3703600DAC897 /* Build configuration list for PBXNativeTarget "nexaas-desafio-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A993C261FA3703600DAC897 /* Debug */,
+				1A993C271FA3703600DAC897 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1A993BF71FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1A993BF81FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodel */,
+			);
+			currentVersion = 1A993BF81FA3703600DAC897 /* nexaas_desafio_ios.xcdatamodel */;
+			path = nexaas_desafio_ios.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1A993BEA1FA3703500DAC897 /* Project object */;
+}
