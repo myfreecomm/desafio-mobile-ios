@@ -51,9 +51,9 @@ class DetailViewController: UIViewController {
         
         if segue.identifier == "segueWebView" {
             
-//            let webViewController = segue.destination as! WebViewController
-//            let pull = sender as! Pull
-//            webViewController.pull = pull
+            let webViewController = segue.destination as! WebViewController
+            let pull = sender as! PullObject
+            webViewController.pull = pull
         }
         
     }
@@ -124,12 +124,12 @@ extension DetailViewController: UITableViewDataSource {
     }
 }
 
-//extension DetailViewController: UITableViewDelegate {
-//    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(#function)
-//        let pull = self.pullArray[indexPath.row]
-//        
-//        self.performSegue(withIdentifier: "segueWebView", sender: pull)
-//    }
-//}
+extension DetailViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(#function)
+        let pull = self.pullArray[indexPath.row]
+        
+        self.performSegue(withIdentifier: "segueWebView", sender: pull)
+    }
+}

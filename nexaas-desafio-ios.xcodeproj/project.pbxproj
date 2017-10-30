@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A04C79C1FA6CA380098CDED /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04C79B1FA6CA380098CDED /* WebViewController.swift */; };
 		1A21372B1FA37A1A00B90925 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21372A1FA37A1A00B90925 /* CoreDataStackManager.swift */; };
 		1A2137311FA386FF00B90925 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137301FA386FF00B90925 /* BaseService.swift */; };
 		1A2137331FA3874800B90925 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2137321FA3874800B90925 /* Service.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A04C79B1FA6CA380098CDED /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1A21372A1FA37A1A00B90925 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		1A2137301FA386FF00B90925 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		1A2137321FA3874800B90925 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				1A21373A1FA388B700B90925 /* Cells */,
 				1A993BFA1FA3703600DAC897 /* MasterViewController.swift */,
 				1A993BFC1FA3703600DAC897 /* DetailViewController.swift */,
+				1A04C79B1FA6CA380098CDED /* WebViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				1A2137311FA386FF00B90925 /* BaseService.swift in Sources */,
 				1A2137371FA3881900B90925 /* Repositories.swift in Sources */,
 				1A993BFB1FA3703600DAC897 /* MasterViewController.swift in Sources */,
+				1A04C79C1FA6CA380098CDED /* WebViewController.swift in Sources */,
 				1A2137391FA3885500B90925 /* RoundedImage.swift in Sources */,
 				1A51F04F1FA625B500C05993 /* Pull+CoreDataClass.swift in Sources */,
 				1A21372B1FA37A1A00B90925 /* CoreDataStackManager.swift in Sources */,
