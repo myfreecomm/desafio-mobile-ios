@@ -21,4 +21,6 @@
 
 -(void)setValuesWithDictionary:(NSDictionary*)dict;
 
+-(void)setNullCell;
+
 @end

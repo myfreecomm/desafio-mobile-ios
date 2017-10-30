@@ -14,19 +14,6 @@ static UIImage* _noPictureUser;
 
 @implementation GHRRepositoryTableViewCell
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 -(void)setValuesWithDictionary:(NSDictionary*)dict
 {
     self.repositoryName.text = dict[@"name"];
@@ -47,6 +34,18 @@ static UIImage* _noPictureUser;
     {
         if (!error) self.repositoryOwnerPicture.image = picture;
     }];
+}
+
+-(void)setNullCell
+{
+    self.repositoryName.text = @"Loading...";
+    self.repositoryDescription.text = @"";
+    
+    self.repositoryForkCounter.text = @"";
+    self.repositoryStarCounter.text = @"";
+    
+    self.repositoryOwnerUsername.text = @"";
+    self.repositoryOwnerPicture.image = nil;
 }
 
 @end

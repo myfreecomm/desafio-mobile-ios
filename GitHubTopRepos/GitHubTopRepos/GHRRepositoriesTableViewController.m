@@ -8,6 +8,7 @@
 
 #import "GHRRepositoriesTableViewController.h"
 
+#import "GHRPullRequestsTableViewController.h"
 #import "GHRRepositoryTableViewCell.h"
 #import "GHRGitHubClient.h"
 
@@ -45,8 +46,9 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    GHRPullRequestsTableViewController* destination = [segue destinationViewController];
+    destination.owner     = [[(NSDictionary*)sender objectForKey:@"owner"] objectForKey:@"login"];
+    destination.repository = [(NSDictionary*)sender objectForKey:@"name"];
 }
 
 #pragma mark - Table view data source
@@ -58,7 +60,7 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _repositoriesList ? _repositoriesList.count : 0;
+    return _repositoriesList ? _repositoriesList.count : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,13 +71,20 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
     {
         [cell setValuesWithDictionary:_repositoriesList[indexPath.item]];
     }
+    else
+    {
+        [cell setNullCell];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:segueIdentifier sender:_repositoriesList[indexPath.item]];
+    if (indexPath.item < _repositoriesList.count)
+    {
+        [self performSegueWithIdentifier:segueIdentifier sender:_repositoriesList[indexPath.item]];
+    }
 }
 
 @end

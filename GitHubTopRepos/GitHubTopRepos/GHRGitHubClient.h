@@ -12,6 +12,8 @@
 
 +(void)gitHubTopRepositories:(void (^) (NSArray* list, NSString* error))completionHandler;
 
++(void)gitHubPullRequestsFromUser:(NSString*)user fromRepository:(NSString*)repository withCompletionHandler:(void (^) (NSArray* list, NSString* error))completionHandler;
+
 +(void)githubUserPictureFromUrlPath:(NSString*)urlPath withCompletionHandler:(void (^) (UIImage* picture, NSString* error))completionHandler;
 
 @end

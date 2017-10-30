@@ -16,6 +16,8 @@
 		4EC5CB851FA7C8DC00EF7E66 /* GHRGitHubClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5CB841FA7C8DC00EF7E66 /* GHRGitHubClient.m */; };
 		4EFA0E031FA7CC8100677A5B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFA0E041FA7CC8100677A5B /* AFNetworking.framework */; };
 		4EFA0E071FA7D60600677A5B /* GHRRepositoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E061FA7D60600677A5B /* GHRRepositoryTableViewCell.m */; };
+		4EFA0E0A1FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E091FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m */; };
+		4EFA0E0D1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E0C1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m */; };
 		C5AAF5FF4AE9A5ABFFD1D394 /* Pods_GitHubTopRepos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FDFD7FD3F618BC96B3FC20 /* Pods_GitHubTopRepos.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,10 @@
 		4EFA0E041FA7CC8100677A5B /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFA0E051FA7D60600677A5B /* GHRRepositoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRRepositoryTableViewCell.h; sourceTree = "<group>"; };
 		4EFA0E061FA7D60600677A5B /* GHRRepositoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRRepositoryTableViewCell.m; sourceTree = "<group>"; };
+		4EFA0E081FA7E3BD00677A5B /* GHRPullRequestsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRPullRequestsTableViewController.h; sourceTree = "<group>"; };
+		4EFA0E091FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRPullRequestsTableViewController.m; sourceTree = "<group>"; };
+		4EFA0E0B1FA7E42B00677A5B /* GHRPullRequestTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRPullRequestTableViewCell.h; sourceTree = "<group>"; };
+		4EFA0E0C1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRPullRequestTableViewCell.m; sourceTree = "<group>"; };
 		58FDFD7FD3F618BC96B3FC20 /* Pods_GitHubTopRepos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubTopRepos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		732370029A2C923E11768C53 /* Pods-GitHubTopRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubTopRepos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubTopRepos/Pods-GitHubTopRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		A3DD1F1A4AC5D4D2057C2DCF /* Pods-GitHubTopRepos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubTopRepos.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubTopRepos/Pods-GitHubTopRepos.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,8 +95,12 @@
 				4EC5CB841FA7C8DC00EF7E66 /* GHRGitHubClient.m */,
 				4EFA0E051FA7D60600677A5B /* GHRRepositoryTableViewCell.h */,
 				4EFA0E061FA7D60600677A5B /* GHRRepositoryTableViewCell.m */,
+				4EFA0E0B1FA7E42B00677A5B /* GHRPullRequestTableViewCell.h */,
+				4EFA0E0C1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m */,
 				4EC5CB801FA7C7FE00EF7E66 /* GHRRepositoriesTableViewController.h */,
 				4EC5CB811FA7C7FE00EF7E66 /* GHRRepositoriesTableViewController.m */,
+				4EFA0E081FA7E3BD00677A5B /* GHRPullRequestsTableViewController.h */,
+				4EFA0E091FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m */,
 				4EC5CB701FA7C5CF00EF7E66 /* Main.storyboard */,
 				4EC5CB731FA7C5CF00EF7E66 /* Assets.xcassets */,
 				4EC5CB751FA7C5CF00EF7E66 /* LaunchScreen.storyboard */,
@@ -239,8 +249,10 @@
 			files = (
 				4EFA0E071FA7D60600677A5B /* GHRRepositoryTableViewCell.m in Sources */,
 				4EC5CB821FA7C7FE00EF7E66 /* GHRRepositoriesTableViewController.m in Sources */,
+				4EFA0E0D1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m in Sources */,
 				4EC5CB7A1FA7C5CF00EF7E66 /* main.m in Sources */,
 				4EC5CB6C1FA7C5CF00EF7E66 /* AppDelegate.m in Sources */,
+				4EFA0E0A1FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m in Sources */,
 				4EC5CB851FA7C8DC00EF7E66 /* GHRGitHubClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
