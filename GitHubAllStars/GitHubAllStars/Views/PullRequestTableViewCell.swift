@@ -38,8 +38,11 @@ class PullRequestTableViewCell: UITableViewCell {
         if let pr = self.pullRequest {
             self.nameLabel.text = pr.title
             self.descriptionLabel.text = pr.body
-            self.usernameLabel.text = pr.user.login
-            self.profileImageView.sd_setImage(with: URL(string: pr.user.avatarURL), placeholderImage: UIImage(named: "github"))
+            
+            if let user = pr.user {
+                self.usernameLabel.text = user.login
+                self.profileImageView.sd_setImage(with: URL(string: user.avatarURL), placeholderImage: UIImage(named: "github"))
+            }
             
             let dateFormatter = DateFormatter(withFormat: "yyyy-MM-dd'T'HH:mm:ssZ", locale: "pt-BR")
             if let date = dateFormatter.date(from: pr.created_at) {

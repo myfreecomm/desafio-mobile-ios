@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Owner" representedClassName="Owner" syncable="YES">
+        <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="repositories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repository" inverseName="owner" inverseEntity="Repository" syncable="YES"/>
+    </entity>
+    <entity name="PullRequest" representedClassName="PullRequest" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="html_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pullRequestId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="pullrequests" inverseEntity="Repository" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" syncable="YES"/>
+    </entity>
+    <entity name="Repository" representedClassName="Repository" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forksCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repositoryId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="stargazersCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" inverseName="repositories" inverseEntity="Owner" syncable="YES"/>
+        <relationship name="pullrequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequest" inverseName="repository" inverseEntity="PullRequest" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Owner" positionX="-1818" positionY="27" width="128" height="88"/>
+        <element name="Repository" positionX="-1523" positionY="171" width="128" height="163"/>
+        <element name="PullRequest" positionX="-2144" positionY="261" width="128" height="133"/>
+    </elements>
+</model>

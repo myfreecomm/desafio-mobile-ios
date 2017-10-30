@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class RepositoriesTableViewController: UITableViewController {
     var repositories = [Repository]()
     var page = 1
@@ -29,10 +29,6 @@ class RepositoriesTableViewController: UITableViewController {
         self.refreshControl?.tintColor = .gray
         self.tableView.addSubview(self.refreshControl!)
         self.loadData()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     @objc func handleRefresh(_: UIRefreshControl) {
@@ -59,10 +55,10 @@ class RepositoriesTableViewController: UITableViewController {
                             self.page = -1
                         }
                     }
-                    self.isLoadingData = false
-                    self.refreshControl?.endRefreshing()
                 }
             }
+            self.isLoadingData = false
+            self.refreshControl?.endRefreshing()
         }
     }
     
@@ -79,10 +75,12 @@ class RepositoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
         cell.repository = self.repositories[indexPath.row]
-        
-        if(indexPath.row == self.repositories.count - 1 && self.page != 0 && !self.isLoadingData) {
-            self.loadData()
+        if NetworkReachabilityManager()!.isReachable {
+            if(indexPath.row == self.repositories.count - 1 && self.page != 0 && !self.isLoadingData) {
+                self.loadData()
+            }
         }
+
         return cell
     }
     

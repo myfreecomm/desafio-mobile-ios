@@ -7,32 +7,30 @@
 //
 
 import UIKit
-
 class PullRequestTableViewController: UITableViewController {
     var repository: Repository?
     var pullRequests = [PullRequest]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.title = self.repository?.name
         let nib = UINib(nibName: "PullRequestTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier:
             "PullRequestTableViewCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 143
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.tintColor = .gray
+        self.tableView.addSubview(self.refreshControl!)
         
         self.loadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func handleRefresh(_: UIRefreshControl) {
+        
+        loadData()
     }
-
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -60,11 +58,13 @@ class PullRequestTableViewController: UITableViewController {
             DataManager.sharedInstance.getPullRequest(repository: fullRepositoryName) { (error, message, pullRequestsResponse) in
                 if(!error) {
                     if let prs = pullRequestsResponse {
+                        self.pullRequests.removeAll()
                         self.pullRequests.append(contentsOf: prs)
                         print("PRS: \(self.pullRequests.count)")
                         self.tableView.reloadData()
                     }
                 }
+                self.refreshControl?.endRefreshing()
             }
         }
     }

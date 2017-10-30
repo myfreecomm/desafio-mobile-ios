@@ -6,11 +6,16 @@
 //  Copyright © 2017 Raphael Araújo. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import RealmSwift
 import ObjectMapper
-class Owner: NSObject, Mappable {
-    var login       = ""
-    var avatarURL   = ""
+class Owner: Object, Mappable {
+    @objc dynamic var login: String = ""
+    @objc dynamic var avatarURL: String = ""
+    
+    override class func primaryKey() -> String? {
+        return "login"
+    }
     
     required convenience init?(map: Map) {
         self.init()
@@ -21,3 +26,4 @@ class Owner: NSObject, Mappable {
         avatarURL <- map["avatar_url"]
     }
 }
+

@@ -39,8 +39,8 @@ class RepositoryTableViewCell: UITableViewCell {
             self.descriptionLabel.text = repo.desc
             self.forksLabel.text = "\(repo.forksCount)"
             self.starsLabel.text = "\(repo.stargazersCount)"
-            self.usernameLabel.text = repo.owner.login
-            self.profileImageView.sd_setImage(with: URL(string: repo.owner.avatarURL), placeholderImage: UIImage(named: "github"))
+            self.usernameLabel.text = repo.owner?.login
+            self.profileImageView.sd_setImage(with: URL(string: repo.owner!.avatarURL), placeholderImage: UIImage(named: "github"))
         }
     }
 }

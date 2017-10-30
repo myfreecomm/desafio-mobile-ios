@@ -10,4 +10,5 @@ target 'GitHubAllStars' do
   pod 'ObjectMapper', '~>3.0.0'
   pod 'AlamofireObjectMapper', '~> 5.0.0'
   pod 'SDWebImage', '~> 4.1.2'
+  pod 'RealmSwift', '~> 2.8.3'
 end
