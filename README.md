@@ -12,9 +12,9 @@ Este desafio deve ser feito por você em sua casa. O tempo limite é de três di
 
 ## Descrição do projeto
 
-Você deve criar um aplicativo que irá listar os repositórios públicos mais populares relacionados à Java no GitHub, usando a [API do GitHub](https://developer.github.com/v3/) para buscar os dados necessários.
+Você deve criar um aplicativo que irá listar os repositórios públicos mais populares relacionados à Swift no GitHub, usando a [API do GitHub](https://developer.github.com/v3/) para buscar os dados necessários.
 
-O aplicativo deve exibir inicialmente uma lista paginada dos repositórios, ordenados por popularidade decrescente (exemplo de chamada da API: `https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1`).
+O aplicativo deve exibir inicialmente uma lista paginada dos repositórios, ordenados por popularidade decrescente (exemplo de chamada da API: `https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1`).
 
 Cada repositório deve exibir Nome do repositório, Descrição do Repositório, Nome / Foto do autor, Número de Stars, Número de Forks.
 
@@ -33,7 +33,6 @@ Sua aplicação deve:
 - usar Storyboard e Autolayout
 - usar gestão de dependências no projeto. Ex: Cocoapods
 - usar um Framework para Comunicação com API. Ex: Alamofire
-- fazer mapeamento json -> Objeto. ExL ObjectMapper https://github.com/Hearst-DD/ObjectMapper
 - possuir boa cobertura de testes unitários no projeto. Ex: XCTests / Quick + Nimble
 
 Você ganha mais pontos se:
