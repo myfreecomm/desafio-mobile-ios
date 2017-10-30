@@ -10,13 +10,15 @@
 
 @interface GHRRepositoryTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel* repositoryName;
-@property (nonatomic, strong) UITextView* repositoryDescription;
+@property (nonatomic, strong) IBOutlet UILabel* repositoryName;
+@property (nonatomic, strong) IBOutlet UITextView* repositoryDescription;
 
-@property (nonatomic, strong) UILabel* repositoryForkCounter;
-@property (nonatomic, strong) UILabel* repositoryStarCounter;
+@property (nonatomic, strong) IBOutlet UILabel* repositoryForkCounter;
+@property (nonatomic, strong) IBOutlet UILabel* repositoryStarCounter;
 
-@property (nonatomic, strong) UIImageView* repositoryOwnerPicture;
-@property (nonatomic, strong) UILabel* repositoryOwnerUsername;
+@property (nonatomic, strong) IBOutlet UIImageView* repositoryOwnerPicture;
+@property (nonatomic, strong) IBOutlet UILabel* repositoryOwnerUsername;
+
+-(void)setValuesWithDictionary:(NSDictionary*)dict;
 
 @end

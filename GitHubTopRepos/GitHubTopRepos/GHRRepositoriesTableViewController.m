@@ -8,6 +8,7 @@
 
 #import "GHRRepositoriesTableViewController.h"
 
+#import "GHRRepositoryTableViewCell.h"
 #import "GHRGitHubClient.h"
 
 static NSString* _Nonnull cellIdentifier = @"RepositoryCell";
@@ -62,9 +63,12 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    GHRRepositoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (indexPath.item < _repositoriesList.count)
+    {
+        [cell setValuesWithDictionary:_repositoriesList[indexPath.item]];
+    }
     
     return cell;
 }

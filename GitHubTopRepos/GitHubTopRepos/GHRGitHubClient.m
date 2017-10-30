@@ -7,7 +7,10 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFImageDownloader.h>
 #import "GHRGitHubClient.h"
+
+static const NSString* GITHUB_REPOSITORIES_API_OUTPUT_ITEMS_KEY = @"items";
 
 @implementation GHRGitHubClient
 
@@ -31,11 +34,26 @@
         }
         else
         {
-            completionHandler(responseObject, nil);
+            completionHandler([(NSDictionary*)responseObject objectForKey:GITHUB_REPOSITORIES_API_OUTPUT_ITEMS_KEY], nil);
         }
     }];
     
     [dataTask resume];
+}
+
++(void)githubUserPictureFromUrlPath:(NSString*)urlPath withCompletionHandler:(void (^) (UIImage* picture, NSString* error))completionHandler
+{
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlPath
+                                                                         parameters:nil error:nil];
+    
+    [[AFImageDownloader defaultInstance] downloadImageForURLRequest:request success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull responseObject)
+    {
+        completionHandler(responseObject, nil);
+    }
+    failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error)
+    {
+        completionHandler(nil, [error localizedDescription]);
+    }];
 }
 
 @end
