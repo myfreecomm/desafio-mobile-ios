@@ -6,14 +6,13 @@
 //  Copyright © 2017 ACME. All rights reserved.
 //
 
-import CoreData
 import ObjectMapper
 
 public class Repositories: Mappable {
     
     public var total_count: Int?
     public var incomplete_results: Bool?
-    public var items: [Item]?
+    public var items: [ItemObject]?
     
     required public init() {}
     
@@ -26,30 +25,28 @@ public class Repositories: Mappable {
     }
 }
 
-public class Item: NSManagedObject, Mappable {
+public class ItemObject: NSObject, Mappable {
     
-    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: CoreDataStackManager.shared.managedObjectContext)
-    }
+    public var id: Int?
+    public var name: String?
+    public var full_name: String?
+    public var owner_login: String?
+    public var owner_id: Int?
+    public var owner_avatar_url: String?
+    public var owner_url: String?
+    public var owner_type: String?
+    public var itemDescription: String?
+    public var stargazers_count: Int?
+    public var watchers_count: Int?
+    public var forks_count: Int?
+    public var open_issues_count: Int?
+    public var forks: Int?
+    public var open_issues: Int?
+    public var watchers: Int?
     
-    required public init?(map: Map) {
-        let context = CoreDataStackManager.shared.managedObjectContext
-        let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
-        super.init(entity: entity!, insertInto: context)
-        
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
-//        let predicate = NSPredicate(format: "id = %i", Item.id)
-//        fetchRequest.predicate = predicate
-//        do {
-//            let result = try context.fetch(fetchRequest) as! [Item]
-//            if result.count == 0 {
-//                super.init(entity: entity!, insertInto: context)
-//            }
-//        } catch {
-//            super.init(entity: entity!, insertInto: context)
-//        }
-        
-    }
+    required public override init() {}
+    
+    required public init?(map: Map) { }
     
     public func mapping(map: Map) {
         self.id <- map["id"]
@@ -71,29 +68,6 @@ public class Item: NSManagedObject, Mappable {
     }
 }
 
-extension Item {
-    
-    @NSManaged var id: Int
-    @NSManaged var name: String?
-    @NSManaged var full_name: String?
-    @NSManaged var owner_login: String?
-    @NSManaged var owner_id: Int
-    @NSManaged var owner_avatar_url: String?
-    @NSManaged var owner_url: String?
-    @NSManaged var owner_type: String?
-    @NSManaged var itemDescription: String?
-    @NSManaged var stargazers_count: Int
-    @NSManaged var watchers_count: Int
-    @NSManaged var forks_count: Int
-    @NSManaged var open_issues_count: Int
-    @NSManaged var forks: Int
-    @NSManaged var open_issues: Int
-    @NSManaged var watchers: Int
-    
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Item> {
-        return NSFetchRequest<Item>(entityName: "Item");
-    }
-}
 /*
  public class Owner: Mappable {
  

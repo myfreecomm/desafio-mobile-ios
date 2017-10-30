@@ -43,7 +43,7 @@ public class Service: BaseService {
         }
     }
     
-    public func getRepositoryPulls(owner: String, repo: String, page: Int, completion: ((_ finished: Bool, _ pull: [Pull]?, _ message: String?) -> Void)? = nil) -> Request {
+    public func getRepositoryPulls(owner: String, repo: String, page: Int, completion: ((_ finished: Bool, _ pull: [PullObject]?, _ message: String?) -> Void)? = nil) -> Request {
         //  GET /repos/:owner/:repo/pulls
         /*
          Parameters
@@ -59,7 +59,7 @@ public class Service: BaseService {
         
         return self.apiRequest(.get, address: self.baseAPI! + "repos/" + owner + "/" + repo + "/pulls", parameters: parameters) { (_ finished, _ response) in
             
-            var pull: [Pull]?
+            var pull: [PullObject]?
             
             var message: String?
             
@@ -67,7 +67,7 @@ public class Service: BaseService {
                 
                 message = self.responseMessage(response)
                 
-                pull = Mapper<Pull>().mapArray(JSONObject: response)
+                pull = Mapper<PullObject>().mapArray(JSONObject: response)
             }
             
             completion?(finished, pull, message)

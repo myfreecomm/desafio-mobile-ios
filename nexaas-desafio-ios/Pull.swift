@@ -6,40 +6,29 @@
 //  Copyright © 2017 ACME. All rights reserved.
 //
 
-import CoreData
 import ObjectMapper
 
-public class Pull: NSManagedObject, Mappable {
+public class PullObject: NSObject, Mappable {
     
-    @NSManaged var url: String?
-    @NSManaged var id: Int
-    @NSManaged var html_url: String?
-    @NSManaged var diff_url: String?
-    @NSManaged var patch_url: String?
-    @NSManaged var issue_url: String?
-    @NSManaged var number: Int
-    @NSManaged var state: String?
-    @NSManaged var locked: Bool
-    @NSManaged var title: String?
-    @NSManaged var user_login: String?
-    @NSManaged var user_avatar_url: String?
-    @NSManaged var body: String?
-    @NSManaged var created_at: Date?
-    @NSManaged var message: String?
+    public var url: String?
+    public var id: Int?
+    public var html_url: String?
+    public var diff_url: String?
+    public var patch_url: String?
+    public var issue_url: String?
+    public var number: Int?
+    public var state: String?
+    public var locked: Bool?
+    public var title: String?
+    public var user_login: String?
+    public var user_avatar_url: String?
+    public var body: String?
+    public var created_at: Date?
+    public var message: String?
     
-    //    required public init() {}
-    
-    //    required public init?(map: Map) {}
-    
-    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: CoreDataStackManager.shared.managedObjectContext)
-    }
-    
-    required public init?(map: Map) {
-        let context = CoreDataStackManager.shared.managedObjectContext
-        let entity = NSEntityDescription.entity(forEntityName: "Pull", in: context)
-        super.init(entity: entity!, insertInto: context)
-    }
+    required public override init() {}
+
+    required public init?(map: Map) {}
     
     public func mapping(map: Map) {
         self.url <- map["url"]

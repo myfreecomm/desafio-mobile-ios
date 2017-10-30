@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
             self.getPullRequests()
         }
     }
-    var pullArray: [Pull] = []
+    var pullArray: [PullObject] = []
     
     var page: Int = 0
     var loadingMore : Bool!

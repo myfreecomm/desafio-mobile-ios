@@ -22,17 +22,40 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Service.shared.startReachabilityMonitoring()
+        
         self.managedObjectContext = CoreDataStackManager.shared.managedObjectContext
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh(_:)))
         self.navigationItem.rightBarButtonItem = refreshButton
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(notification:)), name: NSNotification.Name(rawValue: "ReachabilityStatusChangedNotification"), object: nil)
         
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
-        getRepositoriesInfo()
+        if Service.shared.isConnected() {
+            self.getRepositoriesInfo()
+        }
+        
+        //getRepositoriesInfo()
+    }
+    
+    /*........................................................................*/
+    /* Reachability */
+    
+    func reachabilityChanged(notification: Notification) {
+        
+        let isReachable = notification.object as! Bool
+        let refreshButton = self.navigationItem.rightBarButtonItem
+        
+        if isReachable {
+            refreshButton?.isEnabled = true
+        } else {
+            //refreshButton?.isEnabled = false
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +72,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         self.page = 0
         self.loadingMore = false
+        
         self.getRepositoriesInfo()
     }
     
@@ -57,6 +81,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.loadingMore = true
         self.page += 1
         
+        print("\(#function) - page: \(self.page)")
+        
         let searchString = "language:Java"
         
         _ = Service.shared.getRepositories(searchString, "stars", self.page) { (finished, repositories) in
@@ -64,19 +90,50 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             if finished && repositories?.total_count != nil {
                 
                 if self.page == 1 {
-//                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
-//                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-                    
-//                    do {
-//                        try self.managedObjectContext?.persistentStoreCoordinator?.execute(deleteRequest, with: self.managedObjectContext!)
-//                        
-//                    } catch let error as NSError {
-//                        print(error)
-//                    }
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+                    // Create batch delete request and set the result type to .resultTypeObjectIDs so that we can merge the changes                    
+                    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+                    batchDeleteRequest.resultType = .resultTypeObjectIDs
+
+                    do {
+                        let batchDeleteResult = try self.managedObjectContext?.execute(batchDeleteRequest) as? NSBatchDeleteResult
+                        
+                        if let deletedObjectIDs = batchDeleteResult?.result as? [NSManagedObjectID] {
+                            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey : deletedObjectIDs],
+                                                                into: [self.managedObjectContext!])
+                        }
+                    }
+                    catch {
+                        print("Error: \(error)\nCould not batch delete existing records.")
+                    }
                 }
                 
                 // Save the context.
                 do {
+                    for repo in (repositories?.items!)! {
+                        
+                        let entity = NSEntityDescription.entity(forEntityName: "Item", in: self.managedObjectContext!)
+                        let item = NSManagedObject(entity: entity!, insertInto: self.managedObjectContext!)
+                        
+                        item.setValue(repo.id               , forKey: "id"       )
+                        item.setValue(repo.name             , forKey: "name"     )
+                        item.setValue(repo.full_name        , forKey: "full_name")
+                        item.setValue(repo.owner_login      , forKey: "owner_login")
+                        item.setValue(repo.owner_id         , forKey: "owner_id")
+                        item.setValue(repo.owner_avatar_url , forKey: "owner_avatar_url")
+                        item.setValue(repo.owner_url        , forKey: "owner_url")
+                        item.setValue(repo.owner_type       , forKey: "owner_type")
+                        item.setValue(repo.itemDescription  , forKey: "itemDescription")
+                        item.setValue(repo.stargazers_count , forKey: "stargazers_count")
+                        item.setValue(repo.watchers_count   , forKey: "watchers_count")
+                        item.setValue(repo.forks_count      , forKey: "forks_count")
+                        item.setValue(repo.open_issues_count, forKey: "open_issues_count")
+                        item.setValue(repo.forks            , forKey: "forks")
+                        item.setValue(repo.open_issues      , forKey: "open_issues")
+                        item.setValue(repo.watchers         , forKey: "watchers")
+                        
+                    }
+                    
                     try self.managedObjectContext?.save()
                     //self.tableView.reloadData()
                 } catch {
@@ -126,7 +183,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         if (indexPath.row == (self.fetchedResultsController.fetchedObjects?.count)! - 1 && !self.loadingMore) {
             if self.page == 0 {self.page = 1}
-            print("MasterViewController \(#function) - self.getRepositoriesInfo() - page: \(self.page) - indexPath.row: \(indexPath.row) - fetchedObjects?.count: \((self.fetchedResultsController.fetchedObjects?.count)!)")
+            //print("MasterViewController \(#function) - self.getRepositoriesInfo() - page: \(self.page) - indexPath.row: \(indexPath.row) - fetchedObjects?.count: \((self.fetchedResultsController.fetchedObjects?.count)!)")
             self.getRepositoriesInfo()
         }
         
@@ -165,7 +222,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         cell.labelStars.text = "\(item.stargazers_count)"
         cell.labelForks.text = "\(item.forks_count)"
         
-        print("repositoryCell \(#function) - page: \(self.page) - fetchedObjects?.count: \((self.fetchedResultsController.fetchedObjects?.count)!) - self.loadingMore: \(self.loadingMore) ")
+        //print("repositoryCell \(#function) - page: \(self.page) - fetchedObjects?.count: \((self.fetchedResultsController.fetchedObjects?.count)!) - self.loadingMore: \(self.loadingMore) ")
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
