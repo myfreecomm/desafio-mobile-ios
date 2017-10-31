@@ -10,6 +10,8 @@
 #import <AFNetworking/AFImageDownloader.h>
 #import "GHRGitHubClient.h"
 
+#define LIST_ALL_PULL_REQUESTS FALSE
+
 static const NSString* GITHUB_REPOSITORIES_API_OUTPUT_ITEMS_KEY = @"items";
 
 @implementation GHRGitHubClient
@@ -43,8 +45,12 @@ static const NSString* GITHUB_REPOSITORIES_API_OUTPUT_ITEMS_KEY = @"items";
 
 +(void)gitHubPullRequestsFromUser:(NSString*)user fromRepository:(NSString*)repository withCompletionHandler:(void (^) (NSArray* list, NSString* error))completionHandler
 {
+    [self gitHubPullRequestsFromUser:user fromRepository:repository atPage:1 withCompletionHandler:completionHandler];
+}
++(void)gitHubPullRequestsFromUser:(NSString*)user fromRepository:(NSString*)repository atPage:(int)page withCompletionHandler:(void (^) (NSArray* list, NSString* error))completionHandler
+{
     NSString *githubApiUrlPath = [NSString stringWithFormat:@"https://api.github.com/repos/%@/%@/pulls",user,repository];
-    NSDictionary* parameters = @{@"state": @"all"};
+    NSDictionary* parameters = @{@"state": @"all", @"per_page": @"100", @"page": [NSString stringWithFormat:@"%d",page]};
     
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:githubApiUrlPath
                                                                          parameters:parameters error:nil];
@@ -58,11 +64,32 @@ static const NSString* GITHUB_REPOSITORIES_API_OUTPUT_ITEMS_KEY = @"items";
         if (error)
         {
             completionHandler(nil, [error localizedDescription]);
+            return;
         }
-        else
+        
+#if LIST_ALL_PULL_REQUESTS == TRUE
+        if ([(NSArray*)responseObject count] < 100)
         {
             completionHandler(responseObject, nil);
+            return;
         }
+        
+        [self gitHubPullRequestsFromUser:user fromRepository:repository atPage:page+1
+                   withCompletionHandler:^(NSArray *list, NSString *errorString)
+        {
+            if (errorString)
+            {
+                completionHandler(nil, errorString);
+                return;
+            }
+            
+            NSMutableArray* output = [(NSArray*)responseObject mutableCopy];
+            [output addObjectsFromArray:list];
+            completionHandler(output, nil);
+        }];
+#else
+        completionHandler(responseObject, nil);
+#endif
     }];
     
     [dataTask resume];

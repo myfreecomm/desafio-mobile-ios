@@ -197,11 +197,23 @@
                                                         <constraint firstAttribute="height" constant="38" id="mXI-d0-OYz"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnm-Mw-kyz">
+                                                    <rect key="frame" x="226" y="103" width="141" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="141" id="NZT-Gu-mRQ"/>
+                                                        <constraint firstAttribute="height" constant="21" id="ajK-ML-wrh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tec-6a-Fbo" secondAttribute="bottom" constant="8.5" id="4mn-y9-zTg"/>
+                                                <constraint firstItem="Mnm-Mw-kyz" firstAttribute="trailing" secondItem="Fnq-ib-MfN" secondAttribute="trailingMargin" id="4xv-O1-c8T"/>
                                                 <constraint firstItem="tec-6a-Fbo" firstAttribute="leading" secondItem="Fnq-ib-MfN" secondAttribute="leadingMargin" constant="12" id="DgW-go-SRW"/>
                                                 <constraint firstItem="58E-4F-qiz" firstAttribute="trailing" secondItem="Fnq-ib-MfN" secondAttribute="trailingMargin" id="LFm-Ii-VtF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Mnm-Mw-kyz" secondAttribute="bottom" constant="17.5" id="WhS-AT-0VG"/>
                                                 <constraint firstItem="58E-4F-qiz" firstAttribute="leading" secondItem="tec-6a-Fbo" secondAttribute="trailing" constant="8" id="aRR-LZ-dzn"/>
                                                 <constraint firstItem="0p3-tW-aXc" firstAttribute="trailing" secondItem="Fnq-ib-MfN" secondAttribute="trailingMargin" id="gGJ-KQ-B8S"/>
                                                 <constraint firstItem="0p3-tW-aXc" firstAttribute="top" secondItem="AxF-nO-QO0" secondAttribute="bottom" constant="1" id="h9h-1e-Acd"/>
@@ -215,6 +227,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="pullRequestDate" destination="Mnm-Mw-kyz" id="pal-RB-BUx"/>
                                             <outlet property="pullRequestDescription" destination="0p3-tW-aXc" id="ejg-UZ-Nk3"/>
                                             <outlet property="pullRequestName" destination="AxF-nO-QO0" id="b1P-Uq-Hs6"/>
                                             <outlet property="pullRequestOwnerPicture" destination="tec-6a-Fbo" id="A4L-Oa-fKu"/>

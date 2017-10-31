@@ -16,6 +16,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView* pullRequestOwnerPicture;
 @property (nonatomic, strong) IBOutlet UILabel* pullRequestOwnerUsername;
 
+@property (nonatomic, strong) IBOutlet UILabel* pullRequestDate;
+
 -(void)setValuesWithDictionary:(NSDictionary*)dict;
 
 @end
