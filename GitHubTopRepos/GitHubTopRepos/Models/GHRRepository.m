@@ -15,7 +15,7 @@
     GHRRepository* repo = [[GHRRepository alloc] init];
     
     repo.name = dict[@"name"];
-    repo.repositoryDescription = dict[@"description"];
+    repo.repositoryDescription = [dict[@"description"] isKindOfClass:[NSString class]] ? dict[@"description"] : @"";
     
     repo.forkCounter = [dict[@"forks_count"] intValue];
     repo.starCounter = [dict[@"stargazers_count"] intValue];
