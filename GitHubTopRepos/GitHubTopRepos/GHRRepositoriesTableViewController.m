@@ -33,12 +33,11 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
             [alertController addAction:ok];
             
             [self presentViewController:alertController animated:YES completion:nil];
+            return;
         }
-        else
-        {
-            _repositoriesList = list;
-            [self.tableView reloadData];
-        }
+        
+        _repositoriesList = list;
+        [self.tableView reloadData];
     }];
 }
 

@@ -100,7 +100,8 @@ static const NSString* GITHUB_REPOSITORIES_API_OUTPUT_ITEMS_KEY = @"items";
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlPath
                                                                          parameters:nil error:nil];
     
-    [[AFImageDownloader defaultInstance] downloadImageForURLRequest:request success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull responseObject)
+    [[AFImageDownloader defaultInstance] downloadImageForURLRequest:request
+    success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull responseObject)
     {
         completionHandler(responseObject, nil);
     }
