@@ -14,7 +14,8 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    
+    @IBOutlet weak var repositoryTitleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,12 +36,19 @@ class RepositoryTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         if let repo = self.repository {
-            self.nameLabel.text = repo.name
             self.descriptionLabel.text = repo.desc
             self.forksLabel.text = "\(repo.forksCount)"
             self.starsLabel.text = "\(repo.stargazersCount)"
-            self.usernameLabel.text = repo.owner?.login
-            self.profileImageView.sd_setImage(with: URL(string: repo.owner!.avatarURL), placeholderImage: UIImage(named: "github"))
+            
+            if let owner = repo.owner {
+                self.usernameLabel.text = owner.login
+                self.nameLabel.text = owner.name
+                self.profileImageView.sd_setImage(with: URL(string: owner.avatarURL), placeholderImage: UIImage(named: "github"))
+            }
+//            self.usernameLabel.text = repo.owner?.login
+//            self.nameLabel.text = repo.owner?.name
+            self.repositoryTitleLabel.text = repo.name
+//            self.profileImageView.sd_setImage(with: URL(string: repo.owner!.avatarURL), placeholderImage: UIImage(named: "github"))
         }
     }
 }

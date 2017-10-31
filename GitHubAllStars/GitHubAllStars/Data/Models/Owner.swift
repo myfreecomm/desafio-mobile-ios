@@ -12,6 +12,7 @@ import ObjectMapper
 class Owner: Object, Mappable {
     @objc dynamic var login: String = ""
     @objc dynamic var avatarURL: String = ""
+    @objc dynamic var name: String = ""
     
     override class func primaryKey() -> String? {
         return "login"
@@ -24,6 +25,7 @@ class Owner: Object, Mappable {
     func mapping(map: Map) {
         login <- map["login"]
         avatarURL <- map["avatar_url"]
+        name <- map["name"]
     }
 }
 

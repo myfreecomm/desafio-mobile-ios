@@ -15,6 +15,8 @@ class PullRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var pullRequestTitleLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,11 +38,12 @@ class PullRequestTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         if let pr = self.pullRequest {
-            self.nameLabel.text = pr.title
+            self.pullRequestTitleLabel.text = pr.title
             self.descriptionLabel.text = pr.body
             
             if let user = pr.user {
                 self.usernameLabel.text = user.login
+                self.nameLabel.text = user.name
                 self.profileImageView.sd_setImage(with: URL(string: user.avatarURL), placeholderImage: UIImage(named: "github"))
             }
             

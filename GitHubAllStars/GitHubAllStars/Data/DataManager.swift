@@ -18,12 +18,32 @@ class DataManager: NSObject {
             WebManager.sharedInstance.starsRequest(language: "", page: page) { (error, message, repositoriesResponse) in
                 if !error {
                     if let repositories = repositoriesResponse {
-                        callback(false, "DataManager Get Repositories List - Successful", repositories)
-                        
+                        for repo in repositories {
+                            if let o = repo.owner {
+                                WebManager.sharedInstance.userInfo(login: o.login, callback: { (error, message, owner) in
+                                    if !error {
+                                        if let owner = owner {
+                                            let realm = try! Realm()
+                                            try! realm.write {
+                                                realm.add(owner, update: true)
+                                            }
+                                        } else {
+                                            print("owner empty")
+                                        }
+                                    } else {
+                                        print("erro")
+                                    }
+                                })
+                            } else {
+                                print("repo doesn't have owner")
+                            }
+                        }
                         let realm = try! Realm()
                         try! realm.write {
                             realm.add(repositories, update: true)
+                            callback(false, "DataManager Get Repositories List - Successful", repositories)
                         }
+
                     } else {
                         callback(true, ">> DataManager getStarsRepositories - Error!", [Repository]())
                     }
@@ -50,16 +70,35 @@ class DataManager: NSObject {
         }
     }
     
-    func getPullRequest(repository: String, callback:@escaping (_ error: Bool, _ message: String, _ stadimus: [PullRequest]?) -> Void) {
+    func getPullRequest(repository: String, callback:@escaping (_ error: Bool, _ message: String, _ pullRequests: [PullRequest]?) -> Void) {
         if NetworkReachabilityManager()!.isReachable {
             WebManager.sharedInstance.pullRequests(repository: repository) { (error, message, pullRequests) in
                 if !error {
                     if let prs = pullRequests {
-                        callback(false, "DataManager Get Pull Requests - Successful", prs)
-                        
+                        for pr in prs {
+                            if let u = pr.user {
+                                WebManager.sharedInstance.userInfo(login: u.login, callback: { (error, message, user) in
+                                    if !error {
+                                        if let user = user {
+                                            let realm = try! Realm()
+                                            try! realm.write {
+                                                realm.add(user, update: true)
+                                            }
+                                        } else {
+                                            print("invalid pull request user")
+                                        }
+                                    } else {
+                                        print("error trying to get pull request user info")
+                                    }
+                                })
+                            } else {
+                                print("pr doesn't have user")
+                            }
+                        }
                         let realm = try! Realm()
                         try! realm.write {
                             realm.add(prs, update: true)
+                            callback(false, "DataManager Get Repositories List - Successful", pullRequests)
                         }
                     } else {
                         callback(true, "DataManager Get Pull Requests - Error", pullRequests)

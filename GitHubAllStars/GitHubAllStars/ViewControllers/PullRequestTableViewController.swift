@@ -60,7 +60,6 @@ class PullRequestTableViewController: UITableViewController {
                     if let prs = pullRequestsResponse {
                         self.pullRequests.removeAll()
                         self.pullRequests.append(contentsOf: prs)
-                        print("PRS: \(self.pullRequests.count)")
                         self.tableView.reloadData()
                     }
                 }

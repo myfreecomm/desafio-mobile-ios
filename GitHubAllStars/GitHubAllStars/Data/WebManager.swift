@@ -26,7 +26,7 @@ class WebManager: NSObject {
         }
     }
     
-    func pullRequests(repository: String, callback:@escaping (_ error: Bool, _ message: String, _ stadimus: [PullRequest]?) -> Void) {
+    func pullRequests(repository: String, callback:@escaping (_ error: Bool, _ message: String, _ pullRequests: [PullRequest]?) -> Void) {
         let url = String(format: "\(BASE_API_URL)/repos/%@/pulls", arguments: [repository])
         Alamofire.request(url).responseArray { (response: DataResponse<[PullRequest]>)  in
             if let pullRequests = response.result.value {
@@ -36,4 +36,16 @@ class WebManager: NSObject {
             }
         }
     }
+    
+    func userInfo(login: String, callback:@escaping (_ error: Bool, _ message: String, _ user: Owner?) -> Void) {
+        let url = String(format: "\(BASE_API_URL)/users/%@", arguments: [login])
+        Alamofire.request(url).responseObject { (response: DataResponse<Owner>) in
+            if let user = response.result.value {
+                callback(false, "Success!", user)
+            } else {
+                callback(true, "Error!", nil)
+            }
+        }
+    }
+
 }

@@ -99,8 +99,9 @@
             <connections>
                 <outlet property="dateLabel" destination="9uy-vT-dap" id="nqV-VR-bb8"/>
                 <outlet property="descriptionLabel" destination="Q9r-6u-Qao" id="FEW-QE-Srb"/>
-                <outlet property="nameLabel" destination="Mpg-Yv-xhT" id="C54-gV-ig1"/>
+                <outlet property="nameLabel" destination="MmE-Au-CmD" id="2he-lK-t3l"/>
                 <outlet property="profileImageView" destination="mGW-o6-g1O" id="1QE-xR-5zy"/>
+                <outlet property="pullRequestTitleLabel" destination="Mpg-Yv-xhT" id="4ZA-6Z-Ahv"/>
                 <outlet property="usernameLabel" destination="tkA-nj-gcn" id="8YO-pF-iHd"/>
             </connections>
             <point key="canvasLocation" x="73" y="202"/>

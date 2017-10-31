@@ -34,5 +34,6 @@ class PullRequest: Object, Mappable {
         created_at <- map["created_at"]
         html_url <- map["html_url"]
         repository <- map["base.repo"]
+        user <- map["user"]
     }
 }

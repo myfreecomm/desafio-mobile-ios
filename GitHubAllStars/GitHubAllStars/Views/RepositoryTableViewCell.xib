@@ -138,8 +138,9 @@
             <connections>
                 <outlet property="descriptionLabel" destination="N6j-ie-KHo" id="CbG-Lv-gmQ"/>
                 <outlet property="forksLabel" destination="Msu-C8-G0o" id="pmF-H9-fVt"/>
-                <outlet property="nameLabel" destination="b9A-uF-9dG" id="fzX-zw-K33"/>
+                <outlet property="nameLabel" destination="XeU-ij-emX" id="AIo-5u-wm2"/>
                 <outlet property="profileImageView" destination="WBr-EX-rms" id="QLh-tf-YOR"/>
+                <outlet property="repositoryTitleLabel" destination="b9A-uF-9dG" id="dvy-dU-aav"/>
                 <outlet property="starsLabel" destination="1hJ-Tx-MHN" id="Eh1-OU-xe8"/>
                 <outlet property="usernameLabel" destination="MRf-PO-1yo" id="EAu-e9-EIT"/>
             </connections>
