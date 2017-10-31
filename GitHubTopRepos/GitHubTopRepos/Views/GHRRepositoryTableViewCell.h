@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GHRRepository.h"
 
 @interface GHRRepositoryTableViewCell : UITableViewCell
 
@@ -19,7 +20,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView* repositoryOwnerPicture;
 @property (nonatomic, strong) IBOutlet UILabel* repositoryOwnerUsername;
 
--(void)setValuesWithDictionary:(NSDictionary*)dict;
+-(void)setValuesWithRepository:(GHRRepository*)repo;
 
 -(void)setNullCell;
 

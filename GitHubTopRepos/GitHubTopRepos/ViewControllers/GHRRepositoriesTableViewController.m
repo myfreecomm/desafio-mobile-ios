@@ -11,9 +11,11 @@
 #import "GHRPullRequestsTableViewController.h"
 #import "GHRRepositoryTableViewCell.h"
 #import "GHRGitHubClient.h"
+#import "GHRRepository.h"
+
+#import "NSMutableArray+Extension.h"
 
 static NSString* _Nonnull cellIdentifier = @"RepositoryCell";
-
 static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
 
 @implementation GHRRepositoriesTableViewController
@@ -36,7 +38,13 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
             return;
         }
         
-        _repositoriesList = list;
+        NSMutableArray* mutableList = [list mutableCopy];
+        [mutableList replaceObjectsWithVariation:^id(id object, NSUInteger index)
+        {
+            return [GHRRepository repositoryWithDictionary:object];
+        }];
+        _repositoriesList = mutableList;
+        
         [self.tableView reloadData];
     }];
 }
@@ -46,8 +54,8 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     GHRPullRequestsTableViewController* destination = [segue destinationViewController];
-    destination.owner     = [[(NSDictionary*)sender objectForKey:@"owner"] objectForKey:@"login"];
-    destination.repository = [(NSDictionary*)sender objectForKey:@"name"];
+    destination.owner      = [(GHRRepository*)sender ownerUsername];
+    destination.repository = [(GHRRepository*)sender name];
 }
 
 #pragma mark - Table view data source
@@ -68,7 +76,7 @@ static NSString* _Nonnull segueIdentifier = @"PullRequestsSegue";
     
     if (indexPath.item < _repositoriesList.count)
     {
-        [cell setValuesWithDictionary:_repositoriesList[indexPath.item]];
+        [cell setValuesWithRepository:_repositoriesList[indexPath.item]];
     }
     else
     {

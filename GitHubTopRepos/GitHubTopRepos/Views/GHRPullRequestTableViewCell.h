@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GHRPullRequest.h"
+
 @interface GHRPullRequestTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel* pullRequestName;
@@ -18,6 +20,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* pullRequestDate;
 
--(void)setValuesWithDictionary:(NSDictionary*)dict;
+-(void)setValuesWithPullRequest:(GHRPullRequest*)pull;
 
 @end

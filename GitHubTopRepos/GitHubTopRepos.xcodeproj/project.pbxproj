@@ -18,6 +18,9 @@
 		4EFA0E071FA7D60600677A5B /* GHRRepositoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E061FA7D60600677A5B /* GHRRepositoryTableViewCell.m */; };
 		4EFA0E0A1FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E091FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m */; };
 		4EFA0E0D1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E0C1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m */; };
+		4EFA0E171FA804C000677A5B /* GHRRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E161FA804C000677A5B /* GHRRepository.m */; };
+		4EFA0E1B1FA8075400677A5B /* GHRPullRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E1A1FA8075400677A5B /* GHRPullRequest.m */; };
+		4EFA0E1E1FA8085D00677A5B /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA0E1D1FA8085D00677A5B /* NSMutableArray+Extension.m */; };
 		C5AAF5FF4AE9A5ABFFD1D394 /* Pods_GitHubTopRepos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FDFD7FD3F618BC96B3FC20 /* Pods_GitHubTopRepos.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,12 @@
 		4EFA0E091FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRPullRequestsTableViewController.m; sourceTree = "<group>"; };
 		4EFA0E0B1FA7E42B00677A5B /* GHRPullRequestTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRPullRequestTableViewCell.h; sourceTree = "<group>"; };
 		4EFA0E0C1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRPullRequestTableViewCell.m; sourceTree = "<group>"; };
+		4EFA0E151FA804C000677A5B /* GHRRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRRepository.h; sourceTree = "<group>"; };
+		4EFA0E161FA804C000677A5B /* GHRRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRRepository.m; sourceTree = "<group>"; };
+		4EFA0E191FA8075400677A5B /* GHRPullRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRPullRequest.h; sourceTree = "<group>"; };
+		4EFA0E1A1FA8075400677A5B /* GHRPullRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHRPullRequest.m; sourceTree = "<group>"; };
+		4EFA0E1C1FA8085D00677A5B /* NSMutableArray+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Extension.h"; sourceTree = "<group>"; };
+		4EFA0E1D1FA8085D00677A5B /* NSMutableArray+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extension.m"; sourceTree = "<group>"; };
 		58FDFD7FD3F618BC96B3FC20 /* Pods_GitHubTopRepos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubTopRepos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		732370029A2C923E11768C53 /* Pods-GitHubTopRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubTopRepos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubTopRepos/Pods-GitHubTopRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		A3DD1F1A4AC5D4D2057C2DCF /* Pods-GitHubTopRepos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubTopRepos.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubTopRepos/Pods-GitHubTopRepos.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,10 +99,14 @@
 			isa = PBXGroup;
 			children = (
 				4EFA0E0F1FA8038000677A5B /* API */,
+				4EFA0E141FA8049C00677A5B /* Models */,
 				4EFA0E101FA8038E00677A5B /* Views */,
 				4EFA0E111FA8039400677A5B /* ViewControllers */,
-				4EFA0E121FA803BF00677A5B /* Resources */,
 				4EFA0E131FA803E300677A5B /* Other sources */,
+				4EC5CB701FA7C5CF00EF7E66 /* Main.storyboard */,
+				4EC5CB731FA7C5CF00EF7E66 /* Assets.xcassets */,
+				4EC5CB751FA7C5CF00EF7E66 /* LaunchScreen.storyboard */,
+				4EC5CB781FA7C5CF00EF7E66 /* Info.plist */,
 			);
 			path = GitHubTopRepos;
 			sourceTree = "<group>";
@@ -129,25 +142,27 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		4EFA0E121FA803BF00677A5B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4EC5CB701FA7C5CF00EF7E66 /* Main.storyboard */,
-				4EC5CB731FA7C5CF00EF7E66 /* Assets.xcassets */,
-				4EC5CB781FA7C5CF00EF7E66 /* Info.plist */,
-				4EC5CB751FA7C5CF00EF7E66 /* LaunchScreen.storyboard */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		4EFA0E131FA803E300677A5B /* Other sources */ = {
 			isa = PBXGroup;
 			children = (
 				4EC5CB791FA7C5CF00EF7E66 /* main.m */,
 				4EC5CB6A1FA7C5CF00EF7E66 /* AppDelegate.h */,
 				4EC5CB6B1FA7C5CF00EF7E66 /* AppDelegate.m */,
+				4EFA0E1C1FA8085D00677A5B /* NSMutableArray+Extension.h */,
+				4EFA0E1D1FA8085D00677A5B /* NSMutableArray+Extension.m */,
 			);
 			path = "Other sources";
+			sourceTree = "<group>";
+		};
+		4EFA0E141FA8049C00677A5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4EFA0E151FA804C000677A5B /* GHRRepository.h */,
+				4EFA0E161FA804C000677A5B /* GHRRepository.m */,
+				4EFA0E191FA8075400677A5B /* GHRPullRequest.h */,
+				4EFA0E1A1FA8075400677A5B /* GHRPullRequest.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		941CBD04D3DE2D8D96C535DE /* Pods */ = {
@@ -290,10 +305,13 @@
 				4EFA0E071FA7D60600677A5B /* GHRRepositoryTableViewCell.m in Sources */,
 				4EC5CB821FA7C7FE00EF7E66 /* GHRRepositoriesTableViewController.m in Sources */,
 				4EFA0E0D1FA7E42B00677A5B /* GHRPullRequestTableViewCell.m in Sources */,
+				4EFA0E171FA804C000677A5B /* GHRRepository.m in Sources */,
 				4EC5CB7A1FA7C5CF00EF7E66 /* main.m in Sources */,
 				4EC5CB6C1FA7C5CF00EF7E66 /* AppDelegate.m in Sources */,
 				4EFA0E0A1FA7E3BD00677A5B /* GHRPullRequestsTableViewController.m in Sources */,
 				4EC5CB851FA7C8DC00EF7E66 /* GHRGitHubClient.m in Sources */,
+				4EFA0E1B1FA8075400677A5B /* GHRPullRequest.m in Sources */,
+				4EFA0E1E1FA8085D00677A5B /* NSMutableArray+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

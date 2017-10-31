@@ -10,6 +10,9 @@
 
 #import "GHRPullRequestTableViewCell.h"
 #import "GHRGitHubClient.h"
+#import "GHRPullRequest.h"
+
+#import "NSMutableArray+Extension.h"
 
 static NSString* _Nonnull cellIdentifier = @"PullRequestCell";
 
@@ -38,10 +41,16 @@ static NSString* _Nonnull cellIdentifier = @"PullRequestCell";
         }
         else
         {
-            _pullRequestsList = list;
+            NSMutableArray* mutableList = [list mutableCopy];
+            [mutableList replaceObjectsWithVariation:^id(id object, NSUInteger index)
+            {
+                return [GHRPullRequest pullRequestWithDictionary:object];
+            }];
+            _pullRequestsList = mutableList;
+            
             [self.tableView reloadData];
             
-            NSArray* statesArray = [_pullRequestsList valueForKey:@"state"];
+            NSArray* statesArray = [list valueForKey:@"state"];
             NSIndexSet* indexes = [statesArray indexesOfObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
             {
                 return ([obj isKindOfClass:[NSString class]] && [(NSString*)obj isEqualToString:@"open"]);
@@ -52,8 +61,8 @@ static NSString* _Nonnull cellIdentifier = @"PullRequestCell";
             
             UIColor* orangeColor = [UIColor colorWithRed:223.0/255 green:147.0/255 blue:4.0/255 alpha:1.0];
             
-            NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%u opened",openedPullRequests] attributes:@{NSForegroundColorAttributeName: orangeColor}];
-            NSMutableAttributedString* text2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" / %u closed",closedPullRequests] attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
+            NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu opened",(unsigned long)openedPullRequests] attributes:@{NSForegroundColorAttributeName: orangeColor}];
+            NSMutableAttributedString* text2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" / %lu closed",(unsigned long)closedPullRequests] attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
             [text appendAttributedString:text2];
             
             [self.openClosedPullRequestsLabel setAttributedText:text];
@@ -79,7 +88,7 @@ static NSString* _Nonnull cellIdentifier = @"PullRequestCell";
     
     if (indexPath.item < _pullRequestsList.count)
     {
-        [cell setValuesWithDictionary:_pullRequestsList[indexPath.item]];
+        [cell setValuesWithPullRequest:_pullRequestsList[indexPath.item]];
     }
     
     return cell;

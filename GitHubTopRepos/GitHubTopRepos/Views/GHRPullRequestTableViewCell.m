@@ -14,22 +14,13 @@ static UIImage* _noPictureUser;
 
 @implementation GHRPullRequestTableViewCell
 
-+(NSString*)regularDateStringWithGithubDateString:(NSString*)dateString
+-(void)setValuesWithPullRequest:(GHRPullRequest*)pull
 {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-    NSDate* date = [formatter dateFromString:dateString];
-    [formatter setDateFormat:@"dd/MM/yyyy"];
-    return [formatter stringFromDate:date];
-}
-
--(void)setValuesWithDictionary:(NSDictionary*)dict
-{
-    self.pullRequestName.text = dict[@"title"];
-    self.pullRequestDescription.text = [dict[@"body"] isKindOfClass:[NSString class]] ? dict[@"body"] : @"";
+    self.pullRequestName.text = pull.name;
+    self.pullRequestDescription.text = pull.pullRequestDescription;
     
-    self.pullRequestDate.text = [GHRPullRequestTableViewCell regularDateStringWithGithubDateString:dict[@"created_at"]];
-    self.pullRequestOwnerUsername.text = dict[@"user"][@"login"];
+    self.pullRequestDate.text = pull.creationDate;
+    self.pullRequestOwnerUsername.text = pull.ownerUsername;
     
     @synchronized(_noPictureUser)
     {
@@ -37,10 +28,10 @@ static UIImage* _noPictureUser;
         self.pullRequestOwnerPicture.image = _noPictureUser;
     }
     
-    [GHRGitHubClient githubUserPictureFromUrlPath:dict[@"user"][@"avatar_url"] withCompletionHandler:^(UIImage *picture, NSString *error)
-     {
-         if (!error) self.pullRequestOwnerPicture.image = picture;
-     }];
+    [GHRGitHubClient githubUserPictureFromUrlPath:pull.ownerPictureUrlPath withCompletionHandler:^(UIImage *picture, NSString *error)
+    {
+        if (!error) self.pullRequestOwnerPicture.image = picture;
+    }];
 }
 
 @end

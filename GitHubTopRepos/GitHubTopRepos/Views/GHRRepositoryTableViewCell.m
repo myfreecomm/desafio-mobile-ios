@@ -14,15 +14,15 @@ static UIImage* _noPictureUser;
 
 @implementation GHRRepositoryTableViewCell
 
--(void)setValuesWithDictionary:(NSDictionary*)dict
+-(void)setValuesWithRepository:(GHRRepository*)repo
 {
-    self.repositoryName.text = dict[@"name"];
-    self.repositoryDescription.text = dict[@"description"];
+    self.repositoryName.text = repo.name;
+    self.repositoryDescription.text = repo.repositoryDescription;
     
-    self.repositoryForkCounter.text = [NSString stringWithFormat:@"%d",[dict[@"forks_count"] intValue]];
-    self.repositoryStarCounter.text = [NSString stringWithFormat:@"%d",[dict[@"stargazers_count"] intValue]];
+    self.repositoryForkCounter.text = [NSString stringWithFormat:@"%lu",(unsigned long)repo.forkCounter];
+    self.repositoryStarCounter.text = [NSString stringWithFormat:@"%lu",(unsigned long)repo.starCounter];
     
-    self.repositoryOwnerUsername.text = dict[@"owner"][@"login"];
+    self.repositoryOwnerUsername.text = repo.ownerUsername;
     
     @synchronized(_noPictureUser)
     {
@@ -30,7 +30,7 @@ static UIImage* _noPictureUser;
         self.repositoryOwnerPicture.image = _noPictureUser;
     }
     
-    [GHRGitHubClient githubUserPictureFromUrlPath:dict[@"owner"][@"avatar_url"] withCompletionHandler:^(UIImage *picture, NSString *error)
+    [GHRGitHubClient githubUserPictureFromUrlPath:repo.ownerPictureUrlPath withCompletionHandler:^(UIImage *picture, NSString *error)
     {
         if (!error) self.repositoryOwnerPicture.image = picture;
     }];
