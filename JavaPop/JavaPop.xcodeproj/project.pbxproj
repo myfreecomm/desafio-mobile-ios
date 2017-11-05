@@ -17,8 +17,10 @@
 		5C0DBEB61F9A609E00DF9909 /* JavaPop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C0DBEB41F9A609E00DF9909 /* JavaPop.xcdatamodeld */; };
 		5C0DBEB81F9A609E00DF9909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0DBEB71F9A609E00DF9909 /* Assets.xcassets */; };
 		5C0DBEC61F9A609F00DF9909 /* JavaPopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0DBEC51F9A609F00DF9909 /* JavaPopTests.swift */; };
+		5C0E48591FAB6B2A0086F3B3 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E48581FAB6B2A0086F3B3 /* DataService.swift */; };
 		5C3D68801F9EA4A900E3F985 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D687E1F9EA4A900E3F985 /* RepositoryCell.swift */; };
 		5C3D68811F9EA4A900E3F985 /* RepositoryCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C3D687F1F9EA4A900E3F985 /* RepositoryCellNib.xib */; };
+		5C53345F1FA24F62009CCB05 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53345E1FA24F62009CCB05 /* Extensions.swift */; };
 		D56BE3F2885B9DE8F47784B2 /* Pods_JavaPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9581876EA6A1AF1A896EC657 /* Pods_JavaPop.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +50,10 @@
 		5C0DBEC11F9A609F00DF9909 /* JavaPopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JavaPopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0DBEC51F9A609F00DF9909 /* JavaPopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaPopTests.swift; sourceTree = "<group>"; };
 		5C0DBEC71F9A609F00DF9909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C0E48581FAB6B2A0086F3B3 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5C3D687E1F9EA4A900E3F985 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		5C3D687F1F9EA4A900E3F985 /* RepositoryCellNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCellNib.xib; sourceTree = "<group>"; };
+		5C53345E1FA24F62009CCB05 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		78EA1722E9B1E9DCB2AEADAD /* Pods_JavaPopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JavaPopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794980D0518CB2FC566F9E99 /* Pods-JavaPopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JavaPopTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JavaPopTests/Pods-JavaPopTests.release.xcconfig"; sourceTree = "<group>"; };
 		9581876EA6A1AF1A896EC657 /* Pods_JavaPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JavaPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +103,7 @@
 		5C0DBEAC1F9A609E00DF9909 /* JavaPop */ = {
 			isa = PBXGroup;
 			children = (
+				5C53345D1FA24F52009CCB05 /* Extensions */,
 				5C0DBEBC1F9A609F00DF9909 /* Info.plist */,
 				5C3D68731F9E9E8900E3F985 /* Resources */,
 				5C3D68721F9E9E8400E3F985 /* Model */,
@@ -142,6 +147,7 @@
 		5C3D68721F9E9E8400E3F985 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5C0E48581FAB6B2A0086F3B3 /* DataService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +159,14 @@
 				5C0DBEB41F9A609E00DF9909 /* JavaPop.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5C53345D1FA24F52009CCB05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C53345E1FA24F62009CCB05 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9FF00050BE7B3E825AA91385 /* Pods */ = {
@@ -303,11 +317,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JavaPop/Pods-JavaPop-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -393,6 +413,8 @@
 				5C04D53B1F9F92AC005F1A70 /* PullReqCell.swift in Sources */,
 				5C0DBEAE1F9A609E00DF9909 /* AppDelegate.swift in Sources */,
 				5C3D68801F9EA4A900E3F985 /* RepositoryCell.swift in Sources */,
+				5C53345F1FA24F62009CCB05 /* Extensions.swift in Sources */,
+				5C0E48591FAB6B2A0086F3B3 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,10 +21,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título do Pull Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smx-0k-dVO">
-                        <rect key="frame" x="16" y="16" width="144" height="21"/>
+                        <rect key="frame" x="16" y="16" width="288" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="84I-zF-xO6"/>
-                            <constraint firstAttribute="width" constant="144" id="ecs-YN-dlm"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.1333333333" green="0.44705882349999998" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,7 +46,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVo-Qa-P1e">
-                        <rect key="frame" x="68.5" y="101" width="235.5" height="14.5"/>
+                        <rect key="frame" x="68.5" y="109" width="235.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="rDK-lU-GMZ"/>
                         </constraints>
@@ -55,33 +54,29 @@
                         <color key="textColor" red="0.1333333333" green="0.44705882349999998" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Sobrenome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQr-H4-SVX">
-                        <rect key="frame" x="69" y="119.5" width="235.5" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="14.5" id="eGg-kv-2mf"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ktl-9b-xXu" firstAttribute="top" secondItem="azr-gL-Lsj" secondAttribute="bottom" constant="1" id="4kd-or-STn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="smx-0k-dVO" secondAttribute="trailing" constant="8" id="8sE-aa-0fg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="azr-gL-Lsj" secondAttribute="trailing" constant="8" id="B7A-qS-NDW"/>
                     <constraint firstItem="azr-gL-Lsj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="DfK-TG-SFD"/>
                     <constraint firstItem="smx-0k-dVO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="DzJ-z9-gAm"/>
                     <constraint firstItem="kVo-Qa-P1e" firstAttribute="leading" secondItem="ktl-9b-xXu" secondAttribute="trailing" constant="4" id="NkM-TL-n1M"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ktl-9b-xXu" secondAttribute="bottom" constant="1" id="Pp5-AZ-1PB"/>
-                    <constraint firstItem="kVo-Qa-P1e" firstAttribute="centerY" secondItem="ktl-9b-xXu" secondAttribute="centerY" constant="-8" id="VQV-yz-MRu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="DQr-H4-SVX" secondAttribute="trailing" constant="8" id="XKF-w9-mFk"/>
+                    <constraint firstItem="kVo-Qa-P1e" firstAttribute="centerY" secondItem="ktl-9b-xXu" secondAttribute="centerY" id="VQV-yz-MRu"/>
                     <constraint firstItem="azr-gL-Lsj" firstAttribute="top" secondItem="smx-0k-dVO" secondAttribute="bottom" constant="1" id="ZvC-AE-ygc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="kVo-Qa-P1e" secondAttribute="trailing" constant="8" id="dPI-VQ-XIj"/>
                     <constraint firstItem="ktl-9b-xXu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="e1C-fX-1Cb"/>
-                    <constraint firstItem="DQr-H4-SVX" firstAttribute="top" secondItem="kVo-Qa-P1e" secondAttribute="bottom" constant="4" id="eUm-9x-bqv"/>
-                    <constraint firstItem="DQr-H4-SVX" firstAttribute="leading" secondItem="ktl-9b-xXu" secondAttribute="trailing" constant="4" id="ljK-6r-W7p"/>
                     <constraint firstItem="ktl-9b-xXu" firstAttribute="width" secondItem="ktl-9b-xXu" secondAttribute="height" multiplier="1:1" id="pHf-pj-y46"/>
                     <constraint firstItem="smx-0k-dVO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="xZM-GP-yOi"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bodyTxt" destination="azr-gL-Lsj" id="bS9-ww-jce"/>
+                <outlet property="titleLbl" destination="smx-0k-dVO" id="61h-ZM-Xsc"/>
+                <outlet property="userLbl" destination="kVo-Qa-P1e" id="7qn-fb-1mh"/>
+                <outlet property="userPic" destination="ktl-9b-xXu" id="OMg-FQ-W9Q"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

@@ -10,11 +10,15 @@ import UIKit
 
 class PullReqCell: UITableViewCell {
     
-    @IBOutlet weak var testLbl : UILabel!
+    @IBOutlet weak var titleLbl : UILabel!
+    @IBOutlet weak var bodyTxt : UITextView!
+    @IBOutlet weak var userPic : UIImageView!
+    @IBOutlet weak var userLbl : UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.bodyTxt.textContainer.lineBreakMode = .byTruncatingTail
         // Initialization code
     }
 
@@ -23,5 +27,6 @@ class PullReqCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }

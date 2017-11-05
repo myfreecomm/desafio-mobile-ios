@@ -7,30 +7,39 @@
 //
 
 import XCTest
+import Foundation
+
 @testable import JavaPop
 
 class JavaPopTests: XCTestCase {
     
+    var mainVC : MainVC!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        mainVC = MainVC()
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testNextStringFromHeader(){
+        let headers : [AnyHashable : Any] = [
+            "Link" : "<https://api.github.com/search/repositories?q=language%3AJava&sort=stars&page=2>; rel=\"next\", <https://api.github.com/search/repositories?q=language%3AJava&sort=stars&page=34>; rel=\"last\""
+        ]
+        let res = mainVC.nextPageLinkFrom(headers: headers)
+        XCTAssert(res == "https://api.github.com/search/repositories?q=language%3AJava&sort=stars&page=2")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testLastPageCheck(){
+        var url : String
+        url = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=34"
+        mainVC.setLastUrl(url: url)
+        mainVC.loadData(url: url)
+        XCTAssert(mainVC.isInLastPage())
     }
-    
 }
+

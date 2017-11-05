@@ -36,24 +36,25 @@
                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNc-A3-T8a">
                         <rect key="frame" x="16" y="38" width="213" height="73.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
                         <string key="text">Descrição do Repositório Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="562" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5th-vk-Igc">
-                        <rect key="frame" x="16" y="112.5" width="31" height="21"/>
+                        <rect key="frame" x="16" y="112.5" width="106.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="HjD-P8-EJV"/>
-                            <constraint firstAttribute="width" constant="31" id="aI3-DI-ZtU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqg-eA-tS4">
-                        <rect key="frame" x="63" y="112.5" width="22" height="21"/>
+                        <rect key="frame" x="138.5" y="112.5" width="106.5" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="22" id="QRR-Ws-dvh"/>
                             <constraint firstAttribute="height" constant="21" id="eLj-0P-VCG"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -77,9 +78,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Sobrenome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT2-uc-7hQ">
                         <rect key="frame" x="230" y="99" width="81" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="81" id="rvO-Mg-Xn4"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -93,6 +91,7 @@
                     <constraint firstItem="dT2-uc-7hQ" firstAttribute="leading" secondItem="zNc-A3-T8a" secondAttribute="trailing" constant="1" id="F1e-W9-9yX"/>
                     <constraint firstItem="SFV-E2-W3i" firstAttribute="leading" secondItem="zNc-A3-T8a" secondAttribute="trailing" constant="1" id="IYe-f6-bps"/>
                     <constraint firstItem="zNc-A3-T8a" firstAttribute="top" secondItem="QFN-ms-RqW" secondAttribute="bottom" constant="1" id="KGG-kr-Omv"/>
+                    <constraint firstItem="Jqg-eA-tS4" firstAttribute="width" secondItem="zNc-A3-T8a" secondAttribute="width" multiplier="0.5" id="Ore-6Y-mVn"/>
                     <constraint firstItem="dT2-uc-7hQ" firstAttribute="centerX" secondItem="SFV-E2-W3i" secondAttribute="centerX" id="Qkf-l7-gre"/>
                     <constraint firstItem="SFV-E2-W3i" firstAttribute="top" secondItem="oGP-Gu-jqw" secondAttribute="bottom" constant="1" id="SIo-Rq-2S2"/>
                     <constraint firstAttribute="bottomMargin" secondItem="5th-vk-Igc" secondAttribute="bottom" constant="8" id="TLJ-ul-WtJ"/>
@@ -105,12 +104,21 @@
                     <constraint firstItem="SFV-E2-W3i" firstAttribute="centerX" secondItem="oGP-Gu-jqw" secondAttribute="centerX" id="ox6-az-gQ0"/>
                     <constraint firstItem="zNc-A3-T8a" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.666" id="t3w-gM-r0m"/>
                     <constraint firstAttribute="trailingMargin" secondItem="oGP-Gu-jqw" secondAttribute="trailing" constant="8" id="tjl-6L-9Ut"/>
-                    <constraint firstItem="QFN-ms-RqW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="tn7-9O-oqg"/>
+                    <constraint firstItem="5th-vk-Igc" firstAttribute="width" secondItem="zNc-A3-T8a" secondAttribute="width" multiplier="0.5" id="waZ-LK-HCD"/>
                     <constraint firstItem="dT2-uc-7hQ" firstAttribute="top" secondItem="SFV-E2-W3i" secondAttribute="bottom" constant="1" id="xDk-zL-DFc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Jqg-eA-tS4" secondAttribute="bottom" constant="8" id="z31-j5-KSB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="SFV-E2-W3i" secondAttribute="trailing" constant="1" id="zil-nc-gAF"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descTxt" destination="zNc-A3-T8a" id="taN-5g-qxk"/>
+                <outlet property="forksLbl" destination="5th-vk-Igc" id="3cZ-ki-k8h"/>
+                <outlet property="nameLbl" destination="QFN-ms-RqW" id="PqV-5v-mL5"/>
+                <outlet property="starsLbl" destination="Jqg-eA-tS4" id="84c-0l-4UU"/>
+                <outlet property="userImg" destination="oGP-Gu-jqw" id="KeH-m5-iGs"/>
+                <outlet property="userLbl" destination="SFV-E2-W3i" id="SKU-JZ-lGQ"/>
+                <outlet property="userNameLbl" destination="dT2-uc-7hQ" id="edO-rf-XQw"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
