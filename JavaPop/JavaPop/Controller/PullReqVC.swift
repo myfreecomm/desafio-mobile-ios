@@ -11,32 +11,11 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-class PullRequest : Mappable{
-    
-    var title : String?
-    var body : String?
-    var user : User?
-    var date : String?
-    var url : String?
-    
-    required init?(map: Map) {
-        title <- map["title"]
-        body <- map["body"]
-        user <- map["user"]
-        date <- map["created_at"]
-        url <- map["html_url"]
-    }
-    
-    func mapping(map: Map) {
-        
-    }
-}
-
 class PullReqVC: UITableViewController {
     
     private let cellId = "PullReqCell"
     private var pulls = [PullRequest]()
-    var nextUrl = "https://api.github.com/repos/grpc/grpc-java/pulls"
+    var nextUrl = ""
     private var lastUrl = ""
     private var lastPageReached = false
     
@@ -54,14 +33,11 @@ class PullReqVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.pulls.removeAll(keepingCapacity: true)
-        
-        loadData()
-        
-        self.tableView.reloadData()
+        loadData(url: nextUrl)
     }
 
 
-    // MARK: - Table view data source
+    // MARK: - Table view pulls source
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? PullReqCell else{
@@ -100,47 +76,61 @@ class PullReqVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == pulls.count * 3/4 {
-            loadData()
+        if indexPath.row == pulls.count * 3/4{
+            loadData(url: nextUrl)
         }
     }
 
     
     
-    func loadData(){
+    func loadData(url: String){
         if !lastPageReached{
-            let URL = self.nextUrl
+            let URL = url
             print(URL)
             Alamofire.request(URL).responseArray { (response: DataResponse<[PullRequest]>) in
-                if let value = response.result.value{
-                    if value.isEmpty{
-                        self.dismissEmptyPullReqList()
-                        return
+                
+                switch response.result{
+                case .success( _) : do {
+                    if let value = response.result.value{
+                        if value.isEmpty{
+                            self.dismissEmptyPullReqList()
+                            return
+                        }
+                    }
+                    
+                    if let headers = response.response?.allHeaderFields{
+                        if self.lastUrl == ""{
+                            self.lastUrl = DataService.instance.lastPageLinkFrom(headers: headers)
+                        }
+                        
+                        self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers)
+                        print("next url is: ", self.nextUrl)
+                            
+                        let pullRequestArray = response.result.value
+                        
+                        if let pullRequestArray = pullRequestArray {
+                            for pullRequest in pullRequestArray {
+                                self.pulls.append(pullRequest)
+                            }
+                        }
+                        print("pulls loaded                       >>>", self.pulls.count)
+                        self.tableView.reloadData()
+                    }
+                }
+                case .failure(let error) : do{
+                    //avoid situation where GitHub API doesn't provide a Link header
+                    if error.localizedDescription != "URL is not valid: "{
+//                        print(">\(error.localizedDescription).")
+                       self.presentConnectionError(message: error.localizedDescription)
+                    }
                     }
                 }
                 
-                if let headers = response.response?.allHeaderFields{
-                    if self.lastUrl == ""{
-                        self.lastUrl = DataService.instance.lastPageLinkFrom(headers: headers)
-                    }
-                    
-                    self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers)
-                    
-                    let pullRequestArray = response.result.value
-                    
-                    if let pullRequestArray = pullRequestArray {
-                        for pullRequest in pullRequestArray {
-                            self.pulls.append(pullRequest)
-                        }
-                    }
-                    print("data loaded                       >>>", self.pulls.count)
-                    self.tableView.reloadData()
-                }
                 if URL == self.lastUrl{
                     self.lastPageReached = true
                     print("lastPageReached") //debug
                 }
-                
+            
                 
             }
         }
@@ -156,5 +146,41 @@ class PullReqVC: UITableViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+        
+    func presentConnectionError(message: String){
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Retry", style: .cancel, handler:{(action: UIAlertAction!) in
+            self.loadData(url: self.nextUrl)
+        })
+        
+        alert.addAction(okAction)
+        
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
 
+}
+
+//MARK: Json Mapping Classes
+
+class PullRequest : Mappable{
+    
+    var title : String?
+    var body : String?
+    var user : User?
+    var date : String?
+    var url : String?
+    
+    required init?(map: Map) {
+        title <- map["title"]
+        body <- map["body"]
+        user <- map["user"]
+        date <- map["created_at"]
+        url <- map["html_url"]
+    }
+    
+    func mapping(map: Map) {
+        
+    }
 }

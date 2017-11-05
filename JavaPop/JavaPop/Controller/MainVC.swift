@@ -109,19 +109,27 @@ class MainVC: UITableViewController{
             let URL = url
             print("URL: \(URL) | LastURL: \(lastUrl)")
             Alamofire.request(URL).responseObject { (response: DataResponse<SearchResponse>) in
-                if let headers = response.response?.allHeaderFields{
-                    if self.lastUrl == nil{
-                        self.lastUrl = DataService.instance.lastPageLinkFrom(headers: headers)
-                    }
-                    self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers)
-                    let searchResponse = response.result.value
-                    if let searchItems = searchResponse?.items{
-                        for item in searchItems {
-                            self.repos.append(item)
+                switch response.result{
+                case .success( _) : do {
+                    if let headers = response.response?.allHeaderFields{
+                        if self.lastUrl == nil{
+                            self.lastUrl = DataService.instance.lastPageLinkFrom(headers: headers)
                         }
+                        self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers)
+                        let searchResponse = response.result.value
+                        if let searchItems = searchResponse?.items{
+                            for item in searchItems {
+                                self.repos.append(item)
+                            }
+                        }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
+                        }
+                case .failure(let error) : do {
+                    self.presentConnectionError(message: error.localizedDescription)
+                    }
                 }
+                
             }
             if let lastUrl = self.lastUrl{
                 if URL == lastUrl{
@@ -129,7 +137,7 @@ class MainVC: UITableViewController{
                     print("lastPageReached") //debug
                 }
             }
-            print("data loaded                        >>>", self.repos.count) //debug
+            print("repos loaded                        >>>", self.repos.count) //debug
         }
     }
     
@@ -144,6 +152,20 @@ class MainVC: UITableViewController{
         }
         return res
     }
+    
+    func presentConnectionError(message: String){
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Retry", style: .cancel, handler:{(action: UIAlertAction!) in
+            self.loadData(url: self.nextUrl)
+        })
+        
+        alert.addAction(okAction)
+        
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
 //MARK: Methods for Unit Testing
     
     func isInLastPage() -> Bool{
