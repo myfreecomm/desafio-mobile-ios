@@ -14,11 +14,10 @@ import AlamofireObjectMapper
 class PullReqVC: UITableViewController {
     
     private let cellId = "PullReqCell"
-    private var pulls = [PullRequest]()
-    var nextUrl = ""
-    private var lastUrl = ""
-    private var lastPageReached = false
-    
+    private var pulls = [PullRequest]() //PullRequest objects
+    var nextUrl = "" //nextUrl to be requested
+    private var lastUrl = "" //lastUrl that will be provided by API
+    private var lastPageReached = false //will be true whenever last page provided by API is reached
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class PullReqVC: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.pulls.removeAll(keepingCapacity: true)
+        self.pulls.removeAll(keepingCapacity: true) //clean data from previous Pull Requests visited by APP
         loadData(url: nextUrl)
     }
 
@@ -70,7 +69,6 @@ class PullReqVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = URL(string: pulls[indexPath.row].url!){
-            //TODO: open url on browser
             UIApplication.shared.openURL(url)
         }
     }
@@ -86,7 +84,6 @@ class PullReqVC: UITableViewController {
     func loadData(url: String){
         if !lastPageReached{
             let URL = url
-            print(URL)
             Alamofire.request(URL).responseArray { (response: DataResponse<[PullRequest]>) in
                 
                 switch response.result{
@@ -104,7 +101,6 @@ class PullReqVC: UITableViewController {
                         }
                         
                         self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers)
-                        print("next url is: ", self.nextUrl)
                             
                         let pullRequestArray = response.result.value
                         
@@ -113,28 +109,20 @@ class PullReqVC: UITableViewController {
                                 self.pulls.append(pullRequest)
                             }
                         }
-                        print("pulls loaded                       >>>", self.pulls.count)
                         self.tableView.reloadData()
                     }
                 }
                 case .failure(let error) : do{
-                    //avoid situation where GitHub API doesn't provide a Link header
-                    if error.localizedDescription != "URL is not valid: "{
-//                        print(">\(error.localizedDescription).")
+                    if error.localizedDescription != "URL is not valid: "{ //avoid situation where GitHub API doesn't provide a Link header
                        self.presentConnectionError(message: error.localizedDescription)
                     }
-                    }
+                  }
                 }
-                
                 if URL == self.lastUrl{
                     self.lastPageReached = true
-                    print("lastPageReached") //debug
                 }
-            
-                
             }
         }
-        
     }
     
     func dismissEmptyPullReqList(){
@@ -159,7 +147,6 @@ class PullReqVC: UITableViewController {
         
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
-
 }
 
 //MARK: Json Mapping Classes

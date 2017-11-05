@@ -35,6 +35,7 @@ class JavaPopTests: XCTestCase {
     }
     
     func testLastPageCheck(){
+        XCTAssert(!mainVC.isInLastPage())
         var url : String
         url = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=34"
         mainVC.setLastUrl(url: url)

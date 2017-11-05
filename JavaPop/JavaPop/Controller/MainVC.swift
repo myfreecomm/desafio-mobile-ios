@@ -13,11 +13,11 @@ import AlamofireObjectMapper
 
 class MainVC: UITableViewController{
     private let cellId = "RepositoryCell"
-    private var repos = [Repository]()
-    private var nextUrl = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1"
-    private var lastUrl : String?
-    private var info = ["", ""]
-    private var lastPageReached = false
+    private var repos = [Repository]() //object that will hold repositories data
+    private var nextUrl = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1" //first url to be requested on API
+    private var lastUrl : String? // will hold what would be the last "page" provided by API
+    private var info = ["", ""] // used to pass information when performing a Segue to PullReqVC
+    private var lastPageReached = false // will be true whenever the last page provided by the API is reached
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,8 @@ class MainVC: UITableViewController{
         }
         
         if repos.count > 0{
+            
+            //add info from API to tableViewCells
             let index = indexPath.row
             let repo = repos[index]
             cell.nameLbl.text = repo.name
@@ -107,15 +109,14 @@ class MainVC: UITableViewController{
     func loadData(url : String){
         if !lastPageReached{
             let URL = url
-            print("URL: \(URL) | LastURL: \(lastUrl)")
             Alamofire.request(URL).responseObject { (response: DataResponse<SearchResponse>) in
                 switch response.result{
                 case .success( _) : do {
                     if let headers = response.response?.allHeaderFields{
-                        if self.lastUrl == nil{
+                        if self.lastUrl == nil{ //add lastUrl if not added yet according to info provided by API
                             self.lastUrl = DataService.instance.lastPageLinkFrom(headers: headers)
                         }
-                        self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers)
+                        self.nextUrl = DataService.instance.nextPageLinkFrom(headers: headers) //update nextUrl to be requested
                         let searchResponse = response.result.value
                         if let searchItems = searchResponse?.items{
                             for item in searchItems {
@@ -132,12 +133,10 @@ class MainVC: UITableViewController{
                 
             }
             if let lastUrl = self.lastUrl{
-                if URL == lastUrl{
+                if URL == lastUrl{ //check if lasPageReached
                     self.lastPageReached = true
-                    print("lastPageReached") //debug
                 }
             }
-            print("repos loaded                        >>>", self.repos.count) //debug
         }
     }
     
@@ -154,15 +153,11 @@ class MainVC: UITableViewController{
     }
     
     func presentConnectionError(message: String){
-        
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        
         let okAction = UIAlertAction(title: "Retry", style: .cancel, handler:{(action: UIAlertAction!) in
             self.loadData(url: self.nextUrl)
         })
-        
         alert.addAction(okAction)
-        
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
