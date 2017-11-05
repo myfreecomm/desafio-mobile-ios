@@ -1,0 +1,6 @@
+framework module Pods_JavaPop {
+  umbrella header "Pods-JavaPop-umbrella.h"
+
+  export *
+  module * { export * }
+}

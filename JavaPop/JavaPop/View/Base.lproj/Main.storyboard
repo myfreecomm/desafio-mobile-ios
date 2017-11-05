@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rfl-Wg-p99">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Github JavaPop-->
+        <scene sceneID="F1f-nm-pBR">
+            <objects>
+                <tableViewController id="e97-06-Lmr" customClass="MainVC" customModule="JavaPop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t8O-Oi-Nsd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="e97-06-Lmr" id="Sg8-GO-scd"/>
+                            <outlet property="delegate" destination="e97-06-Lmr" id="xwE-hQ-0gj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Github JavaPop" id="QCs-Nm-fnA"/>
+                    <connections>
+                        <segue destination="NH8-02-LqG" kind="show" identifier="MainVCPullReqVC" id="re8-jo-62P"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQo-qW-Lvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="-30"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9hd-Qh-5Eg">
+            <objects>
+                <navigationController id="Rfl-Wg-p99" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Xi-rh-n69">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e97-06-Lmr" kind="relationship" relationship="rootViewController" id="A3L-W6-Lzj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9t7-um-gYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="-30"/>
+        </scene>
+        <!--Pull Requests-->
+        <scene sceneID="4Pk-og-RHf">
+            <objects>
+                <tableViewController id="NH8-02-LqG" userLabel="Pull Requests" customClass="PullReqVC" customModule="JavaPop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qHa-KT-Zmr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="NH8-02-LqG" id="AbY-7z-Tea"/>
+                            <outlet property="delegate" destination="NH8-02-LqG" id="t83-uP-Khc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Github JavaPop" id="3zW-HA-dx8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3i-hw-Erz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="-30"/>
+        </scene>
+    </scenes>
+</document>
