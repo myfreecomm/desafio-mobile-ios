@@ -162,6 +162,7 @@ class RepositoriesViewController : UITableViewController, Hud {
      */
     @objc func notificationReloadData(n: Notification) {
         tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
     
     /**
