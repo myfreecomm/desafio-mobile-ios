@@ -18,6 +18,7 @@ class RepositoriesViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         self.vc = MockRepositoriesViewController()
+        self.vc.viewModel = RepositoriesViewModel()
     }
     
     override func tearDown() {
@@ -87,11 +88,11 @@ class RepositoriesViewControllerTests: XCTestCase {
         vc.addObservers()
         
         // Launch Notification
-        NotificationCenter.default.post(name: NotificationCenter.Name.Reachable, object: nil)
+        NotificationCenter.default.post(.reachable)
         
         // Test proprieties
         XCTAssertNotNil(vc.notificationReceived, "Este View Controller não recebeu notificações.")
-        XCTAssert(vc.notificationReceived == NotificationCenter.Name.Reachable.rawValue, "Este View Controller não recebeu a notificação \"\(NotificationCenter.Name.Reachable.rawValue)\".")
+        XCTAssert(vc.notificationReceived == Notification.CustomName.reachable.rawValue, "Este View Controller não recebeu a notificação \"\(Notification.CustomName.reachable.rawValue)\".")
         
         // Remove observers
         vc.removeObservers()
@@ -103,11 +104,11 @@ class RepositoriesViewControllerTests: XCTestCase {
         vc.addObservers()
         
         // Launch Notification
-        NotificationCenter.default.post(name: NotificationCenter.Name.NotReachable, object: nil)
+        NotificationCenter.default.post(.notReachable)
         
         // Test proprieties
         XCTAssertNotNil(vc.notificationReceived, "Este View Controller não recebeu notificações.")
-        XCTAssert(vc.notificationReceived == NotificationCenter.Name.NotReachable.rawValue, "Este View Controller não recebeu a notificação \"\(NotificationCenter.Name.NotReachable.rawValue)\".")
+        XCTAssert(vc.notificationReceived == Notification.CustomName.notReachable.rawValue, "Este View Controller não recebeu a notificação \"\(Notification.CustomName.notReachable.rawValue)\".")
         
         // Remove observers
         vc.removeObservers()

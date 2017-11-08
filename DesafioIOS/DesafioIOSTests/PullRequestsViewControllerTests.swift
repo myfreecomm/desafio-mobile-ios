@@ -30,7 +30,9 @@ class PullRequestsViewControllerTests: XCTestCase {
     // MARK: - Lifecycle Methods
     override func setUp() {
         super.setUp()
+        let repository = Repository(jsonData: fakeDict)
         self.vc = MockPullRequestsViewController()
+        self.vc.viewModel = PullRequestsViewModel(repository: repository)
     }
     
     override func tearDown() {
@@ -108,33 +110,33 @@ class PullRequestsViewControllerTests: XCTestCase {
     func testNotificationIsReachable() {
         
         // Try to Add observers
-        self.vc.addObservers()
+        vc.addObservers()
         
         // Launch Notification
-        NotificationCenter.default.post(name: NotificationCenter.Name.Reachable, object: nil)
+        NotificationCenter.default.post(.reachable)
         
         // Test proprieties
-        XCTAssertNotNil(self.vc.notificationReceived, "Este View Controller não recebeu notificações.")
-        XCTAssert(self.vc.notificationReceived == NotificationCenter.Name.Reachable.rawValue, "Este View Controller não recebeu a notificação \"\(NotificationCenter.Name.Reachable.rawValue)\".")
+        XCTAssertNotNil(vc.notificationReceived, "Este View Controller não recebeu notificações.")
+        XCTAssert(vc.notificationReceived == Notification.CustomName.reachable.rawValue, "Este View Controller não recebeu a notificação \"\(Notification.CustomName.reachable.rawValue)\".")
         
         // Remove observers
-        self.vc.removeObservers()
+        vc.removeObservers()
     }
     
     func testNotificationNotReachable() {
         
         // Try to Add observers
-        self.vc.addObservers()
+        vc.addObservers()
         
         // Launch Notification
-        NotificationCenter.default.post(name: NotificationCenter.Name.NotReachable, object: nil)
+        NotificationCenter.default.post(.notReachable)
         
         // Test proprieties
-        XCTAssertNotNil(self.vc.notificationReceived, "Este View Controller não recebeu notificações.")
-        XCTAssert(self.vc.notificationReceived == NotificationCenter.Name.NotReachable.rawValue, "Este View Controller não recebeu a notificação \"\(NotificationCenter.Name.NotReachable.rawValue)\".")
+        XCTAssertNotNil(vc.notificationReceived, "Este View Controller não recebeu notificações.")
+        XCTAssert(vc.notificationReceived == Notification.CustomName.notReachable.rawValue, "Este View Controller não recebeu a notificação \"\(Notification.CustomName.notReachable.rawValue)\".")
         
         // Remove observers
-        self.vc.removeObservers()
+        vc.removeObservers()
     }
 }
 

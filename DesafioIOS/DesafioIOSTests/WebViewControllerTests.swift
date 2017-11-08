@@ -12,11 +12,26 @@ import XCTest
 class WebViewControllerTests: XCTestCase {
     
     fileprivate var vc : MockWebViewController! = nil
+    fileprivate let fakeDict : [String:Any] = [
+        "id" : 12345,
+        "title" : "Fake Title",
+        "body" : "Lorem Ipsum Dolor sit amen",
+        "description" : "Fake Description",
+        "html_url" : "http://google.com",
+        "state" : "open",
+        "user" : [
+            "id" : "fake_id",
+            "login" : "fakelogin",
+            "avatar_url" : "http://fakeavatar.com/avatar.png"
+        ]
+    ]
     
     // MARK: - Lifecycle Methods
     override func setUp() {
         super.setUp()
+        let pullRequest = PullRequest(jsonData: fakeDict)
         self.vc = MockWebViewController()
+        self.vc.viewModel = WebViewModel(pullRequest: pullRequest)
     }
     
     override func tearDown() {
@@ -28,17 +43,13 @@ class WebViewControllerTests: XCTestCase {
     func testLoadWebView() {
         
         // Assert View Model Don't have a valid URL yet
-        XCTAssert(vc.viewModel.pullRequest == nil, "O View Controller não pode possuir uma Pull Request nesta fase.")
         XCTAssert(vc.didLoadWebView == false, "O View Controller não deve ter carregado a WebView nesta fase.")
         
-        vc.viewModel.didLaunchUrl = { _ in
-            XCTAssertFalse(self.vc.viewModel.pullRequest == nil, "O View Controller deve possuir uma Pull Request nesta fase.")
-            self.vc.loadWebView()
-            XCTAssert(self.vc.didLoadWebView == true, "O View Controller deve ter carregado a WebView nesta fase.")
-        }
-        
         // Launch
-        vc.viewModel.launchUrl()
+        vc.loadWebView()
+        
+        // Assert
+        XCTAssert(self.vc.didLoadWebView == true, "O View Controller deve ter carregado a WebView nesta fase.")
     }
     
     func testActionDismiss() {
@@ -76,6 +87,38 @@ class WebViewControllerTests: XCTestCase {
         // Test proprieties
         XCTAssertNotNil(vc.hasObservers, "Este View Controller possui Observers.")
         XCTAssert(vc.hasObservers == false, "Este View Controller possui Observers")
+    }
+    
+    func testNotificationIsReachable() {
+        
+        // Try to Add observers
+        vc.addObservers()
+        
+        // Launch Notification
+        NotificationCenter.default.post(.reachable)
+        
+        // Test proprieties
+        XCTAssertNotNil(vc.notificationReceived, "Este View Controller não recebeu notificações.")
+        XCTAssert(vc.notificationReceived == Notification.CustomName.reachable.rawValue, "Este View Controller não recebeu a notificação \"\(Notification.CustomName.reachable.rawValue)\".")
+        
+        // Remove observers
+        vc.removeObservers()
+    }
+    
+    func testNotificationNotReachable() {
+        
+        // Try to Add observers
+        vc.addObservers()
+        
+        // Launch Notification
+        NotificationCenter.default.post(.notReachable)
+        
+        // Test proprieties
+        XCTAssertNotNil(vc.notificationReceived, "Este View Controller não recebeu notificações.")
+        XCTAssert(vc.notificationReceived == Notification.CustomName.notReachable.rawValue, "Este View Controller não recebeu a notificação \"\(Notification.CustomName.notReachable.rawValue)\".")
+        
+        // Remove observers
+        vc.removeObservers()
     }
 }
 

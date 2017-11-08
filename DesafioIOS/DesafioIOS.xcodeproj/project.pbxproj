@@ -17,7 +17,6 @@
 		4A54D65B1FA51CA100569EB9 /* PullRequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */; };
 		4A54D6601FA51F2000569EB9 /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D65F1FA51F2000569EB9 /* RepositoriesViewModelTests.swift */; };
 		4A54D6621FA51F3200569EB9 /* PullRequestsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D6611FA51F3200569EB9 /* PullRequestsViewModelTests.swift */; };
-		4A9011A21FA5F9B800494D14 /* WebViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9011A11FA5F9B800494D14 /* WebViewModelTests.swift */; };
 		4A9011A41FA6032E00494D14 /* MockWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9011A31FA6032E00494D14 /* MockWebViewController.swift */; };
 		4A9011A61FA6040200494D14 /* MockPullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9011A51FA6040200494D14 /* MockPullRequestsViewController.swift */; };
 		4A9011A81FA6043500494D14 /* MockPullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9011A71FA6043500494D14 /* MockPullRequestsViewModel.swift */; };
@@ -80,7 +79,6 @@
 		4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceTests.swift; sourceTree = "<group>"; };
 		4A54D65F1FA51F2000569EB9 /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
 		4A54D6611FA51F3200569EB9 /* PullRequestsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModelTests.swift; sourceTree = "<group>"; };
-		4A9011A11FA5F9B800494D14 /* WebViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModelTests.swift; sourceTree = "<group>"; };
 		4A9011A31FA6032E00494D14 /* MockWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebViewController.swift; sourceTree = "<group>"; };
 		4A9011A51FA6040200494D14 /* MockPullRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPullRequestsViewController.swift; sourceTree = "<group>"; };
 		4A9011A71FA6043500494D14 /* MockPullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPullRequestsViewModel.swift; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 			children = (
 				4A9011A31FA6032E00494D14 /* MockWebViewController.swift */,
 				4A993AAD1FA4BD7800A23610 /* WebViewControllerTests.swift */,
-				4A9011A11FA5F9B800494D14 /* WebViewModelTests.swift */,
 			);
 			name = Web;
 			sourceTree = "<group>";
@@ -674,7 +671,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A993AAA1FA4BD4000A23610 /* RepositoriesViewControllerTests.swift in Sources */,
-				4A9011A21FA5F9B800494D14 /* WebViewModelTests.swift in Sources */,
 				4A993AA81FA4BD1B00A23610 /* OwnerTests.swift in Sources */,
 				4A9011A61FA6040200494D14 /* MockPullRequestsViewController.swift in Sources */,
 				4A54D6621FA51F3200569EB9 /* PullRequestsViewModelTests.swift in Sources */,

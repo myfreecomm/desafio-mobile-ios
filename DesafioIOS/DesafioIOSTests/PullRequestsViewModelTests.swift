@@ -30,7 +30,8 @@ class PullRequestsViewModelTests: XCTestCase {
     // MARK: - Lifecycle Methods
     override func setUp() {
         super.setUp()
-        self.vm = MockPullRequestsViewModel()
+        let repository = Repository(jsonData: fakeDict)
+        self.vm = MockPullRequestsViewModel(repository: repository)
     }
     
     override func tearDown() {
