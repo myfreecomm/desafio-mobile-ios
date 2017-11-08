@@ -39,7 +39,7 @@ class ReachabilityManager {
             DispatchQueue.main.async {
                 if  reachability.isReachable {
                     print("ReachabilitySwift -> Reachable")
-                    NotificationCenter.default.post(name: NotificationCenter.Name.Reachable, object: nil)
+                    NotificationCenter.default.post(.reachable)
                 }
             }
         }
@@ -48,7 +48,7 @@ class ReachabilityManager {
         reachability.whenUnreachable = { reachability in
             DispatchQueue.main.async {
                 print("ReachabilitySwift -> Not reachable")
-                NotificationCenter.default.post(name: NotificationCenter.Name.NotReachable, object: nil)
+                NotificationCenter.default.post(.notReachable)
             }
         }
         

@@ -15,9 +15,22 @@ import Foundation
 class WebViewModel {
     
     /**
-     * Pull Request reference
+     * Pull Request Title
      */
-    var pullRequest: PullRequest?
+    var pullRequestTitle : String {
+        get {
+            return pullRequest.title
+        }
+    }
+    
+    /**
+     * Pull Request URL
+     */
+    var pullRequestUrl : URL? {
+        get {
+            return pullRequest.htmlUrl
+        }
+    }
     
     /**
      * Failing state
@@ -30,19 +43,20 @@ class WebViewModel {
     var isProcessing = false
     
     /**
-     * Launch URL Completion
+     * Pull Request reference
      */
-    var didLaunchUrl: ((String) -> Void)?
+    fileprivate var pullRequest: PullRequest
+    
+    
+    // MARK: - 👽 Lifecycle Methods
+    
     
     /**
-     *  launchUrl()
-     *  @description    Launches URL
+     * Constructor
      */
-    func launchUrl() {
-        
-        // Load
-        if  let safePull = self.pullRequest {
-            didLaunchUrl?(safePull.title)
-        }
+    init(pullRequest: PullRequest) {
+        self.pullRequest = pullRequest
     }
 }
+
+

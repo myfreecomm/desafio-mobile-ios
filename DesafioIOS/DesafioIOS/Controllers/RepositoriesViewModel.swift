@@ -15,11 +15,6 @@ import Foundation
 class RepositoriesViewModel {
     
     /**
-     * View Controller weak reference
-     */
-    weak var viewController: RepositoriesViewController?
-    
-    /**
      * Repository Micro Service
      */
     fileprivate var service = RepositoryService()
@@ -56,8 +51,8 @@ class RepositoriesViewModel {
         page = 1
         
         // Re-fetch
-        fetchData() { [weak self] in
-            self?.viewController?.refreshControl?.endRefreshing()
+        fetchData() {
+            NotificationCenter.default.post(.didFinishRefreshing)
         }
     }
     
@@ -77,8 +72,8 @@ class RepositoriesViewModel {
                 this.source = []
             }
             this.source.append(contentsOf: results)
-            this.viewController?.tableView.reloadData()
             this.isProcessing = false
+            NotificationCenter.default.post(.reloadData)
             completion?()
             
         }) { [weak self] errorDescription in
@@ -86,8 +81,7 @@ class RepositoriesViewModel {
             guard let this = self else { return }
             
             // Show error
-            this.viewController?.errorHud(errorDescription)
-            this.viewController?.refreshControl?.endRefreshing()
+            NotificationCenter.default.post(.didReceiveError, object: errorDescription)
             this.isProcessing = false
         }
     }
@@ -106,11 +100,12 @@ class RepositoriesViewModel {
             return
         }
         
-        isProcessing = true
-        viewController?.infiniteScrollingView?.alpha = 1
         page += 1
-        fetchData() { [weak self] in
-            self?.viewController?.infiniteScrollingView?.alpha = 0
+        isProcessing = true
+        NotificationCenter.default.post(.didStartLoading)
+        
+        fetchData() { 
+            NotificationCenter.default.post(.didFinishLoading)
             completion?()
         }
     }

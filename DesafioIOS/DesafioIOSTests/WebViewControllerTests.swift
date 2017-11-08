@@ -62,7 +62,7 @@ class WebViewControllerTests: XCTestCase {
         XCTAssertNotNil(vc.hasObservers, "Este View Controller não possui Observers.")
         XCTAssert(vc.hasObservers == true, "Não foram adicionados observers neste View Controller")
         
-        // Try to Add observers
+        // Remove observers
         vc.removeObservers()
     }
     
@@ -70,7 +70,7 @@ class WebViewControllerTests: XCTestCase {
         
         // Try to Add observers
         vc.addObservers()
-        // Try to Add observers
+        // Remove observers
         vc.removeObservers()
         
         // Test proprieties

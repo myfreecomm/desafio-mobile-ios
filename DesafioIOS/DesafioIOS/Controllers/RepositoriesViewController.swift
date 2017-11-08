@@ -17,7 +17,7 @@ class RepositoriesViewController : UITableViewController, Hud {
     /**
      * Class View Model
      */
-    var viewModel = RepositoriesViewModel()
+    var viewModel : RepositoriesViewModel!
     
     /**
      * Outlets
@@ -31,9 +31,6 @@ class RepositoriesViewController : UITableViewController, Hud {
      *  @description    Initial State
      */
     private func setup() {
-        
-        // ViewModel
-        viewModel.viewController = self
         
         // Table cell height
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -73,7 +70,8 @@ class RepositoriesViewController : UITableViewController, Hud {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == MainStoryboard.Segue.toPullRequest {
             let vc = segue.destination as! PullRequestsViewController
-            vc.viewModel.repository = sender as? Repository
+            guard let repository = sender as? Repository else { return }
+            vc.viewModel = PullRequestsViewModel(repository: repository)
         }
     }
     
@@ -99,27 +97,29 @@ class RepositoriesViewController : UITableViewController, Hud {
         refresh()
     }
     
-    // MARK: - 🎃 Reachability
-    
     /**
      *  addObservers()
      *  @description    Subscribes the Screen to receive Reachability events
      */
     func addObservers() {
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(RepositoriesViewController.notificationIsReachable(n:)),
-            name: NotificationCenter.Name.Reachable,
-            object: nil
-        )
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationIsReachable(n:)), custom: .reachable)
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(RepositoriesViewController.notificationNotReachable(n:)),
-            name: NotificationCenter.Name.NotReachable,
-            object: nil
-        )
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationNotReachable(n:)), custom: .notReachable)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationReloadData(n:)), custom: .reloadData)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationDidStartLoading(n:)), custom: .didStartLoading)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationDidFinishLoading(n:)), custom: .didFinishLoading)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationDidReceiveError(n:)), custom: .didReceiveError)
     }
     
     /**
@@ -127,9 +127,10 @@ class RepositoriesViewController : UITableViewController, Hud {
      *  @description    Unsubscribes the Reachability events
      */
     func removeObservers() {
-        NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
+        NotificationCenter.default.unsubscribe(observer: self)
     }
+    
+    // MARK: - 🎃 Reachability
     
     /**
      *  notificationIsReachable(n:)
@@ -150,6 +151,46 @@ class RepositoriesViewController : UITableViewController, Hud {
      */
     @objc func notificationNotReachable(n: Notification) {
         errorHud("Error.YouAreOffline".localized)
+    }
+    
+    // MARK: - 🚀 Reactions
+    
+    /**
+     *  notificationReloadData(n:)
+     *  @description    View Model's message to reload data
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationReloadData(n: Notification) {
+        tableView.reloadData()
+    }
+    
+    /**
+     *  notificationDidStartLoading(n:)
+     *  @description    View Model's message to fire infinite scrolling UI
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationDidStartLoading(n: Notification) {
+        infiniteScrollingView?.alpha = 1
+    }
+    
+    /**
+     *  notificationDidFinishLoading(n:)
+     *  @description    View Model's message to stop infinite scrolling UI
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationDidFinishLoading(n: Notification) {
+        infiniteScrollingView?.alpha = 0
+    }
+    
+    /**
+     *  notificationDidReceiveError(n:)
+     *  @description    View Model's message to any errors received
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationDidReceiveError(n: Notification) {
+        refreshControl?.endRefreshing()
+        guard let message = n.object as? String else { return }
+        errorHud(message)
     }
 }
 

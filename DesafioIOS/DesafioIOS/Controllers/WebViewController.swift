@@ -17,7 +17,7 @@ class WebViewController : UIViewController, Hud {
     /**
      * Class View Model
      */
-    var viewModel = WebViewModel()
+    var viewModel : WebViewModel!
     
     /**
      * Outlets
@@ -25,37 +25,17 @@ class WebViewController : UIViewController, Hud {
     @IBOutlet weak var webView: UIWebView?
     
     
-    // Setup
-    
-    
-    /**
-     *  setup()
-     *  @description    Initial State
-     */
-    private func setup() {
-        
-        // Primary state
-        title = ""
-        navigationItem.title = ""
-        
-        // ViewModel
-        viewModel.didLaunchUrl = { [weak self] title in
-            self?.title = title
-            self?.navigationItem.title = title
-            self?.loadWebView()
-        }
-    }
-    
     // MARK: - 👽 Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
+        title = ""
+        navigationItem.title = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.launchUrl()
+        self.updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +48,27 @@ class WebViewController : UIViewController, Hud {
         self.removeObservers()
     }
     
+    /**
+     *  addObservers()
+     *  @description    Subscribes the Screen to receive Reachability events
+     */
+    public func addObservers() {
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(WebViewController.notificationIsReachable(n:)), custom: .reachable)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(WebViewController.notificationNotReachable(n:)), custom: .notReachable)
+    }
+    
+    /**
+     *  removeObservers()
+     *  @description    Unsubscribes the Reachability events
+     */
+    public func removeObservers() {
+        NotificationCenter.default.unsubscribe(observer: self)
+    }
+    
     // MARK: - 🔐 Internal Methods
     
     /**
@@ -76,13 +77,19 @@ class WebViewController : UIViewController, Hud {
      */
     func loadWebView() {
         
-        guard let safeUrl = viewModel.pullRequest?.htmlUrl else {
+        guard let safeUrl = viewModel.pullRequestUrl else {
             errorHud("Error.NoURL".localized)
             return
         }
         
         let urlRequest = URLRequest(url: safeUrl)
         webView?.loadRequest(urlRequest)
+    }
+    
+    func updateUI() {
+        self.title = viewModel.pullRequestTitle
+        self.navigationItem.title = viewModel.pullRequestTitle
+        self.loadWebView()
     }
     
     // MARK: - 🤖 IB Actions
@@ -96,36 +103,6 @@ class WebViewController : UIViewController, Hud {
     }
     
     // MARK: - 🎃 Reachability
-    
-    /**
-     *  addObservers()
-     *  @description    Subscribes the Screen to receive Reachability events
-     */
-    public func addObservers() {
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(WebViewController.notificationIsReachable(n:)),
-            name: NotificationCenter.Name.Reachable,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(WebViewController.notificationNotReachable(n:)),
-            name: NotificationCenter.Name.NotReachable,
-            object: nil
-        )
-    }
-    
-    /**
-     *  removeObservers()
-     *  @description    Unsubscribes the Reachability events
-     */
-    public func removeObservers() {
-        NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
-    }
     
     /**
      *  notificationIsReachable(n:)

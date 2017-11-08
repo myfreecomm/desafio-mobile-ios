@@ -15,14 +15,18 @@ import Foundation
 class PullRequestsViewModel {
     
     /**
-     * View Controller weak reference
-     */
-    weak var viewController : PullRequestsViewController?
-    
-    /**
      * Repository to fetch Pull Requests
      */
-    var repository : Repository?
+    var repository : Repository
+    
+    /**
+     * Repository's name
+     */
+    var repositoryName : String {
+        get {
+            return repository.name
+        }
+    }
     
     /**
      * Pull Request Micro Service
@@ -50,6 +54,16 @@ class PullRequestsViewModel {
     fileprivate(set) var closedPullsCount = 0
     
     
+    // MARK: - 👽 Lifecycle Methods
+    
+    /**
+     * Constructor
+     */
+    init(repository: Repository) {
+        self.repository = repository
+    }
+    
+    
     // MARK: - 🔐 Common Methods
     
     
@@ -72,18 +86,14 @@ class PullRequestsViewModel {
     func fetchData(completion: (() -> Void)?=nil) {
         
         // Required data
-        guard
-            let safeRepository = repository,
-            let safeOwner = safeRepository.owner
-            else {
-                viewController?.errorHud("Error.FailedRepositoryRequest".localized)
-                viewController?.refreshControl?.endRefreshing()
-                completion?()
-                return
+        guard let safeOwner = repository.owner else {
+            NotificationCenter.default.post(.didReceiveError, object: "Error.FailedRepositoryRequest".localized)
+            completion?()
+            return
         }
         
         // Send request
-        service.load(owner: safeOwner.username, repository: safeRepository.name, succeed: { [weak self] results in
+        service.load(owner: safeOwner.username, repository: repository.name, succeed: { [weak self] results in
             
             guard let this = self else { return }
             
@@ -100,17 +110,12 @@ class PullRequestsViewModel {
             }
             
             // Fill label
-            let openText = "\(this.openPullsCount) \("opened".localized)"
-            let text = "\(openText) / \(this.closedPullsCount) \("closed".localized)"
-            let attrStr = NSMutableAttributedString(string: text)
-            attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
-            this.viewController?.pullRequestsCountLabel?.attributedText = attrStr
+            NotificationCenter.default.post(.preparePullsCount)
             
             // Fill source
             this.source = results
-            this.viewController?.tableView.reloadData()
-            this.viewController?.refreshControl?.endRefreshing()
             this.isProcessing = false
+            NotificationCenter.default.post(.reloadData)
             completion?()
             
         }) { [weak self] errorDescription in
@@ -118,9 +123,8 @@ class PullRequestsViewModel {
             guard let this = self else { return }
             
             // Show error
-            this.viewController?.errorHud(errorDescription)
-            this.viewController?.refreshControl?.endRefreshing()
             this.isProcessing = false
+            NotificationCenter.default.post(.didReceiveError, object: errorDescription)
             completion?()
         }
     }

@@ -11,6 +11,7 @@
 		4A427B801FA4AF6700B0E95D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B7E1FA4AF6700B0E95D /* Main.storyboard */; };
 		4A427B851FA4AF6700B0E95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B841FA4AF6700B0E95D /* Assets.xcassets */; };
 		4A427B881FA4AF6700B0E95D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A427B861FA4AF6700B0E95D /* LaunchScreen.storyboard */; };
+		4A5451DD1FB3754100B71E12 /* NotificationCenter+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5451DC1FB3754100B71E12 /* NotificationCenter+Custom.swift */; };
 		4A54D6561FA507AD00569EB9 /* SharedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */; };
 		4A54D6591FA51C8700569EB9 /* RepositoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D6581FA51C8700569EB9 /* RepositoryServiceTests.swift */; };
 		4A54D65B1FA51CA100569EB9 /* PullRequestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */; };
@@ -22,7 +23,6 @@
 		4A9011A81FA6043500494D14 /* MockPullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9011A71FA6043500494D14 /* MockPullRequestsViewModel.swift */; };
 		4A9011AA1FA6048500494D14 /* MockRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9011A91FA6048500494D14 /* MockRepositoriesViewController.swift */; };
 		4A993A691FA4B32200A23610 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A681FA4B32200A23610 /* ReachabilityManager.swift */; };
-		4A993A6C1FA4B3F500A23610 /* Swift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A6B1FA4B3F500A23610 /* Swift+Extensions.swift */; };
 		4A993A6E1FA4B40C00A23610 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A6D1FA4B40C00A23610 /* UIKit+Extensions.swift */; };
 		4A993A701FA4B41900A23610 /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A6F1FA4B41900A23610 /* Foundation+Extensions.swift */; };
 		4A993A751FA4B4CF00A23610 /* DropShadowNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A993A741FA4B4CF00A23610 /* DropShadowNavigationBar.swift */; };
@@ -74,6 +74,7 @@
 		4A427B871FA4AF6700B0E95D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A427B8E1FA4AF6700B0E95D /* DesafioIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesafioIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A427B941FA4AF6700B0E95D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5451DC1FB3754100B71E12 /* NotificationCenter+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Custom.swift"; sourceTree = "<group>"; };
 		4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProtocols.swift; sourceTree = "<group>"; };
 		4A54D6581FA51C8700569EB9 /* RepositoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceTests.swift; sourceTree = "<group>"; };
 		4A54D65A1FA51CA100569EB9 /* PullRequestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceTests.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		4A993A611FA4B12E00A23610 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4A993A621FA4B12E00A23610 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A993A681FA4B32200A23610 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		4A993A6B1FA4B3F500A23610 /* Swift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Extensions.swift"; sourceTree = "<group>"; };
 		4A993A6D1FA4B40C00A23610 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
 		4A993A6F1FA4B41900A23610 /* Foundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extensions.swift"; sourceTree = "<group>"; };
 		4A993A741FA4B4CF00A23610 /* DropShadowNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadowNavigationBar.swift; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 			children = (
 				4A54D6551FA507AD00569EB9 /* SharedProtocols.swift */,
 				4A993A741FA4B4CF00A23610 /* DropShadowNavigationBar.swift */,
-				4A993A6B1FA4B3F500A23610 /* Swift+Extensions.swift */,
+				4A5451DC1FB3754100B71E12 /* NotificationCenter+Custom.swift */,
 				4A993A6D1FA4B40C00A23610 /* UIKit+Extensions.swift */,
 				4A993A6F1FA4B41900A23610 /* Foundation+Extensions.swift */,
 			);
@@ -646,6 +646,7 @@
 			files = (
 				4A993A781FA4B7D600A23610 /* RestClient.swift in Sources */,
 				4A993A861FA4BA0E00A23610 /* RepositoriesViewController.swift in Sources */,
+				4A5451DD1FB3754100B71E12 /* NotificationCenter+Custom.swift in Sources */,
 				4A427B7B1FA4AF6700B0E95D /* AppDelegate.swift in Sources */,
 				4A993A751FA4B4CF00A23610 /* DropShadowNavigationBar.swift in Sources */,
 				4A993A911FA4BACD00A23610 /* PullRequestTableViewCell.swift in Sources */,
@@ -653,7 +654,6 @@
 				4A54D6561FA507AD00569EB9 /* SharedProtocols.swift in Sources */,
 				4A993A801FA4B8B600A23610 /* RepositoryService.swift in Sources */,
 				4A993A9A1FA4BB7B00A23610 /* WebViewModel.swift in Sources */,
-				4A993A6C1FA4B3F500A23610 /* Swift+Extensions.swift in Sources */,
 				4A993A881FA4BA1D00A23610 /* PullRequestsViewController.swift in Sources */,
 				4A993A701FA4B41900A23610 /* Foundation+Extensions.swift in Sources */,
 				4A993A691FA4B32200A23610 /* ReachabilityManager.swift in Sources */,

@@ -39,6 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ProgressHUD custom colors
         SVProgressHUD.setBackgroundColor(UIColor.navigationBarColor)
         SVProgressHUD.setForegroundColor(UIColor.white)
+        
+        // Prepare root controller
+        if  let navigationController = window!.rootViewController as? UINavigationController,
+            let repositoriesController = navigationController.viewControllers.first as? RepositoriesViewController {
+            repositoriesController.viewModel = RepositoriesViewModel()
+        }
     }
     
     // MARK: - 👽 Lifecycle Methods

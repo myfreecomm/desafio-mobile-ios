@@ -15,9 +15,9 @@ import UIKit
 class PullRequestsViewController : UITableViewController, Hud {
     
     /**
-     * Class View Model
+     * View Model
      */
-    var viewModel = PullRequestsViewModel()
+    var viewModel : PullRequestsViewModel!
     
     /**
      * Outlets
@@ -33,14 +33,9 @@ class PullRequestsViewController : UITableViewController, Hud {
      */
     private func setup() {
         
-        // ViewModel
-        viewModel.viewController = self
-        
         // Title
-        if  let safeRepository = viewModel.repository {
-            title = safeRepository.name
-            navigationItem.title = safeRepository.name
-        }
+        title = viewModel.repositoryName
+        navigationItem.title = viewModel.repositoryName
         
         // Open/Close repos label
         pullRequestsCountLabel?.text = ""
@@ -79,9 +74,11 @@ class PullRequestsViewController : UITableViewController, Hud {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == MainStoryboard.Segue.toWebView {
-            let nav = segue.destination as! UINavigationController
-            let vc = nav.viewControllers.first as! WebViewController
-            vc.viewModel.pullRequest = sender as? PullRequest
+            if  let nav = segue.destination as? UINavigationController,
+                let vc = nav.viewControllers.first as? WebViewController,
+                let pull = sender as? PullRequest {
+                vc.viewModel = WebViewModel(pullRequest: pull)
+            }
         }
     }
     
@@ -117,27 +114,26 @@ class PullRequestsViewController : UITableViewController, Hud {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - 🎃 Reachability
-    
     /**
      *  addObservers()
      *  @description    Subscribes the Screen to receive Reachability events
      */
     func addObservers() {
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(PullRequestsViewController.notificationIsReachable(n:)),
-            name: NotificationCenter.Name.Reachable,
-            object: nil
-        )
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(PullRequestsViewController.notificationIsReachable(n:)), custom: .reachable)
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(PullRequestsViewController.notificationNotReachable(n:)),
-            name: NotificationCenter.Name.NotReachable,
-            object: nil
-        )
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(PullRequestsViewController.notificationNotReachable(n:)), custom: .notReachable)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(PullRequestsViewController.notificationReloadData(n:)), custom: .reloadData)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(PullRequestsViewController.notificationPreparePullsCount(n:)), custom: .preparePullsCount)
+        
+        NotificationCenter.default.subscribe(
+            observer: self, selector: #selector(RepositoriesViewController.notificationDidReceiveError(n:)), custom: .didReceiveError)
     }
     
     /**
@@ -145,9 +141,10 @@ class PullRequestsViewController : UITableViewController, Hud {
      *  @description    Unsubscribes the Reachability events
      */
     func removeObservers() {
-        NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.Reachable, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NotificationCenter.Name.NotReachable, object: nil)
+        NotificationCenter.default.unsubscribe(observer: self)
     }
+    
+    // MARK: - 🎃 Reachability
     
     /**
      *  notificationIsReachable(n:)
@@ -168,6 +165,42 @@ class PullRequestsViewController : UITableViewController, Hud {
      */
     @objc func notificationNotReachable(n: Notification) {
         errorHud("Error.YouAreOffline".localized)
+    }
+    
+    // MARK: - 🚀 Reactions
+    
+    /**
+     *  notificationReloadData(n:)
+     *  @description    View Model's message to reload data
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationReloadData(n: Notification) {
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
+    /**
+     *  notificationPreparePullsCount(n:)
+     *  @description    View Model's message to any errors received
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationPreparePullsCount(n: Notification) {
+        let openText = "\(viewModel.openPullsCount) \("opened".localized)"
+        let text = "\(openText) / \(viewModel.closedPullsCount) \("closed".localized)"
+        let attrStr = NSMutableAttributedString(string: text)
+        attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.highlightColor, range: NSMakeRange(0, openText.characters.count))
+        pullRequestsCountLabel?.attributedText = attrStr
+    }
+    
+    /**
+     *  notificationDidReceiveError(n:)
+     *  @description    View Model's message to any errors received
+     *  @param n        NotificationCenter's notification
+     */
+    @objc func notificationDidReceiveError(n: Notification) {
+        refreshControl?.endRefreshing()
+        guard let message = n.object as? String else { return }
+        errorHud(message)
     }
 }
 

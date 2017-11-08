@@ -89,7 +89,7 @@ class PullRequestsViewControllerTests: XCTestCase {
         XCTAssertNotNil(self.vc.hasObservers, "Este View Controller não possui Observers.")
         XCTAssert(self.vc.hasObservers == true, "Não foram adicionados observers neste View Controller")
         
-        // Try to Add observers
+        // Remove observers
         self.vc.removeObservers()
     }
     
@@ -97,7 +97,7 @@ class PullRequestsViewControllerTests: XCTestCase {
         
         // Try to Add observers
         self.vc.addObservers()
-        // Try to Add observers
+        // Remove observers
         self.vc.removeObservers()
         
         // Test proprieties
@@ -117,7 +117,7 @@ class PullRequestsViewControllerTests: XCTestCase {
         XCTAssertNotNil(self.vc.notificationReceived, "Este View Controller não recebeu notificações.")
         XCTAssert(self.vc.notificationReceived == NotificationCenter.Name.Reachable.rawValue, "Este View Controller não recebeu a notificação \"\(NotificationCenter.Name.Reachable.rawValue)\".")
         
-        // Try to Add observers
+        // Remove observers
         self.vc.removeObservers()
     }
     
@@ -133,7 +133,7 @@ class PullRequestsViewControllerTests: XCTestCase {
         XCTAssertNotNil(self.vc.notificationReceived, "Este View Controller não recebeu notificações.")
         XCTAssert(self.vc.notificationReceived == NotificationCenter.Name.NotReachable.rawValue, "Este View Controller não recebeu a notificação \"\(NotificationCenter.Name.NotReachable.rawValue)\".")
         
-        // Try to Add observers
+        // Remove observers
         self.vc.removeObservers()
     }
 }
