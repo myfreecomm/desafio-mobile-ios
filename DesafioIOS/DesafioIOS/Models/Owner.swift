@@ -1,0 +1,34 @@
+//
+//  Owner.swift
+//  DesafioIOS
+//
+//  Created by Felipe Ricieri on 28/10/17.
+//  Copyright © 2017 Nexaas. All rights reserved.
+//
+
+import Foundation
+import SwiftyJSON
+
+/**
+ *  Owner
+ *  @description    Local representation of Github users
+ */
+public struct Owner {
+    
+    var id : String = ""
+    var name : String = ""
+    var username : String = ""
+    var picture : String = ""
+    
+    // Deserializer
+    init(jsonData: [AnyHashable: Any]) {
+        
+        let json = JSON(jsonData)
+        
+        id = json["id"].stringValue
+        name = json["login"].stringValue
+        username = json["login"].stringValue
+        picture = json["avatar_url"].stringValue
+    }
+}
+

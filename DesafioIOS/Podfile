@@ -1,0 +1,28 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+def shared_pods
+
+	# Common Pods
+	pod 'SDWebImage', '~> 3.7.3'
+	pod 'SVProgressHUD'
+	pod 'Alamofire'
+	pod 'ReachabilitySwift', '~> 3'
+	pod 'SwiftyJSON'
+
+	# Felipe Ricieri's Pods
+	pod 'CoolDesignables'
+	pod 'StoryboardContext'
+
+end
+
+# Targeting main project
+target "DesafioIOS" do
+    shared_pods
+end
+
+# Targeting test project
+target "DesafioIOSTests" do
+    shared_pods
+end
