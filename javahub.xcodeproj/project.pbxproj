@@ -383,7 +383,8 @@
 		F1D0796F20FE74430061A569 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APP_DISPLAY_NAME = "dbg-JavaHub";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDbg;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
 				INFOPLIST_FILE = "$(SRCROOT)/source/app/System/Info.plist";
@@ -391,7 +392,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.outlook.tiagofly.javahub;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.outlook.tiagofly.javahub-dbg";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,6 +402,8 @@
 		F1D0797020FE74430061A569 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_DISPLAY_NAME = JavaHub;
+				"APP_DISPLAY_NAME[arch=*]" = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
