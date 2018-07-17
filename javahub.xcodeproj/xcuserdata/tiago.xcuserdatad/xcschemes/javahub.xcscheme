@@ -38,6 +38,16 @@
                ReferencedContainer = "container:javahub.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F1D0798A20FE9B410061A569"
+               BuildableName = "javahubTests.xctest"
+               BlueprintName = "javahubTests"
+               ReferencedContainer = "container:javahub.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
