@@ -10,10 +10,20 @@
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
+		F1D0798E20FE9B410061A569 /* javahubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0798D20FE9B410061A569 /* javahubTests.swift */; };
+		F1D0799D20FE9B960061A569 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799720FE9B950061A569 /* Kingfisher.framework */; };
+		F1D0799E20FE9B960061A569 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799820FE9B950061A569 /* SwiftIconFont.framework */; };
+		F1D0799F20FE9B960061A569 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799920FE9B950061A569 /* Realm.framework */; };
+		F1D079A020FE9B960061A569 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799A20FE9B960061A569 /* Alamofire.framework */; };
+		F1D079A120FE9B960061A569 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799B20FE9B960061A569 /* RealmSwift.framework */; };
+		F1D079A220FE9B960061A569 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799C20FE9B960061A569 /* SwiftyJSON.framework */; };
+		F1D079A620FE9BCA0061A569 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A320FE9BC90061A569 /* Quick.framework */; };
+		F1D079A720FE9BCA0061A569 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A420FE9BCA0061A569 /* Nimble.framework */; };
+		F1D079A820FE9BCA0061A569 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F1D0796620FE74430061A569 /* PBXContainerItemProxy */ = {
+		F1D0799020FE9B410061A569 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1D0794920FE74400061A569 /* Project object */;
 			proxyType = 1;
@@ -24,11 +34,22 @@
 
 /* Begin PBXFileReference section */
 		F1D0795120FE74400061A569 /* javahub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javahub.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1D0796520FE74430061A569 /* javahubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = javahubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0797920FE7DAA0061A569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1D0797C20FE7DAA0061A569 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D0797E20FE7DAA0061A569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1D0798B20FE9B410061A569 /* javahubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = javahubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1D0798D20FE9B410061A569 /* javahubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = javahubTests.swift; sourceTree = "<group>"; };
+		F1D0798F20FE9B410061A569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D0799720FE9B950061A569 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		F1D0799820FE9B950061A569 /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
+		F1D0799920FE9B950061A569 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		F1D0799A20FE9B960061A569 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		F1D0799B20FE9B960061A569 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		F1D0799C20FE9B960061A569 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		F1D079A320FE9BC90061A569 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		F1D079A420FE9BCA0061A569 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,13 +57,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D0799D20FE9B960061A569 /* Kingfisher.framework in Frameworks */,
+				F1D0799E20FE9B960061A569 /* SwiftIconFont.framework in Frameworks */,
+				F1D0799F20FE9B960061A569 /* Realm.framework in Frameworks */,
+				F1D079A020FE9B960061A569 /* Alamofire.framework in Frameworks */,
+				F1D079A120FE9B960061A569 /* RealmSwift.framework in Frameworks */,
+				F1D079A220FE9B960061A569 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1D0796220FE74430061A569 /* Frameworks */ = {
+		F1D0798820FE9B410061A569 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D079A620FE9BCA0061A569 /* Quick.framework in Frameworks */,
+				F1D079A720FE9BCA0061A569 /* Nimble.framework in Frameworks */,
+				F1D079A820FE9BCA0061A569 /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				F1D0797420FE7DAA0061A569 /* source */,
+				F1D0798C20FE9B410061A569 /* javahubTests */,
 				F1D0795220FE74400061A569 /* Products */,
+				F1D0799620FE9B950061A569 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D0795120FE74400061A569 /* javahub.app */,
-				F1D0796520FE74430061A569 /* javahubUITests.xctest */,
+				F1D0798B20FE9B410061A569 /* javahubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +165,31 @@
 			path = javahubtests;
 			sourceTree = "<group>";
 		};
+		F1D0798C20FE9B410061A569 /* javahubTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1D0798D20FE9B410061A569 /* javahubTests.swift */,
+				F1D0798F20FE9B410061A569 /* Info.plist */,
+			);
+			path = javahubTests;
+			sourceTree = "<group>";
+		};
+		F1D0799620FE9B950061A569 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079A420FE9BCA0061A569 /* Nimble.framework */,
+				F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */,
+				F1D079A320FE9BC90061A569 /* Quick.framework */,
+				F1D0799A20FE9B960061A569 /* Alamofire.framework */,
+				F1D0799720FE9B950061A569 /* Kingfisher.framework */,
+				F1D0799920FE9B950061A569 /* Realm.framework */,
+				F1D0799B20FE9B960061A569 /* RealmSwift.framework */,
+				F1D0799820FE9B950061A569 /* SwiftIconFont.framework */,
+				F1D0799C20FE9B960061A569 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +201,7 @@
 				F1D0794E20FE74400061A569 /* Frameworks */,
 				F1D0794F20FE74400061A569 /* Resources */,
 				F1D0798520FE8FE90061A569 /* SwiftLint */,
+				F1D0798620FE9AF10061A569 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -154,23 +212,24 @@
 			productReference = F1D0795120FE74400061A569 /* javahub.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F1D0796420FE74430061A569 /* javahubUITests */ = {
+		F1D0798A20FE9B410061A569 /* javahubTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1D0797120FE74430061A569 /* Build configuration list for PBXNativeTarget "javahubUITests" */;
+			buildConfigurationList = F1D0799220FE9B410061A569 /* Build configuration list for PBXNativeTarget "javahubTests" */;
 			buildPhases = (
-				F1D0796120FE74430061A569 /* Sources */,
-				F1D0796220FE74430061A569 /* Frameworks */,
-				F1D0796320FE74430061A569 /* Resources */,
+				F1D0798720FE9B410061A569 /* Sources */,
+				F1D0798820FE9B410061A569 /* Frameworks */,
+				F1D0798920FE9B410061A569 /* Resources */,
+				F1D0799520FE9B540061A569 /* Carthage */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F1D0796720FE74430061A569 /* PBXTargetDependency */,
+				F1D0799120FE9B410061A569 /* PBXTargetDependency */,
 			);
-			name = javahubUITests;
-			productName = javahubUITests;
-			productReference = F1D0796520FE74430061A569 /* javahubUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = javahubTests;
+			productName = javahubTests;
+			productReference = F1D0798B20FE9B410061A569 /* javahubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -185,7 +244,7 @@
 					F1D0795020FE74400061A569 = {
 						CreatedOnToolsVersion = 9.4;
 					};
-					F1D0796420FE74430061A569 = {
+					F1D0798A20FE9B410061A569 = {
 						CreatedOnToolsVersion = 9.4;
 						TestTargetID = F1D0795020FE74400061A569;
 					};
@@ -205,7 +264,7 @@
 			projectRoot = "";
 			targets = (
 				F1D0795020FE74400061A569 /* javahub */,
-				F1D0796420FE74430061A569 /* javahubUITests */,
+				F1D0798A20FE9B410061A569 /* javahubTests */,
 			);
 		};
 /* End PBXProject section */
@@ -220,7 +279,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1D0796320FE74430061A569 /* Resources */ = {
+		F1D0798920FE9B410061A569 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -244,6 +303,43 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		F1D0798620FE9AF10061A569 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftIconFont.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		F1D0799520FE9B540061A569 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -255,20 +351,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1D0796120FE74430061A569 /* Sources */ = {
+		F1D0798720FE9B410061A569 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D0798E20FE9B410061A569 /* javahubTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F1D0796720FE74430061A569 /* PBXTargetDependency */ = {
+		F1D0799120FE9B410061A569 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F1D0795020FE74400061A569 /* javahub */;
-			targetProxy = F1D0796620FE74430061A569 /* PBXContainerItemProxy */;
+			targetProxy = F1D0799020FE9B410061A569 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -407,6 +504,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDbg;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/source/app/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,6 +528,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/source/app/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -439,43 +544,53 @@
 			};
 			name = Release;
 		};
-		F1D0797220FE74430061A569 /* Debug */ = {
+		F1D0799320FE9B410061A569 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
-				INFOPLIST_FILE = javahubUITests/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = javahubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.outlook.tiagofly.javahubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.outlook.tiagofly.javahubTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = javahub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/javahub.app/javahub";
 			};
 			name = Debug;
 		};
-		F1D0797320FE74430061A569 /* Release */ = {
+		F1D0799420FE9B410061A569 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
-				INFOPLIST_FILE = javahubUITests/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = javahubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.outlook.tiagofly.javahubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.outlook.tiagofly.javahubTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = javahub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/javahub.app/javahub";
 			};
 			name = Release;
 		};
@@ -500,11 +615,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1D0797120FE74430061A569 /* Build configuration list for PBXNativeTarget "javahubUITests" */ = {
+		F1D0799220FE9B410061A569 /* Build configuration list for PBXNativeTarget "javahubTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1D0797220FE74430061A569 /* Debug */,
-				F1D0797320FE74430061A569 /* Release */,
+				F1D0799320FE9B410061A569 /* Debug */,
+				F1D0799420FE9B410061A569 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
