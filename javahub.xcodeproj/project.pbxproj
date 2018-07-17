@@ -20,6 +20,7 @@
 		F1D079A620FE9BCA0061A569 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A320FE9BC90061A569 /* Quick.framework */; };
 		F1D079A720FE9BCA0061A569 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A420FE9BCA0061A569 /* Nimble.framework */; };
 		F1D079A820FE9BCA0061A569 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */; };
+		F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AA20FE9CA50061A569 /* RouterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F1D079A320FE9BC90061A569 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		F1D079A420FE9BCA0061A569 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		F1D079AA20FE9CA50061A569 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		F1D0798020FE7DAA0061A569 /* javahubtests */ = {
 			isa = PBXGroup;
 			children = (
+				F1D079A920FE9C8E0061A569 /* Router */,
 			);
 			path = javahubtests;
 			sourceTree = "<group>";
@@ -188,6 +191,14 @@
 				F1D0799C20FE9B960061A569 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1D079A920FE9C8E0061A569 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079AA20FE9CA50061A569 /* RouterTests.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
 				F1D0798E20FE9B410061A569 /* javahubTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
