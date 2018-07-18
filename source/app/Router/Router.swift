@@ -39,7 +39,7 @@ class Router: NSObject, RouterInterface {
 			let viewInstance = buildView(destiny.file, PullRequestsViewController.identifier, PullRequestsViewController.self)
 
 			viewInstance.presenter = PullRequests(view: viewInstance)
-			self.view?.setViewControllers([viewInstance], animated: false)
+			self.view?.pushViewController(viewInstance, animated: true)
 
 		}
 	}
