@@ -42,6 +42,6 @@ struct API: APIInterface {
 
 	func urlListPullsJavaRepositories(with nameAuthor: String, in repoName: String, at page: Int) -> String {
 
-		return self.domainUrl + "repos/\(nameAuthor)/\(repoName)/pulls?page\(page)"
+		return self.domainUrl + "repos/\(nameAuthor)/\(repoName)/pulls?page=\(page)"
 	}
 }
