@@ -26,7 +26,7 @@ class PullRequest: Object {
 		pullRequest.author = json["user"]["login"].string!
 		pullRequest.photo = json["user"]["avatar_url"].string!
 		pullRequest.title = json["title"].string!
-		pullRequest.createAt = PullRequest.dateFormatter(stringDate: json["create_at"].string!)
+		pullRequest.createAt = PullRequest.dateFormatter(stringDate: json["created_at"].string!)
 		pullRequest.link = json["html_url"].string!
 		pullRequest.body = json["body"].string!
 

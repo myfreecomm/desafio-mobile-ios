@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 import OHHTTPStubs
 
 class Stubs {
@@ -28,6 +29,22 @@ class Stubs {
 	func clearStubs(){
 
 		OHHTTPStubs.removeAllStubs()
+	}
+
+
+	static func loadFile(with name: String, in bundleClass: AnyClass) -> JSON {
+
+		let path = Bundle(for: bundleClass).path(forResource: name, ofType: "json")
+
+		do {
+			let data = try Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+
+			return try JSON(data: data)
+
+		} catch {
+
+			fatalError("Error parse data to json: listRepositoriesMock from json file")
+		}
 	}
 }
 
