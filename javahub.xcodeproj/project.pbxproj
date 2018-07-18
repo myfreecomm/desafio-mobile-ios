@@ -33,6 +33,7 @@
 		F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C220FEB76C0061A569 /* NSObject+Indentifier.swift */; };
 		F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */; };
 		F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */; };
+		F1D079CA20FED1080061A569 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C920FED1080061A569 /* NetworkHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		F1D079C220FEB76C0061A569 /* NSObject+Indentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Indentifier.swift"; sourceTree = "<group>"; };
 		F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LaunchNavigation.swift"; sourceTree = "<group>"; };
 		F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentIdentifier.swift; sourceTree = "<group>"; };
+		F1D079C920FED1080061A569 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		F1D0797520FE7DAA0061A569 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				F1D079C820FED0D80061A569 /* NetworkHandler */,
 				F1D079B520FEB5870061A569 /* PullRequests */,
 				F1D079B420FEB5800061A569 /* Repositories */,
 				F1D079AC20FE9E1A0061A569 /* Router */,
@@ -259,6 +262,14 @@
 				F1D079C020FEB6CF0061A569 /* PullRequestsView.storyboard */,
 			);
 			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		F1D079C820FED0D80061A569 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079C920FED1080061A569 /* NetworkHandler.swift */,
+			);
+			path = NetworkHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +442,7 @@
 				F1D079BD20FEB6B00061A569 /* PullRequestsViewController.swift in Sources */,
 				F1D079BF20FEB6BF0061A569 /* PullRequests.swift in Sources */,
 				F1D079B920FEB5D30061A569 /* Repositories.swift in Sources */,
+				F1D079CA20FED1080061A569 /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
