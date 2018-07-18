@@ -14,14 +14,17 @@ class RouterTests: QuickSpec {
 
 	override func spec() {
 		
-        describe("Navigation Tests") {
+        describe("Test Router") {
 
-			context("", closure: {
+			context("On init", closure: {
+
+				var routerView: RouterView!
 
 				beforeEach {
 
-                    // Run before each test
-
+					// Run before each test
+					 routerView = RouterView()
+					 routerView.presenter = Router(view: routerView)
                 }
 
                 afterEach{
@@ -30,9 +33,15 @@ class RouterTests: QuickSpec {
                 }
 
                 // Puts test code here
-				it("Be true", closure: {
+				it("Check Presenter", closure: {
 
-					expect(10).to(equal(10))
+					expect(routerView.presenter).toNot(beNil())
+				})
+
+				it("Navigate to Repositories", closure: {
+
+					routerView.presenter?.goTo(destiny: .repositories, pushForward: nil)
+					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(RepositoriesViewController.self))
 				})
             })
         }
