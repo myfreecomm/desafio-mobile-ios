@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - Mantle
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 8a4ce803ff698d76a0891a37253efe94c9bcdc48
+
+COCOAPODS: 1.2.1
