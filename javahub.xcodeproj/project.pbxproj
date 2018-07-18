@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		F1CD068A20FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */; };
+		F1CD068D20FF77A60036E784 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068C20FF77A60036E784 /* Repository.swift */; };
+		F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068E20FF794E0036E784 /* PullRequest.swift */; };
+		F1CD069620FF8A1A0036E784 /* listRepositoriesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD069320FF89E70036E784 /* listRepositoriesMock.json */; };
+		F1CD069720FF8A1D0036E784 /* listPullRequestsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD069220FF89E70036E784 /* listPullRequestsMock.json */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 
 /* Begin PBXFileReference section */
 		F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIScrollView_InfiniteScroll.framework; path = Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework; sourceTree = "<group>"; };
+		F1CD068C20FF77A60036E784 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		F1CD068E20FF794E0036E784 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		F1CD069220FF89E70036E784 /* listPullRequestsMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listPullRequestsMock.json; sourceTree = "<group>"; };
+		F1CD069320FF89E70036E784 /* listRepositoriesMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listRepositoriesMock.json; sourceTree = "<group>"; };
 		F1D0795120FE74400061A569 /* javahub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javahub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0797920FE7DAA0061A569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1CD068B20FF73240036E784 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1CD068C20FF77A60036E784 /* Repository.swift */,
+				F1CD068E20FF794E0036E784 /* PullRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F1D0794820FE74400061A569 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +163,7 @@
 		F1D0797520FE7DAA0061A569 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				F1CD068B20FF73240036E784 /* Models */,
 				F1D079C820FED0D80061A569 /* NetworkHandler */,
 				F1D079B520FEB5870061A569 /* PullRequests */,
 				F1D079B420FEB5800061A569 /* Repositories */,
@@ -287,6 +305,8 @@
 		F1D079D020FEDC3E0061A569 /* stubs */ = {
 			isa = PBXGroup;
 			children = (
+				F1CD069220FF89E70036E784 /* listPullRequestsMock.json */,
+				F1CD069320FF89E70036E784 /* listRepositoriesMock.json */,
 				F1D079D120FEDC660061A569 /* NetworkHandlerMock.json */,
 				F1D079D320FEDC930061A569 /* Stubs.swift */,
 			);
@@ -388,7 +408,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CD069720FF8A1D0036E784 /* listPullRequestsMock.json in Resources */,
 				F1D079D220FEDC660061A569 /* NetworkHandlerMock.json in Resources */,
+				F1CD069620FF8A1A0036E784 /* listRepositoriesMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,10 +479,12 @@
 				F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */,
 				F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */,
 				F1D079B320FE9E7D0061A569 /* Routes.swift in Sources */,
+				F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */,
 				F1D079B120FE9E560061A569 /* Router.swift in Sources */,
 				F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */,
 				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
 				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,
+				F1CD068D20FF77A60036E784 /* Repository.swift in Sources */,
 				F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */,
 				F1D079CC20FED1BA0061A569 /* API.swift in Sources */,
 				F1D079BD20FEB6B00061A569 /* PullRequestsViewController.swift in Sources */,
