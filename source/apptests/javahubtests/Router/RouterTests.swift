@@ -75,6 +75,12 @@ class RouterTests: QuickSpec {
 					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(RepositoriesViewController.self))
 				})
 
+				it("Check method goTo", closure: {
+
+					routerPresenter.goTo(destiny: .pullrequests, pushForward: nil)
+					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(PullRequestsViewController.self))
+				})
+
 				it("Check buildView", closure: {
 
 					let view = routerPresenter.buildView(Routes.repositories.file, RepositoriesViewController.identifier, RepositoriesViewController.self)
