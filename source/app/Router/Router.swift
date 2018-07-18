@@ -34,7 +34,7 @@ class Router: NSObject, RouterInterface {
 			viewInstance.presenter = Repositories(view: viewInstance, router: self)
 			self.view?.setViewControllers([viewInstance], animated: false)
 
-		case .pullrequest:
+		case .pullrequests:
 
 			let viewInstance = buildView(destiny.file, PullRequestsViewController.identifier, PullRequestsViewController.self)
 

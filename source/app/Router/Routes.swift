@@ -11,7 +11,7 @@ import Foundation
 enum Routes {
 
 	case repositories
-	case pullrequest
+	case pullrequests
 
 	var file: String{
 
@@ -19,8 +19,8 @@ enum Routes {
 
 		case .repositories:
 			return "RepositoriesView"
-		case .pullrequest:
-			return "PullRequestView"
+		case .pullrequests:
+			return "PullRequestsView"
 		}
 	}
 }
