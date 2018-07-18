@@ -4,8 +4,8 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>$(APP_DISPLAY_NAME)</string>
-	<key>ENVIROMENT</key>
-	<string>$(MTL_ENABLE_DEBUG_INFO)</string>
+	<key>ENVIRONMENT</key>
+	<string>$(ENVIRONMENT)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
