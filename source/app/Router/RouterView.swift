@@ -11,6 +11,7 @@ import UIKit
 protocol RouterViewInterface: class{
 
 	func setViewControllers(_: [UIViewController], animated: Bool)
+	func pushViewController(_: UIViewController, animated: Bool)
 }
 
 class RouterView: UINavigationController, RouterViewInterface {
