@@ -19,12 +19,13 @@ class RouterTests: QuickSpec {
 			context("On init", closure: {
 
 				var routerView: RouterView!
-
+				var routerPresenter: Router!
 				beforeEach {
 
 					// Run before each test
 					 routerView = RouterView()
-					 routerView.presenter = Router(view: routerView)
+					 routerPresenter = Router(view: routerView)
+					 routerView.presenter = routerPresenter
                 }
 
                 afterEach{
@@ -33,17 +34,47 @@ class RouterTests: QuickSpec {
                 }
 
                 // Puts test code here
-				it("Check Presenter", closure: {
+				it("Check Presenter in View", closure: {
 
 					expect(routerView.presenter).toNot(beNil())
 				})
 
-				it("Navigate to Repositories", closure: {
+				it("Check View in Presenter", closure: {
+
+					expect(routerPresenter.view).toNot(beNil())
+				})
+
+				it("RouterView Navigate to Repositories", closure: {
 
 					routerView.presenter?.goTo(destiny: .repositories, pushForward: nil)
 					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(RepositoriesViewController.self))
 				})
             })
+
+			context("Router", closure:{
+
+				var routerView: RouterView!
+				var routerPresenter: Router!
+				beforeEach {
+
+					// Run before each test
+					routerView = RouterView()
+					routerPresenter = Router(view: routerView)
+					routerView.presenter = routerPresenter
+				}
+
+				it("Check method goTo", closure: {
+
+					routerPresenter.goTo(destiny: .repositories, pushForward: nil)
+					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(RepositoriesViewController.self))
+				})
+
+				it("Check buildView", closure: {
+
+					let view = routerPresenter.buildView(Routes.repositories.file, RepositoriesViewController.identifier, RepositoriesViewController.self)
+					expect(view).toEventually(beAnInstanceOf(RepositoriesViewController.self))
+				})
+			})
         }
 	}
 }

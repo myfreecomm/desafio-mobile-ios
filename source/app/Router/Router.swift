@@ -15,7 +15,7 @@ protocol RouterInterface {
 
 class Router: NSObject, RouterInterface {
 
-	private weak var view: RouterViewInterface?
+	weak var view: RouterViewInterface?
 
 	init(view: RouterViewInterface) {
 		super.init()
@@ -44,7 +44,7 @@ class Router: NSObject, RouterInterface {
 		}
 	}
 
-	private func buildView<T>(_ nameFile: String, _ identifier: String, _ viewClass: T.Type) -> T{
+	func buildView<T>(_ nameFile: String, _ identifier: String, _ viewClass: T.Type) -> T{
 
 		return UIStoryboard(name: nameFile, bundle: nil).instantiateViewController(withIdentifier: identifier) as! T
 	}
