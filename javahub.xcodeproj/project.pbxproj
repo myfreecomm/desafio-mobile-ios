@@ -16,6 +16,8 @@
 		F1CD06A820FFAD5D0036E784 /* NetworkHandlerMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06A520FFAD5C0036E784 /* NetworkHandlerMock.json */; };
 		F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06A920FFB23E0036E784 /* PullRequestTests.swift */; };
 		F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069820FF8B210036E784 /* APIInterfaceTests.swift */; };
+		F1CD06AD20FFCF360036E784 /* RepositoriesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AC20FFCF360036E784 /* RepositoriesNetwork.swift */; };
+		F1CD06AF20FFE8480036E784 /* UITableViewController+MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		F1CD06A420FFAD5C0036E784 /* listRepositoriesMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = listRepositoriesMock.json; sourceTree = "<group>"; };
 		F1CD06A520FFAD5C0036E784 /* NetworkHandlerMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NetworkHandlerMock.json; sourceTree = "<group>"; };
 		F1CD06A920FFB23E0036E784 /* PullRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTests.swift; sourceTree = "<group>"; };
+		F1CD06AC20FFCF360036E784 /* RepositoriesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetwork.swift; sourceTree = "<group>"; };
+		F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+MessageTableView.swift"; sourceTree = "<group>"; };
 		F1D0795120FE74400061A569 /* javahub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javahub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0797920FE7DAA0061A569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				F1D079C220FEB76C0061A569 /* NSObject+Indentifier.swift */,
 				F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */,
 				F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */,
+				F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				F1D079B620FEB5BF0061A569 /* RepositoriesViewController.swift */,
 				F1D079B820FEB5D30061A569 /* Repositories.swift */,
 				F1D079BA20FEB6160061A569 /* RepositoriesView.storyboard */,
+				F1CD06AC20FFCF360036E784 /* RepositoriesNetwork.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -493,12 +499,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CD06AF20FFE8480036E784 /* UITableViewController+MessageTableView.swift in Sources */,
 				F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */,
 				F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */,
 				F1D079B320FE9E7D0061A569 /* Routes.swift in Sources */,
 				F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */,
 				F1D079B120FE9E560061A569 /* Router.swift in Sources */,
 				F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */,
+				F1CD06AD20FFCF360036E784 /* RepositoriesNetwork.swift in Sources */,
 				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
 				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,
 				F1CD068D20FF77A60036E784 /* Repository.swift in Sources */,
@@ -706,6 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.outlook.tiagofly.javahub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
