@@ -49,6 +49,12 @@ class RouterTests: QuickSpec {
 					routerView.presenter?.goTo(destiny: .repositories, pushForward: nil)
 					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(RepositoriesViewController.self))
 				})
+
+				it("RouterView Navigate to PullRequests", closure: {
+
+					routerView.presenter?.goTo(destiny: .pullrequests, pushForward: nil)
+					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(PullRequestsViewController.self))
+				})
             })
 
 			context("Router", closure:{
