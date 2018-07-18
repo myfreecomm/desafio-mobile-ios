@@ -15,6 +15,7 @@
 		F1CD06A720FFAD5D0036E784 /* listRepositoriesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06A420FFAD5C0036E784 /* listRepositoriesMock.json */; };
 		F1CD06A820FFAD5D0036E784 /* NetworkHandlerMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06A520FFAD5C0036E784 /* NetworkHandlerMock.json */; };
 		F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06A920FFB23E0036E784 /* PullRequestTests.swift */; };
+		F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069820FF8B210036E784 /* APIInterfaceTests.swift */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
@@ -514,9 +515,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1CD069A20FF8B490036E784 /* APIInterfaceTests.swift in Sources */,
 				F1D079CF20FEDBA90061A569 /* NetworkTests.swift in Sources */,
 				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
+				F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */,
 				F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
 				F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */,
