@@ -3,6 +3,7 @@ github "SwiftyJSON/SwiftyJSON"
 github "Alamofire/Alamofire"
 github "0x73/SwiftIconFont"
 github "onevcat/Kingfisher"
+github "pronebird/UIScrollView-InfiniteScroll" ~> 1.1.0
 github "AliSoftware/OHHTTPStubs"
 github "Quick/Quick"
 github "Quick/Nimble"
