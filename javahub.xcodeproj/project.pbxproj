@@ -21,6 +21,18 @@
 		F1D079A720FE9BCA0061A569 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A420FE9BCA0061A569 /* Nimble.framework */; };
 		F1D079A820FE9BCA0061A569 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */; };
 		F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AA20FE9CA50061A569 /* RouterTests.swift */; };
+		F1D079B020FE9E530061A569 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AF20FE9E530061A569 /* RouterView.swift */; };
+		F1D079B120FE9E560061A569 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AD20FE9E390061A569 /* Router.swift */; };
+		F1D079B320FE9E7D0061A569 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079B220FE9E7D0061A569 /* Routes.swift */; };
+		F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079B620FEB5BF0061A569 /* RepositoriesViewController.swift */; };
+		F1D079B920FEB5D30061A569 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079B820FEB5D30061A569 /* Repositories.swift */; };
+		F1D079BB20FEB6160061A569 /* RepositoriesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D079BA20FEB6160061A569 /* RepositoriesView.storyboard */; };
+		F1D079BD20FEB6B00061A569 /* PullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079BC20FEB6B00061A569 /* PullRequestsViewController.swift */; };
+		F1D079BF20FEB6BF0061A569 /* PullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079BE20FEB6BE0061A569 /* PullRequests.swift */; };
+		F1D079C120FEB6CF0061A569 /* PullRequestsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D079C020FEB6CF0061A569 /* PullRequestsView.storyboard */; };
+		F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C220FEB76C0061A569 /* NSObject+Indentifier.swift */; };
+		F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */; };
+		F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +64,18 @@
 		F1D079A420FE9BCA0061A569 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		F1D079AA20FE9CA50061A569 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		F1D079AD20FE9E390061A569 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F1D079AF20FE9E530061A569 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		F1D079B220FE9E7D0061A569 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		F1D079B620FEB5BF0061A569 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		F1D079B820FEB5D30061A569 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		F1D079BA20FEB6160061A569 /* RepositoriesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoriesView.storyboard; sourceTree = "<group>"; };
+		F1D079BC20FEB6B00061A569 /* PullRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewController.swift; sourceTree = "<group>"; };
+		F1D079BE20FEB6BE0061A569 /* PullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequests.swift; sourceTree = "<group>"; };
+		F1D079C020FEB6CF0061A569 /* PullRequestsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PullRequestsView.storyboard; sourceTree = "<group>"; };
+		F1D079C220FEB76C0061A569 /* NSObject+Indentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Indentifier.swift"; sourceTree = "<group>"; };
+		F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LaunchNavigation.swift"; sourceTree = "<group>"; };
+		F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +136,9 @@
 		F1D0797520FE7DAA0061A569 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				F1D079B520FEB5870061A569 /* PullRequests */,
+				F1D079B420FEB5800061A569 /* Repositories */,
+				F1D079AC20FE9E1A0061A569 /* Router */,
 				F1D0797620FE7DAA0061A569 /* Util */,
 				F1D0797720FE7DAA0061A569 /* Launch */,
 				F1D0797A20FE7DAA0061A569 /* System */,
@@ -123,6 +150,9 @@
 		F1D0797620FE7DAA0061A569 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F1D079C220FEB76C0061A569 /* NSObject+Indentifier.swift */,
+				F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */,
+				F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -199,6 +229,36 @@
 				F1D079AA20FE9CA50061A569 /* RouterTests.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F1D079AC20FE9E1A0061A569 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079AD20FE9E390061A569 /* Router.swift */,
+				F1D079B220FE9E7D0061A569 /* Routes.swift */,
+				F1D079AF20FE9E530061A569 /* RouterView.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F1D079B420FEB5800061A569 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079B620FEB5BF0061A569 /* RepositoriesViewController.swift */,
+				F1D079B820FEB5D30061A569 /* Repositories.swift */,
+				F1D079BA20FEB6160061A569 /* RepositoriesView.storyboard */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F1D079B520FEB5870061A569 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079BC20FEB6B00061A569 /* PullRequestsViewController.swift */,
+				F1D079BE20FEB6BE0061A569 /* PullRequests.swift */,
+				F1D079C020FEB6CF0061A569 /* PullRequestsView.storyboard */,
+			);
+			path = PullRequests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +346,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */,
+				F1D079BB20FEB6160061A569 /* RepositoriesView.storyboard in Resources */,
+				F1D079C120FEB6CF0061A569 /* PullRequestsView.storyboard in Resources */,
 				F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +420,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */,
 				F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */,
+				F1D079B320FE9E7D0061A569 /* Routes.swift in Sources */,
+				F1D079B120FE9E560061A569 /* Router.swift in Sources */,
+				F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */,
+				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
+				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,
+				F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */,
+				F1D079BD20FEB6B00061A569 /* PullRequestsViewController.swift in Sources */,
+				F1D079BF20FEB6BF0061A569 /* PullRequests.swift in Sources */,
+				F1D079B920FEB5D30061A569 /* Repositories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
