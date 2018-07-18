@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1CD068A20FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
-		F1D0798E20FE9B410061A569 /* javahubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0798D20FE9B410061A569 /* javahubTests.swift */; };
 		F1D0799D20FE9B960061A569 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799720FE9B950061A569 /* Kingfisher.framework */; };
 		F1D0799E20FE9B960061A569 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799820FE9B950061A569 /* SwiftIconFont.framework */; };
 		F1D0799F20FE9B960061A569 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D0799920FE9B950061A569 /* Realm.framework */; };
@@ -34,6 +34,10 @@
 		F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */; };
 		F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */; };
 		F1D079CA20FED1080061A569 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C920FED1080061A569 /* NetworkHandler.swift */; };
+		F1D079CC20FED1BA0061A569 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079CB20FED1BA0061A569 /* API.swift */; };
+		F1D079CF20FEDBA90061A569 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079CE20FEDBA90061A569 /* NetworkTests.swift */; };
+		F1D079D220FEDC660061A569 /* NetworkHandlerMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1D079D120FEDC660061A569 /* NetworkHandlerMock.json */; };
+		F1D079D420FEDC930061A569 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079D320FEDC930061A569 /* Stubs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,13 +51,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIScrollView_InfiniteScroll.framework; path = Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework; sourceTree = "<group>"; };
 		F1D0795120FE74400061A569 /* javahub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javahub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0797920FE7DAA0061A569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1D0797C20FE7DAA0061A569 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D0797E20FE7DAA0061A569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1D0798B20FE9B410061A569 /* javahubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = javahubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1D0798D20FE9B410061A569 /* javahubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = javahubTests.swift; sourceTree = "<group>"; };
 		F1D0798F20FE9B410061A569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D0799720FE9B950061A569 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		F1D0799820FE9B950061A569 /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
@@ -78,6 +82,10 @@
 		F1D079C420FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LaunchNavigation.swift"; sourceTree = "<group>"; };
 		F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentIdentifier.swift; sourceTree = "<group>"; };
 		F1D079C920FED1080061A569 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		F1D079CB20FED1BA0061A569 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F1D079CE20FEDBA90061A569 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		F1D079D120FEDC660061A569 /* NetworkHandlerMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NetworkHandlerMock.json; sourceTree = "<group>"; };
+		F1D079D320FEDC930061A569 /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CD068A20FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework in Frameworks */,
 				F1D0799D20FE9B960061A569 /* Kingfisher.framework in Frameworks */,
 				F1D0799E20FE9B960061A569 /* SwiftIconFont.framework in Frameworks */,
 				F1D0799F20FE9B960061A569 /* Realm.framework in Frameworks */,
@@ -111,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				F1D0797420FE7DAA0061A569 /* source */,
-				F1D0798C20FE9B410061A569 /* javahubTests */,
 				F1D0795220FE74400061A569 /* Products */,
 				F1D0799620FE9B950061A569 /* Frameworks */,
 			);
@@ -188,31 +196,26 @@
 		F1D0797F20FE7DAA0061A569 /* apptests */ = {
 			isa = PBXGroup;
 			children = (
-				F1D0798020FE7DAA0061A569 /* javahubtests */,
+				F1D0798F20FE9B410061A569 /* Info.plist */,
+				F1D0798020FE7DAA0061A569 /* tests */,
 			);
 			path = apptests;
 			sourceTree = "<group>";
 		};
-		F1D0798020FE7DAA0061A569 /* javahubtests */ = {
+		F1D0798020FE7DAA0061A569 /* tests */ = {
 			isa = PBXGroup;
 			children = (
 				F1D079A920FE9C8E0061A569 /* Router */,
+				F1D079D020FEDC3E0061A569 /* stubs */,
+				F1D079CD20FEDB8B0061A569 /* NetworkHandler */,
 			);
-			path = javahubtests;
-			sourceTree = "<group>";
-		};
-		F1D0798C20FE9B410061A569 /* javahubTests */ = {
-			isa = PBXGroup;
-			children = (
-				F1D0798D20FE9B410061A569 /* javahubTests.swift */,
-				F1D0798F20FE9B410061A569 /* Info.plist */,
-			);
-			path = javahubTests;
+			path = tests;
 			sourceTree = "<group>";
 		};
 		F1D0799620FE9B950061A569 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */,
 				F1D079A420FE9BCA0061A569 /* Nimble.framework */,
 				F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */,
 				F1D079A320FE9BC90061A569 /* Quick.framework */,
@@ -268,8 +271,26 @@
 			isa = PBXGroup;
 			children = (
 				F1D079C920FED1080061A569 /* NetworkHandler.swift */,
+				F1D079CB20FED1BA0061A569 /* API.swift */,
 			);
 			path = NetworkHandler;
+			sourceTree = "<group>";
+		};
+		F1D079CD20FEDB8B0061A569 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079CE20FEDBA90061A569 /* NetworkTests.swift */,
+			);
+			path = NetworkHandler;
+			sourceTree = "<group>";
+		};
+		F1D079D020FEDC3E0061A569 /* stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F1D079D120FEDC660061A569 /* NetworkHandlerMock.json */,
+				F1D079D320FEDC930061A569 /* Stubs.swift */,
+			);
+			path = stubs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D079D220FEDC660061A569 /* NetworkHandlerMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +421,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftIconFont.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -439,6 +462,7 @@
 				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
 				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,
 				F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */,
+				F1D079CC20FED1BA0061A569 /* API.swift in Sources */,
 				F1D079BD20FEB6B00061A569 /* PullRequestsViewController.swift in Sources */,
 				F1D079BF20FEB6BF0061A569 /* PullRequests.swift in Sources */,
 				F1D079B920FEB5D30061A569 /* Repositories.swift in Sources */,
@@ -450,8 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D079CF20FEDBA90061A569 /* NetworkTests.swift in Sources */,
 				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
-				F1D0798E20FE9B410061A569 /* javahubTests.swift in Sources */,
+				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +625,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDbg;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
+				ENVIRONMENT = debug;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -624,6 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7SQ2QJ5AU;
+				ENVIRONMENT = release;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -650,7 +677,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = javahubTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/source/apptests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,7 +702,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = javahubTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/source/apptests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
