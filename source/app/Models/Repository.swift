@@ -24,11 +24,18 @@ class Repository: Object {
 		let repository = Repository()
 
 		repository.name = json["name"].string!
-		repository.detail = json["description"].string!
 		repository.stars = json["stargazers_count"].int!
 		repository.forks = json["forks_count"].int!
 		repository.photo = json["owner"]["avatar_url"].string!
 		repository.author = json["owner"]["login"].string!
+
+		if let text = json["description"].string {
+
+			repository.detail = text
+		} else {
+
+			repository.detail = ""
+	    }
 
 		return repository
 	}
