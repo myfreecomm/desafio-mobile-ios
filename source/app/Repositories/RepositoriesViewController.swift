@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 protocol RepositoriesViewInterface {
 
+	func reloadTableView()
 }
 
 class RepositoriesViewController: UITableViewController, RepositoriesViewInterface {
@@ -19,83 +21,97 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+		self.navigationItem.title = "JavaHub"
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.estimatedRowHeight = 145
+        self.clearsSelectionOnViewWillAppear = false
+		self.setupInfinityScroll()
+		self.setupRefreshControl()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		self.updateData()
+	}
+
+	// Request new data to append in tableview and increment current page. Used by INFINITY SCROLL
+	func requestNewData() {
+
+		self.presenter!.incrementPage()
+		self.presenter!.requestItens()
+	}
+
+	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST
+	@objc func updateData(){
+
+		self.presenter!.resetPage()
+		self.presenter!.requestItens()
+	}
+
+	func setupRefreshControl(){
+
+		self.refreshControl = UIRefreshControl()
+		self.refreshControl!.addTarget(target, action: #selector(updateData), for: .valueChanged)
+	}
+
+	func setupInfinityScroll () {
+
+		self.tableView.infiniteScrollIndicatorStyle  = .gray
+		self.tableView.infiniteScrollIndicatorMargin = 40
+		self.tableView.infiniteScrollTriggerOffset   = 500
+
+		self.tableView.addInfiniteScroll { (tableView) in
+
+			self.requestNewData()
+		}
+	}
+
+	func reloadTableView() {
+
+		self.tableView.reloadData()
+
+		let indexPaths = [NSIndexPath]()
+
+		self.tableView.beginUpdates()
+		self.tableView.insertRows(at: indexPaths as [IndexPath], with: .automatic)
+		self.tableView.endUpdates()
+
+		self.tableView.finishInfiniteScroll()
+
+		self.refreshControl!.endRefreshing()
+		self.tableView.finishInfiniteScroll()
+	}
+
+	func registerCell() {
+		// Add custom cell register to tableview here
+
+	}
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+		return self.showMessageTableEmpty(text: "Carregando, aguarde...", amount: self.presenter!.sizeList, tableView: self.tableView)
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+		return self.presenter!.buildCell(to: self.tableView, at: indexPath)
+	}
 
-        return cell
-    }
-    */
+	override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+//		(cell as! RepositoryCell).endDisplay()
+	}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+		self.presenter!.showItem(at: indexPath.row)
+	}
 }
