@@ -16,12 +16,17 @@ class RepositoriesTests: QuickSpec {
 
 	override func setUp() {
 		super.setUp()
+		self.stubs.stubGetConnection(file: "listRepositoriesMock", host: "localhost", in: "/search/repositories")
 	}
 
 	override func spec() {
-		
+
         describe("Test Repositories class") {
 
+			afterSuite {
+
+				self.stubs.clearStubs()
+			}
 			context("", closure: {
 
 				var repositoriesView: RepositoriesViewController!
@@ -31,8 +36,6 @@ class RepositoriesTests: QuickSpec {
 				beforeEach {
 
                     // Run before each test
-					self.stubs.stubGetConnection(file: "listRepositoriesMock", host: "localhost", in: "/search/repositories?q=language:Java&sort=stars&page=1")
-
 					navController = RouterView()
 					navController.loadViewIfNeeded()
 					navController.presenter = Router(view: navController)
@@ -48,12 +51,6 @@ class RepositoriesTests: QuickSpec {
 					delegate.window?.rootViewController = navController
 					delegate.window?.makeKeyAndVisible()
 
-                }
-
-                afterEach{
-
-                     // Run after each test
-					self.stubs.clearStubs()
                 }
 
                 // Puts test code here
