@@ -37,4 +37,9 @@ extension UITableViewController {
 			return amount
 		}
 	}
+
+	func setBackButtonTitle(with text: String) {
+
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: text, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+	}
 }
