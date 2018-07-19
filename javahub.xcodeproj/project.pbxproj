@@ -18,6 +18,8 @@
 		F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069820FF8B210036E784 /* APIInterfaceTests.swift */; };
 		F1CD06AD20FFCF360036E784 /* RepositoriesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AC20FFCF360036E784 /* RepositoriesNetwork.swift */; };
 		F1CD06AF20FFE8480036E784 /* UITableViewController+MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */; };
+		F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */; };
+		F1CD06B4210020630036E784 /* Info-dbg.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06B3210020630036E784 /* Info-dbg.plist */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		F1CD06A920FFB23E0036E784 /* PullRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTests.swift; sourceTree = "<group>"; };
 		F1CD06AC20FFCF360036E784 /* RepositoriesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetwork.swift; sourceTree = "<group>"; };
 		F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+MessageTableView.swift"; sourceTree = "<group>"; };
+		F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTests.swift; sourceTree = "<group>"; };
+		F1CD06B3210020630036E784 /* Info-dbg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-dbg.plist"; sourceTree = "<group>"; };
 		F1D0795120FE74400061A569 /* javahub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javahub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0797920FE7DAA0061A569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F1CD06B020FFED9A0036E784 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		F1D0794820FE74400061A569 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,7 @@
 		F1D0797A20FE7DAA0061A569 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				F1CD06B3210020630036E784 /* Info-dbg.plist */,
 				F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */,
 				F1D0797C20FE7DAA0061A569 /* Info.plist */,
 			);
@@ -243,6 +256,7 @@
 		F1D0798020FE7DAA0061A569 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				F1CD06B020FFED9A0036E784 /* Repositories */,
 				F1CD069B20FFA62B0036E784 /* Models */,
 				F1D079A920FE9C8E0061A569 /* Router */,
 				F1D079D020FEDC3E0061A569 /* stubs */,
@@ -420,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CD06B4210020630036E784 /* Info-dbg.plist in Resources */,
 				F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */,
 				F1D079BB20FEB6160061A569 /* RepositoriesView.storyboard in Resources */,
 				F1D079C120FEB6CF0061A569 /* PullRequestsView.storyboard in Resources */,
@@ -529,6 +544,7 @@
 				F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
 				F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */,
+				F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +698,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/source/app/System/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/source/app/System/Info-dbg.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

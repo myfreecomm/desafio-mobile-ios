@@ -14,7 +14,6 @@ protocol RepositoriesInterface {
 	func requestItens()
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 	func showItem(at index: Int)
-
 	func incrementPage()
 	func resetPage()
 }
