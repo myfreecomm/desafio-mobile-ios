@@ -31,7 +31,6 @@ class RepositoriesViewTests: QuickSpec {
 			context("", closure: {
 
 				var repositoriesView: RepositoriesViewController!
-				var repositories: Repositories!
 				var navController: RouterView!
 
 				beforeEach {
@@ -44,8 +43,6 @@ class RepositoriesViewTests: QuickSpec {
 
 					repositoriesView = navController.visibleViewController as! RepositoriesViewController
 					repositoriesView.loadViewIfNeeded()
-
-					repositories = repositoriesView.presenter as! Repositories
 
 					let delegate = UIApplication.shared.delegate as! AppDelegate
 					delegate.window = UIWindow(frame: UIScreen.main.bounds)
@@ -110,10 +107,10 @@ class RepositoriesViewTests: QuickSpec {
 
 				it("Check register cell", closure: {
 
-//					repositoriesView.registerCell()
-//					let registeredNibs = repositoriesView.tableView.value(forKey: "_nibMap") as? [String:UINib]
-//					let key =  Array(registeredNibs!.keys)[0]
-//					expect(key).to(equal("RepositoryCell"))
+					repositoriesView.registerCell()
+					let registeredNibs = repositoriesView.tableView.value(forKey: "_nibMap") as? [String:UINib]
+					let key =  Array(registeredNibs!.keys)[0]
+					expect(key).to(equal("RepositoryCell"))
 				})
             })
         }

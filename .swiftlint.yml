@@ -36,7 +36,7 @@ whitelist_rules:
   - multiple_closures_with_trailing_closure
   - notification_center_detachment
   - overridden_super_call
-  - private_outlet
+  # - private_outlet
   - private_over_fileprivate
   - private_unit_test
   - prohibited_super_call
@@ -95,9 +95,9 @@ statement_position:
   severity: error
 colon:
   severity: error
-private_outlet:
-  severity: warning
-  allow_private_set: true
+# private_outlet:
+#   severity: warning
+#   allow_private_set: true
 identifier_name:
   min_length:
     warning: 4
