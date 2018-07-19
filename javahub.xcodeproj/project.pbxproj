@@ -20,6 +20,7 @@
 		F1CD06AF20FFE8480036E784 /* UITableViewController+MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */; };
 		F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */; };
 		F1CD06B4210020630036E784 /* Info-dbg.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06B3210020630036E784 /* Info-dbg.plist */; };
+		F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06B521002C370036E784 /* RepositoriesViewTests.swift */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+MessageTableView.swift"; sourceTree = "<group>"; };
 		F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTests.swift; sourceTree = "<group>"; };
 		F1CD06B3210020630036E784 /* Info-dbg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-dbg.plist"; sourceTree = "<group>"; };
+		F1CD06B521002C370036E784 /* RepositoriesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewTests.swift; sourceTree = "<group>"; };
 		F1D0795120FE74400061A569 /* javahub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = javahub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0797920FE7DAA0061A569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */,
+				F1CD06B521002C370036E784 /* RepositoriesViewTests.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
 				F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */,
 				F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */,
+				F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
 				F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */,
 				F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */,
