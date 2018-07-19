@@ -11,14 +11,12 @@ import Kingfisher
 import SwiftIconFont
 class RepositoryCell: UITableViewCell {
 
-	@IBOutlet private weak var name: UILabel!
-	@IBOutlet private weak var photo: UIImageView!
-	@IBOutlet private weak var ownername: UILabel!
-	@IBOutlet private weak var detail: UILabel!
-	@IBOutlet private weak var forks: UILabel!
-	@IBOutlet private weak var starts: UILabel!
-
-	private var index: Int!
+	@IBOutlet weak var name: UILabel!
+	@IBOutlet weak var photo: UIImageView!
+	@IBOutlet weak var ownername: UILabel!
+	@IBOutlet weak var detail: UILabel!
+	@IBOutlet weak var forks: UILabel!
+	@IBOutlet weak var starts: UILabel!
 
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +31,7 @@ class RepositoryCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-	func setupCell(data: Repository, at index: Int) {
+	func setupCell(data: Repository) {
 
 		self.name.text = data.name
 		self.detail.text = data.detail
@@ -42,7 +40,6 @@ class RepositoryCell: UITableViewCell {
 		self.buildIconText(label: self.forks, fontSize: 16.0, text: String(data.forks), fontName: "codefork")
 		self.buildIconText(label: self.starts, fontSize: 16.0, text: String(data.stars), fontName: "star")
 
-		self.index = index
 	}
 
 	func endDisplay(){
@@ -59,15 +56,8 @@ class RepositoryCell: UITableViewCell {
 	func buildIconText(label: UILabel, fontSize: CGFloat, text: String, fontName: String){
 
 		label.font = UIFont.icon(from: .fontAwesome, ofSize: fontSize)
-
-		var finalStartsString = String()
-		let icon = String.fontAwesomeIcon(fontName)!
-
-		finalStartsString.append(icon)
-		finalStartsString.append(" ")
-		finalStartsString.append(text)
-
-		label.text = finalStartsString
-
+		var icon = String.fontAwesomeIcon(fontName)!
+		icon.append(" \(text)")
+		label.text = icon
 	}
 }
