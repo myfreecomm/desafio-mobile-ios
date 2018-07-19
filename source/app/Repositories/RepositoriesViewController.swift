@@ -10,7 +10,7 @@ import UIKit
 import UIScrollView_InfiniteScroll
 
 protocol RepositoriesViewInterface {
-	
+
 	func reloadTableView()
 }
 
