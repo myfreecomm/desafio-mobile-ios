@@ -53,10 +53,10 @@ class Repositories: NSObject, RepositoriesInterface {
 
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell{
 
-		let cell = UITableViewCell()
+		let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.identifier, for: indexPath) as! RepositoryCell
 
 		if self.sizeList > 0 {
-			cell.textLabel?.text = self.repositories[indexPath.row].name
+			cell.name.text = self.repositories[indexPath.row].name
 		}
 
 		return cell

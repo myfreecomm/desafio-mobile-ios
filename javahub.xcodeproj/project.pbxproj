@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
+		F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15023C82100D2480060170B /* RepositoryCell.xib */; };
 		F1CD068A20FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */; };
 		F1CD068D20FF77A60036E784 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068C20FF77A60036E784 /* Repository.swift */; };
 		F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068E20FF794E0036E784 /* PullRequest.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F15023C72100D2480060170B /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		F15023C82100D2480060170B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIScrollView_InfiniteScroll.framework; path = Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework; sourceTree = "<group>"; };
 		F1CD068C20FF77A60036E784 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F1CD068E20FF794E0036E784 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F15023C62100D2270060170B /* components */ = {
+			isa = PBXGroup;
+			children = (
+				F15023C72100D2480060170B /* RepositoryCell.swift */,
+				F15023C82100D2480060170B /* RepositoryCell.xib */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		F1CD068B20FF73240036E784 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +319,7 @@
 		F1D079B420FEB5800061A569 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				F15023C62100D2270060170B /* components */,
 				F1D079B620FEB5BF0061A569 /* RepositoriesViewController.swift */,
 				F1D079B820FEB5D30061A569 /* Repositories.swift */,
 				F1D079BA20FEB6160061A569 /* RepositoriesView.storyboard */,
@@ -440,6 +454,7 @@
 				F1CD06B4210020630036E784 /* Info-dbg.plist in Resources */,
 				F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */,
 				F1D079BB20FEB6160061A569 /* RepositoriesView.storyboard in Resources */,
+				F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */,
 				F1D079C120FEB6CF0061A569 /* PullRequestsView.storyboard in Resources */,
 				F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -526,6 +541,7 @@
 				F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */,
 				F1CD06AD20FFCF360036E784 /* RepositoriesNetwork.swift in Sources */,
 				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
+				F15023C92100D2480060170B /* RepositoryCell.swift in Sources */,
 				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,
 				F1CD068D20FF77A60036E784 /* Repository.swift in Sources */,
 				F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */,

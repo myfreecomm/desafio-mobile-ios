@@ -23,8 +23,9 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 		self.navigationItem.title = "JavaHub"
 		self.tableView.rowHeight = UITableViewAutomaticDimension
-		self.tableView.estimatedRowHeight = 145
+		self.tableView.estimatedRowHeight = 220
         self.clearsSelectionOnViewWillAppear = false
+		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
     }
@@ -76,7 +77,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 	func registerCell() {
 		// Add custom cell register to tableview here
-
+		self.tableView.register(UINib(nibName: RepositoryCell.identifier, bundle: nil), forCellReuseIdentifier: RepositoryCell.identifier)
 	}
 
     // MARK: - Table view data source
@@ -98,7 +99,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 	override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-//		(cell as! RepositoryCell).endDisplay()
+		(cell as! RepositoryCell).endDisplay()
 	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
