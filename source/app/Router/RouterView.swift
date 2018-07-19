@@ -23,5 +23,17 @@ class RouterView: UINavigationController, RouterViewInterface {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		self.setStyles()
+	}
+
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+
+	func setStyles(){
+
+		self.navigationBar.barTintColor = UIColor(red: 46.0/255.0, green: 40.0/255.0, blue: 42.0/255.0, alpha: 1.0)
+		self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+		self.navigationBar.tintColor = .white
 	}
 }
