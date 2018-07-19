@@ -10,7 +10,7 @@ import UIKit
 import UIScrollView_InfiniteScroll
 
 protocol RepositoriesViewInterface {
-
+	
 	func reloadTableView()
 }
 
@@ -28,12 +28,15 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
+		self.updateData()
     }
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-
-		self.updateData()
+//
+//		if self.presenter?.sizeList == 0{
+//			self.updateData()
+//		}
 	}
 
 	// Request new data to append in tableview and increment current page. Used by INFINITY SCROLL
@@ -47,6 +50,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	@objc func updateData(){
 
 		self.presenter!.resetData()
+		self.tableView.reloadData()
 	}
 
 	func setupRefreshControl(){
@@ -105,5 +109,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 		self.presenter!.showItem(at: indexPath.row)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }

@@ -107,10 +107,12 @@ class RepositoriesTests: QuickSpec {
 					expect(repositories.page).to(equal(2))
 				})
 
-				it("resetPage must set page for 1", closure: {
+				it("resetData must set page for 1", closure: {
 
-					repositories.resetPage()
+					repositories.resetData()
 					expect(repositories.page).to(equal(1))
+					expect(repositories.repositories.count).to(equal(0))
+					expect(repositories.sizeList).to(equal(0))
 				})
             })
         }

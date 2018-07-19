@@ -55,8 +55,8 @@ class Repositories: NSObject, RepositoriesInterface {
 
 		let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.identifier, for: indexPath) as! RepositoryCell
 
-		if self.sizeList > 0 {
-			cell.name.text = self.repositories[indexPath.row].name
+		if self.sizeList > 0 && !self.repositories.isEmpty{
+			cell.setupCell(data: self.repositories[indexPath.row], at: indexPath.row)
 		}
 
 		return cell
