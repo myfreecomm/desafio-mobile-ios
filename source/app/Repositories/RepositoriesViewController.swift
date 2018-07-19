@@ -77,8 +77,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		self.tableView.insertRows(at: indexPaths as [IndexPath], with: .automatic)
 		self.tableView.endUpdates()
 
-		self.tableView.finishInfiniteScroll()
-
 		self.refreshControl!.endRefreshing()
 		self.tableView.finishInfiniteScroll()
 	}

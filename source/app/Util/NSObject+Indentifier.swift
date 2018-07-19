@@ -15,11 +15,6 @@ protocol Identifier{}
 extension Identifier where Self: NSObject{
 
 	static var identifier: String { return String(describing: self) }
-
-	func identifierInstance() -> String{
-
-		return	String(describing: self)
-	}
 }
 
 extension NSObject: Identifier {}
