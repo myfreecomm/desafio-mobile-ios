@@ -15,7 +15,7 @@ protocol RepositoriesInterface {
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 	func showItem(at index: Int)
 	func incrementPage()
-	func resetPage()
+	func resetData()
 }
 
 class Repositories: NSObject, RepositoriesInterface {
@@ -37,40 +37,40 @@ class Repositories: NSObject, RepositoriesInterface {
 
 		self.network.listRepositoriesJavaWith(page: self.page) { (repositories) in
 
-			if self.repositories.isEmpty {
-
-				self.repositories = repositories
-				self.sizeList = repositories.count
-
-			} else {
-
-				self.repositories.append(contentsOf: repositories)
-				self.sizeList = self.repositories.count
-			}
-
+			self.repositories.append(contentsOf: repositories)
+			self.sizeList = self.repositories.count
 			self.view.reloadTableView()
 		}
+	}
+
+	func resetData() {
+
+		self.page = 1
+		self.sizeList = self.repositories.count
+		self.repositories.removeAll()
+		self.requestItens()
 	}
 
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell{
 
 		let cell = UITableViewCell()
-		cell.textLabel?.text = self.repositories[indexPath.row].name
+
+		if self.sizeList > 0 {
+			cell.textLabel?.text = self.repositories[indexPath.row].name
+		}
+
 		return cell
 	}
 
 	func showItem(at index: Int){
 
-		self.router.goTo(destiny: .pullrequests, pushForward: self.repositories[index])
+		if self.repositories.count - 1 >= index {
+			self.router.goTo(destiny: .pullrequests, pushForward: self.repositories[index])
+		}
 	}
 
 	func incrementPage() {
 
 		self.page += 1
-	}
-
-	func resetPage() {
-
-		self.page = 1
 	}
 }

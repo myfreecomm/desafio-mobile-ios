@@ -45,8 +45,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST
 	@objc func updateData(){
 
-		self.presenter!.resetPage()
-		self.presenter!.requestItens()
+		self.presenter!.resetData()
 	}
 
 	func setupRefreshControl(){
@@ -70,12 +69,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	func reloadTableView() {
 
 		self.tableView.reloadData()
-
-		let indexPaths = [NSIndexPath]()
-
-		self.tableView.beginUpdates()
-		self.tableView.insertRows(at: indexPaths as [IndexPath], with: .automatic)
-		self.tableView.endUpdates()
 
 		self.refreshControl!.endRefreshing()
 		self.tableView.finishInfiniteScroll()
