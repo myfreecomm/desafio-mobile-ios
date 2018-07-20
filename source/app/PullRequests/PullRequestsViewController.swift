@@ -24,7 +24,9 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
 
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 		self.tableView.estimatedRowHeight = 220
-		self.clearsSelectionOnViewWillAppear = false
+		self.tableView.tableFooterView = UIView()
+
+		self.setupTableView()
 		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
@@ -73,6 +75,13 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
 		self.tableView.finishInfiniteScroll()
 	}
 
+	func setupTableView(){
+
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.estimatedRowHeight = 220
+		self.tableView.tableFooterView = UIView()
+	}
+
 	func registerCell() {
 		// Add custom cell register to tableview here
 		self.tableView.register(UINib(nibName: PullRequestCell.identifier, bundle: nil), forCellReuseIdentifier: PullRequestCell.identifier)
@@ -81,13 +90,18 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.presenter!.sizeList
+        return self.showMessageTableEmpty(text: "Carregando, aguarde...", amount: self.presenter!.sizeList, tableView: self.tableView)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         return self.presenter.buildCell(to: tableView, at: indexPath) as! PullRequestCell
     }
+
+	override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+		(cell as! PullRequestCell).endDisplay()
+	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
