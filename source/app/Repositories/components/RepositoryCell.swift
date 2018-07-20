@@ -36,10 +36,14 @@ class RepositoryCell: UITableViewCell {
 		self.name.text = data.name
 		self.detail.text = data.detail
 		self.ownername.text = data.author
-		self.photo.kf.setImage(with: URL(string: data.photo)!, placeholder: UIImage(named: "avatar"))
 		self.buildIconText(label: self.forks, fontSize: 16.0, text: String(data.forks), fontName: "codefork")
 		self.buildIconText(label: self.starts, fontSize: 16.0, text: String(data.stars), fontName: "star")
 
+		if data.photo == "" {
+			self.photo.image = UIImage(named: "avatar")
+		} else {
+			self.photo.kf.setImage(with: URL(string: data.photo)!, placeholder: UIImage(named: "avatar"))
+		}
 	}
 
 	func endDisplay(){
