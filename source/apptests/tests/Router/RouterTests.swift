@@ -52,7 +52,7 @@ class RouterTests: QuickSpec {
 
 				it("RouterView Navigate to PullRequests", closure: {
 
-					routerView.presenter?.goTo(destiny: .pullrequests, pushForward: nil)
+					routerView.presenter?.goTo(destiny: .pullrequests, pushForward: Repository())
 					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(PullRequestsViewController.self))
 				})
             })
@@ -77,7 +77,7 @@ class RouterTests: QuickSpec {
 
 				it("Check method goTo", closure: {
 
-					routerPresenter.goTo(destiny: .pullrequests, pushForward: nil)
+					routerPresenter.goTo(destiny: .pullrequests, pushForward: Repository())
 					expect(routerView.visibleViewController).toEventually(beAnInstanceOf(PullRequestsViewController.self))
 				})
 
