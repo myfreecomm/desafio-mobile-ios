@@ -44,7 +44,7 @@ class RepositoryCellTests: QuickSpec {
 					cell.setupCell(data: repository)
 
 					expect(cell!.name.text).to(equal("java-design-patterns"))
-					expect(cell!.ownername.text).to(equal("USER MOCK LOCAL"))
+					expect(cell!.ownername.text).to(equal("iluwatar"))
 					expect(cell!.forks.text).to(equal(iconFork))
 					expect(cell!.starts.text).to(equal(iconStars))
 					expect(cell!.detail.text).to(equal("Design patterns implemented in Java"))
