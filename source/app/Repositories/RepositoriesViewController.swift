@@ -12,6 +12,7 @@ import UIScrollView_InfiniteScroll
 protocol RepositoriesViewInterface {
 
 	func reloadTableView()
+	func setTitleView(title: String)
 }
 
 class RepositoriesViewController: UITableViewController, RepositoriesViewInterface {
@@ -21,7 +22,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		self.navigationItem.title = "JavaHub"
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 		self.tableView.estimatedRowHeight = 220
         self.clearsSelectionOnViewWillAppear = false
@@ -37,6 +37,10 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 		self.presenter!.incrementPage()
 		self.presenter!.requestItens()
+	}
+
+	func setTitleView(title: String) {
+		self.navigationItem.title = title
 	}
 
 	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST

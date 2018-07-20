@@ -31,6 +31,7 @@ class Repositories: NSObject, RepositoriesInterface {
 
 		self.view = view
 		self.router = router
+		self.view.setTitleView(title: "JavaHub")
 	}
 
 	func requestItens(){

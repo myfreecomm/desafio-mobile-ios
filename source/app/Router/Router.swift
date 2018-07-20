@@ -38,9 +38,16 @@ class Router: NSObject, RouterInterface {
 
 			let viewInstance = buildView(destiny.file, PullRequestsViewController.identifier, PullRequestsViewController.self)
 
-			viewInstance.presenter = PullRequests(view: viewInstance)
+			viewInstance.presenter = PullRequests(view: viewInstance, router: self, repository: data as! Repository)
 			self.view?.pushViewController(viewInstance, animated: true)
 
+		case .linkBrowser:
+
+			guard let validStringUrl = data as? String else {
+				return
+			}
+
+			UIApplication.shared.openURL(URL(string: validStringUrl)!)
 		}
 	}
 

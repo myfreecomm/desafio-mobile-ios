@@ -11,6 +11,9 @@
 		F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15023C82100D2480060170B /* RepositoryCell.xib */; };
 		F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023CB210137990060170B /* RepositoriesNetworkTests.swift */; };
 		F1BA0C3F21014125007B3A68 /* RepositoryCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C3E21014125007B3A68 /* RepositoryCellTests.swift */; };
+		F1BA0C4121017996007B3A68 /* PullRequestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C4021017996007B3A68 /* PullRequestNetwork.swift */; };
+		F1BA0C462101831C007B3A68 /* PullRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C442101831C007B3A68 /* PullRequestCell.swift */; };
+		F1BA0C472101831C007B3A68 /* PullRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BA0C452101831C007B3A68 /* PullRequestCell.xib */; };
 		F1CD068A20FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */; };
 		F1CD068D20FF77A60036E784 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068C20FF77A60036E784 /* Repository.swift */; };
 		F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068E20FF794E0036E784 /* PullRequest.swift */; };
@@ -70,6 +73,9 @@
 		F15023C82100D2480060170B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		F15023CB210137990060170B /* RepositoriesNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetworkTests.swift; sourceTree = "<group>"; };
 		F1BA0C3E21014125007B3A68 /* RepositoryCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellTests.swift; sourceTree = "<group>"; };
+		F1BA0C4021017996007B3A68 /* PullRequestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestNetwork.swift; sourceTree = "<group>"; };
+		F1BA0C442101831C007B3A68 /* PullRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCell.swift; sourceTree = "<group>"; };
+		F1BA0C452101831C007B3A68 /* PullRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestCell.xib; sourceTree = "<group>"; };
 		F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIScrollView_InfiniteScroll.framework; path = Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework; sourceTree = "<group>"; };
 		F1CD068C20FF77A60036E784 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F1CD068E20FF794E0036E784 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
@@ -154,6 +160,15 @@
 				F15023C82100D2480060170B /* RepositoryCell.xib */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		F1BA0C42210182FC007B3A68 /* componenets */ = {
+			isa = PBXGroup;
+			children = (
+				F1BA0C442101831C007B3A68 /* PullRequestCell.swift */,
+				F1BA0C452101831C007B3A68 /* PullRequestCell.xib */,
+			);
+			path = componenets;
 			sourceTree = "<group>";
 		};
 		F1CD068B20FF73240036E784 /* Models */ = {
@@ -336,9 +351,11 @@
 		F1D079B520FEB5870061A569 /* PullRequests */ = {
 			isa = PBXGroup;
 			children = (
+				F1BA0C42210182FC007B3A68 /* componenets */,
 				F1D079BC20FEB6B00061A569 /* PullRequestsViewController.swift */,
 				F1D079BE20FEB6BE0061A569 /* PullRequests.swift */,
 				F1D079C020FEB6CF0061A569 /* PullRequestsView.storyboard */,
+				F1BA0C4021017996007B3A68 /* PullRequestNetwork.swift */,
 			);
 			path = PullRequests;
 			sourceTree = "<group>";
@@ -456,6 +473,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BA0C472101831C007B3A68 /* PullRequestCell.xib in Resources */,
 				F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */,
 				F1D079BB20FEB6160061A569 /* RepositoriesView.storyboard in Resources */,
 				F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */,
@@ -538,12 +556,14 @@
 			files = (
 				F1CD06AF20FFE8480036E784 /* UITableViewController+MessageTableView.swift in Sources */,
 				F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */,
+				F1BA0C462101831C007B3A68 /* PullRequestCell.swift in Sources */,
 				F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */,
 				F1D079B320FE9E7D0061A569 /* Routes.swift in Sources */,
 				F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */,
 				F1D079B120FE9E560061A569 /* Router.swift in Sources */,
 				F1D079C520FEBAAE0061A569 /* AppDelegate+LaunchNavigation.swift in Sources */,
 				F1CD06AD20FFCF360036E784 /* RepositoriesNetwork.swift in Sources */,
+				F1BA0C4121017996007B3A68 /* PullRequestNetwork.swift in Sources */,
 				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
 				F15023C92100D2480060170B /* RepositoryCell.swift in Sources */,
 				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,

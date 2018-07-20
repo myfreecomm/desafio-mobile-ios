@@ -7,89 +7,91 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 protocol PullRequestsViewInterface {
+
+	func reloadTableView()
+	func setTitleView(title: String)
 }
 
 class PullRequestsViewController: UITableViewController, PullRequestsViewInterface {
 
-	var presenter: PullRequestsInterface?
+	var presenter: PullRequestsInterface!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.estimatedRowHeight = 220
+		self.clearsSelectionOnViewWillAppear = false
+		self.registerCell()
+		self.setupInfinityScroll()
+		self.setupRefreshControl()
+		self.updateData()
+		self.setBackButtonTitle(with: "")
     }
+
+	func requestNewData(){
+
+		self.presenter.incrementPage()
+		self.presenter.requestItens()
+	}
+
+	func setTitleView(title: String) {
+		self.navigationItem.title = title
+	}
+
+	func setupRefreshControl(){
+
+		self.refreshControl = UIRefreshControl()
+		self.refreshControl!.addTarget(target, action: #selector(updateData), for: .valueChanged)
+	}
+
+	func setupInfinityScroll () {
+
+		self.tableView.infiniteScrollIndicatorStyle  = .gray
+		self.tableView.infiniteScrollIndicatorMargin = 40
+		self.tableView.infiniteScrollTriggerOffset   = 500
+
+		self.tableView.addInfiniteScroll { (tableView) in
+
+			self.requestNewData()
+		}
+	}
+
+	@objc func updateData(){
+
+		self.presenter.resetData()
+		self.tableView.reloadData()
+	}
+
+	func reloadTableView() {
+
+		self.tableView.reloadData()
+		self.refreshControl!.endRefreshing()
+		self.tableView.finishInfiniteScroll()
+	}
+
+	func registerCell() {
+		// Add custom cell register to tableview here
+		self.tableView.register(UINib(nibName: PullRequestCell.identifier, bundle: nil), forCellReuseIdentifier: PullRequestCell.identifier)
+	}
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.presenter!.sizeList
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
-
-        return cell
+        return self.presenter.buildCell(to: tableView, at: indexPath) as! PullRequestCell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+		self.presenter.showItem(at: indexPath.row)
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
 }

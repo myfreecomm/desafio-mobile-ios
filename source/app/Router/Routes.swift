@@ -12,6 +12,7 @@ enum Routes {
 
 	case repositories
 	case pullrequests
+	case linkBrowser
 
 	var file: String{
 
@@ -21,6 +22,8 @@ enum Routes {
 			return "RepositoriesView"
 		case .pullrequests:
 			return "PullRequestsView"
+		case .linkBrowser:
+			return ""
 		}
 	}
 }
