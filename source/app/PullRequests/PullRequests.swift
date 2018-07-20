@@ -39,8 +39,16 @@ class PullRequests: NSObject, PullRequestsInterface{
 	func requestItens() {
 		self.network.listPullRequestsOf(repoName: repository.name, author: repository.author, page: self.page, completion: { (pullrequests) in
 
-			self.pullrequests.append(contentsOf: pullrequests)
-			self.sizeList = self.pullrequests.count
+			if pullrequests.isEmpty {
+
+				self.page -= 1
+
+			} else {
+
+				self.pullrequests.append(contentsOf: pullrequests)
+				self.sizeList = self.pullrequests.count
+			}
+
 			self.view.reloadTableView()
 		})
 	}
@@ -55,13 +63,12 @@ class PullRequests: NSObject, PullRequestsInterface{
 
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
 
-		let cell = tableView.dequeueReusableCell(withIdentifier: PullRequestCell.identifier, for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: PullRequestCell.identifier, for: indexPath) as! PullRequestCell
 
-//		if self.sizeList > 0 && !self.repositories.isEmpty{
-//			cell.setupCell(data: self.repositories[indexPath.row])
-//		}
+		if self.sizeList > 0 && !self.pullrequests.isEmpty{
+			cell.setupCell(data: self.pullrequests[indexPath.row])
+		}
 
-		cell.textLabel?.text = self.pullrequests[indexPath.row].title
 		return cell
 	}
 
