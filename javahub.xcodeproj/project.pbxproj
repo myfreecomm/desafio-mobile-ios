@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F12811672102433B00E1A8E9 /* PullRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */; };
 		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
 		F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15023C82100D2480060170B /* RepositoryCell.xib */; };
 		F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023CB210137990060170B /* RepositoriesNetworkTests.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTests.swift; sourceTree = "<group>"; };
 		F15023C72100D2480060170B /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		F15023C82100D2480060170B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		F15023CB210137990060170B /* RepositoriesNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetworkTests.swift; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1281164210241B800E1A8E9 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+				F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */,
+			);
+			path = PullRequests;
+			sourceTree = "<group>";
+		};
 		F15023C62100D2270060170B /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +302,7 @@
 		F1D0798020FE7DAA0061A569 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				F1281164210241B800E1A8E9 /* PullRequests */,
 				F1CD06B020FFED9A0036E784 /* Repositories */,
 				F1CD069B20FFA62B0036E784 /* Models */,
 				F1D079A920FE9C8E0061A569 /* Router */,
@@ -586,6 +597,7 @@
 				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
 				F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */,
 				F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */,
+				F12811672102433B00E1A8E9 /* PullRequestsTests.swift in Sources */,
 				F1BA0C3F21014125007B3A68 /* RepositoryCellTests.swift in Sources */,
 				F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
