@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F12811672102433B00E1A8E9 /* PullRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */; };
+		F128116921027D6300E1A8E9 /* PullRequestsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */; };
+		F128116B21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */; };
+		F128116D2102824B00E1A8E9 /* PullRequestCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */; };
 		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
 		F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15023C82100D2480060170B /* RepositoryCell.xib */; };
 		F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023CB210137990060170B /* RepositoriesNetworkTests.swift */; };
@@ -71,6 +74,9 @@
 
 /* Begin PBXFileReference section */
 		F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTests.swift; sourceTree = "<group>"; };
+		F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewControllerTests.swift; sourceTree = "<group>"; };
+		F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsNetworkTests.swift; sourceTree = "<group>"; };
+		F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCellTests.swift; sourceTree = "<group>"; };
 		F15023C72100D2480060170B /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		F15023C82100D2480060170B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		F15023CB210137990060170B /* RepositoriesNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetworkTests.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */,
+				F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */,
+				F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */,
+				F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */,
 			);
 			path = PullRequests;
 			sourceTree = "<group>";
@@ -592,13 +601,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F128116D2102824B00E1A8E9 /* PullRequestCellTests.swift in Sources */,
 				F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */,
+				F128116B21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift in Sources */,
 				F1D079CF20FEDBA90061A569 /* NetworkTests.swift in Sources */,
 				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
 				F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */,
 				F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */,
 				F12811672102433B00E1A8E9 /* PullRequestsTests.swift in Sources */,
 				F1BA0C3F21014125007B3A68 /* RepositoryCellTests.swift in Sources */,
+				F128116921027D6300E1A8E9 /* PullRequestsViewControllerTests.swift in Sources */,
 				F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
 				F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */,
