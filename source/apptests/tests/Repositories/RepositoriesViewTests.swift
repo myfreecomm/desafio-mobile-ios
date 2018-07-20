@@ -55,10 +55,12 @@ class RepositoriesViewTests: QuickSpec {
 				// Run after each test
                 }
 
-                // Puts test code here
+ 				// Puts test code here
 				it("Check Title", closure: {
 
-					expect(repositoriesView.navigationItem.title).to(equal("JavaHub"))
+					let titleTest: String = "Title Test"
+					repositoriesView.setTitleView(title: titleTest)
+					expect(repositoriesView.navigationItem.title).to(equal(titleTest))
 				})
 
 				it("Check TableView", closure: {
