@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 protocol Identifier{}
 
 extension Identifier where Self: NSObject{

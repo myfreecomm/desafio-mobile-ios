@@ -11,6 +11,7 @@
 		F128116921027D6300E1A8E9 /* PullRequestsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */; };
 		F128116B21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */; };
 		F128116D2102824B00E1A8E9 /* PullRequestCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */; };
+		F1281170210289FD00E1A8E9 /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116F210289FD00E1A8E9 /* UtilTests.swift */; };
 		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
 		F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15023C82100D2480060170B /* RepositoryCell.xib */; };
 		F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023CB210137990060170B /* RepositoriesNetworkTests.swift */; };
@@ -77,6 +78,7 @@
 		F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewControllerTests.swift; sourceTree = "<group>"; };
 		F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsNetworkTests.swift; sourceTree = "<group>"; };
 		F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCellTests.swift; sourceTree = "<group>"; };
+		F128116F210289FD00E1A8E9 /* UtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilTests.swift; sourceTree = "<group>"; };
 		F15023C72100D2480060170B /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		F15023C82100D2480060170B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		F15023CB210137990060170B /* RepositoriesNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetworkTests.swift; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 				F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */,
 			);
 			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		F128116E210289D900E1A8E9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F128116F210289FD00E1A8E9 /* UtilTests.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		F15023C62100D2270060170B /* components */ = {
@@ -311,6 +321,7 @@
 		F1D0798020FE7DAA0061A569 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				F128116E210289D900E1A8E9 /* Util */,
 				F1281164210241B800E1A8E9 /* PullRequests */,
 				F1CD06B020FFED9A0036E784 /* Repositories */,
 				F1CD069B20FFA62B0036E784 /* Models */,
@@ -614,6 +625,7 @@
 				F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
 				F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */,
+				F1281170210289FD00E1A8E9 /* UtilTests.swift in Sources */,
 				F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
