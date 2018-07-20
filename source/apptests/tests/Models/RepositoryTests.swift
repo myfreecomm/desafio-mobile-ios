@@ -36,7 +36,7 @@ class RepositoryTests: QuickSpec {
 					expect(repository.stars).to(equal(35936))
 					expect(repository.forks).to(equal(11611))
 					expect(repository.photo).to(equal("https://avatars1.githubusercontent.com/u/582346?v=4"))
-					expect(repository.author).to(equal("USER MOCK LOCAL"))
+					expect(repository.author).to(equal("iluwatar"))
 				})
 
 				it ("Instantiate Many", closure: {
@@ -50,7 +50,7 @@ class RepositoryTests: QuickSpec {
 					expect(repository.stars).to(equal(35936))
 					expect(repository.forks).to(equal(11611))
 					expect(repository.photo).to(equal("https://avatars1.githubusercontent.com/u/582346?v=4"))
-					expect(repository.author).to(equal("USER MOCK LOCAL"))
+					expect(repository.author).to(equal("iluwatar"))
 				})
             })
         }
