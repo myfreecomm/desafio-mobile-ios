@@ -20,12 +20,60 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powered by " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hga-zC-WmE">
+                                <rect key="frame" x="124.5" y="333" width="126" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="R7X-Wu-buf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JavaHub" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L87-VW-kFn">
+                                <rect key="frame" x="129.5" y="293" width="116" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="KAI-2a-PqJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github-logo" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-QH-xAF">
+                                <rect key="frame" x="0.0" y="376" width="375" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="H6m-ga-RhH"/>
+                                    <constraint firstAttribute="height" constant="113" id="yCb-nh-wWW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="java-logo" translatesAutoresizingMaskIntoConstraints="NO" id="rlB-nP-JqR">
+                                <rect key="frame" x="60.5" y="28" width="254" height="253"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="253" id="Usa-42-Guc"/>
+                                    <constraint firstAttribute="width" constant="254" id="iWz-w3-aAg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90573424100875854" green="0.43690729141235352" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rlB-nP-JqR" firstAttribute="top" secondItem="h9Y-9I-E6H" secondAttribute="bottom" constant="8" id="45h-2L-lCu"/>
+                            <constraint firstItem="L87-VW-kFn" firstAttribute="top" secondItem="rlB-nP-JqR" secondAttribute="bottom" constant="12" id="4Sy-jq-17h"/>
+                            <constraint firstItem="rlB-nP-JqR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KwP-XO-jcd"/>
+                            <constraint firstItem="O5F-QH-xAF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Q2D-Rm-Qg8"/>
+                            <constraint firstItem="L87-VW-kFn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VSh-H4-Hpe"/>
+                            <constraint firstItem="Hga-zC-WmE" firstAttribute="top" secondItem="L87-VW-kFn" secondAttribute="bottom" constant="7" id="ZQx-ew-oSz"/>
+                            <constraint firstItem="O5F-QH-xAF" firstAttribute="top" secondItem="Hga-zC-WmE" secondAttribute="bottom" constant="14" id="eWM-8W-yau"/>
+                            <constraint firstItem="Hga-zC-WmE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sFU-5D-Thy"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="373.76311844077964"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="github-logo" width="1125" height="417"/>
+        <image name="java-logo" width="1536" height="1536"/>
+    </resources>
 </document>
