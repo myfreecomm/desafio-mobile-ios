@@ -24,6 +24,23 @@ class LocalDataPersistence {
 		}
 	}
 
+	func updateRepo(newPulls: [PullRequest]?, into repo: Repository, clear: Bool){
+
+		if clear {
+
+			try!  realm.write {
+				realm.delete(repo.pullrequests)
+			}
+
+		} else {
+
+			try!  realm.write {
+				repo.pullrequests.append(objectsIn: newPulls!)
+				realm.add(repo, update: true)
+			}
+		}
+	}
+
 	func clearLocalStorage() {
 		try! realm.write {
 			realm.deleteAll()

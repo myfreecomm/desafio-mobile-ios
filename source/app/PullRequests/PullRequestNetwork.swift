@@ -20,9 +20,9 @@ class PullRequestNetwork: NSObject {
 		self.network.request(listPullUrl, operation: .get, header: nil, params: nil) { (json, error) in
 
 			if error != nil {
-				completion(PullRequest.generateMany(json: json!), nil)
-			} else {
 				completion(nil, error)
+			} else {
+				completion(PullRequest.generateMany(json: json!), nil)
 			}
 		}
 	}

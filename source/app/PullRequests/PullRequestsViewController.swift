@@ -11,6 +11,7 @@ import UIScrollView_InfiniteScroll
 
 protocol PullRequestsViewInterface {
 
+	func showAlert()
 	func reloadTableView()
 	func setTitleView(title: String)
 }
@@ -30,14 +31,14 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
 		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
-		self.updateData()
 		self.setBackButtonTitle(with: "")
+
+		self.presenter!.requestItens()
     }
 
-	func requestNewData(){
+	@objc func updateData(){
 
-		self.presenter.incrementPage()
-		self.presenter.requestItens()
+		self.presenter!.reNewDataResetList()
 	}
 
 	func setTitleView(title: String) {
@@ -58,21 +59,14 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
 
 		self.tableView.addInfiniteScroll { (tableView) in
 
-			self.requestNewData()
+			self.presenter!.requestNewDataExpandList()
 		}
-	}
-
-	@objc func updateData(){
-
-		self.presenter.resetData()
-		self.tableView.reloadData()
 	}
 
 	func reloadTableView() {
 
 		self.tableView.reloadData()
-		self.refreshControl!.endRefreshing()
-		self.tableView.finishInfiniteScroll()
+		self.disableLoading()
 	}
 
 	func setupTableView(){
@@ -80,6 +74,22 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 		self.tableView.estimatedRowHeight = 220
 		self.tableView.tableFooterView = UIView()
+	}
+
+	func disableLoading(){
+
+		self.refreshControl!.endRefreshing()
+		self.tableView.finishInfiniteScroll()
+	}
+
+	func showAlert() {
+
+		let alert = UIAlertController(title: "Alert", message: self.presenter!.message, preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: { _ in
+
+			self.disableLoading()
+		}))
+		self.present(alert, animated: true, completion: nil)
 	}
 
 	func registerCell() {
@@ -90,7 +100,7 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.showMessageTableEmpty(text: "Carregando, aguarde...", amount: self.presenter!.sizeList, tableView: self.tableView)
+        return self.showMessageTableEmpty(text: self.presenter!.message, amount: self.presenter!.sizeList, tableView: self.tableView)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

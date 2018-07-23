@@ -12,6 +12,7 @@ import RealmSwift
 
 class Repository: Object {
 
+	@objc dynamic var identifier: String = ""
 	@objc dynamic var name: String = ""
 	@objc dynamic var detail: String = ""
 	@objc dynamic var stars: Int = 0
@@ -23,10 +24,16 @@ class Repository: Object {
 
 	let pullrequests = List<PullRequest>()
 
+	override class func primaryKey() -> String? {
+
+		return "identifier"
+	}
+
 	static func generate(json: JSON) -> Repository {
 
 		let repository = Repository()
 
+		repository.identifier = String(json["id"].int!)
 		repository.name = json["name"].string!
 		repository.stars = json["stargazers_count"].int!
 		repository.forks = json["forks_count"].int!

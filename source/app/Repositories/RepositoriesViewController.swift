@@ -23,9 +23,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		self.tableView.rowHeight = UITableViewAutomaticDimension
-		self.tableView.estimatedRowHeight = 220
-        self.clearsSelectionOnViewWillAppear = false
+		self.setupTableView()
 		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
@@ -64,8 +62,14 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	func reloadTableView() {
 
 		self.tableView.reloadData()
-
 		self.disableLoading()
+	}
+
+	func setupTableView(){
+
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.estimatedRowHeight = 220
+		self.tableView.tableFooterView = UIView()
 	}
 
 	func disableLoading(){
