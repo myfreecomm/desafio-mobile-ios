@@ -14,7 +14,6 @@ protocol RepositoriesViewInterface {
 	func reloadTableView()
 	func setTitleView(title: String)
 	func showAlert()
-	func disableLoading()
 }
 
 class RepositoriesViewController: UITableViewController, RepositoriesViewInterface {
@@ -30,24 +29,14 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
-//		self.updateData()
-
-		self.presenter!.requestItens()
 		self.setBackButtonTitle(with: "")
-    }
 
-	// Request new data to append in tableview and increment current page. Used by INFINITY SCROLL
-	func requestNewData() {
-
-		self.presenter!.incrementPage()
 		self.presenter!.requestItens()
-	}
+    }
 
 	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST
 	@objc func updateData(){
-
-		self.presenter!.resetData()
-		self.tableView.reloadData()
+		self.presenter!.reNewDataResetList()
 	}
 
 	func setTitleView(title: String) {
@@ -55,7 +44,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	}
 
 	func setupRefreshControl(){
-
 		self.refreshControl = UIRefreshControl()
 		self.refreshControl!.addTarget(target, action: #selector(updateData), for: .valueChanged)
 	}
@@ -68,7 +56,8 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 		self.tableView.addInfiniteScroll { (tableView) in
 
-			self.requestNewData()
+			// Request new data to append in tableview and increment current page. Used by INFINITY SCROLL
+			self.presenter!.requestNewDataExpandList()
 		}
 	}
 
@@ -88,7 +77,10 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	func showAlert() {
 
 		let alert = UIAlertController(title: "Alert", message: self.presenter!.message, preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
+		alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: { _ in
+
+			self.disableLoading()
+		}))
 		self.present(alert, animated: true, completion: nil)
 	}
 

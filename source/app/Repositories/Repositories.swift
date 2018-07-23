@@ -15,8 +15,9 @@ protocol RepositoriesInterface {
 	func requestItens()
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 	func showItem(at index: Int)
-	func incrementPage()
-	func resetData()
+	func requestNewDataExpandList()
+	func reNewDataResetList()
+
 }
 
 class Repositories: NSObject, RepositoriesInterface {
@@ -40,6 +41,8 @@ class Repositories: NSObject, RepositoriesInterface {
 		self.view.setTitleView(title: "JavaHub")
 	}
 
+// REQUEST ITENS - OPEN APP
+
 	func requestItens(){
 
 		self.message = self.messageLoading
@@ -47,64 +50,94 @@ class Repositories: NSObject, RepositoriesInterface {
 
 		if localRepositories.isEmpty {
 
-			self.requestNetworkByNewData()
+			self.requestNetwork { (repositories, error) in
+
+				if error != nil {
+
+					self.view.showAlert()
+
+				} else {
+
+					self.finishRequestNewData(repos: repositories)
+				}
+			}
 
 		} else {
 
-			self.repositories.append(contentsOf: localRepositories)
-			self.finishGetItems()
-			self.page = self.repositories.last!.page
+			self.page = localRepositories.last!.page
+			self.updateSizeListReloadView(items: localRepositories)
 		}
 	}
 
-	func requestLocalByNewData(with query: String) -> [Repository]{
+//	FINISH REQUEST ITENS
 
-		return self.localStorage.list(query: query, entity: Repository.self, property: "stars", isAcendent: false)
-	}
+// EXPAND LIST
 
-	func requestNetworkByNewData() {
+	func requestNewDataExpandList() {
 
-		self.message = self.messageLoading
-
-		self.network.listRepositoriesJavaWith(page: self.page) { (repositories, error) in
+		self.page += 1
+		self.requestNetwork { (newRepos, error) in
 
 			if error != nil {
-
-				self.message = self.messageError
-				self.page -= 1
-				if !self.repositories.isEmpty {
-					self.page = self.repositories.last!.page
-					self.sizeList = self.repositories.count
-				}
-				self.view.disableLoading()
 				self.view.showAlert()
-
+				self.page -= 1
 			} else {
-
-				if self.page == 1 {
-					self.localStorage.clearLocalStorage()
-					self.repositories.removeAll()
-					self.sizeList = 0
-				}
-
-				repositories!.forEach{ $0.page = self.page }
-				self.repositories.append(contentsOf: repositories!)
-				self.localStorage.saveItens(items: repositories!, reNew: false)
-				self.finishGetItems()
+				self.finishRequestNewData(repos: newRepos)
 			}
 		}
 	}
 
-	func finishGetItems() {
+// END EXPAND LIST
 
+//	RENEW DATA
+
+	func reNewDataResetList () {
+
+		let cachePage: Int = Int(self.page)
+		self.page = 1
+		self.requestNetwork { (newRepos, error) in
+
+			if error != nil {
+
+				self.view.showAlert()
+				self.page = cachePage
+
+			} else {
+
+				self.localStorage.clearLocalStorage()
+				self.repositories.removeAll()
+				self.finishRequestNewData(repos: newRepos)
+			}
+		}
+	}
+
+// END RENEW DATA
+
+	func finishRequestNewData(repos: [Repository]) {
+
+		repos.forEach({ $0.page = self.page })
+		self.localStorage.saveItens(items: repos, reNew: false)
+		self.updateSizeListReloadView(items: repos)
+	}
+
+	func updateSizeListReloadView(items: [Repository]) {
+
+		self.repositories.append(contentsOf: items)
 		self.sizeList = self.repositories.count
 		self.view.reloadTableView()
 	}
 
-	func resetData() {
+	func requestLocalByNewData(with query: String) -> [Repository] {
 
-		self.page = 1
-		self.requestNetworkByNewData()
+		return self.localStorage.list(query: query, entity: Repository.self, property: "stars", isAcendent: false)
+	}
+
+	func requestNetwork ( finish: @escaping ([Repository], Error?) -> Void ) {
+
+		self.network.listRepositoriesJavaWith(page: self.page) { (repositories, error) in
+
+			finish(repositories!, error)
+		}
 	}
 
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell{
@@ -125,8 +158,58 @@ class Repositories: NSObject, RepositoriesInterface {
 		}
 	}
 
-	func incrementPage() {
+//	func resetData() {
+//
+//		self.page = 1
+//
+//	}
 
-		self.page += 1
-	}
+//	func incrementPage() {
+//
+//		self.page += 1
+//	}
 }
+
+
+
+
+
+
+
+
+
+
+
+//	func requestNetworkByNewData() {
+//
+//		self.message = self.messageLoading
+//
+//		self.network.listRepositoriesJavaWith(page: self.page) { (repositories, error) in
+//
+//			if error != nil {
+//
+//				self.message = self.messageError
+//				self.page -= 1
+//				if !self.repositories.isEmpty {
+//					self.page = self.repositories.last!.page
+//					self.sizeList = self.repositories.count
+//				}
+//				self.view.showAlert()
+//
+//			} else {
+//
+//				if self.page == 1 {
+//					self.localStorage.clearLocalStorage()
+//					self.repositories.removeAll()
+//					self.sizeList = 0
+//				}
+//
+//				repositories!.forEach{ $0.page = self.page }
+////				self.repositories.append(contentsOf: repositories!)
+//				self.localStorage.saveItens(items: repositories!, reNew: false)
+//			}
+//		}
+//	}
+
+
+
