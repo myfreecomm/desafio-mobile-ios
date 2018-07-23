@@ -54,11 +54,12 @@ class Repositories: NSObject, RepositoriesInterface {
 
 				if error != nil {
 
+					self.message = self.messageError
 					self.view.showAlert()
 
 				} else {
 
-					self.finishRequestNewData(repos: repositories)
+					self.finishRequestNewData(repos: repositories!)
 				}
 			}
 
@@ -79,10 +80,12 @@ class Repositories: NSObject, RepositoriesInterface {
 		self.requestNetwork { (newRepos, error) in
 
 			if error != nil {
+
+				self.message = self.messageError
 				self.view.showAlert()
 				self.page -= 1
 			} else {
-				self.finishRequestNewData(repos: newRepos)
+				self.finishRequestNewData(repos: newRepos!)
 			}
 		}
 	}
@@ -99,6 +102,7 @@ class Repositories: NSObject, RepositoriesInterface {
 
 			if error != nil {
 
+				self.message = self.messageError
 				self.view.showAlert()
 				self.page = cachePage
 
@@ -106,7 +110,7 @@ class Repositories: NSObject, RepositoriesInterface {
 
 				self.localStorage.clearLocalStorage()
 				self.repositories.removeAll()
-				self.finishRequestNewData(repos: newRepos)
+				self.finishRequestNewData(repos: newRepos!)
 			}
 		}
 	}
@@ -132,11 +136,12 @@ class Repositories: NSObject, RepositoriesInterface {
 		return self.localStorage.list(query: query, entity: Repository.self, property: "stars", isAcendent: false)
 	}
 
-	func requestNetwork ( finish: @escaping ([Repository], Error?) -> Void ) {
+	func requestNetwork ( finish: @escaping ([Repository]?, Error?) -> Void ) {
 
+		self.message = self.messageLoading
 		self.network.listRepositoriesJavaWith(page: self.page) { (repositories, error) in
 
-			finish(repositories!, error)
+			finish(repositories, error)
 		}
 	}
 
