@@ -37,15 +37,15 @@ class PullRequests: NSObject, PullRequestsInterface{
 	}
 
 	func requestItens() {
-		self.network.listPullRequestsOf(repoName: repository.name, author: repository.author, page: self.page, completion: { (pullrequests) in
+		self.network.listPullRequestsOf(repoName: repository.name, author: repository.author, page: self.page, completion: { (pullrequests, error) in
 
-			if pullrequests.isEmpty {
+			if pullrequests!.isEmpty {
 
 				self.page -= 1
 
 			} else {
 
-				self.pullrequests.append(contentsOf: pullrequests)
+				self.pullrequests.append(contentsOf: pullrequests!)
 				self.sizeList = self.pullrequests.count
 			}
 

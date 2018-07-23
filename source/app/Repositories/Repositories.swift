@@ -11,6 +11,7 @@ import UIKit
 protocol RepositoriesInterface {
 
 	var sizeList: Int { get }
+	var message: String { get }
 	func requestItens()
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 	func showItem(at index: Int)
@@ -26,6 +27,11 @@ class Repositories: NSObject, RepositoriesInterface {
 	var repositories: [Repository] = [Repository]()
 	var network = RepositoriesNetwork()
 	var page: Int = 1
+	var localStorage: LocalDataPersistence = LocalDataPersistence()
+
+	private let messageLoading = "Carregando, aguarde..."
+	private let messageError = "Não foi possível consultar os dados, verifique sua conexão com a internet e tente novamente."
+	var message: String = ""
 
 	init(view: RepositoriesViewInterface, router: RouterInterface) {
 
@@ -36,20 +42,69 @@ class Repositories: NSObject, RepositoriesInterface {
 
 	func requestItens(){
 
-		self.network.listRepositoriesJavaWith(page: self.page) { (repositories) in
+		self.message = self.messageLoading
+		let localRepositories = requestLocalByNewData(with: self.page == 1 ? "page > 0" : "page > \(self.page)")
 
-			self.repositories.append(contentsOf: repositories)
-			self.sizeList = self.repositories.count
-			self.view.reloadTableView()
+		if localRepositories.isEmpty {
+
+			self.requestNetworkByNewData()
+
+		} else {
+
+			self.repositories.append(contentsOf: localRepositories)
+			self.finishGetItems()
+			self.page = self.repositories.last!.page
 		}
+	}
+
+	func requestLocalByNewData(with query: String) -> [Repository]{
+
+		return self.localStorage.list(query: query, entity: Repository.self, property: "stars", isAcendent: false)
+	}
+
+	func requestNetworkByNewData() {
+
+		self.message = self.messageLoading
+
+		self.network.listRepositoriesJavaWith(page: self.page) { (repositories, error) in
+
+			if error != nil {
+
+				self.message = self.messageError
+				self.page -= 1
+				if !self.repositories.isEmpty {
+					self.page = self.repositories.last!.page
+					self.sizeList = self.repositories.count
+				}
+				self.view.disableLoading()
+				self.view.showAlert()
+
+			} else {
+
+				if self.page == 1 {
+					self.localStorage.clearLocalStorage()
+					self.repositories.removeAll()
+					self.sizeList = 0
+				}
+
+				repositories!.forEach{ $0.page = self.page }
+				self.repositories.append(contentsOf: repositories!)
+				self.localStorage.saveItens(items: repositories!, reNew: false)
+				self.finishGetItems()
+			}
+		}
+	}
+
+	func finishGetItems() {
+
+		self.sizeList = self.repositories.count
+		self.view.reloadTableView()
 	}
 
 	func resetData() {
 
 		self.page = 1
-		self.sizeList = self.repositories.count
-		self.repositories.removeAll()
-		self.requestItens()
+		self.requestNetworkByNewData()
 	}
 
 	func buildCell(to tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell{

@@ -13,11 +13,18 @@ class RepositoriesNetwork: NSObject {
 	var apiNetwork: APIInterface = API()
 	var network: NetworkInterface = Network()
 
-	func listRepositoriesJavaWith(page: Int, completion: @escaping ([Repository]) -> Void ){
+	func listRepositoriesJavaWith(page: Int, completion: @escaping ([Repository]?, Error?) -> Void ){
 
-		self.network.request(self.apiNetwork.urlListJavaRepositories(at: page), operation: .get, header: nil, params: nil) { (json) in
+		self.network.request(self.apiNetwork.urlListJavaRepositories(at: page), operation: .get, header: nil, params: nil) { (json, error) in
 
-			completion(Repository.generateMany(json: json))
+			if error != nil {
+
+				completion(nil, error)
+
+				} else {
+
+				completion(Repository.generateMany(json: json!), nil)
+			}
 		}
 	}
 }

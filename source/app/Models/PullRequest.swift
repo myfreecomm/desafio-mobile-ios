@@ -19,6 +19,10 @@ class PullRequest: Object {
 	@objc dynamic var link: String = ""
 	@objc dynamic var body: String = ""
 
+	@objc dynamic var repoAuthor: String = ""
+	@objc dynamic var repoName: String = ""
+	@objc dynamic var page: Int = 0
+
 	static func generate(json: JSON) -> PullRequest {
 
 		let pullRequest = PullRequest()

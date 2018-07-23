@@ -16,7 +16,7 @@ protocol APIInterface{
 
 struct API: APIInterface {
 
-	private var systemEnviroment = EnviromentIdentifier()
+	private let systemEnviroment = EnviromentIdentifier()
 	private var domainUrl: String!
 
 	init() {

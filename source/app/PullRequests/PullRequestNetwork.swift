@@ -13,13 +13,17 @@ class PullRequestNetwork: NSObject {
 	var apiNetwork: APIInterface = API()
 	var network: NetworkInterface = Network()
 
-	func listPullRequestsOf(repoName: String, author: String, page: Int, completion: @escaping ([PullRequest]) -> Void ){
+	func listPullRequestsOf(repoName: String, author: String, page: Int, completion: @escaping ([PullRequest]?, Error?) -> Void ){
 
 		let listPullUrl = apiNetwork.urlListPullsJavaRepositories(with: author, in: repoName, at: page)
 
-		self.network.request(listPullUrl, operation: .get, header: nil, params: nil) { (json) in
+		self.network.request(listPullUrl, operation: .get, header: nil, params: nil) { (json, error) in
 
-			completion(PullRequest.generateMany(json: json))
+			if error != nil {
+				completion(PullRequest.generateMany(json: json!), nil)
+			} else {
+				completion(nil, error)
+			}
 		}
 	}
 }

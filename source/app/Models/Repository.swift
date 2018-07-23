@@ -19,6 +19,10 @@ class Repository: Object {
 	@objc dynamic var photo: String = ""
 	@objc dynamic var author: String = ""
 
+	@objc dynamic var page: Int = 0
+
+	let pullrequests = List<PullRequest>()
+
 	static func generate(json: JSON) -> Repository {
 
 		let repository = Repository()
@@ -28,14 +32,7 @@ class Repository: Object {
 		repository.forks = json["forks_count"].int!
 		repository.photo = json["owner"]["avatar_url"].string!
 		repository.author = json["owner"]["login"].string!
-
-		if let text = json["description"].string {
-
-			repository.detail = text
-		} else {
-
-			repository.detail = ""
-	    }
+		repository.detail = json["description"].string != nil ? json["description"].string! : ""
 
 		return repository
 	}
@@ -54,4 +51,10 @@ class Repository: Object {
 
 		return repositorys
 	}
+//	 
+
+//	func list<T: Object>(query: String, entity: T.Type, property: String, asc: Bool) -> Results<T> {
+//
+//		return realm.objects(entity).filter(query).sorted(byKeyPath: property, ascending: asc)
+//	}
 }

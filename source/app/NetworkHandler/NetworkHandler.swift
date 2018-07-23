@@ -17,12 +17,12 @@ protocol NetworkInterface{
 		operation: HTTPMethod,
 		header: [String: String]?,
 		params: [String: Any]?,
-		completion: @escaping (JSON) -> Void)
+		completion: @escaping (JSON?, Error?) -> Void)
 }
 
 class Network: NSObject, NetworkInterface {
 
-	func request(_ address: String, operation: HTTPMethod, header: [String: String]?, params: [String: Any]?, completion: @escaping (JSON) -> Void) {
+	func request(_ address: String, operation: HTTPMethod, header: [String: String]?, params: [String: Any]?, completion: @escaping (JSON?, Error?) -> Void) {
 
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
@@ -35,11 +35,11 @@ class Network: NSObject, NetworkInterface {
 
 			case .success(let value):
 
-				completion(JSON(value))
+				completion(JSON(value), nil)
 
 			case .failure(let error):
 
-				print("Error: \(error)")
+				completion(nil, error)
 			}
 		}
 	}

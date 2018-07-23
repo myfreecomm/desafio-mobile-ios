@@ -13,6 +13,8 @@ protocol RepositoriesViewInterface {
 
 	func reloadTableView()
 	func setTitleView(title: String)
+	func showAlert()
+	func disableLoading()
 }
 
 class RepositoriesViewController: UITableViewController, RepositoriesViewInterface {
@@ -28,7 +30,9 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		self.registerCell()
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
-		self.updateData()
+//		self.updateData()
+
+		self.presenter!.requestItens()
 		self.setBackButtonTitle(with: "")
     }
 
@@ -39,15 +43,15 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		self.presenter!.requestItens()
 	}
 
-	func setTitleView(title: String) {
-		self.navigationItem.title = title
-	}
-
 	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST
 	@objc func updateData(){
 
 		self.presenter!.resetData()
 		self.tableView.reloadData()
+	}
+
+	func setTitleView(title: String) {
+		self.navigationItem.title = title
 	}
 
 	func setupRefreshControl(){
@@ -72,8 +76,20 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 		self.tableView.reloadData()
 
+		self.disableLoading()
+	}
+
+	func disableLoading(){
+
 		self.refreshControl!.endRefreshing()
 		self.tableView.finishInfiniteScroll()
+	}
+
+	func showAlert() {
+
+		let alert = UIAlertController(title: "Alert", message: self.presenter!.message, preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
+		self.present(alert, animated: true, completion: nil)
 	}
 
 	func registerCell() {
@@ -89,7 +105,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-		return self.showMessageTableEmpty(text: "Carregando, aguarde...", amount: self.presenter!.sizeList, tableView: self.tableView)
+		return self.showMessageTableEmpty(text: self.presenter!.message, amount: self.presenter!.sizeList, tableView: self.tableView)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
