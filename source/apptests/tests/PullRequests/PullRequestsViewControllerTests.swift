@@ -83,13 +83,13 @@ class PullRequestsViewControllerTests: QuickSpec {
 
 				// Methods
 
-				it("Check RequestNewData", closure: {
-
-					pullRequestsView.requestNewData()
-					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(beGreaterThan(0))
-					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(equal(18))
-
-				})
+//				it("Check RequestNewData", closure: {
+//
+//					pullRequestsView.requestNewData()
+//					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(beGreaterThan(0))
+//					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(equal(18))
+//
+//				})
 
 				it("Check UpdateData", closure: {
 
