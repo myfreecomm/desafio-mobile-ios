@@ -32,7 +32,7 @@ class PullRequest: Object {
 		pullRequest.title = json["title"].string!
 		pullRequest.createAt = PullRequest.dateFormatter(stringDate: json["created_at"].string!)
 		pullRequest.link = json["html_url"].string!
-		pullRequest.body = json["body"].string!
+		pullRequest.body = json["body"].string != nil ? json["body"].string! : ""
 
 		return pullRequest
 	}
