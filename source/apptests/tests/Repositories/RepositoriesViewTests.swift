@@ -8,6 +8,8 @@
 
 import Quick
 import Nimble
+import RealmSwift
+
 @testable import javahub
 
 class RepositoriesViewTests: QuickSpec {
@@ -17,6 +19,10 @@ class RepositoriesViewTests: QuickSpec {
 	override func setUp() {
 		super.setUp()
 		self.stubs.stubGetConnection(file: "listRepositoriesMock", host: "localhost", in: "/search/repositories")
+
+		beforeSuite {
+			Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "RepositoryMock"
+		}
 	}
 
 	override func spec() {
@@ -31,29 +37,18 @@ class RepositoriesViewTests: QuickSpec {
 			context("", closure: {
 
 				var repositoriesView: RepositoriesViewController!
-				var navController: RouterView!
 
 				beforeEach {
-
+					
 					// Run before each test
-					navController = RouterView()
-					navController.loadViewIfNeeded()
-					navController.presenter = Router(view: navController)
-					navController.presenter!.goTo(destiny: .repositories, pushForward: nil)
+					let dic = self.instantiate()
+					repositoriesView = dic["View"] as! RepositoriesViewController
 
-					repositoriesView = navController.visibleViewController as! RepositoriesViewController
-					repositoriesView.loadViewIfNeeded()
-
-					let delegate = UIApplication.shared.delegate as! AppDelegate
-					delegate.window = UIWindow(frame: UIScreen.main.bounds)
-					delegate.window?.rootViewController = navController
-					delegate.window?.makeKeyAndVisible()
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
 				}
-
-                afterEach{
-
-				// Run after each test
-                }
 
  				// Puts test code here
 				it("Check Title", closure: {
@@ -81,19 +76,11 @@ class RepositoriesViewTests: QuickSpec {
 
 				// Methods
 
-				it("Check RequestNewData", closure: {
-
-					repositoriesView.requestNewData()
-					expect(repositoriesView.tableView.numberOfRows(inSection: 0)).toEventually(beGreaterThan(0))
-					expect(repositoriesView.tableView.numberOfRows(inSection: 0)).toEventually(equal(60))
-
-				})
-
 				it("Check UpdateData", closure: {
 
 					repositoriesView.updateData()
 					expect(repositoriesView.tableView.numberOfRows(inSection: 0)).toEventually(beGreaterThan(0))
-					expect(repositoriesView.tableView.numberOfRows(inSection: 0)).toEventually(equal(60))
+					expect(repositoriesView.tableView.numberOfRows(inSection: 0)).toEventually(equal(30))
 
 				})
 
@@ -116,5 +103,17 @@ class RepositoriesViewTests: QuickSpec {
 				})
             })
         }
+	}
+
+	func instantiate() -> [String: Any] {
+
+		let navControllerLocal = RouterView()
+		navControllerLocal.presenter = Router(view: navControllerLocal)
+
+		let viewLocal = RepositoriesViewController()
+		let repositoriesLocal = Repositories(view: viewLocal, router: navControllerLocal.presenter!)
+		viewLocal.presenter = repositoriesLocal
+
+		return ["View": viewLocal, "Navigation": navControllerLocal, "Presenter": repositoriesLocal]
 	}
 }

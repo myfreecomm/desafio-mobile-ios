@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import SwiftyJSON
+import RealmSwift
 
 @testable import javahub
 
@@ -16,45 +17,37 @@ class PullRequestsTests: QuickSpec {
 
 	let stubs: Stubs = Stubs()
 	let localRepoJson: JSON = Stubs.loadFile(with: "listRepositoriesMock", in: PullRequestTests.self)
-	let localPullJson: JSON = Stubs.loadFile(with: "listPullRequestsMock", in: PullRequestTests.self)
 
 	override func setUp() {
 		super.setUp()
 		self.stubs.stubGetConnection(file: "listPullRequestsMock", host: "localhost", in: "/repos/iluwatar/java-design-patterns/pulls")
+
+		beforeSuite {
+			Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "RepositoryMock"
+		}
 	}
 
 	override func spec() {
 		
         describe("Tests PullRequests class") {
 
-			afterSuite {
-
-				self.stubs.clearStubs()
-			}
+			var pullRequests: PullRequests!
+			var pullRequestsView: PullRequestsViewController!
 
 			context("", closure: {
 
-				var pullRequests: PullRequests!
-				var pullRequestsView: PullRequestsViewController!
 				beforeEach {
 
 					// Run before each test
-					pullRequestsView = UIStoryboard(name: Routes.pullrequests.file, bundle: nil).instantiateViewController(withIdentifier: PullRequestsViewController.identifier)  as! PullRequestsViewController
-					pullRequests = PullRequests(view: pullRequestsView, router: RouterView.sharedInstance.presenter!, repository:  Repository.generate(json: self.localRepoJson["items"].array![0]))
-					pullRequestsView.presenter = pullRequests
-					pullRequestsView.loadViewIfNeeded()
 
+					let dic = self.instantiate()
+					pullRequests = dic["Presenter"] as! PullRequests
+					pullRequestsView = dic["View"] as! PullRequestsViewController
 
-					// Run before each test
-					let navController = RouterView()
-					navController.presenter = Router(view: navController)
-					navController.loadViewIfNeeded()
-					navController.setViewControllers([pullRequestsView], animated: true)
-
-					let delegate = UIApplication.shared.delegate as! AppDelegate
-					delegate.window = UIWindow(frame: UIScreen.main.bounds)
-					delegate.window?.rootViewController = navController
-					delegate.window?.makeKeyAndVisible()
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
 				}
 
                 afterEach{
@@ -88,7 +81,75 @@ class PullRequestsTests: QuickSpec {
 					expect(pullRequests.page).to(equal(1))
 				})
 
+				it("Init With Repository", closure: {
+
+					expect(pullRequests.repository.pullrequests[0].page).to(equal(135))
+				})
+
 //				Methods
+
+				it("requestNewDataExpandList", closure: {
+
+					pullRequests.requestNewDataExpandList()
+					expect(pullRequests.page).to(beGreaterThan(1))
+					expect(pullRequests.repository.pullrequests.count).toEventually(beGreaterThan(1))
+				})
+
+				it("reNewDataResetList", closure: {
+
+					let realm = try! Realm()
+					try! realm.write {
+
+						realm.add(pullRequests.repository)
+					}
+
+					pullRequests.reNewDataResetList()
+
+					expect(pullRequests.page).to(equal(1))
+					expect(pullRequests.repository.pullrequests.count).toEventually(beGreaterThan(1))
+
+				})
+
+				it("finishRequestNewData", closure: {
+
+					var pulls = [PullRequest]()
+					let pull = PullRequest()
+					pull.title = "Title Test"
+					pulls.append(pull)
+
+					pullRequests.page = 230
+					pullRequests.finishRequestNewData(pulls: pulls)
+
+					let realm = try! Realm()
+					let results = realm.objects(PullRequest.self)
+
+					expect(results.count).to(equal(2))
+					expect(results[0].page).to(equal(135))
+					expect(results[1].page).to(equal(230))
+
+				})
+
+				it("updateSizeListReloadView", closure: {
+
+					pullRequests.updateSizeListReloadView()
+					expect(pullRequests.sizeList).to(equal(1))
+					expect(pullRequests.repository.pullrequests.count).to(equal(1))
+				})
+
+
+				it("requestNetwork", closure: {
+
+					waitUntil(action: { (done) in
+
+						pullRequests.requestNetWork(finish: { (repos, error) in
+
+							expect(repos!).toNot(beNil())
+							expect(repos!.count).to(beGreaterThan(0))
+							done()
+						})
+					})
+				})
+
 				it("repositories not empty after request", closure: {
 
 					pullRequests.requestItens()
@@ -97,38 +158,42 @@ class PullRequestsTests: QuickSpec {
 
 				it("buildCell must build and return a cell", closure: {
 
-//					pullRequests.repository.pullrequests = [PullRequest()]
 					let cell = pullRequests.buildCell(to: pullRequestsView.tableView, at: IndexPath(row: 0, section: 0))
 					expect(cell).toNot(beNil())
 				})
-
-//				Teste mostra resultados inconsistente. Deve ser reavaliado.
-//				it("showItem open browser", closure: {
-//
-//					pullRequests.pullrequests = PullRequest.generateMany(json: self.localPullJson)
-//					pullRequests.showItem(at: 0)
-//
-////					waitUntil(timeout: 12) { done in
-//					waitUntil { done in
-//						if UIApplication.shared.applicationState == .inactive { done() }
-//						if UIApplication.shared.applicationState == .background { done() }
-//					}
-//				})
-
-//				it("incrementPage must increment page", closure: {
-//
-//					pullRequests.incrementPage()
-//					expect(pullRequests.page).to(equal(2))
-//				})
-
-//				it("resetData must set page for 1", closure: {
-//
-//					pullRequests.resetData()
-//					expect(pullRequests.page).to(equal(1))
-//					expect(pullRequests.pullrequests.count).to(equal(0))
-//					expect(pullRequests.sizeList).to(equal(0))
-//				})
             })
         }
+	}
+
+	func mockRepository() -> Repository {
+
+		let repo = Repository()
+		let pullRequest = PullRequest()
+
+		repo.name = "java-design-patterns"
+		repo.author = "iluwatar"
+
+		pullRequest.page = 135
+
+		let realm = try! Realm()
+		try! realm.write {
+
+			repo.pullrequests.append(pullRequest)
+
+		}
+
+		return repo
+	}
+
+	func instantiate() -> [String: Any] {
+
+		let navigationView = RouterView()
+		navigationView.presenter = Router(view: navigationView)
+
+		let view = PullRequestsViewController()
+		let presenter = PullRequests(view: view, router: navigationView.presenter!, repository: mockRepository())
+		view.presenter = presenter
+
+		return ["View": view, "Navigation": navigationView, "Presenter": presenter]
 	}
 }

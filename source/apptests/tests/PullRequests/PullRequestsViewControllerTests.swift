@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import RealmSwift
 import SwiftyJSON
 
 @testable import javahub
@@ -15,12 +16,15 @@ import SwiftyJSON
 class PullRequestsViewControllerTests: QuickSpec {
 
 	let stubs: Stubs = Stubs()
-	let localRepoJson: JSON = Stubs.loadFile(with: "listRepositoriesMock", in: PullRequestsViewController.self)
-	let localPullJson: JSON = Stubs.loadFile(with: "listPullRequestsMock", in: PullRequestsViewController.self)
+//	var localRepoJson = JSON()
 
 	override func setUp() {
 		super.setUp()
 		self.stubs.stubGetConnection(file: "listPullRequestsMock", host: "localhost", in: "/repos/iluwatar/java-design-patterns/pulls")
+
+		beforeSuite {
+			Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "RepositoryMock"
+		}
 	}
 
 	override func spec() {
@@ -31,31 +35,24 @@ class PullRequestsViewControllerTests: QuickSpec {
 
 				var pullRequests: PullRequests!
 				var pullRequestsView: PullRequestsViewController!
+
 				beforeEach {
 
 					// Run before each test
-					pullRequestsView = UIStoryboard(name: Routes.pullrequests.file, bundle: nil).instantiateViewController(withIdentifier: PullRequestsViewController.identifier)  as! PullRequestsViewController
-					pullRequests = PullRequests(view: pullRequestsView, router: RouterView.sharedInstance.presenter!, repository:  Repository.generate(json: self.localRepoJson["items"].array![0]))
-					pullRequestsView.presenter = pullRequests
-					pullRequestsView.loadViewIfNeeded()
 
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
 
-					// Run before each test
-					let navController = RouterView()
-					navController.presenter = Router(view: navController)
-					navController.loadViewIfNeeded()
-					navController.setViewControllers([pullRequestsView], animated: true)
+					let dic = self.instantiate()
+					pullRequests = dic["Presenter"] as! PullRequests
+					pullRequestsView = dic["View"] as! PullRequestsViewController
 
-					let delegate = UIApplication.shared.delegate as! AppDelegate
-					delegate.window = UIWindow(frame: UIScreen.main.bounds)
-					delegate.window?.rootViewController = navController
-					delegate.window?.makeKeyAndVisible()
+					try! realm.write {
+						realm.add(pullRequests.repository)
+					}
 				}
-
-                afterEach{
-
-                     // Run after each test
-                }
 
                 // Puts test code here
 				it("Check Title", closure: {
@@ -83,19 +80,11 @@ class PullRequestsViewControllerTests: QuickSpec {
 
 				// Methods
 
-//				it("Check RequestNewData", closure: {
-//
-//					pullRequestsView.requestNewData()
-//					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(beGreaterThan(0))
-//					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(equal(18))
-//
-//				})
-
 				it("Check UpdateData", closure: {
 
 					pullRequestsView.updateData()
 					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(beGreaterThan(0))
-					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(equal(18))
+					expect(pullRequestsView.tableView.numberOfRows(inSection: 0)).toEventually(equal(9))
 
 				})
 
@@ -118,5 +107,37 @@ class PullRequestsViewControllerTests: QuickSpec {
 				})
             })
         }
+	}
+
+	func mockRepository() -> Repository {
+
+		let repo = Repository()
+		let pullRequest = PullRequest()
+
+		repo.name = "java-design-patterns"
+		repo.author = "iluwatar"
+
+		pullRequest.page = 135
+
+		let realm = try! Realm()
+		try! realm.write {
+
+			repo.pullrequests.append(pullRequest)
+
+		}
+
+		return repo
+	}
+
+	func instantiate() -> [String: Any] {
+
+		let navigationView = RouterView()
+		navigationView.presenter = Router(view: navigationView)
+
+		let view = PullRequestsViewController()
+		let presenter = PullRequests(view: view, router: navigationView.presenter!, repository: mockRepository())
+		view.presenter = presenter
+
+		return ["View": view, "Navigation": navigationView, "Presenter": presenter]
 	}
 }

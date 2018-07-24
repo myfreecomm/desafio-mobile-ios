@@ -79,8 +79,6 @@ class RepositoriesTests: QuickSpec {
 
 				it("requestNetwork", closure: {
 
-					print("EXECUTADO : requestNetwork")
-
 					waitUntil(action: { (done) in
 
 						repositories.requestNetwork(finish: { (repos, error) in
