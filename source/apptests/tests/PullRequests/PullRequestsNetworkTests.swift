@@ -51,9 +51,9 @@ class PullRequestNetworkTests: QuickSpec {
 
 					var result: [PullRequest] = [PullRequest]()
 
-					pullNetwork.listPullRequestsOf(repoName: "java-design-patterns", author: "iluwatar", page: 1, completion: { (pullrequests) in
+					pullNetwork.listPullRequestsOf(repoName: "java-design-patterns", author: "iluwatar", page: 1, completion: { (pullrequests, error) in
 
-						result = pullrequests
+						result = pullrequests!
 					})
 
 					expect(result).toEventuallyNot(beNil())
