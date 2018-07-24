@@ -3,6 +3,37 @@
   Este projeto é uma aplicação feita em Swift para iOS, onde é demonstrado o uso do padrão MVP e algumas ferramentas
 pertinentes ao desenvolvimento para iOS nativo.
 
+### Objectivos do Desafio: 
+
+Sua aplicação deve:
+
+- :white_check_mark: suportar versão mínima do iOS: 8.*.
+- :white_check_mark: usar um arquivo .gitignore no seu repositório
+- :white_check_mark: usar Storyboard e Autolayout
+- :white_check_mark: usar gestão de dependências no projeto. Ex: Cocoapods
+- :white_check_mark: usar um Framework para Comunicação com API. Ex: AFNetwork
+- :white_check_mark: fazer mapeamento json -> Objeto . Ex: Mantle
+- :white_check_mark: possuir boa cobertura de testes unitários no projeto. Ex: XCTests / Specta + Expecta
+
+##### Você ganha mais pontos se:
+
+- :white_check_mark: persistir os dados localmente usando Core Data
+- :x: criar testes funcionais. Ex: KIF
+- :white_check_mark: fazer um app Universal, Ipad | Iphone | Landscape | Portrait (Size Classes)
+- :white_check_mark: fazer cache de imagens. Ex SDWebImage
+
+#### Frameworks Usados: 
+
+- [Realm](https://realm.io)
+- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+- [Alamofire](https://github.com/Alamofire/Alamofire)
+- [SwiftIconFont](https://github.com/0x73/SwiftIconFont)
+- [Kingfisher](https://github.com/onevcat/Kingfisher)
+- [UIScrollView-InfiniteScroll](https://github.com/pronebird/UIScrollView-InfiniteScroll)
+- [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs)
+- [Quick/Nimble](https://github.com/Quick/Nimble)
+
+
 ### Dependências ###
   O projeto esta configurado para gerenciar as dependências com Carthage. Configurado Fastlane para 
  automatizar o processo de avaliação com testes unítários e criação de reporte de qualidade de código com 
