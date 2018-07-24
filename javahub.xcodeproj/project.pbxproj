@@ -7,32 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F12811672102433B00E1A8E9 /* PullRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */; };
-		F128116921027D6300E1A8E9 /* PullRequestsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */; };
-		F128116B21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */; };
-		F128116D2102824B00E1A8E9 /* PullRequestCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */; };
 		F1281170210289FD00E1A8E9 /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116F210289FD00E1A8E9 /* UtilTests.swift */; };
 		F12811752102E72000E1A8E9 /* LocalDataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12811742102E72000E1A8E9 /* LocalDataPersistence.swift */; };
 		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
 		F15023CA2100D2480060170B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15023C82100D2480060170B /* RepositoryCell.xib */; };
-		F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023CB210137990060170B /* RepositoriesNetworkTests.swift */; };
-		F1BA0C3F21014125007B3A68 /* RepositoryCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C3E21014125007B3A68 /* RepositoryCellTests.swift */; };
 		F1BA0C4121017996007B3A68 /* PullRequestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C4021017996007B3A68 /* PullRequestNetwork.swift */; };
 		F1BA0C462101831C007B3A68 /* PullRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C442101831C007B3A68 /* PullRequestCell.swift */; };
 		F1BA0C472101831C007B3A68 /* PullRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BA0C452101831C007B3A68 /* PullRequestCell.xib */; };
 		F1CD068A20FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD068920FF6BE90036E784 /* UIScrollView_InfiniteScroll.framework */; };
 		F1CD068D20FF77A60036E784 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068C20FF77A60036E784 /* Repository.swift */; };
 		F1CD068F20FF794E0036E784 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD068E20FF794E0036E784 /* PullRequest.swift */; };
-		F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069C20FFA6500036E784 /* RepositoryTests.swift */; };
 		F1CD06A620FFAD5D0036E784 /* listPullRequestsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06A320FFAD5C0036E784 /* listPullRequestsMock.json */; };
 		F1CD06A720FFAD5D0036E784 /* listRepositoriesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06A420FFAD5C0036E784 /* listRepositoriesMock.json */; };
 		F1CD06A820FFAD5D0036E784 /* NetworkHandlerMock.json in Resources */ = {isa = PBXBuildFile; fileRef = F1CD06A520FFAD5C0036E784 /* NetworkHandlerMock.json */; };
-		F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06A920FFB23E0036E784 /* PullRequestTests.swift */; };
-		F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069820FF8B210036E784 /* APIInterfaceTests.swift */; };
 		F1CD06AD20FFCF360036E784 /* RepositoriesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AC20FFCF360036E784 /* RepositoriesNetwork.swift */; };
 		F1CD06AF20FFE8480036E784 /* UITableViewController+MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06AE20FFE8480036E784 /* UITableViewController+MessageTableView.swift */; };
 		F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06B120FFEDE40036E784 /* RepositoriesTests.swift */; };
-		F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06B521002C370036E784 /* RepositoriesViewTests.swift */; };
 		F1D0798120FE7DAA0061A569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797820FE7DAA0061A569 /* LaunchScreen.storyboard */; };
 		F1D0798220FE7DAA0061A569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0797B20FE7DAA0061A569 /* AppDelegate.swift */; };
 		F1D0798420FE7DAA0061A569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0797E20FE7DAA0061A569 /* Assets.xcassets */; };
@@ -45,7 +35,6 @@
 		F1D079A620FE9BCA0061A569 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A320FE9BC90061A569 /* Quick.framework */; };
 		F1D079A720FE9BCA0061A569 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A420FE9BCA0061A569 /* Nimble.framework */; };
 		F1D079A820FE9BCA0061A569 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D079A520FE9BCA0061A569 /* OHHTTPStubs.framework */; };
-		F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AA20FE9CA50061A569 /* RouterTests.swift */; };
 		F1D079B020FE9E530061A569 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AF20FE9E530061A569 /* RouterView.swift */; };
 		F1D079B120FE9E560061A569 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AD20FE9E390061A569 /* Router.swift */; };
 		F1D079B320FE9E7D0061A569 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079B220FE9E7D0061A569 /* Routes.swift */; };
@@ -60,8 +49,19 @@
 		F1D079C720FEBB410061A569 /* EnviromentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C620FEBB410061A569 /* EnviromentIdentifier.swift */; };
 		F1D079CA20FED1080061A569 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079C920FED1080061A569 /* NetworkHandler.swift */; };
 		F1D079CC20FED1BA0061A569 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079CB20FED1BA0061A569 /* API.swift */; };
-		F1D079CF20FEDBA90061A569 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079CE20FEDBA90061A569 /* NetworkTests.swift */; };
 		F1D079D420FEDC930061A569 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079D320FEDC930061A569 /* Stubs.swift */; };
+		F1DDCB4C2107A98600A4F15B /* RepositoriesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06B521002C370036E784 /* RepositoriesViewTests.swift */; };
+		F1DDCB4D2107A98600A4F15B /* RepositoriesNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023CB210137990060170B /* RepositoriesNetworkTests.swift */; };
+		F1DDCB4E2107A98600A4F15B /* RepositoryCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0C3E21014125007B3A68 /* RepositoryCellTests.swift */; };
+		F1DDCB502107A98C00A4F15B /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069C20FFA6500036E784 /* RepositoryTests.swift */; };
+		F1DDCB512107A98C00A4F15B /* PullRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD06A920FFB23E0036E784 /* PullRequestTests.swift */; };
+		F1DDCB522107A99000A4F15B /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079AA20FE9CA50061A569 /* RouterTests.swift */; };
+		F1DDCB532107A99600A4F15B /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D079CE20FEDBA90061A569 /* NetworkTests.swift */; };
+		F1DDCB542107A99600A4F15B /* APIInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD069820FF8B210036E784 /* APIInterfaceTests.swift */; };
+		F1DDCB552107A99C00A4F15B /* PullRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */; };
+		F1DDCB562107A99C00A4F15B /* PullRequestsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */; };
+		F1DDCB572107A99C00A4F15B /* PullRequestsNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */; };
+		F1DDCB582107A99C00A4F15B /* PullRequestCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116C2102824B00E1A8E9 /* PullRequestCellTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -624,20 +624,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F128116D2102824B00E1A8E9 /* PullRequestCellTests.swift in Sources */,
-				F15023CC210137990060170B /* RepositoriesNetworkTests.swift in Sources */,
-				F128116B21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift in Sources */,
-				F1D079CF20FEDBA90061A569 /* NetworkTests.swift in Sources */,
-				F1D079AB20FE9CA50061A569 /* RouterTests.swift in Sources */,
-				F1CD06AB20FFC6580036E784 /* APIInterfaceTests.swift in Sources */,
-				F1CD06AA20FFB23E0036E784 /* PullRequestTests.swift in Sources */,
-				F12811672102433B00E1A8E9 /* PullRequestsTests.swift in Sources */,
-				F1BA0C3F21014125007B3A68 /* RepositoryCellTests.swift in Sources */,
-				F128116921027D6300E1A8E9 /* PullRequestsViewControllerTests.swift in Sources */,
-				F1CD06B621002C370036E784 /* RepositoriesViewTests.swift in Sources */,
+				F1DDCB4E2107A98600A4F15B /* RepositoryCellTests.swift in Sources */,
+				F1DDCB582107A99C00A4F15B /* PullRequestCellTests.swift in Sources */,
+				F1DDCB542107A99600A4F15B /* APIInterfaceTests.swift in Sources */,
+				F1DDCB502107A98C00A4F15B /* RepositoryTests.swift in Sources */,
+				F1DDCB532107A99600A4F15B /* NetworkTests.swift in Sources */,
+				F1DDCB512107A98C00A4F15B /* PullRequestTests.swift in Sources */,
+				F1DDCB4D2107A98600A4F15B /* RepositoriesNetworkTests.swift in Sources */,
+				F1DDCB4C2107A98600A4F15B /* RepositoriesViewTests.swift in Sources */,
+				F1DDCB572107A99C00A4F15B /* PullRequestsNetworkTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
-				F1CD069E20FFA99C0036E784 /* RepositoryTests.swift in Sources */,
 				F1281170210289FD00E1A8E9 /* UtilTests.swift in Sources */,
+				F1DDCB522107A99000A4F15B /* RouterTests.swift in Sources */,
+				F1DDCB562107A99C00A4F15B /* PullRequestsViewControllerTests.swift in Sources */,
+				F1DDCB552107A99C00A4F15B /* PullRequestsTests.swift in Sources */,
 				F1CD06B220FFEDE40036E784 /* RepositoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
