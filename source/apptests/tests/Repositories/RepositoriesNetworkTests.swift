@@ -54,9 +54,9 @@ class RepositoriesNetworkTests: QuickSpec {
 
 					var result: [Repository] = [Repository]()
 
-					repoNetwork.listRepositoriesJavaWith(page: 1) { (repositories) in
+					repoNetwork.listRepositoriesJavaWith(page: 1) { (repositories, error) in
 
-						result = repositories
+						result = repositories!
 					}
 
 					expect(result).toEventuallyNot(beNil())
