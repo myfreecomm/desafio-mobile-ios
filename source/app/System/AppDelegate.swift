@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 
 		launchNavtigation()
-		print(Realm.Configuration.defaultConfiguration.fileURL!)
 
 		return true
 	}
