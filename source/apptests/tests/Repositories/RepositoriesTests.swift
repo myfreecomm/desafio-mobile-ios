@@ -8,6 +8,8 @@
 
 import Quick
 import Nimble
+import RealmSwift
+
 @testable import javahub
 
 class RepositoriesTests: QuickSpec {
@@ -16,44 +18,38 @@ class RepositoriesTests: QuickSpec {
 
 	override func setUp() {
 		super.setUp()
+
 		self.stubs.stubGetConnection(file: "listRepositoriesMock", host: "localhost", in: "/search/repositories")
+
+		beforeSuite {
+			 Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "RepositoryMock"
+		}
 	}
 
 	override func spec() {
 
-        describe("Test Repositories class") {
+		describe("Test Repositories class") {
 
-			afterSuite {
+			var repositories: Repositories!
+			var repositoriesView: RepositoriesViewController!
 
-				self.stubs.clearStubs()
-			}
-			context("", closure: {
-
-				var repositoriesView: RepositoriesViewController!
-				var repositories: Repositories!
-				var navController: RouterView!
+			context("Methods and Properties", closure: {
 
 				beforeEach {
 
-                    // Run before each test
-					navController = RouterView()
-					navController.loadViewIfNeeded()
-					navController.presenter = Router(view: navController)
-					navController.presenter!.goTo(destiny: .repositories, pushForward: nil)
+					// Run before each test
 
-					repositoriesView = navController.visibleViewController as! RepositoriesViewController
-					repositoriesView.loadViewIfNeeded()
+					let dic = self.instantiate()
+					repositories = dic["Presenter"] as! Repositories
+					repositoriesView = dic["View"] as! RepositoriesViewController
 
-					repositories = repositoriesView.presenter as! Repositories
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
+				}
 
-					let delegate = UIApplication.shared.delegate as! AppDelegate
-					delegate.window = UIWindow(frame: UIScreen.main.bounds)
-					delegate.window?.rootViewController = navController
-					delegate.window?.makeKeyAndVisible()
-
-                }
-
-                // Puts test code here
+				// Puts test code here
 				it("View not nil", closure: {
 
 					expect(repositories.view).notTo(beNil())
@@ -79,12 +75,29 @@ class RepositoriesTests: QuickSpec {
 					expect(repositories.page).to(equal(1))
 				})
 
-//				Methods
+				// Methods
 
-				it("repositories not empty after request", closure: {
+				it("requestNetwork", closure: {
 
-					repositories.requestItens()
-					expect(repositories.repositories.count).toEventually(beGreaterThan(0))
+					print("EXECUTADO : requestNetwork")
+
+					waitUntil(action: { (done) in
+
+						repositories.requestNetwork(finish: { (repos, error) in
+
+							expect(repos!).toNot(beNil())
+							expect(repos!.count).to(beGreaterThan(0))
+							done()
+						})
+					})
+				})
+
+				it("requestLocalByNewData", closure: {
+
+					repositoryMock()
+					let result = repositories.requestLocalByNewData(with: "page > 0")
+					expect(result.count).to(beGreaterThan(0))
+
 				})
 
 				it("buildCell must build and return a cell", closure: {
@@ -94,28 +107,177 @@ class RepositoriesTests: QuickSpec {
 					expect(cell).toNot(beNil())
 				})
 
-				it("showItem must show PullrequestView", closure: {
+				it("finishREquestNewData", closure: {
+
+					repositories.page = 15
+					var repos = [Repository]()
+					repos.append(repositoryMockInstance())
+
+					repositories.finishRequestNewData(repos: repos)
+
+					expect(repos[0].page).to(equal(15))
+
+					let realm = try! Realm()
+					let results = realm.objects(Repository.self)
+
+					expect(results.count).to(equal(1))
+					expect(results[0].page).to(equal(15))
+					print("Page 15: \(results[0].page)")
+
+				})
+
+				it("updateSizeListReloadView", closure: {
+
+					var repos = [Repository]()
+					repos.append(repositoryMockInstance())
+					repos[0].page = 42
+
+					repositories.updateSizeListReloadView(items: repos)
+
+					expect(repositories.sizeList).to(equal(1))
+					expect(repositories.repositories.count).to(equal(1))
+					expect(repositories.repositories[0].page).to(equal(42))
+				})
+
+				it("requestLocalByNewData", closure: {
+
+					var repos = [Repository]()
+					repos.append(repositoryMockInstance())
+					repos[0].page = 152
+
+					let realm = try! Realm()
+					try! realm.write {
+						realm.add(repos)
+					}
+
+					let results = repositories.requestLocalByNewData(with: "page > 0")
+					expect(results.count).to(equal(1))
+					expect(results[0].page).to(equal(152))
+				})
+			})
+
+		} // End Of Describe
+
+		describe("Request Test") {
+
+			var repositories: Repositories!
+
+			context("Request", {
+
+				beforeEach {
+
+					let dic = self.instantiate()
+					repositories = dic["Presenter"] as! Repositories
+				}
+
+				afterEach {
+
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
+				}
+
+				it("requestNewDataExpandList", closure: {
+
+					print("Page: \(repositories.page)")
+					repositories.requestNewDataExpandList()
+					expect(repositories.page).to(beGreaterThan(1))
+					print("Page: \(repositories.page)")
+
+					expect(repositories.repositories.count).toEventually(beGreaterThan(0))
+
+				})
+
+				it("reNewDataResetList", closure: {
+
+					repositories.reNewDataResetList()
+
+					expect(repositories.page).to(equal(1))
+					expect(repositories.repositories.count).toEventually(beGreaterThan(0))
+				})
+			})
+		}
+
+		describe("Navigation Test") {
+
+			context("Origin RepositoiresView to PullRequestView", {
+
+				var repositories: Repositories!
+				var navController: RouterView!
+
+				beforeEach {
+
+					// Run before each test
+					let dic = self.instantiate()
+					repositories = dic["Presenter"] as! Repositories
+					navController = dic["Navigation"] as! RouterView
+				}
+
+				it("To PullRequestView", closure: {
 
 					repositories.repositories = [Repository()]
 					repositories.showItem(at: 0)
-					expect(navController.visibleViewController).toEventually(beAnInstanceOf(PullRequestsViewController.self))
+					expect(navController.topViewController).toEventually(beAnInstanceOf(PullRequestsViewController.self))
 				})
+			})
+		}
 
-				it("incrementPage must increment page", closure: {
+		func repositoryMock() {
+			let repo = Repository()
+			repo.identifier = "IDENTIFIER-MOCK"
+			repo.name = "MOCK LOCA"
+			repo.page = 1
+			let realm = try! Realm()
 
-					repositories.incrementPage()
-					expect(repositories.page).to(equal(2))
-				})
+			try! realm.write {
 
-				it("resetData must set page for 1", closure: {
+				realm.add(repo)
+			}
+		}
 
-					repositories.resetData()
-					expect(repositories.page).to(equal(1))
-					expect(repositories.repositories.count).to(equal(0))
-					expect(repositories.sizeList).to(equal(0))
-				})
-            })
-        }
+		func repositoryMockInstance() -> Repository{
+
+			let repo = Repository()
+			repo.identifier = "IDENTIFIER-MOCK-Instance"
+			repo.name = "MOCK Instance"
+			repo.page = 0
+
+			return repo
+		}
+	}
+
+	func instantiate() -> [String: Any] {
+
+		let navControllerLocal = RouterView()
+		navControllerLocal.presenter = Router(view: navControllerLocal)
+
+		let viewLocal = RepositoriesViewController()
+		let repositoriesLocal = Repositories(view: viewLocal, router: navControllerLocal.presenter!)
+		viewLocal.presenter = repositoriesLocal
+
+		//viewLocal.setupTableView()
+		//viewLocal.registerCell()
+		//viewLocal.setupInfinityScroll()
+		//viewLocal.setupRefreshControl()
+		//viewLocal.setBackButtonTitle(with: "")
+
+
+//		let navController = RouterView()
+//		navController.presenter = Router(view: navController)
+//
+//		let view = UIStoryboard(name: Routes.repositories.file, bundle: nil).instantiateViewController(withIdentifier: RepositoriesViewController.identifier)  as! RepositoriesViewController
+//		let repositories = Repositories(view: view, router: navController.presenter!)
+//		view.presenter = repositories
+//
+//		navController.setViewControllers([view], animated: true)
+//
+//		let delegate = UIApplication.shared.delegate as! AppDelegate
+//		delegate.window = UIWindow(frame: UIScreen.main.bounds)
+//		delegate.window?.rootViewController = navController
+//		delegate.window?.makeKeyAndVisible()
+//
+		return ["View": viewLocal, "Navigation": navControllerLocal, "Presenter": repositoriesLocal]
 	}
 }
 
