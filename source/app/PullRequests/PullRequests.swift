@@ -24,7 +24,6 @@ class PullRequests: NSObject, PullRequestsInterface{
 	var view: PullRequestsViewInterface!
 	var router: RouterInterface!
 	var sizeList: Int = 0
-//	var pullrequests: [PullRequest] = [PullRequest]()
 	var network = PullRequestNetwork()
 	var page: Int = 1
 	var repository: Repository!
