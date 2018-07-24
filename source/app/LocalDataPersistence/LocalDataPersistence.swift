@@ -12,9 +12,8 @@ import RealmSwift
 
 //typealias Objects = [Object]
 
-class LocalDataPersistence {
+class LocalDataPersistence: NSObject {
 
-	private let systemEnviroment = EnviromentIdentifier()
 	private let realm = try! Realm()
 
 	func saveItens(items: [Object], reNew: Bool) {
