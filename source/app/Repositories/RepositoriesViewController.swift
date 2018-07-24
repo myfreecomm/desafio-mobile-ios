@@ -28,9 +28,16 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		self.setupInfinityScroll()
 		self.setupRefreshControl()
 		self.setBackButtonTitle(with: "")
-
-		self.presenter!.requestItens()
     }
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		if self.presenter!.sizeList == 0 {
+
+			self.presenter!.requestItens()
+		}
+	}
 
 	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST
 	@objc func updateData(){
