@@ -38,8 +38,6 @@ class PullRequestsTests: QuickSpec {
 
 				beforeEach {
 
-					// Run before each test
-
 					let dic = self.instantiate()
 					pullRequests = dic["Presenter"] as! PullRequests
 					pullRequestsView = dic["View"] as! PullRequestsViewController
@@ -85,8 +83,6 @@ class PullRequestsTests: QuickSpec {
 
 					expect(pullRequests.repository.pullrequests[0].page).to(equal(135))
 				})
-
-//				Methods
 
 				it("requestNewDataExpandList", closure: {
 

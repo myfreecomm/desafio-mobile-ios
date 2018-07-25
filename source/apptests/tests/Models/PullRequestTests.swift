@@ -25,8 +25,6 @@ class PullRequestTests: QuickSpec {
 					self.json = Stubs.loadFile(with: "listPullRequestsMock", in: PullRequestTests.self)
 				}
 
-				// Puts test code here
-
 				it("Instantiate One", closure: {
 
 					let pullRequest: PullRequest = PullRequest.generate(json: self.json[0])

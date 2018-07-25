@@ -31,21 +31,16 @@ class LocalDataPersistenceTests: QuickSpec {
 			context("", closure: {
 
 				beforeEach {
-
-                    // Run before each test
 					persistence = LocalDataPersistence()
                 }
 
                 afterEach{
-
-                     // Run after each test
 					let realm = try! Realm()
 					try! realm.write {
 						realm.deleteAll()
 					}
                 }
 
-                // Puts test code here
 				it("SaveItens", closure: {
 
 					let repository = Repository()

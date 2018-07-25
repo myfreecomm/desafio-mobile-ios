@@ -29,19 +29,12 @@ class NetworkTests: QuickSpec {
 			context("Request", closure: {
 
 				beforeEach {
-
-                    // Run before each test
 					networkHandler = Network()
-
                 }
 
                 afterEach{
-
-                     // Run after each test
 					 self.stubs.clearStubs()
                 }
-
-                // Puts test code here
 
 				it("Test GET", closure: { waitUntil { done in
 

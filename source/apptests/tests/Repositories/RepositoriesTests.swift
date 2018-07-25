@@ -206,7 +206,6 @@ class RepositoriesTests: QuickSpec {
 
 				beforeEach {
 
-					// Run before each test
 					let dic = self.instantiate()
 					repositories = dic["Presenter"] as! Repositories
 					navController = dic["Navigation"] as! RouterView
@@ -254,27 +253,6 @@ class RepositoriesTests: QuickSpec {
 		let repositoriesLocal = Repositories(view: viewLocal, router: navControllerLocal.presenter!)
 		viewLocal.presenter = repositoriesLocal
 
-		//viewLocal.setupTableView()
-		//viewLocal.registerCell()
-		//viewLocal.setupInfinityScroll()
-		//viewLocal.setupRefreshControl()
-		//viewLocal.setBackButtonTitle(with: "")
-
-
-//		let navController = RouterView()
-//		navController.presenter = Router(view: navController)
-//
-//		let view = UIStoryboard(name: Routes.repositories.file, bundle: nil).instantiateViewController(withIdentifier: RepositoriesViewController.identifier)  as! RepositoriesViewController
-//		let repositories = Repositories(view: view, router: navController.presenter!)
-//		view.presenter = repositories
-//
-//		navController.setViewControllers([view], animated: true)
-//
-//		let delegate = UIApplication.shared.delegate as! AppDelegate
-//		delegate.window = UIWindow(frame: UIScreen.main.bounds)
-//		delegate.window?.rootViewController = navController
-//		delegate.window?.makeKeyAndVisible()
-//
 		return ["View": viewLocal, "Navigation": navControllerLocal, "Presenter": repositoriesLocal]
 	}
 }

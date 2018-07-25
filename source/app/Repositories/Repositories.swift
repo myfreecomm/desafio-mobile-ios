@@ -70,10 +70,6 @@ class Repositories: NSObject, RepositoriesInterface {
 		}
 	}
 
-//	FINISH REQUEST ITENS
-
-// EXPAND LIST
-
 	func requestNewDataExpandList() {
 
 		self.page += 1
@@ -89,10 +85,6 @@ class Repositories: NSObject, RepositoriesInterface {
 			}
 		}
 	}
-
-// END EXPAND LIST
-
-//	RENEW DATA
 
 	func reNewDataResetList () {
 
@@ -114,8 +106,6 @@ class Repositories: NSObject, RepositoriesInterface {
 			}
 		}
 	}
-
-// END RENEW DATA
 
 	func finishRequestNewData(repos: [Repository]) {
 

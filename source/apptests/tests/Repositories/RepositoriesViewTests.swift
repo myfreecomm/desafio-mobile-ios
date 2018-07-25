@@ -39,8 +39,7 @@ class RepositoriesViewTests: QuickSpec {
 				var repositoriesView: RepositoriesViewController!
 
 				beforeEach {
-					
-					// Run before each test
+
 					let dic = self.instantiate()
 					repositoriesView = dic["View"] as! RepositoriesViewController
 
@@ -50,7 +49,6 @@ class RepositoriesViewTests: QuickSpec {
 					}
 				}
 
- 				// Puts test code here
 				it("Check Title", closure: {
 
 					let titleTest: String = "Title Test"
@@ -73,8 +71,6 @@ class RepositoriesViewTests: QuickSpec {
 
 					expect(repositoriesView.presenter).notTo(beNil())
 				})
-
-				// Methods
 
 				it("Check UpdateData", closure: {
 

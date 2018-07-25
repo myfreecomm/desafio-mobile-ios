@@ -58,10 +58,4 @@ class Repository: Object {
 
 		return repositorys
 	}
-//	 
-
-//	func list<T: Object>(query: String, entity: T.Type, property: String, asc: Bool) -> Results<T> {
-//
-//		return realm.objects(entity).filter(query).sorted(byKeyPath: property, ascending: asc)
-//	}
 }

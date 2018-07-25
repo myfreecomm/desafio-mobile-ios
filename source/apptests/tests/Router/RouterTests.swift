@@ -22,18 +22,11 @@ class RouterTests: QuickSpec {
 				var routerPresenter: Router!
 				beforeEach {
 
-					// Run before each test
 					 routerView = RouterView()
 					 routerPresenter = Router(view: routerView)
 					 routerView.presenter = routerPresenter
                 }
 
-                afterEach{
-
-                     // Run after each test
-                }
-
-                // Puts test code here
 				it("Check Presenter in View", closure: {
 
 					expect(routerView.presenter).toNot(beNil())
@@ -63,7 +56,6 @@ class RouterTests: QuickSpec {
 				var routerPresenter: Router!
 				beforeEach {
 
-					// Run before each test
 					routerView = RouterView()
 					routerPresenter = Router(view: routerView)
 					routerView.presenter = routerPresenter
