@@ -31,34 +31,44 @@ enum JsonPropertys {
 
 	var content: String{
 
-		switch self  {
+		switch self {
 
-		case .identifier: return "id"
-		case .name: return "name"
-		case .title: return "title"
-		case .stars: return "stargazers_count"
-		case .fork: return "forks_count"
-		case .user: return "user"
-		case .login: return "login"
-		case .avatar: return "avatar_url"
-		case .html: return "html_url"
-		case .body: return "body"
-		case .created: return "created_at"
-		case .owner: return "owner"
-		case .description: return "description"
-		case .items: return "items"
-		case .empty: return ""
-		case .labelIdentifier: return "identifier"
-		case .yyyyMMddTHHmmssZ: return "yyyy-MM-dd'T'HH:mm:ssZ"
-		case .ddMMyyyyHHmmss: return "dd/MM/yyyy HH:mm:ss"
+		case .identifier:
+			return "id"
+		case .name:
+			return "name"
+		case .title:
+			return "title"
+		case .stars:
+			return "stargazers_count"
+		case .fork:
+			return "forks_count"
+		case .user:
+			return "user"
+		case .login:
+			return "login"
+		case .avatar:
+			return "avatar_url"
+		case .html:
+			return "html_url"
+		case .body:
+			return "body"
+		case .created:
+			return "created_at"
+		case .owner:
+			return "owner"
+		case .description:
+			return "description"
+		case .items:
+			return "items"
+		case .empty:
+			return ""
+		case .labelIdentifier:
+			return "identifier"
+		case .yyyyMMddTHHmmssZ:
+			return "yyyy-MM-dd'T'HH:mm:ssZ"
+		case .ddMMyyyyHHmmss:
+			return "dd/MM/yyyy HH:mm:ss"
 		}
 	}
-
-//	static let allValues = [name, title, stars, forks, user, login, avatar, html, body, created, owner, description]
 }
-
-/*
-
-
-
-*/

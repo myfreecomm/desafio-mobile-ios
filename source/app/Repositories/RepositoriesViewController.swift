@@ -86,7 +86,7 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 
 	func showAlert() {
 
-		let alert = UIAlertController(title: "Alert", message: self.presenter!.message, preferredStyle: UIAlertControllerStyle.alert)
+		let alert = UIAlertController(title: "Não foi possível concluir a operação", message: self.presenter!.message, preferredStyle: UIAlertControllerStyle.alert)
 		alert.addAction(UIAlertAction(title: "Fechar", style: .default, handler: { _ in
 
 			self.disableLoading()

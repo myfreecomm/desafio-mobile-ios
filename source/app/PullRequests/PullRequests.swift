@@ -72,9 +72,11 @@ class PullRequests: NSObject, PullRequestsInterface{
 
 			if error != nil || newPulls!.isEmpty {
 
-				if newPulls != nil {
+				if newPulls != nil && newPulls!.isEmpty {
+
 					self.message =  "Não há novos itens."
 				} else {
+
 					self.message = self.messageError
 				}
 				self.view.showAlert()
