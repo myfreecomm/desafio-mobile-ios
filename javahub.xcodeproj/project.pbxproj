@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F114B7F32108BAD10050601B /* LocalDataPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114B7F22108BAD10050601B /* LocalDataPersistenceTests.swift */; };
 		F1281170210289FD00E1A8E9 /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116F210289FD00E1A8E9 /* UtilTests.swift */; };
 		F12811752102E72000E1A8E9 /* LocalDataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12811742102E72000E1A8E9 /* LocalDataPersistence.swift */; };
 		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F114B7F22108BAD10050601B /* LocalDataPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataPersistenceTests.swift; sourceTree = "<group>"; };
 		F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTests.swift; sourceTree = "<group>"; };
 		F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewControllerTests.swift; sourceTree = "<group>"; };
 		F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsNetworkTests.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F114B7F12108BAB90050601B /* LocalDataPersistenceTests */ = {
+			isa = PBXGroup;
+			children = (
+				F114B7F22108BAD10050601B /* LocalDataPersistenceTests.swift */,
+			);
+			path = LocalDataPersistenceTests;
+			sourceTree = "<group>";
+		};
 		F1281164210241B800E1A8E9 /* PullRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +342,7 @@
 		F1D0798020FE7DAA0061A569 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				F114B7F12108BAB90050601B /* LocalDataPersistenceTests */,
 				F128116E210289D900E1A8E9 /* Util */,
 				F1281164210241B800E1A8E9 /* PullRequests */,
 				F1CD06B020FFED9A0036E784 /* Repositories */,
@@ -631,6 +642,7 @@
 				F1DDCB532107A99600A4F15B /* NetworkTests.swift in Sources */,
 				F1DDCB512107A98C00A4F15B /* PullRequestTests.swift in Sources */,
 				F1DDCB4D2107A98600A4F15B /* RepositoriesNetworkTests.swift in Sources */,
+				F114B7F32108BAD10050601B /* LocalDataPersistenceTests.swift in Sources */,
 				F1DDCB4C2107A98600A4F15B /* RepositoriesViewTests.swift in Sources */,
 				F1DDCB572107A99C00A4F15B /* PullRequestsNetworkTests.swift in Sources */,
 				F1D079D420FEDC930061A569 /* Stubs.swift in Sources */,
