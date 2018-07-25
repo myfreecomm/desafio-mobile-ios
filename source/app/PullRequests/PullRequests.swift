@@ -67,7 +67,7 @@ class PullRequests: NSObject, PullRequestsInterface{
 
 	func requestNewDataExpandList() {
 
-		self.page += 1
+		self.page = self.repository.pullrequests.isEmpty ? 1 : self.page +  1
 		self.requestNetWork { (newPulls, error) in
 
 			if error != nil || newPulls!.isEmpty {

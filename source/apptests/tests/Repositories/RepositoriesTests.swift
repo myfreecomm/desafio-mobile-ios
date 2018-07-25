@@ -176,13 +176,21 @@ class RepositoriesTests: QuickSpec {
 					}
 				}
 
-				it("requestNewDataExpandList", closure: {
+				it("requestNewDataExpandList Wiht Empty List", closure: {
 
-					print("Page: \(repositories.page)")
 					repositories.requestNewDataExpandList()
-					expect(repositories.page).to(beGreaterThan(1))
-					print("Page: \(repositories.page)")
 
+					expect(repositories.page).to(equal(1))
+					expect(repositories.repositories.count).toEventually(beGreaterThan(0))
+
+				})
+
+				it("requestNewDataExpandList Wiht Fully List", closure: {
+
+					repositories.repositories.append(Repository())
+					repositories.requestNewDataExpandList()
+
+					expect(repositories.page).to(beGreaterThan(1))
 					expect(repositories.repositories.count).toEventually(beGreaterThan(0))
 
 				})
@@ -192,7 +200,7 @@ class RepositoriesTests: QuickSpec {
 					repositories.reNewDataResetList()
 
 					expect(repositories.page).to(equal(1))
-					expect(repositories.repositories.count).toEventually(beGreaterThan(0))
+					expect(repositories.repositories.count).to(equal(0))
 				})
 			})
 		}

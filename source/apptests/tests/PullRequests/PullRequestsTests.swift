@@ -51,6 +51,10 @@ class PullRequestsTests: QuickSpec {
                 afterEach{
 
                      // Run after each test
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
                 }
 
                 // Puts test code here
@@ -84,11 +88,23 @@ class PullRequestsTests: QuickSpec {
 					expect(pullRequests.repository.pullrequests[0].page).to(equal(135))
 				})
 
-				it("requestNewDataExpandList", closure: {
+				it("requestNewDataExpandList Wiht Empty List", closure: {
 
 					pullRequests.requestNewDataExpandList()
-					expect(pullRequests.page).to(beGreaterThan(1))
+					expect(pullRequests.page).to(equal(2))
 					expect(pullRequests.repository.pullrequests.count).toEventually(beGreaterThan(1))
+				})
+
+				it("requestNewDataExpandList Wiht Fully List", closure: {
+
+					let realm = try! Realm()
+					try! realm.write {
+						pullRequests.repository.pullrequests.append(PullRequest())
+					}
+
+					pullRequests.requestNewDataExpandList()
+					expect(pullRequests.page).to(equal(2))
+//					expect(pullRequests.repository.pullrequests.count).to(beGreaterThan(1))
 				})
 
 				it("reNewDataResetList", closure: {

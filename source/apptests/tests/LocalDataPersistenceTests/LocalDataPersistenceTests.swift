@@ -32,6 +32,11 @@ class LocalDataPersistenceTests: QuickSpec {
 
 				beforeEach {
 					persistence = LocalDataPersistence()
+
+					let realm = try! Realm()
+					try! realm.write {
+						realm.deleteAll()
+					}
                 }
 
                 afterEach{
