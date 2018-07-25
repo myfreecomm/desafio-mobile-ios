@@ -72,7 +72,7 @@ class Repositories: NSObject, RepositoriesInterface {
 
 	func requestNewDataExpandList() {
 
-		self.page += 1
+		self.page = self.repositories.isEmpty ? 1 : self.page +  1
 		self.requestNetwork { (newRepos, error) in
 
 			if error != nil {
@@ -80,6 +80,7 @@ class Repositories: NSObject, RepositoriesInterface {
 				self.message = self.messageError
 				self.view.showAlert()
 				self.page -= 1
+
 			} else {
 				self.finishRequestNewData(repos: newRepos!)
 			}
