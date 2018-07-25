@@ -12,13 +12,13 @@ import RealmSwift
 
 class Repository: Object {
 
-	@objc dynamic var identifier: String = ""
-	@objc dynamic var name: String = ""
-	@objc dynamic var detail: String = ""
+	@objc dynamic var identifier: String = JsonPropertys.empty.content
+	@objc dynamic var name: String = JsonPropertys.empty.content
+	@objc dynamic var detail: String = JsonPropertys.empty.content
 	@objc dynamic var stars: Int = 0
 	@objc dynamic var forks: Int = 0
-	@objc dynamic var photo: String = ""
-	@objc dynamic var author: String = ""
+	@objc dynamic var photo: String = JsonPropertys.empty.content
+	@objc dynamic var author: String = JsonPropertys.empty.content
 
 	@objc dynamic var page: Int = 0
 
@@ -26,20 +26,20 @@ class Repository: Object {
 
 	override class func primaryKey() -> String? {
 
-		return "identifier"
+		return JsonPropertys.labelIdentifier.content
 	}
 
 	static func generate(json: JSON) -> Repository {
 
 		let repository = Repository()
 
-		repository.identifier = String(json["id"].int!)
-		repository.name = json["name"].string!
-		repository.stars = json["stargazers_count"].int!
-		repository.forks = json["forks_count"].int!
-		repository.photo = json["owner"]["avatar_url"].string!
-		repository.author = json["owner"]["login"].string!
-		repository.detail = json["description"].string != nil ? json["description"].string! : ""
+		repository.identifier = String(json[JsonPropertys.identifier.content].int!)
+		repository.name = json[JsonPropertys.name.content].string!
+		repository.stars = json[JsonPropertys.stars.content].int!
+		repository.forks = json[JsonPropertys.fork.content].int!
+		repository.photo = json[JsonPropertys.owner.content][JsonPropertys.avatar.content].string!
+		repository.author = json[JsonPropertys.owner.content][JsonPropertys.login.content].string!
+		repository.detail = json[JsonPropertys.description.content].string != nil ? json[JsonPropertys.description.content].string! : JsonPropertys.empty.content
 
 		return repository
 	}
@@ -47,7 +47,7 @@ class Repository: Object {
 	static func generateMany(json: JSON) -> [Repository] {
 
 		var repositorys = [Repository]()
-		guard let items = json["items"].array else {
+		guard let items = json[JsonPropertys.items.content].array else {
 			return [Repository]()
 		}
 

@@ -12,27 +12,27 @@ import RealmSwift
 
 class PullRequest: Object {
 
-	@objc dynamic var author: String = ""
-	@objc dynamic var photo: String = ""
-	@objc dynamic var title: String = ""
-	@objc dynamic var createAt: String = ""
-	@objc dynamic var link: String = ""
-	@objc dynamic var body: String = ""
+	@objc dynamic var author: String = JsonPropertys.empty.content
+	@objc dynamic var photo: String = JsonPropertys.empty.content
+	@objc dynamic var title: String = JsonPropertys.empty.content
+	@objc dynamic var createAt: String = JsonPropertys.empty.content
+	@objc dynamic var link: String = JsonPropertys.empty.content
+	@objc dynamic var body: String = JsonPropertys.empty.content
 
-	@objc dynamic var repoAuthor: String = ""
-	@objc dynamic var repoName: String = ""
+	@objc dynamic var repoAuthor: String = JsonPropertys.empty.content
+	@objc dynamic var repoName: String = JsonPropertys.empty.content
 	@objc dynamic var page: Int = 0
 
 	static func generate(json: JSON) -> PullRequest {
 
 		let pullRequest = PullRequest()
 
-		pullRequest.author = json["user"]["login"].string!
-		pullRequest.photo = json["user"]["avatar_url"].string!
-		pullRequest.title = json["title"].string!
-		pullRequest.createAt = PullRequest.dateFormatter(stringDate: json["created_at"].string!)
-		pullRequest.link = json["html_url"].string!
-		pullRequest.body = json["body"].string != nil ? json["body"].string! : ""
+		pullRequest.author = json[JsonPropertys.user.content][JsonPropertys.login.content].string!
+		pullRequest.photo = json[JsonPropertys.user.content][JsonPropertys.avatar.content].string!
+		pullRequest.title = json[JsonPropertys.title.content].string!
+		pullRequest.createAt = PullRequest.dateFormatter(stringDate: json[JsonPropertys.created.content].string!)
+		pullRequest.link = json[JsonPropertys.html.content].string!
+		pullRequest.body = json[JsonPropertys.body.content].string != nil ? json[JsonPropertys.body.content].string! : JsonPropertys.empty.content
 
 		return pullRequest
 	}
@@ -55,10 +55,10 @@ class PullRequest: Object {
 	static func dateFormatter (stringDate: String) -> String {
 
 		let fomatter = DateFormatter()
-		fomatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+		fomatter.dateFormat = JsonPropertys.yyyyMMddTHHmmssZ.content
 		let date = fomatter.date(from: stringDate)!
 
-		fomatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+		fomatter.dateFormat = JsonPropertys.ddMMyyyyHHmmss.content
 		fomatter.timeZone = TimeZone(secondsFromGMT: 0)
 		return fomatter.string(from: date)
 	}

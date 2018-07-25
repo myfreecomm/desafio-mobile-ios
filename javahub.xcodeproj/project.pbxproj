@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F114B7F32108BAD10050601B /* LocalDataPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114B7F22108BAD10050601B /* LocalDataPersistenceTests.swift */; };
+		F114B7F52108F7090050601B /* JsonPropertys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114B7F42108F7090050601B /* JsonPropertys.swift */; };
 		F1281170210289FD00E1A8E9 /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128116F210289FD00E1A8E9 /* UtilTests.swift */; };
 		F12811752102E72000E1A8E9 /* LocalDataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12811742102E72000E1A8E9 /* LocalDataPersistence.swift */; };
 		F15023C92100D2480060170B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15023C72100D2480060170B /* RepositoryCell.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		F114B7F22108BAD10050601B /* LocalDataPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataPersistenceTests.swift; sourceTree = "<group>"; };
+		F114B7F42108F7090050601B /* JsonPropertys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPropertys.swift; sourceTree = "<group>"; };
 		F1281165210241DB00E1A8E9 /* PullRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTests.swift; sourceTree = "<group>"; };
 		F128116821027D6300E1A8E9 /* PullRequestsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewControllerTests.swift; sourceTree = "<group>"; };
 		F128116A21027FBB00E1A8E9 /* PullRequestsNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsNetworkTests.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				F1CD068C20FF77A60036E784 /* Repository.swift */,
 				F1CD068E20FF794E0036E784 /* PullRequest.swift */,
+				F114B7F42108F7090050601B /* JsonPropertys.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				F1D079B720FEB5BF0061A569 /* RepositoriesViewController.swift in Sources */,
 				F15023C92100D2480060170B /* RepositoryCell.swift in Sources */,
 				F1D079B020FE9E530061A569 /* RouterView.swift in Sources */,
+				F114B7F52108F7090050601B /* JsonPropertys.swift in Sources */,
 				F1CD068D20FF77A60036E784 /* Repository.swift in Sources */,
 				F1D079C320FEB76C0061A569 /* NSObject+Indentifier.swift in Sources */,
 				F1D079CC20FED1BA0061A569 /* API.swift in Sources */,
