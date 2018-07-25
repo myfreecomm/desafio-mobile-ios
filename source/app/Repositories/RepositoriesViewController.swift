@@ -39,7 +39,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 		}
 	}
 
-	// Reset page to 1, clear data from local, and request. Used by PULL REQUEST
 	@objc func updateData(){
 		self.presenter!.reNewDataResetList()
 	}
@@ -96,7 +95,6 @@ class RepositoriesViewController: UITableViewController, RepositoriesViewInterfa
 	}
 
 	func registerCell() {
-		// Add custom cell register to tableview here
 		self.tableView.register(UINib(nibName: RepositoryCell.identifier, bundle: nil), forCellReuseIdentifier: RepositoryCell.identifier)
 	}
 

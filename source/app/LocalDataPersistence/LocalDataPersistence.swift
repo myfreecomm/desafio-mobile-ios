@@ -10,8 +10,6 @@ import Foundation
 import Realm
 import RealmSwift
 
-//typealias Objects = [Object]
-
 class LocalDataPersistence: NSObject {
 
 	private let realm = try! Realm()

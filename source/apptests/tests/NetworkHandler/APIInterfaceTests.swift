@@ -21,12 +21,8 @@ class APIInterfaceTests: QuickSpec {
 			context("Request", closure: {
 
 				beforeEach {
-
-					// Run before each test
 					apiInterface = API()
 				}
-
-				// Puts test code here
 
 				it("Get Url list repositories page 1", closure: {
 

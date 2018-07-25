@@ -18,7 +18,6 @@ class UtilTests: QuickSpec {
 
 			context("NSObject+Identifier", closure: {
 
-                // Puts test code here
 				it ("Test extension NSObject+Identifier", closure:{
 
 					expect(NSObject.identifier).to(equal("NSObject"))

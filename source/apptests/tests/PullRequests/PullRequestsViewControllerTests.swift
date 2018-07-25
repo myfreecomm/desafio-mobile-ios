@@ -16,7 +16,6 @@ import SwiftyJSON
 class PullRequestsViewControllerTests: QuickSpec {
 
 	let stubs: Stubs = Stubs()
-//	var localRepoJson = JSON()
 
 	override func setUp() {
 		super.setUp()
@@ -38,8 +37,6 @@ class PullRequestsViewControllerTests: QuickSpec {
 
 				beforeEach {
 
-					// Run before each test
-
 					let realm = try! Realm()
 					try! realm.write {
 						realm.deleteAll()
@@ -54,7 +51,6 @@ class PullRequestsViewControllerTests: QuickSpec {
 					}
 				}
 
-                // Puts test code here
 				it("Check Title", closure: {
 
 					let titleTest: String = "Title Test"
@@ -77,8 +73,6 @@ class PullRequestsViewControllerTests: QuickSpec {
 
 					expect(pullRequestsView.presenter).notTo(beNil())
 				})
-
-				// Methods
 
 				it("Check UpdateData", closure: {
 

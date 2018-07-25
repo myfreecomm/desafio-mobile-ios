@@ -93,28 +93,23 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
 	}
 
 	func registerCell() {
-		// Add custom cell register to tableview here
 		self.tableView.register(UINib(nibName: PullRequestCell.identifier, bundle: nil), forCellReuseIdentifier: PullRequestCell.identifier)
 	}
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.showMessageTableEmpty(text: self.presenter!.message, amount: self.presenter!.sizeList, tableView: self.tableView)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         return self.presenter.buildCell(to: tableView, at: indexPath) as! PullRequestCell
     }
 
 	override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
 		(cell as! PullRequestCell).endDisplay()
 	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
 		self.presenter.showItem(at: indexPath.row)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
