@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let service = RepositoryService()
+        service.getRepository(page: 1) { (lista, total) in
+            print(lista)
+        }
     }
 
     override func didReceiveMemoryWarning() {
