@@ -23,10 +23,6 @@ class PullRequestsViewController: UITableViewController, PullRequestsViewInterfa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		self.tableView.rowHeight = UITableViewAutomaticDimension
-		self.tableView.estimatedRowHeight = 220
-		self.tableView.tableFooterView = UIView()
-
 		self.setupTableView()
 		self.registerCell()
 		self.setupInfinityScroll()
