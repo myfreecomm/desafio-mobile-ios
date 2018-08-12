@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  
+  desc "Check code style"
+  lane :lint_code do 
+    swiftlint(
+      mode: :lint,
+      config_file: ".swiftlint.yml"
+    )
+  end
+
+  desc "Create coverage report"
+  lane :coverage do 
+    slather( html: true,
+            show: true,
+            output_directory: 'fastlane/slather-coverage-result',
+            scheme: "dbg-javahub",
+            proj: "javahub.xcodeproj"
+            )
+  end
+
+  desc "Used by Development to keep code quality. Use command: 'fastlane check_code dev:true'"
+  lane :check_code do |options|
+    clear_derived_data
+    lint_code
+    scan(code_coverage: true)
+
+    if options[:dev]
+      coverage
+    end
+  end
+end

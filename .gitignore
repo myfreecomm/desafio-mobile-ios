@@ -28,8 +28,8 @@ fastlane/screenshots/**/*.png
 fastlane/screenshots/screenshots.html
 
 # scan temporary files
-fastlane/
-*/fastlane/slather-coverage-result/
+fastlane/slather-coverage-result/
+fastlane/test_output/
 */htm/
 
 ### OSX ###
