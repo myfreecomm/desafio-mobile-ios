@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,6 +40,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4I-Nl-M4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1228" y="-380.05997001499253"/>
+        </scene>
+        <!--Pull Request View Controller-->
+        <scene sceneID="gAF-4D-KNZ">
+            <objects>
+                <viewController storyboardIdentifier="PullRequestViewController" id="FKZ-js-RjJ" customClass="PullRequestViewController" customModule="Git_Java" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kqw-mu-jfz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gtT-4x-ad2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h5E-Ly-Z2M" firstAttribute="trailing" secondItem="gtT-4x-ad2" secondAttribute="trailing" id="EFP-Nj-9Kx"/>
+                            <constraint firstItem="gtT-4x-ad2" firstAttribute="leading" secondItem="h5E-Ly-Z2M" secondAttribute="leading" id="Pko-KE-XvE"/>
+                            <constraint firstItem="h5E-Ly-Z2M" firstAttribute="bottom" secondItem="gtT-4x-ad2" secondAttribute="bottom" id="SQo-j7-JAT"/>
+                            <constraint firstItem="gtT-4x-ad2" firstAttribute="top" secondItem="h5E-Ly-Z2M" secondAttribute="top" id="qNm-Hm-oQk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h5E-Ly-Z2M"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="gtT-4x-ad2" id="Qmf-X0-HDQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHu-dR-bWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942" y="-380"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sT8-7U-CC4">

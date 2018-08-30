@@ -11,7 +11,7 @@
 		59842502210B4BF00088C737 /* OwnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59842501210B4BF00088C737 /* OwnerProtocol.swift */; };
 		59842505210B4CEC0088C737 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59842504210B4CEC0088C737 /* OwnerViewModel.swift */; };
 		59842507210B4FFC0088C737 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59842506210B4FFC0088C737 /* RepositoryViewModel.swift */; };
-		5984250A210B5E3F0088C737 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59842509210B5E3F0088C737 /* Extension.swift */; };
+		5984250A210B5E3F0088C737 /* ExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59842509210B5E3F0088C737 /* ExtensionView.swift */; };
 		5984250C210B624F0088C737 /* PullRequestGettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984250B210B624F0088C737 /* PullRequestGettable.swift */; };
 		5984250E210B62FE0088C737 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984250D210B62FE0088C737 /* PullRequest.swift */; };
 		59842510210B64F90088C737 /* PullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984250F210B64F90088C737 /* PullRequestService.swift */; };
@@ -32,6 +32,12 @@
 		59B3AE3B2108F42100E123E1 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3AE392108F42100E123E1 /* RepositoryTableViewCell.swift */; };
 		59B3AE3C2108F42100E123E1 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B3AE3A2108F42100E123E1 /* RepositoryTableViewCell.xib */; };
 		59B3AE3F2108FB7900E123E1 /* RepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B3AE3E2108FB7900E123E1 /* RepositoryTableViewController.swift */; };
+		59B6701621375E120024962A /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6701421375E120024962A /* PullRequestTableViewCell.swift */; };
+		59B6701721375E120024962A /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B6701521375E120024962A /* PullRequestTableViewCell.xib */; };
+		59B6701A213767F50024962A /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B67019213767F50024962A /* PullRequestViewController.swift */; };
+		59B6701C213770800024962A /* PullRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6701B213770800024962A /* PullRequestProtocol.swift */; };
+		59B6701E213771010024962A /* PullRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6701D213771010024962A /* PullRequestViewModel.swift */; };
+		59B6702021377CF20024962A /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B6701F21377CF20024962A /* ExtensionString.swift */; };
 		848F88D51E2D3EC1A4D63E8E /* Pods_Git_JavaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7AC880616660692A0F5BD0 /* Pods_Git_JavaTests.framework */; };
 		9325ECF50602E6D31E69537D /* Pods_Git_Java.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5D030C4B3136FB70719732 /* Pods_Git_Java.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +61,7 @@
 		59842501210B4BF00088C737 /* OwnerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerProtocol.swift; sourceTree = "<group>"; };
 		59842504210B4CEC0088C737 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		59842506210B4FFC0088C737 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
-		59842509210B5E3F0088C737 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		59842509210B5E3F0088C737 /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
 		5984250B210B624F0088C737 /* PullRequestGettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestGettable.swift; sourceTree = "<group>"; };
 		5984250D210B62FE0088C737 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		5984250F210B64F90088C737 /* PullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestService.swift; sourceTree = "<group>"; };
@@ -80,6 +86,12 @@
 		59B3AE392108F42100E123E1 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		59B3AE3A2108F42100E123E1 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		59B3AE3E2108FB7900E123E1 /* RepositoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewController.swift; sourceTree = "<group>"; };
+		59B6701421375E120024962A /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
+		59B6701521375E120024962A /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
+		59B67019213767F50024962A /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
+		59B6701B213770800024962A /* PullRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestProtocol.swift; sourceTree = "<group>"; };
+		59B6701D213771010024962A /* PullRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewModel.swift; sourceTree = "<group>"; };
+		59B6701F21377CF20024962A /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		7152D024611055D8300BFB92 /* Pods-Git Java.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Java.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Git Java/Pods-Git Java.debug.xcconfig"; sourceTree = "<group>"; };
 		B68BBF5BF5A2C4D2F036C3E9 /* Pods-Git Java.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Git Java.release.xcconfig"; path = "Pods/Target Support Files/Pods-Git Java/Pods-Git Java.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +132,7 @@
 			children = (
 				59842504210B4CEC0088C737 /* OwnerViewModel.swift */,
 				59842506210B4FFC0088C737 /* RepositoryViewModel.swift */,
+				59B6701D213771010024962A /* PullRequestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,7 +140,8 @@
 		59842508210B5E200088C737 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				59842509210B5E3F0088C737 /* Extension.swift */,
+				59842509210B5E3F0088C737 /* ExtensionView.swift */,
+				59B6701F21377CF20024962A /* ExtensionString.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -197,6 +211,7 @@
 				598424FF210B4A980088C737 /* RepositoryProtocol.swift */,
 				59842501210B4BF00088C737 /* OwnerProtocol.swift */,
 				5984250B210B624F0088C737 /* PullRequestGettable.swift */,
+				59B6701B213770800024962A /* PullRequestProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -226,6 +241,7 @@
 			children = (
 				59B3AE032108BC8100E123E1 /* ViewController.swift */,
 				59B3AE3E2108FB7900E123E1 /* RepositoryTableViewController.swift */,
+				59B67019213767F50024962A /* PullRequestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				59B3AE3D2108F42D00E123E1 /* RepositoryTableViewCell */,
+				59B6701821375E3C0024962A /* PullRequestTableViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -254,6 +271,15 @@
 				59B3AE3A2108F42100E123E1 /* RepositoryTableViewCell.xib */,
 			);
 			path = RepositoryTableViewCell;
+			sourceTree = "<group>";
+		};
+		59B6701821375E3C0024962A /* PullRequestTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				59B6701421375E120024962A /* PullRequestTableViewCell.swift */,
+				59B6701521375E120024962A /* PullRequestTableViewCell.xib */,
+			);
+			path = PullRequestTableViewCell;
 			sourceTree = "<group>";
 		};
 		8C2F31972DA62ACB75037B13 /* Frameworks */ = {
@@ -352,6 +378,7 @@
 				59B3AE0F2108BC8400E123E1 /* LaunchScreen.storyboard in Resources */,
 				59B3AE0C2108BC8400E123E1 /* Assets.xcassets in Resources */,
 				59B3AE072108BC8100E123E1 /* Main.storyboard in Resources */,
+				59B6701721375E120024962A /* PullRequestTableViewCell.xib in Resources */,
 				59B3AE3C2108F42100E123E1 /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,17 +463,22 @@
 				59B3AE302108C75E00E123E1 /* Owner.swift in Sources */,
 				59B3AE0A2108BC8100E123E1 /* Git_Java.xcdatamodeld in Sources */,
 				59842502210B4BF00088C737 /* OwnerProtocol.swift in Sources */,
+				59B6701E213771010024962A /* PullRequestViewModel.swift in Sources */,
 				5984250E210B62FE0088C737 /* PullRequest.swift in Sources */,
 				59842505210B4CEC0088C737 /* OwnerViewModel.swift in Sources */,
+				59B6701621375E120024962A /* PullRequestTableViewCell.swift in Sources */,
+				59B6701C213770800024962A /* PullRequestProtocol.swift in Sources */,
 				59842500210B4A980088C737 /* RepositoryProtocol.swift in Sources */,
 				59842510210B64F90088C737 /* PullRequestService.swift in Sources */,
 				59B3AE262108C13800E123E1 /* HTTPClient.swift in Sources */,
-				5984250A210B5E3F0088C737 /* Extension.swift in Sources */,
+				59B6702021377CF20024962A /* ExtensionString.swift in Sources */,
+				5984250A210B5E3F0088C737 /* ExtensionView.swift in Sources */,
 				59B3AE3B2108F42100E123E1 /* RepositoryTableViewCell.swift in Sources */,
 				59B3AE2B2108C37C00E123E1 /* RepositoryGettable.swift in Sources */,
 				59B3AE332108EB7300E123E1 /* RepositoryService.swift in Sources */,
 				5984250C210B624F0088C737 /* PullRequestGettable.swift in Sources */,
 				59B3AE3F2108FB7900E123E1 /* RepositoryTableViewController.swift in Sources */,
+				59B6701A213767F50024962A /* PullRequestViewController.swift in Sources */,
 				59B3AE022108BC8100E123E1 /* AppDelegate.swift in Sources */,
 				59B3AE282108C20D00E123E1 /* API.swift in Sources */,
 			);
@@ -609,15 +641,18 @@
 			baseConfigurationReference = 7152D024611055D8300BFB92 /* Pods-Git Java.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QN59N4GB7C;
 				INFOPLIST_FILE = "Git Java/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filipeneis.Git-Java";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -628,15 +663,18 @@
 			baseConfigurationReference = B68BBF5BF5A2C4D2F036C3E9 /* Pods-Git Java.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QN59N4GB7C;
 				INFOPLIST_FILE = "Git Java/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filipeneis.Git-Java";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

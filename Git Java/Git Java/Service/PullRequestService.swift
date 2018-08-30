@@ -16,6 +16,7 @@ class PullRequestService: PullRequestGettable {
         DispatchQueue.global(qos: .background).async {
             api.get(url: url, parameters: nil, success: { (statusCode, response) in
                 do {
+                    //TODO: Pegar Objeto
                     let decoder = JSONDecoder()
                     let result: [PullRequest] = try decoder.decode([PullRequest].self, from: response as! Data)
                     completion?(result)

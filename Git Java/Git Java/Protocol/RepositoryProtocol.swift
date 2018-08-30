@@ -9,10 +9,11 @@
 import Foundation
 
 protocol RepositoryProtocol {
-    var idRepository: Int { get }
+    var idRepository: Int { get             }
     var name: String { get }
     var description: String { get }
     var forkCount: Int { get }
     var starCount: Int { get }
     var owner: OwnerProtocol { get }
 }
+
