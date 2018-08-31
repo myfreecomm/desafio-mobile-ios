@@ -21,16 +21,21 @@ class Git_JavaTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testPullRequestCell(){
+        let user = Owner.init(idOwner: 2048831,
+                              login: "khatchad",
+                              avatarUrl: "https://avatars2.githubusercontent.com/u/2048831?v=4")
+        let pullRequest = PullRequest.init(idPullRequest: 209596294,
+                                           title: "Apply Optimize Java 8 Streams refactoring",
+                                           body: "String?",
+                                           createdAt: "2018-08-20T17:52:11Z",
+                                           updateAt: "2018-08-21T19:17:13Z",
+                                           user: user)
+        
+        let viewModel =  PullRequestViewModel(pullRequest: pullRequest)
+        
+        XCTAssertEqual(viewModel.createdAt, "20/08/2018 17:52")
+        XCTAssertEqual(viewModel.user.idOwner, 2048831)
     }
     
 }
