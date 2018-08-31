@@ -16,20 +16,21 @@ class PullRequestService: PullRequestGettable {
         DispatchQueue.global(qos: .background).async {
             api.get(url: url, parameters: nil, success: { (statusCode, response) in
                 do {
-                    //TODO: Pegar Objeto
                     let decoder = JSONDecoder()
                     let result: [PullRequest] = try decoder.decode([PullRequest].self, from: response as! Data)
                     completion?(result)
-                    
                 } catch {
-                    //completion?(self.returnRepositoryEmpty(), 0)
+                    completion?(self.returnPullRequestEmpty())
                 }
                             
             }, failure: { (statusCode, response) in
-                //completion?(self.returnRepositoryEmpty(), 0)
+                completion?(self.returnPullRequestEmpty())
             })
         }
     }
     
-    
+    func returnPullRequestEmpty() -> [PullRequest] {
+        let pullRequests: [PullRequest] = []
+        return pullRequests
+    }
 }
