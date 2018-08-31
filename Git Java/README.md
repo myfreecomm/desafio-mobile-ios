@@ -22,3 +22,9 @@ Após a instalação do `cocoa pod` vá até a pasta de seu projeto e execute o 
  
  ### Abrindo projeto
    Após executar o comando `pod install` vá até a pasta de seu projeto e abra o arquivo `Git Java.xcworkspace`.  
+
+
+
+# Próximos passos 
+  - Melhorar aplicação de testes.
+  - Salvar informações offline.
