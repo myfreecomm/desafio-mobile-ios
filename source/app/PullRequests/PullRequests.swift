@@ -9,7 +9,6 @@
 import UIKit
 
 protocol PullRequestsInterface {
-
 	var sizeList: Int { get }
 	var message: String { get }
 	func requestItens()
@@ -44,7 +43,6 @@ class PullRequests: NSObject, PullRequestsInterface{
 	func requestItens() {
 
 		if self.repository.pullrequests.isEmpty {
-
 			self.requestNetWork { (pullrequests, error) in
 
 				if error != nil {
@@ -71,19 +69,15 @@ class PullRequests: NSObject, PullRequestsInterface{
 		self.requestNetWork { (newPulls, error) in
 
 			if error != nil || newPulls!.isEmpty {
-
 				if newPulls != nil && newPulls!.isEmpty {
-
 					self.message =  "Não há novos itens."
 				} else {
-
 					self.message = self.messageError
 				}
 				self.view.showAlert()
 				self.page -= 1
 
 			} else {
-
 				self.finishRequestNewData(pulls: newPulls!)
 			}
 		}
