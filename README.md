@@ -1,4 +1,10 @@
 # JavaHub
+[![Swift Version](https://img.shields.io/badge/swift-iOS%208*-success)]()
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platform iOS](https://img.shields.io/badge/platform-iOS-informational)]()
+[![Swiftlint](https://img.shields.io/badge/-Swiftlint-success)]()
+[![Ruby Version](https://img.shields.io/badge/ruby-2.5.1p57-red)]()
+[!(https://img.shields.io/badge/Fastlane%20-v2.98.0-blue)]()
 
   Este projeto é uma aplicação feita em Swift para iOS, onde é demonstrado o uso do padrão MVP e algumas ferramentas
 pertinentes ao desenvolvimento para iOS nativo.
